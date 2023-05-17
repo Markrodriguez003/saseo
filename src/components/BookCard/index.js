@@ -10,6 +10,7 @@ import {
   Text,
   ButtonGroup,
   Stack,
+  Tooltip,
   HStack,
   Center,
   Card,
@@ -48,16 +49,28 @@ export function BookCard() {
           </CardBody>
 
           <CardFooter>
-            <HStack  gap="4px" justify={"center"}>
-              <Button variant="solid" color={"darkcyan"} >
-                Amazon
-              </Button>
-              <Button variant="solid" colorScheme="blue">
-                Google
-              </Button>
-              <Button variant="solid" colorScheme="blue">
-                Audible
-              </Button>
+            <HStack gap="4px" justify={"center"}>
+              <Tooltip label="See user reviews for this book!" placement="top">
+                <Button variant="solid" color={"darkcyan"}>
+                  GoodReads
+                </Button>
+              </Tooltip>
+              <Text> | </Text>
+              <Tooltip label="See if book is available on Amazon!" placement="top">
+                <Button variant="solid" backgroundColor={"gold"}>
+                  Amazon
+                </Button>
+              </Tooltip>
+              <Tooltip label="See if there is an audiobook!" placement="top">
+                <Button variant="solid" backgroundColor="orange">
+                  Audible
+                </Button>
+              </Tooltip>
+              <Tooltip label="Google this book!" placement="top">
+                <Button variant="solid" colorScheme="blue">
+                  Google
+                </Button>
+              </Tooltip>
             </HStack>
           </CardFooter>
         </Stack>
