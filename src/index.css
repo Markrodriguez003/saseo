@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "brand-font";
+  src: url("../src/fonts/VoodooEyeTitle-UltraLight.ttf");
+}
+
+@font-face {
+  font-family: "body-font";
+  src: url("../src/fonts/CODE\ Light.otf");
+}

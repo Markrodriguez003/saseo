@@ -1,5 +1,6 @@
-import { Box, Image, Heading, Link } from "@chakra-ui/react";
+import { Box, Image, Heading, Link, Avatar, AvatarGroup } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
+import { IoLibrarySharp } from "react-icons/io5";
 import Logo from "../../images/book-2247427_640.png";
 
 export function SHeader() {
@@ -24,20 +25,35 @@ export function SHeader() {
         src={Logo}
         alt="Saseo - Book Logo"
         padding={1.5}
+        marginLeft={"15px"}
         fallbackSrc="https://via.placeholder.com/150" // FIX
       />
 
       <Heading color={"white"} textShadow="2px 2px darkgreen" size={"2xl"}>
         SASEO
       </Heading>
-    
-        <Link color={"white"}  href="https://chakra-ui.com" isExternal>
-          Random
-        </Link>
-        <Link color={"white"}  href="https://chakra-ui.com" isExternal>
-          Book Suggestion
-        </Link>
- 
+
+      <Link color={"white"} href="https://chakra-ui.com" isExternal>
+        Random
+      </Link>
+      <Link color={"white"} href="https://chakra-ui.com" isExternal>
+        Book Suggestion
+      </Link>
+      <Link color={"white"} href="https://chakra-ui.com" isExternal marginLeft={"auto"} paddingRight={"50px"}  >
+        <AvatarGroup size='lg' max={1}>
+
+          <Avatar backgroundColor={"slategrey"} name='' icon={<IoLibrarySharp size={"1.5em"}/>} size={"2xl"} />
+          <Avatar name='' src='' backgroundColor={"grey"}/>
+          <Avatar name='' src='' backgroundColor={"grey"} />
+          <Avatar name='' src='' backgroundColor={"grey"} />
+          <Avatar name='' src='' backgroundColor={"grey"} />
+          <Avatar name='' src='' backgroundColor={"grey"} />
+          <Avatar name='' src='' backgroundColor={"grey"} />
+          <Avatar name='' src='' backgroundColor={"grey"} />
+        </AvatarGroup>
+      </Link>
+
+
     </Box>
   );
 }

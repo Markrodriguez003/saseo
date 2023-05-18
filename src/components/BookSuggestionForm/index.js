@@ -11,7 +11,7 @@ function BookGenreSelect() {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
   const subjects = book_subjects.b_subjects.map((book) => {
     // return(Object.keys(book));
-    return <option value={Object.values(book)}>{Object.keys(book)} </option>;
+    return <option id= {Object.keys(book)} value={Object.values(book)}>{Object.keys(book)} </option>;
   });
 
   console.log("This is it? --> " + subjects);
@@ -30,7 +30,7 @@ export function BookSuggestionForm() {
       flexDirection={"row"}
       alignItems="center"
       justifyContent="center"
-      marginTop={8}
+      marginTop={14}
       marginBottom={8}
       w={"100%"}
       padding={"lg"}
