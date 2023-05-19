@@ -12,12 +12,13 @@ import {
   Card,
   Wrap,
   WrapItem,
+  Link,
 } from "@chakra-ui/react";
 
 // ICONS
- 
+
 import { IoIosCheckmarkCircle } from "react-icons/io";
-import { FaGoodreads,FaAudible,FaGoogle,FaAmazon } from "react-icons/fa";
+import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
 import { useState } from "react";
 
 import missingB from "../../images/missing-cover.png";
@@ -124,7 +125,7 @@ export function BookCard(props) {
                     backgroundColor={"darkCyan"}
                     color={"white"}
                     src={props.goodreads}
-                    isDisabled={props.goodreads !== null ? true : false}
+                    // isDisabled={props.goodreads !== null ? true : false}
                     leftIcon={<FaGoodreads />}
                   >
                     GoodReads
@@ -153,25 +154,27 @@ export function BookCard(props) {
                 </Tooltip>
               </WrapItem>
               <WrapItem>
-                <Tooltip
-                  label={
-                    props.audible !== null
-                      ? "Book not available on Audible!"
-                      : "See book available on Audible!"
-                  }
-                  color={props.audible !== null ? "grey" : "black"}
-                  placement="top"
-                >
-                  <Button
-                    variant="solid"
-                    backgroundColor={"orange"}
-                    src={props.audible}
-                    isDisabled={props.audible !== null ? true : false}
-                    leftIcon={<FaAudible />}
+                <Link href="https://chakra-ui.com" isExternal>
+                  <Tooltip
+                    label={
+                      props.audible !== null
+                        ? "Book not available on Audible!"
+                        : "See book available on Audible!"
+                    }
+                    color={props.audible !== null ? "grey" : "black"}
+                    placement="top"
                   >
-                    Audible
-                  </Button>
-                </Tooltip>
+                    <Button
+                      variant="link"
+                      backgroundColor={"orange"}
+                      src={props.audible}
+                      // isDisabled={props.audible !== null ? true : false}
+                      leftIcon={<FaAudible />}
+                    >
+                      Audible
+                    </Button>
+                  </Tooltip>
+                </Link>
               </WrapItem>
               <WrapItem>
                 <Tooltip

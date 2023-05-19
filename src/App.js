@@ -15,13 +15,14 @@ function App() {
        <Fonts />
       <SHeader />
       {/* <BookSuggestionForm /> */}
-      {/* <SearchResult/> */}
-      <BookCard />
+      <SearchResult/>
+
+      {/* <BookCard />
       <br/>
       <BookCard />
       <br/>
       <BookCard />
-      <br/>
+      <br/> */}
     </ChakraProvider>
   );
 }
