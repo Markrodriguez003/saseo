@@ -39,7 +39,7 @@ export function SHeader() {
       <Link color={"white"} href="https://chakra-ui.com" isExternal>
         Book Suggestion
       </Link>
-      <Link color={"white"} href="https://chakra-ui.com" isExternal marginLeft={"auto"} paddingRight={"50px"}  >
+      {/* <Link color={"white"} href="https://chakra-ui.com" isExternal marginLeft={"auto"} paddingRight={"50px"}  >
         <AvatarGroup size='lg' max={1}>
 
           <Avatar backgroundColor={"slategrey"} name='' icon={<IoLibrarySharp size={"1.5em"}/>} size={"2xl"} />
@@ -51,7 +51,7 @@ export function SHeader() {
           <Avatar name='' src='' backgroundColor={"grey"} />
           <Avatar name='' src='' backgroundColor={"grey"} />
         </AvatarGroup>
-      </Link>
+      </Link> */}
 
 
     </Box>

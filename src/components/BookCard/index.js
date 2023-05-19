@@ -3,104 +3,199 @@ import {
   Image,
   Heading,
   Button,
-  Select,
-  Divider,
   CardBody,
   CardFooter,
   Text,
-  ButtonGroup,
-  Stack,
   Tooltip,
-  HStack,
+  Stack,
   Center,
   Card,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 
+// ICONS
+ 
 import { IoIosCheckmarkCircle } from "react-icons/io";
+import { FaGoodreads,FaAudible,FaGoogle,FaAmazon } from "react-icons/fa";
 import { useState } from "react";
 
-export function BookCard() {
+import missingB from "../../images/missing-cover.png";
+
+function BookButtonGrouper(props) {
+  let btnGroup = props.map((book) => {
+    <WrapItem>
+      <Tooltip
+        label={
+          props.amazon !== null
+            ? "Book not available on amazon!"
+            : "See book available on Amazon!"
+        }
+        color={props.amazon !== null ? "grey" : "black"}
+        placement="top"
+      >
+        <Button
+          variant="solid"
+          backgroundColor={"gold"}
+          src={props.amazon}
+          isDisabled={props.amazon !== null ? true : false}
+        >
+          Amazon
+        </Button>
+      </Tooltip>
+    </WrapItem>;
+  });
+
+  return btnGroup;
+}
+
+// Creates Book card filled with book info
+export function BookCard(props) {
   const [selectBook, setSelectBook] = useState(false);
   const [onHoverColor, setOnHoverColor] = useState("white");
   return (
     <Center>
+      {/* conditional render here to check to see if there is even a book --> render an empty book card template */}
       <Card
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
         backgroundColor={onHoverColor}
+        border={selectBook ? "4px" : "0px"}
+        borderColor={selectBook ? "darkcyan" : "none"}
+        padding={"8px"}
         variant="outline"
         w={"90%"} // mobile
         // w={"60%"} // full
-        onMouseEnter={(e)=>{
-          
+        onMouseEnter={(e) => {
           console.log("Hovering over card");
           setOnHoverColor("rgba(0,0,0,0.01)");
         }}
-        onMouseLeave={(e)=>{
-          
+        onMouseLeave={(e) => {
           console.log("Hovering over card");
           setOnHoverColor("white");
         }}
-        
-        
         boxShadow="lg"
-        onClick={() => selectBook ? setSelectBook(!selectBook) : setSelectBook(true)}
+        onClick={() =>
+          selectBook ? setSelectBook(!selectBook) : setSelectBook(true)
+        }
       >
         <Box position={"absolute"} top="2" right="5">
           <IoIosCheckmarkCircle
-
             fill={selectBook ? "darkcyan" : "lightgrey"}
-            size={"2.2em"} />
+            size={"2.2em"}
+          />
         </Box>
         <Image
           objectFit="cover"
           maxW={{ base: "100%", sm: "200px" }}
-          // src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-          src="https://m.media-amazon.com/images/P/0544003411.01._SCLZZZZZZZ_SX500_.jpg"
-          alt="Caffe Latte"
+          src={props.cover}
+          alt={props.name + " book cover"}
+          fallbackSrc={missingB}
         />
 
         <Stack>
           <CardBody>
-            <Heading size="md">The Lord Of The Rings</Heading>
+            <Heading size="md">{props.name}</Heading>
             <Heading size="xs" color={"grey"}>
-              Christopher Tolkien
+              {props.author}
             </Heading>
-            <Text fontSize="xs"as='i' color={"grey"}>
-              Fantasy / Adventure
+            <Text fontSize="xs" as="i" color={"grey"}>
+              {props.subject}
             </Text>
 
-            <Text py="2">
-              The epic fantasy novel about a group of races that need to work
-              together to rid of the world of the one true ring from the forces
-              of evil.
-            </Text>
+            <Text py="2">{props.blurb}</Text>
           </CardBody>
 
           <CardFooter>
-            <HStack gap="4px" justify={"center"}>
-              <Tooltip label="See user reviews for this book!" placement="top">
-                <Button variant="solid" color={"darkcyan"}>
-                  GoodReads
-                </Button>
-              </Tooltip>
-              <Text> | </Text>
-              <Tooltip label="See if book is available on Amazon!" placement="top">
-                <Button variant="solid" backgroundColor={"gold"}>
-                  Amazon
-                </Button>
-              </Tooltip>
-              <Tooltip label="See if there is an audiobook!" placement="top">
-                <Button variant="solid" backgroundColor="orange">
-                  Audible
-                </Button>
-              </Tooltip>
-              <Tooltip label="Google this book!" placement="top">
-                <Button variant="solid" colorScheme="blue">
-                  Google
-                </Button>
-              </Tooltip>
-            </HStack>
+            {/* Book Buttions */}
+            <Wrap gap="4px" justify={"center"} wrap={true}>
+              <WrapItem>
+                <Tooltip
+                  label={
+                    props.goodreads !== null
+                      ? "Book not available on goodreads!"
+                      : "See user reviews for this book!"
+                  }
+                  color={props.goodreads !== null ? "grey" : "black"}
+                  placement="top"
+                >
+                  <Button
+                    variant="solid"
+                    backgroundColor={"darkCyan"}
+                    color={"white"}
+                    src={props.goodreads}
+                    isDisabled={props.goodreads !== null ? true : false}
+                    leftIcon={<FaGoodreads />}
+                  >
+                    GoodReads
+                  </Button>
+                </Tooltip>
+              </WrapItem>
+              <WrapItem>
+                <Tooltip
+                  label={
+                    props.amazon !== null
+                      ? "Book not available on amazon!"
+                      : "See book available on Amazon!"
+                  }
+                  color={props.amazon !== null ? "grey" : "black"}
+                  placement="top"
+                >
+                  <Button
+                    variant="solid"
+                    backgroundColor={"gold"}
+                    src={props.amazon}
+                    isDisabled={props.amazon !== null ? true : false}
+                    leftIcon={<FaAmazon />}
+                  >
+                    Amazon
+                  </Button>
+                </Tooltip>
+              </WrapItem>
+              <WrapItem>
+                <Tooltip
+                  label={
+                    props.audible !== null
+                      ? "Book not available on Audible!"
+                      : "See book available on Audible!"
+                  }
+                  color={props.audible !== null ? "grey" : "black"}
+                  placement="top"
+                >
+                  <Button
+                    variant="solid"
+                    backgroundColor={"orange"}
+                    src={props.audible}
+                    isDisabled={props.audible !== null ? true : false}
+                    leftIcon={<FaAudible />}
+                  >
+                    Audible
+                  </Button>
+                </Tooltip>
+              </WrapItem>
+              <WrapItem>
+                <Tooltip
+                  label={
+                    props.google !== null
+                      ? "Book not available on google somehow!"
+                      : "See more information about this book on google!"
+                  }
+                  color={props.google !== null ? "grey" : "black"}
+                  placement="top"
+                >
+                  <Button
+                    variant="solid"
+                    color={"white"}
+                    backgroundColor={"dodgerblue"}
+                    src={props.google}
+                    isDisabled={props.google !== null ? true : false}
+                    leftIcon={<FaGoogle />}
+                  >
+                    Google
+                  </Button>
+                </Tooltip>
+              </WrapItem>
+            </Wrap>
           </CardFooter>
         </Stack>
       </Card>
@@ -109,3 +204,22 @@ export function BookCard() {
 }
 
 export default BookCard;
+
+// Component render conditional
+
+// {props.goodreads ? (
+//   <WrapItem>
+//   <Tooltip
+//     label="See user reviews for this book!"
+//     placement="top"
+//   >
+//     <Button
+//       variant="solid"
+//       color={"darkcyan"}
+//       src={props.goodreads}
+//     >
+//       GoodReads
+//     </Button>
+//   </Tooltip>
+// </WrapItem>
+// ) : <></>}

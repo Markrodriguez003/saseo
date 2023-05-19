@@ -1,0 +1,76 @@
+{
+  "books": [
+    {
+      "name": "The Lord of the Rings",
+      "author": "Christopher Tolkien",
+      "subject": "Fantasy/Adventure",
+      "Release": "1955",
+      "cover": "https://m.media-amazon.com/images/P/0544003411.01._SCLZZZZZZZ_SX500_.jpg",
+      "blurb": "In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. fter many ages it fell by chance into the hands of the hobbit Bilbo Baggins. From Sauron's fastness in the Dark Tower of Mordor, his power spread far and wide. Sauron gathered all the Great Rings to him, but always he searched for the One Ring that would complete his dominion. When Bilbo reached his eleventy-first birthday he disappeared, bequeathing to his young cousin Frodo the Ruling Ring and a perilous quest: to journey across Middle-earth, deep into the shadow of the Dark Lord, and destroy the Ring by casting it into the Cracks of Doom.",
+      "amazon": "https://www.amazon.com/s?k=lord+of+the+rings&i=audible&crid=25C2K8NZIJLJ2&sprefix=lord+of+the+ring%2Caudible%2C105&ref=nb_sb_noss_2",
+      "goodreads": "https://www.goodreads.com/book/show/33.The_Lord_of_the_Rings?from_search=true&from_srp=true&qid=FiO2BL6UN3&rank=4",
+      "audible": "https://www.audible.com/pd/The-Fellowship-of-the-Ring-Audiobook/B0099RKRTY?qid=1684518879&sr=1-1&ref=a_search_c3_lProduct_1_1&pf_rd_p=83218cca-c308-412f-bfcf-90198b687a2f&pf_rd_r=VNJS0KK8MAEP99NXBVE5&pageLoadId=nDkcFjGQ9nzHaM1F&creativeId=0d6f6720-f41c-457e-a42b-8c8dceb62f2c",
+      "google": "https://www.google.com/search?q=lord+of+the+rings&ei=trVnZPTXArTk5NoPzryh8AM&ved=0ahUKEwj0isTj94H_AhU0MlkFHU5eCD4Q4dUDCBA&uact=5&oq=lord+of+the+rings&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIHCAAQigUQQzILCC4QgAQQsQMQ1AIyBQgAEIAEMgsILhDUAhCxAxCABDIICAAQgAQQsQMyBQgAEIAEMg4ILhCABBCxAxCDARDUAjIFCAAQgAQyCAgAEIAEELEDMgUIABCABDoICAAQigUQkQI6CwguEIMBELEDEIAEOgsIABCKBRCxAxCDAToRCC4QgAQQsQMQgwEQxwEQ0QM6CwguEIAEELEDEIMBOgsILhCKBRCxAxCDAToUCC4QgAQQsQMQgwEQxwEQ0QMQ1AI6BwguEIoFEEM6CgguEIoFENQCEEM6DgguEIAEELEDEMcBENEDOggILhCKBRCRAjoICC4QgAQQsQM6DQguEIoFELEDENQCEEM6FQguEIoFEEMQlwUQ3AQQ3gQQ4AQYAToLCAAQgAQQsQMQgwE6DQguENQCELEDEIoFEEM6CgguENQCEIoFEENKBAhBGABQAFiID2DqE2gAcAB4AIABkAGIAbENkgEEMTIuNZgBAKABAcABAdoBBggBEAEYFA&sclient=gws-wiz-serp"
+    },
+    {
+      "name": "Users",
+      "author": "Colin Winnette ",
+      "subject": "Sci-fi/Thriller",
+      "Release": "2023",
+      "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1658152098i/61538688.jpg",
+      "blurb": "  Miles, a lead creative at a midsize virtual reality company known for its “original experiences,” has engineered a new product called The Ghost Lover. The “game” is simple: a user’s simulated life is almost identical to their reality, except they're haunted by the ghost of an ex-lover. Responding to and manipulating the user's mind and body in perfect, dystopian harmony, The Ghost Lover becomes wildly popular—and wildly controversial—in the VR world. When Miles receives a series of anonymous death threats—typed notes sealed in envelopes with no postage or return address—paranoid panic begins blurring his own sense of reality, catalyzing the collapse of his career, his marriage, and his relationship with his children.",
+      "amazon": "https://www.amazon.com/Users-Novel-Colin-Winnette/dp/1593767374",
+      "goodreads": "https://www.goodreads.com/book/show/61538688-users",
+      "audible": "https://www.audible.com/pd/Users-Audiobook/B0BVPBF2PV?qid=1684518202&sr=1-1&ref=a_search_c3_lProduct_1_1&pf_rd_p=83218cca-c308-412f-bfcf-90198b687a2f&pf_rd_r=3B3J50K294Q390KHRYJC&pageLoadId=hkZcwZgLk3NiE7zf&creativeId=0d6f6720-f41c-457e-a42b-8c8dceb62f2c",
+      "google": "https://www.google.com/search?q=users+colin+winnette&oq=users+colin+w&aqs=chrome.0.0i512j69i57j0i512l2j69i60l3.5515j0j7&sourceid=chrome&ie=UTF-8"
+    },
+    {
+      "name": "A Brief History of Spain: Indispensable for Travellers",
+      "author": "Roger Davis",
+      "subject": "Travel/History",
+      "Release": "2019",
+      "cover": "https://m.media-amazon.com/images/I/61053UZmxlL.jpg",
+      "blurb": "A concise and very listenable history that explores not just the history of Spain itself but of Spain in the world, from Columbus' first voyage, in 1492, that was central to Spain's global impact, to the loss of Cuba, the Philippines and Puerto Rico in 1898. Spain's colonies were vitally important to its domestic and European position. Despite being relatively brief, this very listenable history covers environmental, political, social, economic, cultural and artistic elements and is very open to regional variations and to the extent that the history of the peninsula and of its political groupings was far from inevitable. Its tone is accessible, supported by supplemental information, and is perfect for travellers to Spain.",
+      "amazon": "https://www.amazon.com/A-Brief-History-of-Spain/dp/B07QMT1M8Z/ref=sr_1_3?crid=ZLJ9X3YBZ9M0&keywords=spain+travel+book&qid=1684519035&s=audible&sprefix=spaintravel+book%2Caudible%2C122&sr=1-3",
+      "goodreads": "https://www.goodreads.com/book/show/54843553-a-brief-history-of-spain?from_search=true&from_srp=true&qid=UcEsN8ZcHX&rank=1",
+      "audible": "https://www.audible.com/pd/A-Brief-History-of-Spain-Audiobook/1472144287?qid=1684519156&sr=1-1&ref=a_search_c3_lProduct_1_1&pf_rd_p=83218cca-c308-412f-bfcf-90198b687a2f&pf_rd_r=72AHWWRN1BW3TATA1GW4&pageLoadId=KyAq6doAqb9iqaXz&creativeId=0d6f6720-f41c-457e-a42b-8c8dceb62f2c",
+      "google": "https://www.google.com/search?q=A+Brief+History+of+Spain+Indispensable+for+Travellers&oq=A+Brief+History+of+Spain+Indispensable+for+Travellers&aqs=chrome..69i57j69i64l2j69i60l3.765j0j4&sourceid=chrome&ie=UTF-8"
+    },
+    {
+      "name": "Buzzards Laid Me and the Sun Hatched Me",
+      "author": "Lewis W. Heniford",
+      "subject": "Fiction",
+      "Release": "2016",
+      "cover": "https://m.media-amazon.com/images/I/41SMHvk14AL.jpg",
+      "blurb": "Old Jackie Heniford is a hard-as-nails survivor. He emigrated from England to rural South Carolina and raised a large family in harsh living conditions. Whenever he is asked about his former life, he claims “The buzzards laid me, and the sun hatched me.” He, his second wife, and their nine children all do their part to help out around the farm. The Civil War, however, will change all of their lives forever. Old Jackie’s eldest son, Tom, decides to enlist in the Confederate army. His choice will take him far away from home and into dangerous situations. Meanwhile, Tom’s romantic relationship with the mail circuit rider, Liddie Ann, places the Henifords in contact with Liddie Ann’s pompous family. Her brother and father strenuously oppose the match. Old Jackie’s daughter, Jehan, faces her own trials during the war. When she meets Ruben, a runaway slave, she bonds with the courageous young man. As her neighbors fight for their right to keep humans in bondage, Jehan embarks on a dangerous mission to hide her friend from those hunting him. This powerful family drama is a story of war, calamity, racism, and redemption.",
+      "amazon": "https://www.amazon.com/Buzzards-Laid-Me-Sun-Hatched-ebook/dp/B01N0EY55A/ref=sr_1_1?crid=1W6YWZBPOAGNU&keywords=Buzzards+Laid+Me+and+the+Sun+Hatched+Me&qid=1684519312&s=books&sprefix=buzzards+laid+me+and+the+sun+hatched+me%2Cstripbooks%2C93&sr=1-1",
+      "goodreads": "https://www.goodreads.com/book/show/33027126-buzzards-laid-me-and-the-sun-hatched-me?from_search=true&from_srp=true&qid=l5jjYGjAu0&rank=1",
+      "audible": "",
+      "google": "https://www.google.com/search?q=Buzzards+Laid+Me+and+the+Sun+Hatched+Me&oq=Buzzards+Laid+Me+and+the+Sun+Hatched+Me&aqs=chrome..69i57j69i64j69i60l3.220j0j9&sourceid=chrome&ie=UTF-8"
+    },
+    {
+      "name": "The Hitchhiker's Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "subject": "Fiction/Sci-fi/Humor",
+      "Release": "1979",
+      "cover": "https://m.media-amazon.com/images/I/51b09NRSkiL.jpg",
+      "blurb": "Seconds before the Earth is demolished to make way for a galactic freeway, Arthur Dent is plucked off the planet by his friend Ford Prefect, a researcher for the revised edition of The Hitchhiker's Guide to the Galaxy who, for the last 15 years, has been posing as an out-of-work actor. Together this dynamic pair begin a journey through space aided by quotes from The Hitchhiker's Guide (\"A towel is about the most massively useful thing an interstellar hitchhiker can have.\") and a galaxy full of fellow travelers: Zaphod Beeblebrox, the two-headed, three-armed ex-hippie and totally out-to-lunch president of the galaxy; Trillian, Zaphod's girlfriend (formally Tricia McMillan), whom Arthur tried to pick up at a cocktail party once upon a time zone; Marvin, a paranoid, brilliant, and chronically depressed robot; and Veet Voojagig, a former graduate student who is obsessed with the disappearance of all the ballpoint pens he bought over the years.Where are these pens? Why are we born? Why do we die? Why do we spend so much time in between wearing digital watches? For all the answers stick your thumb to the stars. And don't forget to bring a towel!",
+      "amazon": "https://www.amazon.com/Hitchhikers-Guide-Galaxy/dp/B0009JKV9W/ref=sr_1_1?keywords=hitchiker%27s+guide+to+the+galaxy&qid=1684519451&s=books&sprefix=Hitch%2Cstripbooks%2C94&sr=1-1",
+      "goodreads": "https://www.goodreads.com/book/show/11.The_Hitchhiker_s_Guide_to_the_Galaxy?ref=nav_sb_noss_l_5",
+      "audible": "https://www.audible.com/pd/The-Hitchhikers-Guide-to-the-Galaxy-Audiobook/B002VA9SWS?qid=1684519580&sr=1-1&ref=a_search_c3_lProduct_1_1&pf_rd_p=83218cca-c308-412f-bfcf-90198b687a2f&pf_rd_r=NBZH7ZSJXY6EKQ412W8Y&pageLoadId=IPEuqLY1PMaXsJtJ&creativeId=0d6f6720-f41c-457e-a42b-8c8dceb62f2c",
+      "google": "https://www.google.com/search?q=hitchhiker%27s+guide+to+the+galaxy&ei=-LlnZNOTDLSo5NoPvu2zmAo&gs_ssp=eJzj4tDP1TcwLzRKMWD0UsjILEnOyMjMTi1SL1ZIL81MSVUoyVcoyUhVSE_MSayoBAA4uA7c&oq=hithc&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAxgAMgsILhDUAhCKBRCRAjILCC4Q1AIQigUQkQIyDggAEIoFELEDELEDEJECMgoIABCKBRDJAxBDMhAILhCABBCSAxDHARCvARAKMgoILhCxAxCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCABBAKMgcIABCKBRBDMhkILhDUAhCKBRCRAhCXBRDcBBDeBBDgBBgBOggIABCKBRCRAjoLCC4QigUQ1AIQkQI6EQguEIAEELEDEIMBEMcBENEDOgsIABCABBCxAxCDAToFCAAQgAQ6BwguEIoFEEM6DQgAEIoFELEDEIMBEEM6CggAEIoFELEDEEM6FgguEIoFEMcBEK8BEJgFEJ4FEJkFEEM6CAguEIAEELEDOg8IABCKBRCxAxBDEEYQ-QE6CAgAEIAEELEDOg0ILhCABBDHARDRAxAKOg0IABCABBCxAxCxAxAKOg0ILhDUAhCxAxCABBAKOgsILhCDARCxAxCKBToKCAAQgAQQsQMQCjoHCC4QgAQQCjoKCC4QgAQQ1AIQCjoPCAAQDRCABBCxAxBGEPsBOhAILhANEIAEELEDELEDENQCOgsIABCKBRCxAxCDAToHCAAQDRCABDoTCC4QDRCABBCxAxCxAxCDARDUAjoNCAAQDRCABBCxAxCDAToWCC4QDRCABBCxAxCxAxCDARDHARCvAUoECEEYAFAAWPYSYNsXaAJwAHgAgAGoAYgBrgeSAQMwLjeYAQCgAQHAAQHaAQYIARABGBQ&sclient=gws-wiz-serp"
+    },
+    {
+      "name": "The Bazaar of Bad Dreams: Stories",
+      "author": "Stephen King",
+      "subject": "Horror/Sci-fi/Short Story",
+      "Release": "2015",
+      "cover": "https://www.goodreads.com/book/show/30086321-the-bazaar-of-bad-dreams?from_search=true&from_srp=true&qid=13yVe8YRj4&rank=2",
+      "blurb": "Other narrators include: Cotter Smith, Will Patton, Edward Herrmann, Holter Graham, Frederick Weller, Mare Winningham, Craig Wasson, Thomas Sadoski, and Tim Sample.A master storyteller at his best - the O. Henry Prize winner Stephen King delivers a generous collection of stories, several of them brand new, featuring revelatory autobiographical comments on when, why, and how he came to write (or rewrite) each story. Since his first collection, Nightshift, published 35 years ago, Stephen King has dazzled listeners with his genius as a writer of short fiction. In this new collection he assembles, for the first time, recent stories that have never been published in a book. He introduces each with a passage about its origins or his motivations for writing it.There are thrilling connections between stories, including themes of morality, the afterlife, guilt, and what we would do differently if we could see into the future or correct the mistakes of the past. \"Afterlife\" is about a man who died of colon cancer and keeps reliving the same life, repeating his mistakes over and over again. Several stories feature characters at the end of life, revisiting their crimes and misdemeanors. Other stories address what happens when someone discovers he has supernatural powers: the columnist who kills people by writing their obituaries in \"Obits\"; the old judge in \"The Dune\", who, as a boy, canoed to a deserted island and saw written in the sand the names of people who then died in freak accidents. In \"Morality\", King looks at how a marriage and two lives fall apart after the wife and husband enter into what seems, at first, a devil's pact they can win.Magnificent, eerie, utterly compelling, these stories comprise one of King's finest gifts to his constant fan. \"I made them especially for you,\" says King. \"Feel free to examine them, but please be careful. The best of them have teeth.\"",
+      "amazon": "https://www.amazon.com/The-Bazaar-of-Bad-Dreams-audiobook/dp/B014GCUHMI/ref=sr_1_19?keywords=stephen+king&qid=1684519652&s=audible&sprefix=ste%2Caudible%2C114&sr=1-19",
+      "goodreads": "https://www.goodreads.com/book/show/30086321-the-bazaar-of-bad-dreams?from_search=true&from_srp=true&qid=13yVe8YRj4&rank=2",
+      "audible": "https://www.audible.com/pd/The-Bazaar-of-Bad-Dreams-Audiobook/B014I51CFO?qid=1684519889&sr=1-1&ref=a_search_c3_lProduct_1_1&pf_rd_p=83218cca-c308-412f-bfcf-90198b687a2f&pf_rd_r=3JW56XCWVWAF1DQ774N5&pageLoadId=90DXrm5hvkiR9kqi&creativeId=0d6f6720-f41c-457e-a42b-8c8dceb62f2c",
+      "google": "https://www.google.com/search?q=the+bazaar+of+bad+dreams&oq=The+Bazaar+of+Bad+Dreams&aqs=chrome.0.0i355i512j46i512j0i512l3j69i60l3.795j0j9&sourceid=chrome&ie=UTF-8"
+    }
+  ]
+}
