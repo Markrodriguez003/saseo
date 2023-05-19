@@ -14,13 +14,24 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
+// --------------------------------------------------------------------- //
+// Count dial + slider pair for # of book suggestions
+// --------------------------------------------------------------------- //
 function CountSlider() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
   const handleChange = (value) => setValue(value);
 
   return (
     <Flex>
-      <NumberInput maxW="100px" mr="2rem" value={value} onChange={handleChange}>
+      <NumberInput
+        maxW="100px"
+        mr="2rem"
+        value={value}
+        onChange={handleChange}
+        defaultValue={1}
+        min={1}
+        max={10}
+      >
         <NumberInputField />
         <NumberInputStepper>
           <NumberIncrementStepper />
@@ -32,7 +43,9 @@ function CountSlider() {
         focusThumbOnChange={false}
         value={value}
         onChange={handleChange}
-        
+        defaultValue={1}
+        min={1}
+        max={10}
       >
         <SliderTrack>
           <SliderFilledTrack />
@@ -42,44 +55,6 @@ function CountSlider() {
     </Flex>
   );
 }
-// const [sliderValue, setSliderValue] = useState(25)
 
-// const labelStyles = {
-//   mt: '2',
-//   ml: '-2.5',
-//   fontSize: 'sm',
-// }
-
-// return (
-//   <Box pt={6} pb={2}>
-//     <Slider aria-label='slider-ex-6' defaultValue={25} min={1} max={25  } onChange={(val) => setSliderValue(val)}>
-//       <SliderMark value={5} {...labelStyles}>
-//         5
-//       </SliderMark>
-//       <SliderMark value={10} {...labelStyles}>
-//         10
-//       </SliderMark>
-//       <SliderMark value={25} {...labelStyles}>
-//         25
-//       </SliderMark>
-//       <SliderMark
-//         value={sliderValue}
-//         textAlign='center'
-//         bg='blue.500'
-//         color='white'
-//         mt='10'
-//         ml='5'
-//         w='12'
-//       >
-//         {sliderValue} Books
-//       </SliderMark>
-//       <SliderTrack>
-//         <SliderFilledTrack />
-//       </SliderTrack>
-//       <SliderThumb />
-//     </Slider>
-//   </Box>
-// )
-//
 
 export default CountSlider;

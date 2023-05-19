@@ -14,14 +14,14 @@ function App() {
     <ChakraProvider theme={theme}>
        <Fonts />
       <SHeader />
-      {/* <BookSuggestionForm /> */}
-      <SearchResult/>
-      <BookCard />
+      <BookSuggestionForm />
+      {/* <SearchResult/> */}
+      {/* <BookCard />
       <br/>
       <BookCard />
       <br/>
       <BookCard />
-      <br/>
+      <br/> */}
     </ChakraProvider>
   );
 }
