@@ -13,49 +13,33 @@ import {
   Wrap,
   WrapItem,
   Link,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 // ICONS
-
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
 import { useState } from "react";
 
+// IMAGES
 import missingB from "../../images/missing-cover.png";
 
-function BookButtonGrouper(props) {
-  let btnGroup = props.map((book) => {
-    <WrapItem>
-      <Tooltip
-        label={
-          props.amazon !== null
-            ? "Book not available on amazon!"
-            : "See book available on Amazon!"
-        }
-        color={props.amazon !== null ? "grey" : "black"}
-        placement="top"
-      >
-        <Button
-          variant="solid"
-          backgroundColor={"gold"}
-          src={props.amazon}
-          isDisabled={props.amazon !== null ? true : false}
-        >
-          Amazon
-        </Button>
-      </Tooltip>
-    </WrapItem>;
-  });
+// COMPONENTS
+import BookCoverZoom from "../BookCoverZoom";
 
-  return btnGroup;
-}
-
+ 
 // Creates Book card filled with book info
 export function BookCard(props) {
   const [selectBook, setSelectBook] = useState(false);
   const [onHoverColor, setOnHoverColor] = useState("white");
+  const [openShow, setOpenShow] = useState(false);
+
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
+
   return (
     <Center>
+      <BookCoverZoom isOpen={onToggle} onClose={onClose} />
+
       {/* conditional render here to check to see if there is even a book --> render an empty book card template */}
       <Card
         direction={{ base: "column", sm: "row" }}
@@ -65,37 +49,42 @@ export function BookCard(props) {
         borderColor={selectBook ? "darkcyan" : "none"}
         padding={"8px"}
         variant="outline"
+        marginBottom={"25px"}
         w={"90%"} // mobile
         // w={"60%"} // full
-        onMouseEnter={(e) => {
-          console.log("Hovering over card");
-          setOnHoverColor("rgba(0,0,0,0.01)");
-        }}
-        onMouseLeave={(e) => {
-          console.log("Hovering over card");
-          setOnHoverColor("white");
-        }}
         boxShadow="lg"
-        onClick={() =>
-          selectBook ? setSelectBook(!selectBook) : setSelectBook(true)
-        }
       >
         <Box position={"absolute"} top="2" right="5">
           <IoIosCheckmarkCircle
             fill={selectBook ? "darkcyan" : "lightgrey"}
-            size={"2.2em"}
+            size={"2.8em"}
+            onClick={() =>
+              selectBook ? setSelectBook(!selectBook) : setSelectBook(true)
+            }
           />
         </Box>
         <Image
-          objectFit="cover"
-          maxW={{ base: "100%", sm: "200px" }}
+          objectFit="contain"
+          fit={"contain"}
+          maxW={{ base: "500px", sm: "200px" }}
           src={props.cover}
           alt={props.name + " book cover"}
           fallbackSrc={missingB}
+          onClick={onToggle}
         />
-
+        
         <Stack>
-          <CardBody>
+          <CardBody letterSpacing={"1px"}
+            onMouseEnter={(e) => {
+              setOnHoverColor("rgba(0,0,0,0.01)");
+            }}
+            onMouseLeave={(e) => {
+              setOnHoverColor("white");
+            }}
+            onClick={() =>
+              selectBook ? setSelectBook(!selectBook) : setSelectBook(true)
+            }
+          >
             <Heading size="md">{props.name}</Heading>
             <Heading size="xs" color={"grey"}>
               {props.author}
@@ -103,13 +92,11 @@ export function BookCard(props) {
             <Text fontSize="xs" as="i" color={"grey"}>
               {props.subject}
             </Text>
-
-            <Text py="2">{props.blurb}</Text>
+            <Text py="2"  >{props.blurb}</Text>
           </CardBody>
-
           <CardFooter>
             {/* Book Buttions */}
-            <Wrap gap="4px" justify={"center"} wrap={true}>
+            <Wrap gap="4px" justify={"center"}>
               <WrapItem>
                 <Tooltip
                   label={
@@ -202,6 +189,7 @@ export function BookCard(props) {
           </CardFooter>
         </Stack>
       </Card>
+
     </Center>
   );
 }
