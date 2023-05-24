@@ -1,0 +1,36 @@
+
+[
+    {
+      "name": "GoodReads",
+      "label": "See reader reviews for this book!",
+      "color": "darkcyan",
+      "icon": <FaGoodreads />,
+      "variant": "solid",
+      "alt": "Goodreads anchor button",
+    },
+    {
+      "name": "Amazon",
+      "label": "See available products and books for this book on amazon!",
+      "color": "gold",
+      "icon": <FaAmazon />,
+      "variant": "solid",
+      "alt": "Amazon anchor button",
+    },
+
+    {
+      "name": "Audible",
+      "label": "Search for the audiobook version here!",
+      "color": "orange",
+      "icon": <FaAudible />,
+      "variant": "solid",
+      "alt": "Audible anchor button",
+    },
+    {
+      "name": "Google",
+      "label": "Search for this book on Google Books!",
+      "color": "dodgerblue",
+      "icon": <FaGoogle />,
+      "variant": "solid",
+      "alt": "Audible anchor button",
+    }
+  ];

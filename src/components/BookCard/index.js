@@ -20,6 +20,7 @@ import {
   ModalCloseButton,
   ModalOverlay,
   ModalHeader,
+  useToast,
 } from "@chakra-ui/react";
 
 // ICONS
@@ -32,75 +33,12 @@ import missingB from "../../images/missing-cover.png";
 
 // COMPONENTS
 
-// export function BookCardButtons(props) {
-//   const bookBtnDetails = [
-//     {
-//       name: "GoodReads",
-//       label: "See reader reviews for this book!",
-//       color: "darkcyan",
-//       icon: <FaGoodreads />,
-//       variant: "solid",
-//       alt: "Goodreads anchor button",
-//     },
-//     {
-//       name: "Amazon",
-//       label: "See available products and books for this book on amazon!",
-//       color: "gold",
-//       icon: <FaAmazon />,
-//       variant: "solid",
-//       alt: "Amazon anchor button",
-//     },
-
-//     {
-//       name: "Audible",
-//       label: "Search for the audiobook version here!",
-//       color: "orange",
-//       icon: <FaAudible />,
-//       variant: "solid",
-//       alt: "Audible anchor button",
-//     },
-//     {
-//       name: "Google",
-//       label: "Search for this book on Google Books!",
-//       color: "dodgerblue",
-//       icon: <FaGoogle />,
-//       variant: "solid",
-//       alt: "Audible anchor button",
-//     },
-//   ];
-
-//   const cardBtns = bookBtnDetails.map((button, id) => {
-//     let name = button.name.toLowerCase();
-//     return (
-//       <WrapItem key={{id}}>
-//         <Tooltip
-//           label={props.props.name !== null ? "Not available" : button.label}
-//           color={props.props.name !== null ? "grey" : "black"}
-//           placement="top"
-//         >
-//           <Button
-//             variant={button.variant}
-//             backgroundColor={button.color}
-//             color={"white"}
-//             src={name}
-//             leftIcon={button.icon}
-//           >
-//             {button.name}
-//           </Button>
-//         </Tooltip>
-//       </WrapItem>
-//     );
-//   });
-
-//   return cardBtns;
-// }
-
 // Creates Book card filled with book info
 function BookCard(props) {
   const [selectBook, setSelectBook] = useState(false);
   const [onHoverColor, setOnHoverColor] = useState("white");
 
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   let bookdetails = props;
 
@@ -142,22 +80,19 @@ function BookCard(props) {
       },
     ];
 
+    // BOOK CARD BUTTON + ANCHOR LINKS
     const cardBtns = bookBtnDetails.map((button, id) => {
       // Converting Button name to href link name from book object
       let bookSourceName = button.name.toLowerCase(); // works
       let source = bookdetails.props[bookSourceName];
       // console.log("The book name  --> " + bookSourceName + " and is of " + typeof(bookSourceName));
       // console.log("The book name + link  --> " + source);
-
       return (
         <WrapItem key={id + button.name}>
           <Tooltip
             label={
-              !source 
-              ? `Not available on ${bookSourceName}`
-              : button.label
+              !source ? `Not available on ${bookSourceName}` : button.label
             }
-            // color={!source ? "black" : "grey"}
             color={"grey"}
             placement="top"
           >
@@ -167,11 +102,7 @@ function BookCard(props) {
                 backgroundColor={button.color}
                 color={"white"}
                 leftIcon={button.icon}
-                isDisabled={
-                  !source 
-                    ? true
-                    : false
-                }
+                isDisabled={!source ? true : false}
               >
                 {button.name}
               </Button>
@@ -184,19 +115,25 @@ function BookCard(props) {
     return cardBtns;
   }
 
+  let toast = useToast();
   return (
     <Center key={props.name + "book"}>
       {/* ------------------------- */}
       {/* MODAL */}
       {/* ------------------------- */}
-      <Modal isOpen={isOpen} onClose={onClose} size={"xl"}>
-        <ModalOverlay />
+      <Modal isOpen={isOpen} onClose={onClose} size={"xl"} isCentered>
+        <ModalOverlay alignContent={"center"} />
         <ModalContent justifyContent={"center"}>
           <ModalHeader>{props.name}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <Box>
-              <Image src={props.cover} boxSize={"450px"} align={"center"} />
+          <ModalBody
+            alignContent={"center"}
+            alignItems={"center"}
+            alignSelf={"center"}
+            width={"100%"}
+          >
+            <Box width={"100%"}>
+              <Image src={props.cover} boxSize={"650px"} align={"center"} />
             </Box>
           </ModalBody>
         </ModalContent>
@@ -210,8 +147,8 @@ function BookCard(props) {
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
         backgroundColor={onHoverColor}
-        border={selectBook ? "4px" : "0px"}
-        borderColor={selectBook ? "darkcyan" : "none"}
+        border={selectBook ? "4px" : "4px"}
+        borderColor={selectBook ? "darkcyan" : "transparent"}
         padding={"8px"}
         variant="outline"
         marginBottom={"25px"}
@@ -224,7 +161,23 @@ function BookCard(props) {
             fill={selectBook ? "darkcyan" : "lightgrey"}
             size={"2.8em"}
             onClick={() =>
-              selectBook ? setSelectBook(!selectBook) : setSelectBook(true)
+              selectBook
+                ? (setSelectBook(!selectBook),
+                  toast({
+                    title: "Book taken out of basket!.",
+                    description: "That book wasn't interesting anyways!",
+                    status: "error",
+                    duration: 2800,
+                    isClosable: true,
+                  }))
+                : (setSelectBook(true),
+                  toast({
+                    title: "Book added to basket!.",
+                    description: "Your book list is waiting for you to share!",
+                    status: "success",
+                    duration: 2800,
+                    isClosable: true,
+                  }))
             }
           />
         </Box>
@@ -248,7 +201,23 @@ function BookCard(props) {
               setOnHoverColor("white");
             }}
             onClick={() =>
-              selectBook ? setSelectBook(!selectBook) : setSelectBook(true)
+              selectBook
+                ? (setSelectBook(!selectBook),
+                  toast({
+                    title: "Book taken out of basket!.",
+                    description: "That book wasn't interesting anyways!",
+                    status: "error",
+                    duration: 2800,
+                    isClosable: true,
+                  }))
+                : (setSelectBook(true),
+                  toast({
+                    title: "Book added to basket!.",
+                    description: "Your book list is waiting for you to share!",
+                    status: "success",
+                    duration: 2800,
+                    isClosable: true,
+                  }))
             }
           >
             <Heading size="md">{props.name}</Heading>
@@ -275,5 +244,3 @@ function BookCard(props) {
 }
 
 export default BookCard;
-
- 
