@@ -14,6 +14,12 @@ import {
   WrapItem,
   Link,
   useDisclosure,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalCloseButton,
+  ModalOverlay,
+  ModalHeader,
 } from "@chakra-ui/react";
 
 // ICONS
@@ -25,21 +31,180 @@ import { useState } from "react";
 import missingB from "../../images/missing-cover.png";
 
 // COMPONENTS
-import BookCoverZoom from "../BookCoverZoom";
 
- 
+// export function BookCardButtons(props) {
+//   const bookBtnDetails = [
+//     {
+//       name: "GoodReads",
+//       label: "See reader reviews for this book!",
+//       color: "darkcyan",
+//       icon: <FaGoodreads />,
+//       variant: "solid",
+//       alt: "Goodreads anchor button",
+//     },
+//     {
+//       name: "Amazon",
+//       label: "See available products and books for this book on amazon!",
+//       color: "gold",
+//       icon: <FaAmazon />,
+//       variant: "solid",
+//       alt: "Amazon anchor button",
+//     },
+
+//     {
+//       name: "Audible",
+//       label: "Search for the audiobook version here!",
+//       color: "orange",
+//       icon: <FaAudible />,
+//       variant: "solid",
+//       alt: "Audible anchor button",
+//     },
+//     {
+//       name: "Google",
+//       label: "Search for this book on Google Books!",
+//       color: "dodgerblue",
+//       icon: <FaGoogle />,
+//       variant: "solid",
+//       alt: "Audible anchor button",
+//     },
+//   ];
+
+//   const cardBtns = bookBtnDetails.map((button, id) => {
+//     let name = button.name.toLowerCase();
+//     return (
+//       <WrapItem key={{id}}>
+//         <Tooltip
+//           label={props.props.name !== null ? "Not available" : button.label}
+//           color={props.props.name !== null ? "grey" : "black"}
+//           placement="top"
+//         >
+//           <Button
+//             variant={button.variant}
+//             backgroundColor={button.color}
+//             color={"white"}
+//             src={name}
+//             leftIcon={button.icon}
+//           >
+//             {button.name}
+//           </Button>
+//         </Tooltip>
+//       </WrapItem>
+//     );
+//   });
+
+//   return cardBtns;
+// }
+
 // Creates Book card filled with book info
-export function BookCard(props) {
+function BookCard(props) {
   const [selectBook, setSelectBook] = useState(false);
   const [onHoverColor, setOnHoverColor] = useState("white");
-  const [openShow, setOpenShow] = useState(false);
 
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+
+  let bookdetails = props;
+
+  // button
+  function BookCardButtons(bookdetails) {
+    const bookBtnDetails = [
+      {
+        name: "GoodReads",
+        label: "See reader reviews for this book!",
+        color: "darkcyan",
+        icon: <FaGoodreads />,
+        variant: "solid",
+        alt: "Goodreads anchor button",
+      },
+      {
+        name: "Amazon",
+        label: "See available products and books for this book on amazon!",
+        color: "gold",
+        icon: <FaAmazon />,
+        variant: "solid",
+        alt: "Amazon anchor button",
+      },
+
+      {
+        name: "Audible",
+        label: "Search for the audiobook version here!",
+        color: "orange",
+        icon: <FaAudible />,
+        variant: "solid",
+        alt: "Audible anchor button",
+      },
+      {
+        name: "Google",
+        label: "Search for this book on Google Books!",
+        color: "dodgerblue",
+        icon: <FaGoogle />,
+        variant: "solid",
+        alt: "Audible anchor button",
+      },
+    ];
+
+    const cardBtns = bookBtnDetails.map((button, id) => {
+      // Converting Button name to href link name from book object
+      let bookSourceName = button.name.toLowerCase(); // works
+      let source = bookdetails.props[bookSourceName];
+      // console.log("The book name  --> " + bookSourceName + " and is of " + typeof(bookSourceName));
+      // console.log("The book name + link  --> " + source);
+
+      return (
+        <WrapItem key={id + button.name}>
+          <Tooltip
+            label={
+              !source 
+              ? `Not available on ${bookSourceName}`
+              : button.label
+            }
+            // color={!source ? "black" : "grey"}
+            color={"grey"}
+            placement="top"
+          >
+            <Link href={source} isExternal>
+              <Button
+                variant={button.variant}
+                backgroundColor={button.color}
+                color={"white"}
+                leftIcon={button.icon}
+                isDisabled={
+                  !source 
+                    ? true
+                    : false
+                }
+              >
+                {button.name}
+              </Button>
+            </Link>
+          </Tooltip>
+        </WrapItem>
+      );
+    });
+
+    return cardBtns;
+  }
 
   return (
-    <Center>
-      <BookCoverZoom isOpen={onToggle} onClose={onClose} />
+    <Center key={props.name + "book"}>
+      {/* ------------------------- */}
+      {/* MODAL */}
+      {/* ------------------------- */}
+      <Modal isOpen={isOpen} onClose={onClose} size={"xl"}>
+        <ModalOverlay />
+        <ModalContent justifyContent={"center"}>
+          <ModalHeader>{props.name}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box>
+              <Image src={props.cover} boxSize={"450px"} align={"center"} />
+            </Box>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
 
+      {/* ------------------------- */}
+      {/* BOOK CARD */}
+      {/* ------------------------- */}
       {/* conditional render here to check to see if there is even a book --> render an empty book card template */}
       <Card
         direction={{ base: "column", sm: "row" }}
@@ -70,11 +235,12 @@ export function BookCard(props) {
           src={props.cover}
           alt={props.name + " book cover"}
           fallbackSrc={missingB}
-          onClick={onToggle}
+          onClick={onOpen}
         />
-        
+
         <Stack>
-          <CardBody letterSpacing={"1px"}
+          <CardBody
+            letterSpacing={"1px"}
             onMouseEnter={(e) => {
               setOnHoverColor("rgba(0,0,0,0.01)");
             }}
@@ -92,125 +258,22 @@ export function BookCard(props) {
             <Text fontSize="xs" as="i" color={"grey"}>
               {props.subject}
             </Text>
-            <Text py="2"  >{props.blurb}</Text>
+            <Text py="2">{props.blurb}</Text>
           </CardBody>
           <CardFooter>
-            {/* Book Buttions */}
+            {/* ------------------------- */}
+            {/* BOOK CARD BUTTONS */}
+            {/* ------------------------- */}
             <Wrap gap="4px" justify={"center"}>
-              <WrapItem>
-                <Tooltip
-                  label={
-                    props.goodreads !== null
-                      ? "Book not available on goodreads!"
-                      : "See user reviews for this book!"
-                  }
-                  color={props.goodreads !== null ? "grey" : "black"}
-                  placement="top"
-                >
-                  <Button
-                    variant="solid"
-                    backgroundColor={"darkCyan"}
-                    color={"white"}
-                    src={props.goodreads}
-                    // isDisabled={props.goodreads !== null ? true : false}
-                    leftIcon={<FaGoodreads />}
-                  >
-                    GoodReads
-                  </Button>
-                </Tooltip>
-              </WrapItem>
-              <WrapItem>
-                <Tooltip
-                  label={
-                    props.amazon !== null
-                      ? "Book not available on amazon!"
-                      : "See book available on Amazon!"
-                  }
-                  color={props.amazon !== null ? "grey" : "black"}
-                  placement="top"
-                >
-                  <Button
-                    variant="solid"
-                    backgroundColor={"gold"}
-                    src={props.amazon}
-                    isDisabled={props.amazon !== null ? true : false}
-                    leftIcon={<FaAmazon />}
-                  >
-                    Amazon
-                  </Button>
-                </Tooltip>
-              </WrapItem>
-              <WrapItem>
-                <Link href="https://chakra-ui.com" isExternal>
-                  <Tooltip
-                    label={
-                      props.audible !== null
-                        ? "Book not available on Audible!"
-                        : "See book available on Audible!"
-                    }
-                    color={props.audible !== null ? "grey" : "black"}
-                    placement="top"
-                  >
-                    <Button
-                      variant="link"
-                      backgroundColor={"orange"}
-                      src={props.audible}
-                      // isDisabled={props.audible !== null ? true : false}
-                      leftIcon={<FaAudible />}
-                    >
-                      Audible
-                    </Button>
-                  </Tooltip>
-                </Link>
-              </WrapItem>
-              <WrapItem>
-                <Tooltip
-                  label={
-                    props.google !== null
-                      ? "Book not available on google somehow!"
-                      : "See more information about this book on google!"
-                  }
-                  color={props.google !== null ? "grey" : "black"}
-                  placement="top"
-                >
-                  <Button
-                    variant="solid"
-                    color={"white"}
-                    backgroundColor={"dodgerblue"}
-                    src={props.google}
-                    isDisabled={props.google !== null ? true : false}
-                    leftIcon={<FaGoogle />}
-                  >
-                    Google
-                  </Button>
-                </Tooltip>
-              </WrapItem>
+              <BookCardButtons props={props} />
             </Wrap>
           </CardFooter>
         </Stack>
       </Card>
-
     </Center>
   );
 }
 
 export default BookCard;
 
-// Component render conditional
-
-// {props.goodreads ? (
-//   <WrapItem>
-//   <Tooltip
-//     label="See user reviews for this book!"
-//     placement="top"
-//   >
-//     <Button
-//       variant="solid"
-//       color={"darkcyan"}
-//       src={props.goodreads}
-//     >
-//       GoodReads
-//     </Button>
-//   </Tooltip>
-// </WrapItem>
-// ) : <></>}
+ 

@@ -12,6 +12,7 @@ import book_examples from "../../data/book_examples.json";
 
 // let books;
 function BookCardAssembly(props) {
+  // ARRAY OF BOOKS CARDS CREATED FROM JSON FILE ABOVE
   let books = book_examples.books.map((book, id) => BookCard(book));
 
   return books;
