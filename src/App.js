@@ -13,16 +13,9 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       {/* <Fonts /> */}
-      {/* <SHeader /> */}
+      <SHeader />
       <BookSuggestionForm />
       <SearchResult />
-      {/* <NotificationToast /> */}
-      {/* <BookCard />
-      <br/>
-      <BookCard />
-      <br/>
-      <BookCard />
-      <br/> */}
     </ChakraProvider>
   );
 }

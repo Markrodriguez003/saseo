@@ -116,6 +116,7 @@ function BookCard(props) {
   }
 
   let toast = useToast();
+
   return (
     <Center key={props.name + "book"}>
       {/* ------------------------- */}
@@ -139,9 +140,7 @@ function BookCard(props) {
         </ModalContent>
       </Modal>
 
-      {/* ------------------------- */}
-      {/* BOOK CARD */}
-      {/* ------------------------- */}
+ 
       {/* conditional render here to check to see if there is even a book --> render an empty book card template */}
       <Card
         direction={{ base: "column", sm: "row" }}
@@ -154,33 +153,9 @@ function BookCard(props) {
         marginBottom={"25px"}
         w={"90%"} // mobile
         // w={"60%"} // full
-        boxShadow="lg"
+        boxShadow="xl"
+        cursor={"pointer"}
       >
-        <Box position={"absolute"} top="2" right="5">
-          <IoIosCheckmarkCircle
-            fill={selectBook ? "darkcyan" : "lightgrey"}
-            size={"2.8em"}
-            onClick={() =>
-              selectBook
-                ? (setSelectBook(!selectBook),
-                  toast({
-                    title: "Book taken out of basket!.",
-                    description: "That book wasn't interesting anyways!",
-                    status: "error",
-                    duration: 2800,
-                    isClosable: true,
-                  }))
-                : (setSelectBook(true),
-                  toast({
-                    title: "Book added to basket!.",
-                    description: "Your book list is waiting for you to share!",
-                    status: "success",
-                    duration: 2800,
-                    isClosable: true,
-                  }))
-            }
-          />
-        </Box>
         <Image
           objectFit="contain"
           fit={"contain"}
@@ -220,6 +195,12 @@ function BookCard(props) {
                   }))
             }
           >
+            <Box position={"absolute"} top="2" right="5">
+              <IoIosCheckmarkCircle
+                fill={selectBook ? "darkcyan" : "lightgrey"}
+                size={"2.8em"}
+              />
+            </Box>
             <Heading size="md">{props.name}</Heading>
             <Heading size="xs" color={"grey"}>
               {props.author}
@@ -230,9 +211,6 @@ function BookCard(props) {
             <Text py="2">{props.blurb}</Text>
           </CardBody>
           <CardFooter>
-            {/* ------------------------- */}
-            {/* BOOK CARD BUTTONS */}
-            {/* ------------------------- */}
             <Wrap gap="4px" justify={"center"}>
               <BookCardButtons props={props} />
             </Wrap>
