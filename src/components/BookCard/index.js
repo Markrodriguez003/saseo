@@ -27,7 +27,7 @@ import {
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
 import { useState } from "react";
-
+import "./BookCard.design.css";
 // IMAGES
 import missingB from "../../images/missing-cover.png";
 
@@ -48,7 +48,8 @@ function BookCard(props) {
       {
         name: "GoodReads",
         label: "See reader reviews for this book!",
-        color: "darkcyan",
+        background: "darkcyan",
+        color: "white",
         icon: <FaGoodreads />,
         variant: "solid",
         alt: "Goodreads anchor button",
@@ -56,7 +57,8 @@ function BookCard(props) {
       {
         name: "Amazon",
         label: "See available products and books for this book on amazon!",
-        color: "gold",
+        background: "gold",
+        color: "black",
         icon: <FaAmazon />,
         variant: "solid",
         alt: "Amazon anchor button",
@@ -65,7 +67,8 @@ function BookCard(props) {
       {
         name: "Audible",
         label: "Search for the audiobook version here!",
-        color: "orange",
+        background:"orange",
+        color: "black",
         icon: <FaAudible />,
         variant: "solid",
         alt: "Audible anchor button",
@@ -73,7 +76,8 @@ function BookCard(props) {
       {
         name: "Google",
         label: "Search for this book on Google Books!",
-        color: "dodgerblue",
+        background: "dodgerblue",
+        color:"white",
         icon: <FaGoogle />,
         variant: "solid",
         alt: "Audible anchor button",
@@ -93,14 +97,14 @@ function BookCard(props) {
             label={
               !source ? `Not available on ${bookSourceName}` : button.label
             }
-            color={"grey"}
+            color={"white"}
             placement="top"
           >
             <Link href={source} isExternal>
               <Button
                 variant={button.variant}
-                backgroundColor={button.color}
-                color={"white"}
+                backgroundColor={button.background}
+                color={button.color}
                 leftIcon={button.icon}
                 isDisabled={!source ? true : false}
               >
@@ -148,6 +152,7 @@ function BookCard(props) {
         backgroundColor={onHoverColor}
         border={selectBook ? "4px" : "4px"}
         borderColor={selectBook ? "darkcyan" : "transparent"}
+        className="show fadeIn"
         padding={"8px"}
         variant="outline"
         marginBottom={"25px"}
@@ -167,7 +172,8 @@ function BookCard(props) {
         />
 
         <Stack>
-          <CardBody
+          <CardBody 
+        
             letterSpacing={"1px"}
             onMouseEnter={(e) => {
               setOnHoverColor("rgba(0,0,0,0.01)");

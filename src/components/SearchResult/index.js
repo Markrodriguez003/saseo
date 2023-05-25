@@ -1,5 +1,5 @@
 import { Box, Text, Divider, Center, Heading, Image } from "@chakra-ui/react";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 // COMPONENTS
 import BookCard from "../BookCard";
@@ -16,7 +16,7 @@ function BookCardAssembly(props) {
 
   // console.log("Book result -> " + book_examples.books.length);
   props.foundBooks
-    ? (books = props.foundBooks.books.map((book, id) => BookCard(book)))
+    ? (books = props.foundBooks.books.map((book, id) => <Suspense>{BookCard(book)}</Suspense>))
     : (books = (
         <Center
           flexDirection={"column"}
