@@ -7,6 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.background {
+  background-color: mintcream;
+
+  background-image: url("../src/images/backgrounds/background-tile-6.png");
+  /* background-blend-mode: exclusion;  */
+  background-blend-mode: luminosity; 
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

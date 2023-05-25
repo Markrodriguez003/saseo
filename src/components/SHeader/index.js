@@ -2,6 +2,7 @@ import { Box, Image, Heading, Link, Avatar, AvatarGroup } from "@chakra-ui/react
 import { FiMenu } from "react-icons/fi";
 import { IoLibrarySharp } from "react-icons/io5";
 import Logo from "../../images/book-2247427_640.png";
+import "./SHeader.design.css"
 
 export function SHeader() {
   return (
@@ -11,13 +12,15 @@ export function SHeader() {
       flexDirection={"row"}
       alignItems="center"
       justifyContent="start"
-      backgroundColor={"mediumseagreen"}
+      // backgroundColor={"mediumseagreen"}
+      backgroundColor={"#A2E4B8"}
       borderBottom={"4px"}
       borderBottomColor="darkcyan"
       paddingBottom={2}
       marginBottom={6}
       boxShadow="xl"
       gap={"16px"}
+ 
     >
       <Image
         boxSize="120px"

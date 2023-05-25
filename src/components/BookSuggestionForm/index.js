@@ -1,5 +1,5 @@
-import { Box, Flex, Heading, Button, Select, VStack } from "@chakra-ui/react";
-import { FaSearch } from "react-icons/fa";
+import { Box, Flex, Heading, Button, Select, VStack, HStack } from "@chakra-ui/react";
+import { FaSearch, FaBook } from "react-icons/fa";
 import book_subjects from "../../data/book_subjects.json";
 
 // EXTERNAL COMPONENTS
@@ -23,8 +23,8 @@ function BookGenreSelect(options) {
     Object.keys(a) > Object.keys(b)
       ? 1
       : Object.keys(a) < Object.keys(b)
-      ? -1
-      : 0
+        ? -1
+        : 0
   );
 
   // --------------------------------------------------------------------- //
@@ -60,20 +60,28 @@ export function BookSuggestionForm() {
       flexDirection={"row"}
       alignItems="center"
       justifyContent="center"
-      marginTop={14}
+      marginTop={0}
       marginBottom={8}
-      w={"100%"}
-      padding={"lg"}
+      
+      // w={"100%"}
+
+      backgroundColor={"mintcream"}
+      // backgroundColor={"#A2E4B8"}
+      
     >
       <VStack gap={"25px"}>
-        <Heading
-          as="h1"
-          size={"2xl"}
-          color={"darkcyan"}
-          textShadow="1px 1px darkgreen"
-        >
-          Find me a book!
-        </Heading>
+        <HStack >
+          <FaBook size={"45px"} color="darkcyan"/>
+
+          <Heading
+            as="h1"
+            size={"2xl"}
+            color={"darkcyan"}
+            textShadow="1px 1px darkgreen"
+
+          >Find me a book!
+          </Heading>
+        </HStack>
         <BookGenreSelect />
         <Flex
           w="100%"
@@ -91,7 +99,7 @@ export function BookSuggestionForm() {
           Search!
         </Button>
       </VStack>
-    </Box>
+    </Box >
   );
 }
 
