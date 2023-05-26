@@ -10,9 +10,9 @@ body {
 .background {
   background-color: mintcream;
 
-  background-image: url("../src/images/backgrounds/background-tile-6.png");
+  /* background-image: url("../src/images/backgrounds/background-tile-6.png"); */
   /* background-blend-mode: exclusion;  */
-  background-blend-mode: luminosity; 
+  /* background-blend-mode: luminosity;  */
 }
 
 code {

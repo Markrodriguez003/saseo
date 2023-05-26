@@ -19,6 +19,7 @@ import { useState } from "react";
 // --------------------------------------------------------------------- //
 function CountSlider() {
   const [value, setValue] = useState(1);
+  // const [amount, setAmount] = useState(value);
   const handleChange = (value) => setValue(value);
 
   return (
@@ -52,9 +53,9 @@ function CountSlider() {
         </SliderTrack>
         <SliderThumb fontSize="sm" boxSize="32px" children={value} />
       </Slider>
+      {console.log("This is the value: --> " + value)}
     </Flex>
   );
 }
-
 
 export default CountSlider;

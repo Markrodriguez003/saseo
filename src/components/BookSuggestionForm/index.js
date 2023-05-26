@@ -1,8 +1,24 @@
-import { Box, Flex, Heading, Button, Select, VStack, HStack } from "@chakra-ui/react";
-import { FaSearch, FaBook } from "react-icons/fa";
+// --------------------------------------------------------------------- //
+// TEST DATA
+// --------------------------------------------------------------------- //
 import book_subjects from "../../data/book_subjects.json";
 
+// --------------------------------------------------------------------- //
 // EXTERNAL COMPONENTS
+// --------------------------------------------------------------------- //
+import {
+  Box,
+  Flex,
+  Heading,
+  Button,
+  Select,
+  VStack,
+  HStack,
+} from "@chakra-ui/react";
+import { FaSearch, FaBook } from "react-icons/fa";
+
+import { useState } from "react";
+
 import CountSlider from "../CountSlider";
 
 // --------------------------------------------------------------------- //
@@ -14,7 +30,7 @@ import CountSlider from "../CountSlider";
 // --------------------------------------------------------------------- //
 // Book subject select component
 // --------------------------------------------------------------------- //
-function BookGenreSelect(options) {
+function BookSubjectsOptions(options) {
   // --------------------------------------------------------------------- //
   // Sorts the JSON data of book subjects (will be used with API call)
   // --------------------------------------------------------------------- //
@@ -23,8 +39,8 @@ function BookGenreSelect(options) {
     Object.keys(a) > Object.keys(b)
       ? 1
       : Object.keys(a) < Object.keys(b)
-        ? -1
-        : 0
+      ? -1
+      : 0
   );
 
   // --------------------------------------------------------------------- //
@@ -43,9 +59,13 @@ function BookGenreSelect(options) {
   // Inserts array of option components into select component
   // --------------------------------------------------------------------- //
   return (
-    <Select variant={"outline"} placeholder="Choose a book genre">
-      {subjects}
-    </Select>
+    // <Select
+    //   variant={"outline"}
+    //   placeholder="Choose a book genre"
+    //   on={(e) => console.log("Book selection -> " + e.target.value)}
+    // >
+    subjects
+    // </Select>
   );
 }
 
@@ -54,6 +74,11 @@ function BookGenreSelect(options) {
 // --------------------------------------------------------------------- //
 
 export function BookSuggestionForm() {
+  const [searchParameters, setSearchParameters] = useState({
+    subject: "",
+    amount: 1,
+  });
+
   return (
     <Box
       display="flex"
@@ -62,27 +87,39 @@ export function BookSuggestionForm() {
       justifyContent="center"
       marginTop={0}
       marginBottom={8}
-      
       // w={"100%"}
 
       backgroundColor={"mintcream"}
       // backgroundColor={"#A2E4B8"}
-      
     >
       <VStack gap={"25px"}>
-        <HStack >
-          <FaBook size={"45px"} color="darkcyan"/>
+        <HStack>
+          <FaBook size={"45px"} color="darkcyan" />
 
           <Heading
             as="h1"
             size={"2xl"}
             color={"darkcyan"}
             textShadow="1px 1px darkgreen"
-
-          >Find me a book!
+            onClick={() => {
+              console.log("Book subject changed!");
+            }}
+          >
+            Find me a book!
           </Heading>
         </HStack>
-        <BookGenreSelect />
+        <Select
+          variant={"outline"}
+          placeholder="Choose a book genre"
+          onChange={(e) => {
+            setSearchParameters((prev) => ({
+              ...prev,
+              subject: e.target.value,
+            }));
+          }}
+        >
+          <BookSubjectsOptions />
+        </Select>
         <Flex
           w="100%"
           flex
@@ -93,13 +130,22 @@ export function BookSuggestionForm() {
           <Heading as="h3" size="xs" color={"grey"}>
             How many book suggestions?
           </Heading>
-          <CountSlider />
+          <CountSlider/>
         </Flex>
-        <Button leftIcon={<FaSearch />} colorScheme="teal" size="lg">
+        <Button
+          leftIcon={<FaSearch />}
+          colorScheme="teal"
+          size="lg"
+          // onClick={() => {
+          //   console.log(
+          //     "User's search parameters: " + JSON.stringify(searchParameters)
+          //   );
+          // }}
+        >
           Search!
         </Button>
       </VStack>
-    </Box >
+    </Box>
   );
 }
 

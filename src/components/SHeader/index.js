@@ -12,8 +12,8 @@ export function SHeader() {
       flexDirection={"row"}
       alignItems="center"
       justifyContent="start"
-      // backgroundColor={"mediumseagreen"}
-      backgroundColor={"#A2E4B8"}
+      backgroundColor={"mediumseagreen"}
+      // backgroundColor={"#A2E4B8"}
       borderBottom={"4px"}
       borderBottomColor="darkcyan"
       paddingBottom={2}

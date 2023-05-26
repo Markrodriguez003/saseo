@@ -21,12 +21,13 @@ import {
   ModalOverlay,
   ModalHeader,
   useToast,
+  cookieStorageManager,
 } from "@chakra-ui/react";
 
 // ICONS
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./BookCard.design.css";
 // IMAGES
 import missingB from "../../images/missing-cover.png";
@@ -37,12 +38,28 @@ import missingB from "../../images/missing-cover.png";
 function BookCard(props) {
   const [selectBook, setSelectBook] = useState(false);
   const [onHoverColor, setOnHoverColor] = useState("white");
-
+  const [collectedBooks, setCollectedBooks] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   let bookdetails = props;
 
-  // button
+  /* ------------------------- */
+  // USEEFFECT WHEN SUGGESTED BOOK IS CLICKED ON
+  /* ------------------------- */
+  useEffect(() => {
+    if (selectBook) {
+      console.log("You added book!");
+      // addBook();
+    } else {
+      console.log("You took out a book!");
+      // minusBook();
+    }
+
+    return () => console.log("unmounting...");
+  }, [selectBook]);
+
+  /* ------------------------- */
+  // CARD BUTTONS DETAILS
+  /* ------------------------- */
   function BookCardButtons(bookdetails) {
     const bookBtnDetails = [
       {
@@ -67,7 +84,7 @@ function BookCard(props) {
       {
         name: "Audible",
         label: "Search for the audiobook version here!",
-        background:"orange",
+        background: "orange",
         color: "black",
         icon: <FaAudible />,
         variant: "solid",
@@ -77,14 +94,16 @@ function BookCard(props) {
         name: "Google",
         label: "Search for this book on Google Books!",
         background: "dodgerblue",
-        color:"white",
+        color: "white",
         icon: <FaGoogle />,
         variant: "solid",
         alt: "Audible anchor button",
       },
     ];
 
+    /* ------------------------- */
     // BOOK CARD BUTTON + ANCHOR LINKS
+    /* ------------------------- */
     const cardBtns = bookBtnDetails.map((button, id) => {
       // Converting Button name to href link name from book object
       let bookSourceName = button.name.toLowerCase(); // works
@@ -119,7 +138,46 @@ function BookCard(props) {
     return cardBtns;
   }
 
+  // ALLOWS THE USE OF CHAKRA TOAST
   let toast = useToast();
+
+  /* ------------------------- */
+  // INSERTS NEW BOOKS INTO SHARE ARRAY
+  /* ------------------------- */
+  function addBook(addedBook) {
+    setSelectBook(true);
+    console.log("User added this book -> " + JSON.stringify(addedBook.name));
+    console.log("Old array: " + JSON.stringify(collectedBooks));
+    setCollectedBooks([...collectedBooks, addedBook]);
+    console.log("Updated array: " + JSON.stringify(collectedBooks));
+
+    return toast({
+      title: "Book added to basket!.",
+      description: "Your book list is waiting for you to share!",
+      status: "success",
+      duration: 2800,
+      isClosable: true,
+    });
+  }
+
+  /* ------------------------- */
+  // DELETES BOOKS FROM SHARE ARRAY
+  /* ------------------------- */
+  function minusBook(poppedBook) {
+    setSelectBook(false);
+    console.log(
+      "User took out this book -> " + JSON.stringify(poppedBook.name)
+    );
+
+    return toast({
+      // REFACTOR
+      title: "Book taken out of basket!.",
+      description: "That book wasn't interesting anyways!",
+      status: "error",
+      duration: 2800,
+      isClosable: true,
+    });
+  }
 
   return (
     <Center key={props.name + "book"}>
@@ -144,13 +202,12 @@ function BookCard(props) {
         </ModalContent>
       </Modal>
 
- 
       {/* conditional render here to check to see if there is even a book --> render an empty book card template */}
       <Card
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
         backgroundColor={onHoverColor}
-        border={selectBook ? "4px" : "4px"}
+        border={"4px"}
         borderColor={selectBook ? "darkcyan" : "transparent"}
         className="show fadeIn"
         padding={"8px"}
@@ -172,8 +229,7 @@ function BookCard(props) {
         />
 
         <Stack>
-          <CardBody 
-        
+          <CardBody
             letterSpacing={"1px"}
             onMouseEnter={(e) => {
               setOnHoverColor("rgba(0,0,0,0.01)");
@@ -182,23 +238,7 @@ function BookCard(props) {
               setOnHoverColor("white");
             }}
             onClick={() =>
-              selectBook
-                ? (setSelectBook(!selectBook),
-                  toast({
-                    title: "Book taken out of basket!.",
-                    description: "That book wasn't interesting anyways!",
-                    status: "error",
-                    duration: 2800,
-                    isClosable: true,
-                  }))
-                : (setSelectBook(true),
-                  toast({
-                    title: "Book added to basket!.",
-                    description: "Your book list is waiting for you to share!",
-                    status: "success",
-                    duration: 2800,
-                    isClosable: true,
-                  }))
+              !selectBook ? addBook(bookdetails) : minusBook(bookdetails)
             }
           >
             <Box position={"absolute"} top="2" right="5">

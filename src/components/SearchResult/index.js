@@ -22,6 +22,7 @@ function BookCardAssembly(props) {
           flexDirection={"column"}
           textAlign={"center"}
           alignItems="center"
+          key={"No-books-found"}
         >
           <Image src={emptySearchImg} boxSize="350px" borderRadius="full" />
           <Heading color={"grey"} paddingTop={6}>
