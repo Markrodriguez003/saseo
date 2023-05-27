@@ -1,0 +1,12 @@
+.select_placeholder::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ff0000;
+  }
+  .select_placeholder::-moz-placeholder { /* Firefox 19+ */
+    color: #ff0000;
+  }
+  .select_placeholder:-ms-input-placeholder { /* IE 10+ */
+    color: #ff0000;
+  }
+  .select_placeholder:-moz-placeholder { /* Firefox 18- */
+    color: #ff0000;
+  }

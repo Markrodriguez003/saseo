@@ -48,6 +48,7 @@ export function SearchResult() {
       
       // paddingRight={20}
     >
+      <Divider/>
       <Divider marginBottom={8} />
       <Heading
         color={"lightgrey"}
