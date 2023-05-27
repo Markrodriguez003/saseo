@@ -25,10 +25,11 @@ import {
 } from "@chakra-ui/react";
 
 // ICONS
-import { IoIosCheckmarkCircle } from "react-icons/io";
+import { RiBookmark3Fill } from "react-icons/ri";
 import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import "./BookCard.design.css";
+
 // IMAGES
 import missingB from "../../images/missing-cover.png";
 
@@ -230,9 +231,9 @@ function BookCard(props) {
 
         <Stack>
           <CardBody
-            letterSpacing={"1px"}
+            letterSpacing={"0.5px"}
             onMouseEnter={(e) => {
-              setOnHoverColor("rgba(0,0,0,0.01)");
+              setOnHoverColor("rgba(228, 233, 237)");
             }}
             onMouseLeave={(e) => {
               setOnHoverColor("white");
@@ -241,10 +242,11 @@ function BookCard(props) {
               !selectBook ? addBook(bookdetails) : minusBook(bookdetails)
             }
           >
-            <Box position={"absolute"} top="2" right="5">
-              <IoIosCheckmarkCircle
+            <Box position={"absolute"} className="bookmark-slide" top={selectBook ? "-4px" : "-28px"} right="5" overflow={"hidden"}>
+              <RiBookmark3Fill
+                className="bookmark-icon"
                 fill={selectBook ? "darkcyan" : "lightgrey"}
-                size={"2.8em"}
+                size={"3em"}
               />
             </Box>
             <Heading size="md">{props.name}</Heading>

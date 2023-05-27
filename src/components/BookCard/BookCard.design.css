@@ -14,9 +14,21 @@
 }
 
 .show {
- 
+
     animation-duration: 1.2s;
     /* transform: translate3d(0, 20px, 0); */
     /* ADDED - start y position as 20px */
     /* transition: 0.25s all ease-in-out; */
+}
+
+
+.bookmark-slide {
+    transition: 0.25s all ease-in-out;
+}
+
+.bookmark-icon {
+    /* text-shadow: 0px 0px 1px red, 0px 0px 1px red; */
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: black;  
+    color: white;
 }
