@@ -19,7 +19,7 @@ import {
 import Bookmark from "../../images/header/ribbon-1202755_1920.png";
 import BookmarkMobile from "../../images/header/ribbon-1202755_1920 - Mobile.png";
 import "./SHeader.design.css";
-import { ImMenu } from "react-icons/im";
+import { ImMenu,ImCircleDown } from "react-icons/im";
 
 export function SHeader() {
   return (
@@ -70,6 +70,7 @@ export function SHeader() {
               alignSelf={"center"}
               ml={"auto"}
               pr={4}
+           
             >
               <ImMenu color="white" size={"1.5em"} class="mobile-mobile-icon" />
             </MenuButton>
