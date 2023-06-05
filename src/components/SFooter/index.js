@@ -8,12 +8,17 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
-export default function SmallWithNavigation() {
+function sFooter() {
   return (
     <Box
       bg={"darkcyan"}
       color={"white"}
       pb={6}
+      mt={"lg"}
+      position={"fixed"}
+      left={0}
+      bottom={0}
+      w={"100%"}
     >
       <Container
         as={Stack}
@@ -21,13 +26,16 @@ export default function SmallWithNavigation() {
         // py={4}
         direction={{ base: "column", md: "row" }}
         spacing={4}
-        // justify={{ base: "center", md: "space-between" }}
-        justify={{ base: "start", md: "start" }}
+        justify={{ base: "center", md: "space-between" }}
+        // justify={{ base: "start", md: "start" }}
         align={{ base: "start", md: "center" }}
       >
-        <Heading size={"lg"}>SASEO</Heading>
+        <Heading size={"xl"}>SASEO</Heading>
         <Stack direction={"row"} spacing={6}>
           <Link href={"#"}>Home</Link>
+          <Link href={"#"}>Random Book</Link>
+          <Link href={"#"}>Search a Book</Link>
+          <Link href={"#"}>Search ISBN</Link>
           <Link href={"#"}>About</Link>
           <Link href={"#"}>Sources</Link>
         </Stack>
@@ -36,3 +44,5 @@ export default function SmallWithNavigation() {
     </Box>
   );
 }
+
+export default sFooter;

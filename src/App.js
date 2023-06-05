@@ -2,6 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 // SITE COMPONENTS
 import SHeader from "./components/SHeader";
+import FrontPageHero from "./components/FrontPageHero";
 import BookSuggestionForm from "./components/BookSuggestionForm";
 import BookCard from "./components/BookCard";
 import SearchResult from "./components/SearchResult";
@@ -16,8 +17,9 @@ function App() {
     <ChakraProvider theme={theme}>
       {/* <Fonts /> */}
       <SHeader />
-      <BookSuggestionForm />
-      <SearchResult />
+      <FrontPageHero />
+      {/* <BookSuggestionForm /> */}
+      {/* <SearchResult /> */}
       <SFooter />
     </ChakraProvider>
   );
