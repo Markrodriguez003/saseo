@@ -17,10 +17,13 @@ import { useState } from "react";
 // --------------------------------------------------------------------- //
 // Count dial + slider pair for # of book suggestions
 // --------------------------------------------------------------------- //
-function CountSlider() {
+function CountSlider({ BookAmount }) {
   const [value, setValue] = useState(1);
   // const [amount, setAmount] = useState(value);
-  const handleChange = (value) => setValue(value);
+  const handleChange = (value) => {
+    setValue(value);
+    BookAmount(value);
+  };
 
   return (
     <Flex>
@@ -31,7 +34,7 @@ function CountSlider() {
         onChange={handleChange}
         defaultValue={1}
         min={1}
-        max={10}
+        max={15}
       >
         <NumberInputField />
         <NumberInputStepper>
@@ -46,7 +49,7 @@ function CountSlider() {
         onChange={handleChange}
         defaultValue={1}
         min={1}
-        max={10}
+        max={15}
       >
         <SliderTrack>
           <SliderFilledTrack />

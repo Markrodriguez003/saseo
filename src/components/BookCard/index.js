@@ -21,6 +21,7 @@ import {
   ModalOverlay,
   ModalHeader,
   useToast,
+  Divider,
   cookieStorageManager,
 } from "@chakra-ui/react";
 
@@ -153,10 +154,10 @@ function BookCard(props) {
     console.log("Updated array: " + JSON.stringify(collectedBooks));
 
     return toast({
-      title: "Book added to basket!.",
+      title: "Book added to your wishlist!.",
       description: "Your book list is waiting for you to share!",
       status: "success",
-      duration: 2800,
+      duration: 2400,
       isClosable: true,
     });
   }
@@ -172,10 +173,10 @@ function BookCard(props) {
 
     return toast({
       // REFACTOR
-      title: "Book taken out of basket!.",
+      title: "Book taken out of your wishlist!.",
       description: "That book wasn't interesting anyways!",
       status: "error",
-      duration: 2800,
+      duration: 2400,
       isClosable: true,
     });
   }
@@ -214,55 +215,71 @@ function BookCard(props) {
         padding={"8px"}
         variant="outline"
         marginBottom={"25px"}
-        w={"90%"} // mobile
+        w={{ sm: "90%", md: "90%", lg: "75%" }} // mobile
         // w={"60%"} // full
         boxShadow="xl"
         cursor={"pointer"}
       >
-        <Image
-          objectFit="contain"
-          fit={"contain"}
-          maxW={{ base: "500px", sm: "200px" }}
-          src={props.cover}
-          alt={props.name + " book cover"}
-          fallbackSrc={missingB}
-          onClick={onOpen}
-        />
+        <Stack direction={{ base: "row", sm: "column", md: "column", lg:"row" }} align={"center"}>
+          <Image
+            objectFit="contain"
+            fit={"contain"}
+            maxW={{ base: "500px", sm: "200px" }}
+            alignContent={"center"}
+            src={props.cover}
+            alt={props.name + " book cover"}
+            fallbackSrc={missingB}
+            onClick={onOpen}
+          />
 
-        <Stack>
-          <CardBody
-            letterSpacing={"0.5px"}
-            onMouseEnter={(e) => {
-              setOnHoverColor("rgba(228, 233, 237)");
-            }}
-            onMouseLeave={(e) => {
-              setOnHoverColor("white");
-            }}
+          <Stack
             onClick={() =>
               !selectBook ? addBook(bookdetails) : minusBook(bookdetails)
             }
           >
-            <Box position={"absolute"} className="bookmark-slide" top={selectBook ? "-4px" : "-28px"} right="5" overflow={"hidden"}>
-              <RiBookmark3Fill
-                className="bookmark-icon"
-                fill={selectBook ? "darkcyan" : "lightgrey"}
-                size={"3em"}
-              />
-            </Box>
-            <Heading size="md">{props.name}</Heading>
-            <Heading size="xs" color={"grey"}>
-              {props.author}
-            </Heading>
-            <Text fontSize="xs" as="i" color={"grey"}>
-              {props.subject}
-            </Text>
-            <Text py="2">{props.blurb}</Text>
-          </CardBody>
-          <CardFooter>
-            <Wrap gap="4px" justify={"center"}>
-              <BookCardButtons props={props} />
-            </Wrap>
-          </CardFooter>
+            <CardBody
+              letterSpacing={"0.5px"}
+              onMouseEnter={(e) => {
+                setOnHoverColor("rgba(228, 233, 237)");
+              }}
+              onMouseLeave={(e) => {
+                setOnHoverColor("white");
+              }}
+            >
+              <Box
+                position={"absolute"}
+                className="bookmark-slide"
+                top={selectBook ? "-4px" : "-28px"}
+                right="5"
+                overflow={"hidden"}
+                zIndex={2}
+              >
+                <RiBookmark3Fill
+                  className="bookmark-icon"
+                  fill={selectBook ? "darkcyan" : "lightgrey"}
+                  size={"3em"}
+                />
+              </Box>
+              <Divider zIndex={1} size={"lg"}/>
+              <Heading size="md">{props.name}</Heading>
+              <Heading size="xs" color={"grey"}>
+                {props.author}
+              </Heading>
+              <Text fontSize="xs" as="i" color={"grey"}>
+                {props.subject}
+              </Text>
+              <Text py="2">{props.blurb}</Text>
+            </CardBody>
+            <CardFooter alignSelf={"center"}>
+              <Wrap
+                gap="4px"
+                justify={"center"}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <BookCardButtons props={props} />
+              </Wrap>
+            </CardFooter>
+          </Stack>
         </Stack>
       </Card>
     </Center>
