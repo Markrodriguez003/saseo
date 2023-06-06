@@ -20,7 +20,7 @@ function App() {
       <FrontPageHero />
       {/* <BookSuggestionForm /> */}
       {/* <SearchResult /> */}
-      <SFooter />
+      {/* <SFooter /> */}
     </ChakraProvider>
   );
 }
