@@ -1,83 +1,53 @@
+import { Box, Flex, Heading, Stack, Button, Image } from "@chakra-ui/react";
+// import bgHero from "../../images/backgrounds/imagination-5153623_1920.png";
+import bgHero from "../../images/backgrounds/Hero-Book.png";
+import bg from "../../images/backgrounds/Abstract-4.jpg";
+// import bgHeroB from "../../images/backgrounds/book-5831278_1920.jpg";
 
-import { Box, Flex, Heading } from "@chakra-ui/react";
-import './styles.css'
-import bgHero from "../../images/backgrounds/imagination-5153623_1920.png";
-import bgHeroB from "../../images/backgrounds/book-5831278_1920.jpg";
-
+// ICONS
+import { BsFillArrowDownCircleFill, BsSearchHeartFill } from "react-icons/bs";
+ 
 function FrontPageHero() {
   return (
-    <Flex direction={{ base: "row", lg: "row", md: "column", sm: "column" }} justify={"center"} align={"center"} mb={12}>
-      {/* <Box w={"20%"}>
-        <Heading color={"darkcyan"}>Looking for a book has never been easier.</Heading>
-      </Box>
-      <img
-        src={bgHero}
-        style={{ width: "350px", height: "auto", border: "darkCyan 8px solid" }}
-      /> */}
-
-
-      <div class="cover">
-        <div class="book">
-          <label for="page-1" class="book__page book__page--1">
-            <img
-              src={bgHero}
-              style={{ width: "350px", height: "auto" }}
-            />
-          </label>
-
-          <label for="page-2" class="book__page book__page--4">
-            <div class="page__content">
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <Box w={"100%"}>
-                <Heading color={"darkcyan"}>Get lost in the cosmos of any book.</Heading>
-              </Box>
-            </div>
-          </label>
-
-
-          <input type="radio" name="page" id="page-1" />
-
-          <input type="radio" name="page" id="page-2" />
-          <label class="book__page book__page--2">
-            <div class="book__page-front">
-              <div class="page__content">
-
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <Box>
-                  <Heading color={"darkcyan"}>Looking for a book has never been easier.</Heading>
-                </Box>
-
-
-
-                <div class="page__content-copyright">
-                  <p>SASEO Publishing</p>
-                  <p>Miami - MMXII</p>
-                </div>
-              </div>
-            </div>
-            <div class="book__page-back">
-              <div class="page__content">
-                <img
-                  src={bgHeroB}
-                  style={{ width: "450px", height: "475PX" }}
-                />
-
-                <div class="page__number">2</div>
-              </div>
-            </div>
-          </label>
-        </div>
-      </div>
-    </Flex>
+    <>
+      <Heading color={"darkcyan"} mb={4} textAlign={"center"} size={"3xl"} margin={{bottom:10}} >
+        Find your perfect book.
+      </Heading>
+      <Flex
+        direction={{
+          base: "row",
+          lg: "row",
+          md: "column-reverse",
+          sm: "column-reverse",
+        }}
+        justify={"center"}
+        align={"center"}
+        mb={12}
+      >
+        <Box w={{ base: "20%", lg: "20%", md: "60%", sm: "60%" }}>
+          <Heading color={"darkcyan"} mb={4}>
+            Looking for a book has never been easier.
+          </Heading>
+          <Stack direction="row" spacing={4} align="center">
+            <Button
+              leftIcon={<BsFillArrowDownCircleFill />}
+              colorScheme="teal"
+              variant="solid"
+            >
+              Tell Me More!
+            </Button>
+            <Button
+              colorScheme="teal"
+              variant="outline"
+              rightIcon={<BsSearchHeartFill />}
+            >
+              Search
+            </Button>
+          </Stack>
+        </Box>
+        <Image src={bgHero} style={{ width: "385px", height: "auto" }} mb={6} />
+      </Flex>
+    </>
   );
 }
 

@@ -15,7 +15,7 @@ function sFooter() {
       color={"white"}
       pb={6}
       mt={"lg"}
-      position={"fixed"}
+      position={"relative"}
       left={0}
       bottom={0}
       w={"100%"}
