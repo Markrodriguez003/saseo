@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect } from "react";
+import  BookLoader  from "../components/ui/BookLoader"
 
 
 
@@ -9,7 +10,8 @@ function FetchBook(props) {
 
     useEffect(() => {
 
-        axios.get('http://openlibrary.org/subjects/love.json?published_in=1500-1600')
+        // axios.get('http://openlibrary.org/subjects/love.json?published_in=1500-1900')
+        axios.get('http://openlibrary.org/subjects')
             .then(function (response) {
                 // handle success
                 console.log(response);
@@ -24,7 +26,10 @@ function FetchBook(props) {
     }, [])
 
     return (
-        <h1>ETCHING BOOKS!</h1>
+        <div>
+            <BookLoader />
+            <h1>ETCHING BOOKS!</h1>
+        </div>
     )
 }
 

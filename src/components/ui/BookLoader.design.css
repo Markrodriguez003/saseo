@@ -1,0 +1,379 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue), 10%, 90%);
+	--fg: hsl(var(--hue), 10%, 10%);
+	--primary: hsl(var(--hue), 90%, 55%);
+	--primary-l: hsl(var(--hue), 90%, 65%);
+	--primary-d: hsl(var(--hue), 90%, 45%);
+	--white: hsl(var(--hue), 10%, 100%);
+	--white-d: hsl(var(--hue), 10%, 45%);
+	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+.book-container {
+	text-align: center;
+	width: 225px;
+	height: 185px;
+
+}
+
+.book,
+.book__pg-shadow,
+.book__pg {
+	animation: cover 7s ease-in-out infinite;
+}
+
+.book {
+	background-color: "darkcyan";
+	border-radius: 0.25em;
+	box-shadow:
+		0 0.25em 0.5em hsla(0, 0%, 0%, 0.3),
+		0 0 0 0.25em var(darkcyan) inset;
+	padding: 0.25em;
+	perspective: 37.5em;
+	position: relative;
+	width: 2em;
+	height: 6em;
+	transform: translate3d(0, 0, 0);
+	transform-style: preserve-3d;
+	margin-bottom:15px;
+}
+
+.book__pg-shadow,
+.book__pg {
+	position: absolute;
+	left: 0.25em;
+	width: calc(50% - 0.25em);
+}
+
+.book__pg-shadow {
+	animation-name: shadow;
+	background-image: linear-gradient(-45deg, hsla(0, 0%, 0%, 0) 50%, hsla(0, 0%, 0%, 0.3) 50%);
+	filter: blur(0.25em);
+	top: calc(100% - 0.25em);
+	height: 3.75em;
+	transform: scaleY(0);
+	transform-origin: 100% 0%;
+}
+
+.book__pg {
+	animation-name: pg1;
+	background-color: var(--white);
+	background-image: linear-gradient(90deg, hsla(var(--hue), 10%, 90%, 0) 87.5%, hsl(var(--hue), 10%, 90%));
+	height: calc(100% - 0.5em);
+	transform-origin: 100% 50%;
+}
+
+.book__pg--2,
+.book__pg--3,
+.book__pg--4 {
+	background-image:
+		repeating-linear-gradient(hsl(var(--hue), 10%, 10%) 0 0.125em, hsla(var(--hue), 10%, 10%, 0) 0.125em 0.5em),
+		linear-gradient(90deg, hsla(var(--hue), 10%, 90%, 0) 87.5%, hsl(var(--hue), 10%, 90%));
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 2.5em 4.125em, 100% 100%;
+}
+
+.book__pg--2 {
+	animation-name: pg2;
+}
+
+.book__pg--3 {
+	animation-name: pg3;
+}
+
+.book__pg--4 {
+	animation-name: pg4;
+}
+
+.book__pg--5 {
+	animation-name: pg5;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue), 10%, 30%);
+		--fg: hsl(var(--hue), 10%, 90%);
+	}
+}
+
+/* Animations */
+@keyframes cover {
+	from, 5%, 45%, 55%, 95%, to {
+		animation-timing-function: ease-out;
+		background-color: darkCyan;
+	}
+
+	10%, 40%, 60%, 90% {
+		animation-timing-function: ease-in;
+		background-color: darkCyan;
+	}
+}
+
+@keyframes shadow {
+	from, 10.01%, 20.01%, 30.01%, 40.01% {
+		animation-timing-function: ease-in;
+		transform: translate3d(0, 0, 1px) scaleY(0) rotateY(0);
+	}
+
+	5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+		animation-timing-function: ease-out;
+		transform: translate3d(0, 0, 1px) scaleY(0.2) rotateY(90deg);
+	}
+
+	10%, 20%, 30%, 40%, 50%, to {
+		animation-timing-function: ease-out;
+		transform: translate3d(0, 0, 1px) scaleY(0) rotateY(180deg);
+	}
+
+	50.01%, 60.01%, 70.01%, 80.01%, 90.01% {
+		animation-timing-function: ease-in;
+		transform: translate3d(0, 0, 1px) scaleY(0) rotateY(180deg);
+	}
+
+	60%, 70%, 80%, 90%, to {
+		animation-timing-function: ease-out;
+		transform: translate3d(0, 0, 1px) scaleY(0) rotateY(0);
+	}
+}
+
+@keyframes pg1 {
+	from, to {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0.4deg);
+	}
+
+	10%, 15% {
+		animation-timing-function: ease-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(180deg);
+	}
+
+	20%, 80% {
+		animation-timing-function: ease-in;
+		background-color: var(--white-d);
+		transform: translate3d(0, 0, 1px) rotateY(180deg);
+	}
+
+	85%, 90% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(180deg);
+	}
+}
+
+@keyframes pg2 {
+	from, to {
+		animation-timing-function: ease-in;
+		background-color: var(--white-d);
+		transform: translate3d(0, 0, 1px) rotateY(0.3deg);
+	}
+
+	5%, 10% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0.3deg);
+	}
+
+	20%, 25% {
+		animation-timing-function: ease-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(179.9deg);
+	}
+
+	30%, 70% {
+		animation-timing-function: ease-in;
+		background-color: var(--white-d);
+		transform: translate3d(0, 0, 1px) rotateY(179.9deg);
+	}
+
+	75%, 80% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(179.9deg);
+	}
+
+	90%, 95% {
+		animation-timing-function: ease-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0.3deg);
+	}
+}
+
+@keyframes pg3 {
+	from, 10%, 90%, to {
+		animation-timing-function: ease-in;
+		background-color: var(--white-d);
+		transform: translate3d(0, 0, 1px) rotateY(0.2deg);
+	}
+
+	15%, 20% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0.2deg);
+	}
+
+	30%, 35% {
+		animation-timing-function: ease-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(179.8deg);
+	}
+
+	40%, 60% {
+		animation-timing-function: ease-in;
+		background-color: var(--white-d);
+		transform: translate3d(0, 0, 1px) rotateY(179.8deg);
+	}
+
+	65%, 70% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(179.8deg);
+	}
+
+	80%, 85% {
+		animation-timing-function: ease-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0.2deg);
+	}
+}
+
+@keyframes pg4 {
+	from, 20%, 80%, to {
+		animation-timing-function: ease-in;
+		background-color: var(--white-d);
+		transform: translate3d(0, 0, 1px) rotateY(0.1deg);
+	}
+
+	25%, 30% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0.1deg);
+	}
+
+	40%, 45% {
+		animation-timing-function: ease-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(179.7deg);
+	}
+
+	50% {
+		animation-timing-function: ease-in;
+		background-color: var(--white-d);
+		transform: translate3d(0, 0, 1px) rotateY(179.7deg);
+	}
+
+	55%, 60% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(179.7deg);
+	}
+
+	70%, 75% {
+		animation-timing-function: ease-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0.1deg);
+	}
+}
+
+@keyframes pg5 {
+	from, 30%, 70%, to {
+		animation-timing-function: ease-in;
+		background-color: var(--white-d);
+		transform: translate3d(0, 0, 1px) rotateY(0);
+	}
+
+	35%, 40% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0deg);
+	}
+
+	50% {
+		animation-timing-function: ease-in-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(179.6deg);
+	}
+
+	60%, 65% {
+		animation-timing-function: ease-out;
+		background-color: var(--white);
+		transform: translate3d(0, 0, 1px) rotateY(0);
+	}
+}
+
+
+
+/* LOADING SCRIPT */
+h1 {
+	/* margin-top: 10px; */
+	display: block;
+	text-align: center;
+}
+
+h1 span {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	animation: bounce 0.3s ease infinite alternate;
+	font-size: 30px;
+	font-weight: bold;
+	color: darkcyan;
+	/* text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+		0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
+		0 9px 0 transparent, 0 2px 2px rgba(0, 0, 0, 0.4); */
+}
+
+h1 span:nth-child(2) {
+	animation-delay: 0.1s;
+}
+
+h1 span:nth-child(3) {
+	animation-delay: 0.2s;
+}
+
+h1 span:nth-child(4) {
+	animation-delay: 0.3s;
+}
+
+h1 span:nth-child(5) {
+	animation-delay: 0.4s;
+}
+
+h1 span:nth-child(6) {
+	animation-delay: 0.5s;
+}
+
+h1 span:nth-child(7) {
+	animation-delay: 0.6s;
+}
+
+h1 span:nth-child(8) {
+	animation-delay: 0.2s;
+}
+
+h1 span:nth-child(9) {
+	animation-delay: 0.3s;
+}
+
+h1 span:nth-child(10) {
+	animation-delay: 0.4s;
+}
+
+/* ANIMATION */
+@keyframes bounce {
+	100% {
+		top: -7px;
+		/*  */
+	}
+}
