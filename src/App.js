@@ -24,7 +24,7 @@ function App() {
       <br />
       <BookSuggestionForm />
       <SearchResult />
-      <SFooter />
+      {/* <SFooter /> */}
     </ChakraProvider>
   );
 }

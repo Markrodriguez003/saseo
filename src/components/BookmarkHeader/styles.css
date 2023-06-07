@@ -1,0 +1,45 @@
+.bookmark-header-container {
+  position: relative;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+
+}
+
+.bookmark-header-container img {
+  width: 700px;
+  height: 150px;
+  z-index: 0;
+  color: white;
+  filter: hue-rotate(180deg);
+  /* filter: hue-rotate(80deg); */
+  /* filter: hue-rotate(50deg); */
+  /* filter: hue-rotate(230deg); */
+}
+
+.bookmark-header-container h1 {
+  position: absolute;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  font-family: "brand-font";
+  /* width: 500px; */
+  -webkit-text-stroke: 1.5px white;
+  transition: 0.1s all ease-in-out;
+  font-size: 42px;
+  z-index: 0;
+  word-wrap: break-word;
+  top: 52px;
+  left: 58px;
+  /* margin-left: 18px; */
+  /* margin-top: 35px; */
+}
+
+@media screen and (max-width: 299px) {
+  .bookmark-text {
+    font-size: 45px;
+    left: 12px;
+  }
+}
