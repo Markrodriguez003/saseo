@@ -1,12 +1,5 @@
 import {
   Divider,
-  Box,
-  Image,
-  Heading,
-  Link,
-  Avatar,
-  AvatarGroup,
-  HStack,
   Menu,
   MenuItem,
   MenuButton,
@@ -16,10 +9,12 @@ import {
   Hide,
   Flex,
 } from "@chakra-ui/react";
-import Bookmark from "../../images/header/ribbon-1202755_1920.png";
-import BookmarkMobile from "../../images/header/ribbon-1202755_1920 - Mobile.png";
+import Bookmark from "../../../../images/header/ribbon-1202755_1920.png";
+import BookmarkMobile from "../../../images/header/ribbon-1202755_1920 - Mobile.png";
 import "./SHeader.design.css";
-import { ImMenu,ImCircleDown } from "react-icons/im";
+import { ImMenu} from "react-icons/im";
+
+// https://bobbyhadz.com/blog/react-you-attempted-to-import-which-falls-outside-project
 
 export function SHeader() {
   return (

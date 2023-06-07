@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Stack, Button, Image, Badge, Divider } from "@chakra-ui/react";
 
 // COMPONENTS
-import BookmarkHeader from "../BookmarkHeader"
+import BookmarkHeader from "../ui/BookmarkHeader"
 
 
 // LIBS / UTILITIES
@@ -35,9 +35,6 @@ function FrontPageHero() {
       <Heading color={"darkcyan"} mb={6} textAlign={"center"} size={"3xl"} margin={{ bottom: 10 }} >
         Find your perfect book.
       </Heading>
-      {/* <BookmarkHeader>
-        Find your perfect book.
-      </BookmarkHeader> */}
       <Flex
         direction={{
           base: "row",
@@ -81,10 +78,12 @@ function FrontPageHero() {
       <Divider />
       <br />
       <br />
-
-      <Heading color={"darkcyan"} textAlign={"center"} mb={6}>
+      <BookmarkHeader>
+        Explore many book genres
+      </BookmarkHeader>
+      {/* <Heading color={"darkcyan"} textAlign={"center"} mb={6}>
         Explore many titles from every subject a book can be.
-      </Heading>
+      </Heading> */}
       <Flex
         direction={{
           base: "row",

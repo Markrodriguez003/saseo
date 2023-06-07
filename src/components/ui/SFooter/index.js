@@ -18,11 +18,11 @@ function sFooter() {
       position={"relative"}
       left={0}
       bottom={0}
-      w={"100%"}
+      w="100%"
     >
       <Container
         as={Stack}
-        maxW={"6xl"}
+        w="100%"
         // py={4}
         direction={{ base: "column", md: "row" }}
         spacing={4}

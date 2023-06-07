@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect } from "react";
-import  BookLoader  from "../components/ui/BookLoader"
+import BookLoader from "../components/ui/BookLoader/BookLoader"
 
 
 
@@ -27,8 +27,7 @@ function FetchBook(props) {
 
     return (
         <div>
-            <BookLoader />
-            <h1>ETCHING BOOKS!</h1>
+            {/* <BookLoader /> */}
         </div>
     )
 }
