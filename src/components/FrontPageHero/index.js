@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Stack, Container, Button, Image, Badge, Divider, InputLeftElement, FormControl, Input, InputGroup, Text, Center, position } from "@chakra-ui/react";
+import { useState } from "react";
 
 // COMPONENTS
 import BookmarkHeader from "../ui/BookmarkHeader"
@@ -22,6 +23,8 @@ import { BiSearch } from "react-icons/bi";
 import { color } from "framer-motion";
 
 function FrontPageHero() {
+ 
+  const [placeholderText, setPlaceholderText] = useState("")
   return (
     <>
 
@@ -42,11 +45,11 @@ function FrontPageHero() {
               <span style={{ color: "#4d2f00" }}>Find your </span> Perfect Book.
             </Heading>
 
-            <InputGroup mb={2} w={"80%"} alignSelf={"center"}>
+            <InputGroup w={"80%"} alignSelf={"center"}>
               <InputLeftElement pointerEvents='none'>
                 <BiSearch color='rgba(0,0,0,0.2)' size={"1.3em"} />
               </InputLeftElement>
-              <Input type='text' placeholder='Type a Book Genre!' border={"2px"} borderColor={"darkcyan"} />
+              <Input mb={2} type='text' placeholder='Type a Book Genre!' border={"2px"} borderColor={"darkcyan"} />
             </InputGroup>
           </Stack>
         </Center>
