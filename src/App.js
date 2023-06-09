@@ -17,14 +17,21 @@ function App() {
     <ChakraProvider theme={theme}>
       {/* <Fonts /> */}
       <SHeader />
-      {/* <FrontPage /> */}
+      <FrontPage />
       <br />
       <br />
-      <br />
-      <br />
+ 
       {/* <BookSuggestionForm /> */}
       {/* <SearchResult /> */}
-      <SFooter />
+      {/* <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      
+      <SFooter /> */}
     </ChakraProvider>
   );
 }

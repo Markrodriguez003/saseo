@@ -9,10 +9,11 @@
 }
 
 .bookmark-header-container img {
-  width: 700px;
+  width: 780px;
   height: 150px;
   z-index: 0;
   color: white;
+  /* transform: rotate(180deg); */
   filter: hue-rotate(180deg);
   /* filter: hue-rotate(80deg); */
   /* filter: hue-rotate(50deg); */
@@ -28,7 +29,8 @@
   /* width: 500px; */
   -webkit-text-stroke: 1.5px white;
   transition: 0.1s all ease-in-out;
-  font-size: 42px;
+  font-size: 45px;
+  /* font-size: 100%; */
   z-index: 0;
   word-wrap: break-word;
   top: 52px;

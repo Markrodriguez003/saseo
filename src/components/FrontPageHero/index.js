@@ -1,8 +1,8 @@
-import { Box, Flex, Heading, Stack, Button, Image, Badge, Divider } from "@chakra-ui/react";
+import { Box, Flex, Heading, Stack, Container, Button, Image, Badge, Divider, InputLeftElement, FormControl, Input, InputGroup, Text, Center, position } from "@chakra-ui/react";
 
 // COMPONENTS
 import BookmarkHeader from "../ui/BookmarkHeader"
-
+import PageDesignWaves from "../ui/PageDesignWaves"
 
 // LIBS / UTILITIES
 import FetchBook from "../../lib/FetchBook";
@@ -12,65 +12,86 @@ import FetchBook from "../../lib/FetchBook";
 import bgHero from "../../images/backgrounds/Hero-Book.png";
 import bgHero2 from "../../images/backgrounds/Hero-2.png";
 import bgHero3 from "../../images/backgrounds/icon-347230_1920.png";
-import bg from "../../images/backgrounds/Abstract-4.jpg";
 import "./styles.css"
 // import bgHeroB from "../../images/backgrounds/book-5831278_1920.jpg";
+import splashBook from "../../images/hero/hero-half-book.png"
 
 // ICONS
-import { BsFillArrowDownCircleFill, BsSearchHeartFill } from "react-icons/bs";
+import { BsFillArrowDownCircleFill } from "react-icons/bs";
+import { BiSearch } from "react-icons/bi";
 import { color } from "framer-motion";
 
 function FrontPageHero() {
   return (
     <>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <FetchBook />
-      <br />
-      <br />
-      <br />
-      <Heading color={"darkcyan"} mb={6} textAlign={"center"} size={"3xl"} margin={{ bottom: 10 }} >
-        Find your perfect book.
-      </Heading>
-      <Flex
-        direction={{
-          base: "row",
-          lg: "row",
-          md: "column-reverse",
-          sm: "column-reverse",
-        }}
-        justify={"center"}
-        align={"center"}
-        mb={12}
-      >
-        <Box w={{ base: "20%", lg: "20%", md: "60%", sm: "60%" }}>
-          <Heading color={"darkcyan"} mb={4}>
-            Looking for a book has never been easier.
-          </Heading>
-          <Stack direction="row" spacing={4} align="center">
-            <Button
-              leftIcon={<BsFillArrowDownCircleFill />}
-              colorScheme="teal"
-              variant="solid"
-            >
-              Tell Me More!
-            </Button>
-            <Button
-              colorScheme="teal"
-              variant="outline"
-              rightIcon={<BsSearchHeartFill />}
-            >
-              Search
-            </Button>
+      {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,0.6)"} style={{ clipPath: " polygon(0% 98.25%, 0% 52.5%, 50% 81.25%, 100% 51.5%, 100% 97.25%)" }} /> */}
+      {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,0.3)"} style={{ clipPath: " polygon(0% 95.25%, 0% 50.5%, 50% 81.25%, 100% 49.5%, 100% 95.25%)" }} /> */}
+      {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,0.2)"} style={{ clipPath: " polygon(0% 95.25%, 0% 50.5%, 50% 81.25%, 100% 49.5%, 100% 95.25%)" }} /> */}
+      {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,0.18)"} style={{ clipPath: " polygon(0% 95.25%, 0% 47.5%, 50% 81.25%, 100% 48.5%, 100% 97.25%)" }} /> */}
+      {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,0.15)"} style={{ clipPath: " polygon(0% 94%, 0% 46%, 50% 81.25%, 100% 47%, 100% 96%)" }} /> */}
+      {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,1)"} style={{ clipPath: " polygon(0% 99.25%, 0% 54.5%, 50% 81.25%, 100% 54.5%, 100% 99.25%)" }} /> */}
+
+
+
+      <Container height={"80vh"} maxW={"100%"} width={"100%"} p={0} m={0}>
+        <Center position={"relative"} zIndex={2}>
+          <Stack>
+            <Heading color={"darkcyan"} mb={4} textAlign={"center"} size={"3xl"} margin={{ bottom: 10 }} >
+            {/* <span style={{ color: "brown" }}>Find your </span> Perfect <span style={{backgroundColor:"darkcyan", color:"white"}}>Book.</span> */}
+              <span style={{ color: "#4d2f00" }}>Find your </span> Perfect Book.
+            </Heading>
+
+            <InputGroup mb={2} w={"80%"} alignSelf={"center"}>
+              <InputLeftElement pointerEvents='none'>
+                <BiSearch color='rgba(0,0,0,0.2)' size={"1.3em"} />
+              </InputLeftElement>
+              <Input type='text' placeholder='Type a Book Genre!' border={"2px"} borderColor={"darkcyan"} />
+            </InputGroup>
           </Stack>
-        </Box>
-        <Image src={bgHero} style={{ width: "385px", height: "auto" }} mb={6} />
-      </Flex>
-      <br />
-      <br />
+        </Center>
+        <Box position={"relative"} zIndex={1}>
+          <Flex
+            direction={{
+              base: "row",
+              lg: "row",
+              md: "column-reverse",
+              sm: "column-reverse",
+            }}
+            justify={"center"}
+            align={"center"}
+            mb={12}
+            position={"relative"}
+          >
+            <Box w={{ base: "20%", lg: "20%", md: "60%", sm: "60%" }}>
+
+              <Heading color={"darkcyan"} mb={4}>
+                Looking for a book has never been easier.
+              </Heading>
+              <Stack direction="row" spacing={4} align="center">
+                <Button
+                  colorScheme="teal"
+                  variant="solid"
+                >
+                  Tell Me More!
+                </Button>
+                <Button
+                  colorScheme="teal"
+                  variant="outline"
+                >
+                  About
+                </Button>
+              </Stack>
+            </Box>
+            <Image src={bgHero} style={{ width: "16%", height: "auto" }} mb={8} mt={6}/>
+          </Flex>
+          {/* <PageDesignWaves /> */}
+          <Box w={"100%"} h={"100px"} position={"absolute"} bottom={-2}>
+            <Image src={splashBook} alt="fuck off" h={"600px"} w={"100%"} m={0} p={0} />
+          </Box>
+        </Box >
+      </Container>
+      {/* <br />
       <br />
       <br />
       <br />
@@ -78,12 +99,12 @@ function FrontPageHero() {
       <Divider />
       <br />
       <br />
+      <br />
+      <br />
       <BookmarkHeader>
         Explore many book genres
       </BookmarkHeader>
-      {/* <Heading color={"darkcyan"} textAlign={"center"} mb={6}>
-        Explore many titles from every subject a book can be.
-      </Heading> */}
+
       <Flex
         direction={{
           base: "row",
@@ -155,7 +176,7 @@ function FrontPageHero() {
             <Button
               colorScheme="teal"
               variant="outline"
-              rightIcon={<BsSearchHeartFill />}
+              rightIcon={<BiSearch />}
             >
               Search
             </Button>
@@ -164,7 +185,7 @@ function FrontPageHero() {
       </Flex>
       <Divider />
       <br />
-      <br />
+      <br /> */}
     </>
   );
 }

@@ -9,7 +9,7 @@ import {
   Hide,
   Flex,
 } from "@chakra-ui/react";
-import Bookmark from "../../../../images/header/ribbon-1202755_1920.png";
+import Bookmark from "../../../images/header/ribbon-1202755_1920.png";
 import BookmarkMobile from "../../../images/header/ribbon-1202755_1920 - Mobile.png";
 import "./SHeader.design.css";
 import { ImMenu} from "react-icons/im";

@@ -6,8 +6,9 @@
   } */
 
 .container {
-  background-image: url("../../images/backgrounds/wood-364693_1920.jpg");
-  background-color: #593802;
+  /* background-image: url("../../../images/backgrounds/wood-364693_1920.jpg"); */
+  /* background-color: #593802; */
+  background-color: #4d2f00;
   /* background-blend-mode: darken; */
   /* background-blend-mode: multiply; */
   background-blend-mode: luminosity;
@@ -28,7 +29,7 @@
     #57250c
   ); */
   z-index: 3;
-  margin-bottom: 70px;
+  margin-bottom: 70px; 
   /* width:100%; */
   /* box-shadow: 8px -11px 63px -13px rgba(0,0,0,0.78); */
   /* -webkit-box-shadow: 8px -11px 63px -13px rgba(0,0,0,0.78); */
