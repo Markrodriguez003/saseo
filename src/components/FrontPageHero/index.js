@@ -36,6 +36,7 @@ function FrontPageHero() {
       {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,1)"} style={{ clipPath: " polygon(0% 99.25%, 0% 54.5%, 50% 81.25%, 100% 54.5%, 100% 99.25%)" }} /> */}
 
       {/* https://codepen.io/lmoroz/pen/jLMLRE */}
+      {/* https://codepen.io/mikedevelops/pen/vOavQB */}
 
 
       <Container height={"80vh"} maxW={"100%"} width={"100%"} p={0} m={0}>
