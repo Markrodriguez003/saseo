@@ -17,7 +17,7 @@ function App() {
     <ChakraProvider theme={theme}>
       {/* <Fonts /> */}
       <SHeader />
-      <FrontPage />
+      {/* <FrontPage /> */}
       <br />
       <br />
  

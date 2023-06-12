@@ -2,20 +2,19 @@ import { Box, Flex, Heading, Stack, Container, Button, Image, Badge, Divider, In
 import { useState } from "react";
 
 // COMPONENTS
-import BookmarkHeader from "../ui/BookmarkHeader"
-import PageDesignWaves from "../ui/PageDesignWaves"
+import BookmarkHeader from "components/ui/BookmarkHeader"
+import PageDesignWaves from "components/ui/PageDesignWaves"
 
 // LIBS / UTILITIES
-import FetchBook from "../../lib/FetchBook";
+import FetchBook from "lib/FetchBook";
 
 // IMAGES
-// import bgHero from "../../images/backgrounds/imagination-5153623_1920.png";
-import bgHero from "../../images/backgrounds/Hero-Book.png";
-import bgHero2 from "../../images/backgrounds/Hero-2.png";
-import bgHero3 from "../../images/backgrounds/icon-347230_1920.png";
+import bgHero from "images/backgrounds/Hero-Book.png";
+import bgHero2 from "images/backgrounds/Hero-2.png";
+import bgHero3 from "images/backgrounds/icon-347230_1920.png";
 import "./styles.css"
-// import bgHeroB from "../../images/backgrounds/book-5831278_1920.jpg";
-import splashBook from "../../images/hero/hero-half-book.png"
+// import bgHeroB from "images/backgrounds/book-5831278_1920.jpg";
+import splashBook from "images/hero/hero-half-book.png"
 
 // ICONS
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
@@ -27,6 +26,8 @@ function FrontPageHero() {
   const [placeholderText, setPlaceholderText] = useState("")
   return (
     <>
+
+    <FetchBook/>
 
       {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,0.6)"} style={{ clipPath: " polygon(0% 98.25%, 0% 52.5%, 50% 81.25%, 100% 51.5%, 100% 97.25%)" }} /> */}
       {/* <Box w={"100%"} h={"900px"} position={"absolute"} backgroundColor={"rgba(0,139,139,0.3)"} style={{ clipPath: " polygon(0% 95.25%, 0% 50.5%, 50% 81.25%, 100% 49.5%, 100% 95.25%)" }} /> */}
@@ -92,7 +93,7 @@ function FrontPageHero() {
           </Flex>
           {/* <PageDesignWaves /> */}
           <Box w={"100%"} h={"100px"} position={"absolute"} bottom={-2}>
-            <Image src={splashBook} alt="fuck off" h={"600px"} w={"100%"} m={0} p={0} />
+            <Image src={splashBook} alt="fuck off" h={"500px"} w={"100%"} m={0} p={0} />
           </Box>
         </Box >
       </Container>
