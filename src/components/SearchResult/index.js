@@ -5,9 +5,11 @@ import { Suspense, useState } from "react";
 import BookCard from "../BookCard";
 import book_examples from "../../data/book_examples.json";
 import EmailShareCard from "../EmailShareCard";
+import FetchBook from "lib/FetchBook";
 
 // ASSETS - IMAGES
 import emptySearchImg from "../../images/NoBookFound.png";
+
 // let books;
 function BookCardAssembly(props) {
   // ARRAY OF BOOKS CARDS CREATED FROM JSON FILE ABOVE
@@ -16,7 +18,9 @@ function BookCardAssembly(props) {
 
   // console.log("Book result -> " + book_examples.books.length);
   props.foundBooks
-    ? (books = props.foundBooks.books.map((book, id) => <Suspense>{BookCard(book)}</Suspense>))
+    ? (books = props.foundBooks.books.map((book, id) => (
+        <Suspense>{BookCard(book)}</Suspense>
+      )))
     : (books = (
         <Center
           flexDirection={"column"}
@@ -35,36 +39,39 @@ function BookCardAssembly(props) {
 }
 
 export function SearchResult() {
-  
-  const [amountOfBooks, SetAmountOfBooks] = useState(book_examples.books.length);
+  const [amountOfBooks, SetAmountOfBooks] = useState(
+    book_examples.books.length
+  );
 
   return (
-    <Box
-      alignItems="center"
-      justifyContent="end"
-      paddingBottom={2}
-      paddingTop={4}
-      marginBottom={20}
-      
-      // paddingRight={20}
-    >
-      <Divider/>
-      <Divider marginBottom={8} />
-      <Heading
-        color={"lightgrey"}
-        as={"h6"}
-        size={"sm"}
-        float={"right"}
-        paddingRight={10}
-      
+    <>
+      <FetchBook />
+      <Box
+        alignItems="center"
+        justifyContent="end"
+        paddingBottom={2}
+        paddingTop={4}
+        marginBottom={20}
+
+        // paddingRight={20}
       >
-         {amountOfBooks} Book Results Found!
-      </Heading>
-      <br />
-      <br />
-      <BookCardAssembly foundBooks={book_examples} />
-      {/* <EmailShareCard/> */}
-    </Box>
+        <Divider />
+        <Divider marginBottom={8} />
+        <Heading
+          color={"lightgrey"}
+          as={"h6"}
+          size={"sm"}
+          float={"right"}
+          paddingRight={10}
+        >
+          {amountOfBooks} Book Results Found!
+        </Heading>
+        <br />
+        <br />
+        <BookCardAssembly foundBooks={book_examples} />
+        {/* <EmailShareCard/> */}
+      </Box>
+    </>
   );
 }
 

@@ -18,11 +18,9 @@ function App() {
       {/* <Fonts /> */}
       <SHeader />
       {/* <FrontPage /> */}
-      <br />
-      <br />
- 
+
       {/* <BookSuggestionForm /> */}
-      {/* <SearchResult /> */}
+      <SearchResult />
       {/* <br />
       <br />
       <br />

@@ -12,7 +12,7 @@ import {
 import Bookmark from "../../../images/header/ribbon-1202755_1920.png";
 import BookmarkMobile from "../../../images/header/ribbon-1202755_1920 - Mobile.png";
 import "./SHeader.design.css";
-import { ImMenu} from "react-icons/im";
+import { ImMenu } from "react-icons/im";
 
 // https://bobbyhadz.com/blog/react-you-attempted-to-import-which-falls-outside-project
 
@@ -29,11 +29,11 @@ export function SHeader() {
       {/* <Show below="md"></Show> */}
 
       {/* FLEXBOX HEADER */}
-      <Flex className="container" align={"center"}>
+      <Flex className="container" align={"center"} marginBottom={12}>
         <Hide below="md">
           <div className="spacer-container"></div>
           <div className="brand-container">
-            <h1 > SASEO</h1>
+            <h1> SASEO</h1>
           </div>
         </Hide>
 
@@ -65,7 +65,6 @@ export function SHeader() {
               alignSelf={"center"}
               ml={"auto"}
               pr={4}
-           
             >
               <ImMenu color="white" size={"1.5em"} class="mobile-mobile-icon" />
             </MenuButton>
