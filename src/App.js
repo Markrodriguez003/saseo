@@ -2,8 +2,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 // SITE COMPONENTS
 import SHeader from "./components/ui/SHeader";
-import FrontPage from "./components/FontPage";
-import BookSuggestionForm from "./components/BookSuggestionForm";
+import FrontPage from "./components/pages/FontPage";
+import BookSuggestion from "./components/pages/BookSuggestion";
+import BookSearchForm from "./components/BookSearchForm";
 import BookCard from "./components/BookCard";
 import SearchResult from "./components/SearchResult";
 import SFooter from "./components/ui/SFooter";
@@ -18,18 +19,7 @@ function App() {
       {/* <Fonts /> */}
       <SHeader />
       {/* <FrontPage /> */}
-
-      {/* <BookSuggestionForm /> */}
-      <SearchResult />
-      {/* <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      
-      <SFooter /> */}
+      <BookSuggestion />
     </ChakraProvider>
   );
 }

@@ -1,11 +1,11 @@
 import { Box, Text, Divider, Center, Heading, Image } from "@chakra-ui/react";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useContext } from "react";
 
 // COMPONENTS
 import BookCard from "../BookCard";
 import book_examples from "../../data/book_examples.json";
 import EmailShareCard from "../EmailShareCard";
-import FetchBook from "lib/FetchBook";
+import { fetchedBooksResults } from "lib/FetchBooks";
 
 // ASSETS - IMAGES
 import emptySearchImg from "../../images/NoBookFound.png";
@@ -38,14 +38,10 @@ function BookCardAssembly(props) {
   return books;
 }
 
-export function SearchResult() {
-  const [amountOfBooks, SetAmountOfBooks] = useState(
-    book_examples.books.length
-  );
-
+export function SearchResult({fetchedBooks}) {
+  console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + fetchedBooks);
   return (
     <>
-      <FetchBook />
       <Box
         alignItems="center"
         justifyContent="end"
@@ -64,11 +60,11 @@ export function SearchResult() {
           float={"right"}
           paddingRight={10}
         >
-          {amountOfBooks} Book Results Found!
+          {fetchedBooks.length} Book Results Found!
         </Heading>
         <br />
         <br />
-        <BookCardAssembly foundBooks={book_examples} />
+        <BookCardAssembly foundBooks={fetchedBooks} />
         {/* <EmailShareCard/> */}
       </Box>
     </>

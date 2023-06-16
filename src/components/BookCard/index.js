@@ -47,17 +47,15 @@ function BookCard(props) {
   /* ------------------------- */
   // USEEFFECT WHEN SUGGESTED BOOK IS CLICKED ON
   /* ------------------------- */
-  useEffect(() => {
-    if (selectBook) {
-      console.log("You added book!");
-      // addBook();
-    } else {
-      console.log("You took out a book!");
-      // minusBook();
-    }
+  // useEffect(() => {
+  //   if (selectBook) {
+  //     console.log("You added book!");
+  //   } else {
+  //     console.log("You took out a book!");
+  //   }
 
-    return () => console.log("unmounting...");
-  }, [selectBook]);
+  //   return () => console.log("unmounting...");
+  // }, [selectBook]);
 
   /* ------------------------- */
   // CARD BUTTONS DETAILS
@@ -220,11 +218,14 @@ function BookCard(props) {
         boxShadow="xl"
         cursor={"pointer"}
       >
-        <Stack direction={{ base: "row", sm: "column", md: "column", lg:"row" }} align={"center"}>
+        <Stack
+          direction={{ base: "column", sm: "column", md: "column", lg: "row" }}
+          align={"center"}
+        >
           <Image
             objectFit="contain"
             fit={"contain"}
-            maxW={{ base: "500px", sm: "200px" }}
+            maxW={{ lg: "300px", sm: "300px" }}
             alignContent={"center"}
             src={props.cover}
             alt={props.name + " book cover"}
@@ -260,7 +261,7 @@ function BookCard(props) {
                   size={"3em"}
                 />
               </Box>
-              <Divider zIndex={1} size={"lg"}/>
+              <Divider zIndex={1} size={"lg"} />
               <Heading size="md">{props.name}</Heading>
               <Heading size="xs" color={"grey"}>
                 {props.author}
