@@ -56,7 +56,7 @@ function CountSlider({ BookAmount }) {
         </SliderTrack>
         <SliderThumb fontSize="sm" boxSize="32px" children={value} />
       </Slider>
-      {console.log("This is the value: --> " + value)}
+      {/* {console.log("This is the value: --> " + value)} */}
     </Flex>
   );
 }

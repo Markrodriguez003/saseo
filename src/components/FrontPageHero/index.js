@@ -29,7 +29,7 @@ import BookmarkHeader from "components/ui/BookmarkHeader";
 import PageDesignWaves from "components/ui/PageDesignWaves";
 
 // LIBS / UTILITIES
-import FetchBook from "lib/FetchBooks";
+import FetchBook from "lib/OrganizeBooks";
 
 // IMAGES
 import bgHero from "images/backgrounds/Hero-Book.png";

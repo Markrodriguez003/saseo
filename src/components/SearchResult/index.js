@@ -5,7 +5,7 @@ import { Suspense, useState, useContext } from "react";
 import BookCard from "../BookCard";
 import book_examples from "../../data/book_examples.json";
 import EmailShareCard from "../EmailShareCard";
-import { fetchedBooksResults } from "lib/FetchBooks";
+import { fetchedBooksResults } from "lib/OrganizeBooks";
 import { SearchData } from "components/pages/BookSuggestion";
 // ASSETS - IMAGES
 import emptySearchImg from "../../images/NoBookFound.png";
@@ -32,6 +32,7 @@ function BookCardAssembly(props) {
         <Heading color={"grey"} paddingTop={6}>
           Unfortunately, No books found. :(
         </Heading>
+        {console.log("This is the books inside assembly--> " + props.foundBooks)}
       </Center>
     ));
 
@@ -39,8 +40,8 @@ function BookCardAssembly(props) {
 }
 
 export function SearchResult(props) {
-  const test = useContext(SearchData);
-  console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + JSON.stringify(test.bookData));
+  // const test = useContext(SearchData);
+  // console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + JSON.stringify(test.bookData));
   return (
     <>
       <Box
@@ -63,7 +64,9 @@ export function SearchResult(props) {
         </Heading>
         <br />
         <br />
-        <BookCardAssembly foundBooks={props.fetchedBooks} />
+        {/* <BookCardAssembly foundBooks={props.fetchedBooks} /> */}
+        {console.log("This is the books inside search result--> " + props.foundBooks)}
+
       </Box>
     </>
   );

@@ -22,17 +22,19 @@ import {
   Select,
   VStack,
   HStack,
+  Center,
 } from "@chakra-ui/react";
 import { FaSearch, FaBook } from "react-icons/fa";
 
-import FetchBooks from "lib/FetchBooks";
-
+import OrganizeBooks from "lib/OrganizeBooks";
+import axios from "axios";
 import { useState } from "react";
-import { SearchData } from "components/pages/BookSuggestion";
-import CountSlider from "../CountSlider";
-import { useContext } from "react";
-import "./BookSuggestionForm.design.css";
 
+import CountSlider from "../CountSlider";
+import { useEffect } from "react";
+import "./BookSuggestionForm.design.css";
+import SearchResult from "components/SearchResult";
+import BookLoader from "components/ui/BookLoader/BookLoader";
 
 // ? Has to be async? & Move to separate file?
 // --------------------------------------------------------------------- //
@@ -47,8 +49,8 @@ function BookSubjectsOptions(options) {
     Object.keys(a) > Object.keys(b)
       ? 1
       : Object.keys(a) < Object.keys(b)
-        ? -1
-        : 0
+      ? -1
+      : 0
   );
 
   // --------------------------------------------------------------------- //
@@ -78,10 +80,12 @@ function BookSubjectsOptions(options) {
 // Book suggestion form
 // --------------------------------------------------------------------- //
 
-export function BookSearchForm() {
-  // const test = useContext(SearchData);
-  // console.log("This is the test --> " + test.test);
+// --------------------------------------------------------------------- //
+// Inserts fetched book data into variable
+// --------------------------------------------------------------------- //
 
+export function BookSearchForm() {
+  const [collectedBooks, setCollectedBooks] = useState();
   const [searchParameters, setSearchParameters] = useState({
     subject: "",
     amount: 1,
@@ -101,69 +105,114 @@ export function BookSearchForm() {
     }));
   };
 
+
+  //https://stackoverflow.com/questions/70120549/how-to-call-useeffect-again-on-button-click-in-react
+  async function FetchBooks(searchSubject, searchAmount) {
+    let fetchedBooks;
+    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=200&details=false&published_in=2000-2100&language:eng`;
+    await axios
+     .get(search)
+      .then(function (response) {
+        // handle success
+        // console.log(response);
+        return response.data.docs;
+      }).then((data)=>{
+        
+        fetchedBooks = data;
+        setCollectedBooks(OrganizeBooks(fetchedBooks, searchParameters.amount));
+        console.log("data is here baby --> " + collectedBooks);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("This is the error when fetching books --> " + error);
+      })
+    
+   
+    // return fetchedBooks;
+  }
+
+  useEffect(() => {
+    console.log("hey ths --> " + collectedBooks);
+  }, [collectedBooks, setCollectedBooks]);
+
   return (
-    <Box
-      display="flex"
-      flexDirection={"row"}
-      alignItems="center"
-      justifyContent="center"
-      marginTop={0}
-      marginBottom={8}
-      backgroundColor={"mintcream"}
-    // backgroundColor={"#A2E4B8"}
-    >
-      <VStack gap={"25px"}>
-        <HStack>
-          <FaBook size={"45px"} color="darkcyan" />
+    <>
+      <Box
+        display="flex"
+        flexDirection={"row"}
+        alignItems="center"
+        justifyContent="center"
+        marginTop={0}
+        marginBottom={8}
+        backgroundColor={"mintcream"}
+        // backgroundColor={"#A2E4B8"}
+      >
+        <VStack gap={"25px"}>
+          <HStack>
+            <FaBook size={"45px"} color="darkcyan" />
 
-          <Heading
-            as="h1"
-            size={"2xl"}
-            color={"darkcyan"}
-            textShadow="1px 1px darkgreen"
+            <Heading
+              as="h1"
+              size={"2xl"}
+              color={"darkcyan"}
+              textShadow="1px 1px darkgreen"
+            >
+              Find me a book!
+            </Heading>
+          </HStack>
+          <Select
+            variant={"outline"}
+            // backgroundColor={"darkcyan"}
+            backgroundColor={"white"}
+            // color={"white"}
+            color={"black"}
+            border={"3px solid darkcyan"}
+            placeholder="Choose a book genre"
+            onChange={(e) => {
+              BookSubject(e.target.value);
+            }}
           >
-            Find me a book!
-          </Heading>
-        </HStack>
-        <Select
-          variant={"outline"}
-          // backgroundColor={"darkcyan"}
-          backgroundColor={"white"}
-          // color={"white"}
-          color={"black"}
-          border={"3px solid darkcyan"}
-          placeholder="Choose a book genre"
-          onChange={(e) => {
-            BookSubject(e.target.value);
-          }}
-        >
-          <BookSubjectsOptions />
-        </Select>
-        <Flex
-          w="100%"
-          flex
-          flexDirection={"column"}
-          textAlign={"center"}
-          gap={"12px"}
-        >
-          <Heading as="h3" size="xs" color={"grey"}>
-            How many book suggestions?
-          </Heading>
-          <CountSlider BookAmount={BookAmount} />
-        </Flex>
+            <BookSubjectsOptions />
+          </Select>
+          <Flex
+            w="100%"
+            flex
+            flexDirection={"column"}
+            textAlign={"center"}
+            gap={"12px"}
+          >
+            <Heading as="h3" size="xs" color={"grey"}>
+              How many book suggestions?
+            </Heading>
+            <CountSlider BookAmount={BookAmount} />
+          </Flex>
 
-        <Button
-          leftIcon={<FaSearch />}
-          colorScheme="teal"
-          size="lg"
+          <Button
+            leftIcon={<FaSearch />}
+            colorScheme="teal"
+            size="lg"
+            onClick={() => {
+              FetchBooks(searchParameters.subject, searchParameters.amount);
+            }}
+          >
+            Search!
+          </Button>
+        </VStack>
+      </Box>
 
-          onClick={() => { FetchBooks(searchParameters.subject, searchParameters.amount) }}
-        >
-          Search!
-        </Button>
-      </VStack>
-
-    </Box >
+      {/* ------------------------------------------ */}
+      {/* Loading screen or search results */}
+      {/* ------------------------------------------ */}
+      {collectedBooks ? (
+        <SearchResult fetchedBooks={collectedBooks} />
+      ) : (
+        <Box mt={20}>
+          <Center>
+            <BookLoader />
+          </Center>
+        </Box>
+      )}
+    </>
   );
 }
 

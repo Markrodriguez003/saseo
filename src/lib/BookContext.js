@@ -2,7 +2,7 @@ import { useState, createContext } from "react";
 
 // EXTERNAL COMPONENTS
 import BookSearchForm from "components/BookSearchForm";
-import FetchBooks from "lib/FetchBooks";
+import FetchBooks from "lib/OrganizeBooks";
 import SearchResult from "components/SearchResult";
 
 // --------------------------------------------------------------------- //
