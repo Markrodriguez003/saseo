@@ -1,18 +1,21 @@
 import axios from "axios";
-import { createContext } from "react";
+import { useContext } from "react";
 import { Center } from "@chakra-ui/react";
 import BookLoader from "../components/ui/BookLoader/BookLoader";
 import SearchResult from "components/SearchResult";
-
+import { SearchData } from "components/pages/BookSuggestion";
 // NOTES
 // https://upmostly.com/tutorials/calling-a-react-component-on-button-click#:~:text=Building%20Out%20the%20Basic%20Structure&text=%2F*%20Write%20a%20button%20component,whenever%20the%20button%20is%20clicked.
 
-// useContext to take api fetched books and have them available outside component to searchresult component
-export const fetchedBooksResults = createContext([]);
+
 
 // * GRABS THE LARGE OPENLIBRARY API ARRAY OF BOOK OBJECTS, CHOOSES RANDOM BOOKS, THEN SORTS DATA INTO NEW OBJECTS DEPENDING ON HOW MANY BOOK SUGGESTIONS USERS WANTS
 // * THEN RETURNS NEW ARRAY OF OBJECTS
 function pullBooks(fetchedBooks, searchAmount = 20) {
+  
+  const test = useContext(SearchData);
+  console.log("This is the test --> " + test.test);
+
   let finalizedBookArry = [];
   // LOOPS
   for (var i = 0; i < searchAmount; i++) {
@@ -34,9 +37,9 @@ function pullBooks(fetchedBooks, searchAmount = 20) {
 
     console.log(
       "This is the pulled book --> " +
-        fetchedBooks[random].title +
-        " ==> author --> " +
-        fetchedBooks[random].author_name
+      fetchedBooks[random].title +
+      " ==> author --> " +
+      fetchedBooks[random].author_name
     );
     let pd = fetchedBooks[random].publish_year.sort(function (a, b) {
       return a - b;
@@ -70,7 +73,7 @@ function FetchBooks(searchSubject, searchAmount) {
     .get(search)
     .then(function (response) {
       // handle success
-      console.log(response);
+      // console.log(response);
 
       fetchedBooks = pullBooks(response.data.docs, searchAmount);
       // console.log("Book objects below:");
@@ -126,11 +129,8 @@ function FetchBooks(searchSubject, searchAmount) {
       // always executed
     });
   // fetchedBooks
-  return (
-    <>
-      <SearchResult fetchedBooks={fetchedBooks} />
-    </>
-  );
+  return fetchedBooks;
+
 }
 
 export default FetchBooks;

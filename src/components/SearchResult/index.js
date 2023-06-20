@@ -6,11 +6,11 @@ import BookCard from "../BookCard";
 import book_examples from "../../data/book_examples.json";
 import EmailShareCard from "../EmailShareCard";
 import { fetchedBooksResults } from "lib/FetchBooks";
-
+import { SearchData } from "components/pages/BookSuggestion";
 // ASSETS - IMAGES
 import emptySearchImg from "../../images/NoBookFound.png";
 
-// let books;
+
 function BookCardAssembly(props) {
   // ARRAY OF BOOKS CARDS CREATED FROM JSON FILE ABOVE
 
@@ -19,27 +19,28 @@ function BookCardAssembly(props) {
   // console.log("Book result -> " + book_examples.books.length);
   props.foundBooks
     ? (books = props.foundBooks.books.map((book, id) => (
-        <Suspense>{BookCard(book)}</Suspense>
-      )))
+      <Suspense>{BookCard(book)}</Suspense>
+    )))
     : (books = (
-        <Center
-          flexDirection={"column"}
-          textAlign={"center"}
-          alignItems="center"
-          key={"No-books-found"}
-        >
-          <Image src={emptySearchImg} boxSize="350px" borderRadius="full" />
-          <Heading color={"grey"} paddingTop={6}>
-            Unfortunately, No books found. :(
-          </Heading>
-        </Center>
-      ));
+      <Center
+        flexDirection={"column"}
+        textAlign={"center"}
+        alignItems="center"
+        key={"No-books-found"}
+      >
+        <Image src={emptySearchImg} boxSize="350px" borderRadius="full" />
+        <Heading color={"grey"} paddingTop={6}>
+          Unfortunately, No books found. :(
+        </Heading>
+      </Center>
+    ));
 
   return books;
 }
 
-export function SearchResult({fetchedBooks}) {
-  console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + fetchedBooks);
+export function SearchResult(props) {
+  const test = useContext(SearchData);
+  console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + JSON.stringify(test.bookData));
   return (
     <>
       <Box
@@ -48,8 +49,6 @@ export function SearchResult({fetchedBooks}) {
         paddingBottom={2}
         paddingTop={4}
         marginBottom={20}
-
-        // paddingRight={20}
       >
         <Divider />
         <Divider marginBottom={8} />
@@ -60,12 +59,11 @@ export function SearchResult({fetchedBooks}) {
           float={"right"}
           paddingRight={10}
         >
-          {fetchedBooks.length} Book Results Found!
+          {/* {fetchedBooks.length} Book Results Found! */}
         </Heading>
         <br />
         <br />
-        <BookCardAssembly foundBooks={fetchedBooks} />
-        {/* <EmailShareCard/> */}
+        <BookCardAssembly foundBooks={props.fetchedBooks} />
       </Box>
     </>
   );

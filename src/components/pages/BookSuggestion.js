@@ -8,10 +8,25 @@ import SearchResult from "components/SearchResult";
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
 // --------------------------------------------------------------------- //
+
+
+export const SearchData = createContext();
+
 function BookSuggestion() {
+
+  const [bookData, setBookData] = useState({
+    test: "testttttt!",
+    showearch: false,
+    books: [],
+  });
+
   return (
     <>
-      <BookSearchForm />
+      <SearchData.Provider value={{bookData, setBookData}}>
+        <BookSearchForm />
+        {/* <SearchResult showSearch={bookData.showSearch} fetchedBooks = {bookData.books}/> */}
+        <SearchResult showSearch={bookData.showSearch} />
+      </SearchData.Provider>
     </>
   );
 }

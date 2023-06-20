@@ -28,9 +28,11 @@ import { FaSearch, FaBook } from "react-icons/fa";
 import FetchBooks from "lib/FetchBooks";
 
 import { useState } from "react";
-
+import { SearchData } from "components/pages/BookSuggestion";
 import CountSlider from "../CountSlider";
+import { useContext } from "react";
 import "./BookSuggestionForm.design.css";
+
 
 // ? Has to be async? & Move to separate file?
 // --------------------------------------------------------------------- //
@@ -45,8 +47,8 @@ function BookSubjectsOptions(options) {
     Object.keys(a) > Object.keys(b)
       ? 1
       : Object.keys(a) < Object.keys(b)
-      ? -1
-      : 0
+        ? -1
+        : 0
   );
 
   // --------------------------------------------------------------------- //
@@ -77,6 +79,9 @@ function BookSubjectsOptions(options) {
 // --------------------------------------------------------------------- //
 
 export function BookSearchForm() {
+  // const test = useContext(SearchData);
+  // console.log("This is the test --> " + test.test);
+
   const [searchParameters, setSearchParameters] = useState({
     subject: "",
     amount: 1,
@@ -105,7 +110,7 @@ export function BookSearchForm() {
       marginTop={0}
       marginBottom={8}
       backgroundColor={"mintcream"}
-      // backgroundColor={"#A2E4B8"}
+    // backgroundColor={"#A2E4B8"}
     >
       <VStack gap={"25px"}>
         <HStack>
@@ -146,18 +151,19 @@ export function BookSearchForm() {
           </Heading>
           <CountSlider BookAmount={BookAmount} />
         </Flex>
+
         <Button
           leftIcon={<FaSearch />}
           colorScheme="teal"
           size="lg"
-          onClick={() => {
-            FetchBooks(searchParameters.subject, searchParameters.amount);
-          }}
+
+          onClick={() => { FetchBooks(searchParameters.subject, searchParameters.amount) }}
         >
           Search!
         </Button>
       </VStack>
-    </Box>
+
+    </Box >
   );
 }
 
