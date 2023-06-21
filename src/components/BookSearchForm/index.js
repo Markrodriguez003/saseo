@@ -1,9 +1,9 @@
 // --------------------------------------------------------------------- //
 // NOTES
 // --------------------------------------------------------------------- //
-
+// https://upmostly.com/tutorials/calling-a-react-component-on-button-click#:~:text=Building%20Out%20the%20Basic%20Structure&text=%2F*%20Write%20a%20button%20component,whenever%20the%20button%20is%20clicked.
+//https://stackoverflow.com/questions/70120549/how-to-call-useeffect-again-on-button-click-in-react
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
-
 // https://blog.devgenius.io/how-to-pass-data-from-child-to-parent-in-react-33ed99a90f43
 
 // --------------------------------------------------------------------- //
@@ -76,17 +76,10 @@ function BookSubjectsOptions(options) {
 }
 
 // --------------------------------------------------------------------- //
-// Book suggestion form
-// --------------------------------------------------------------------- //
-
-// --------------------------------------------------------------------- //
 // Inserts fetched book data into variable
 // --------------------------------------------------------------------- //
 
 export function BookSearchForm() {
-
-
-  
   const [collectedBooks, setCollectedBooks] = useState();
   const [searchParameters, setSearchParameters] = useState({
     subject: "",
@@ -107,30 +100,26 @@ export function BookSearchForm() {
     }));
   };
 
- 
-
-  //https://stackoverflow.com/questions/70120549/how-to-call-useeffect-again-on-button-click-in-react
-  async function FetchBooks(searchSubject, searchAmount) {
- 
-    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=200&details=false&published_in=2000-2100&language:eng`;
+  // ! ADD THROTTLE TO THIS API CALL SO USER DOESN'T IMMEDIATELY SPAM CLICK SUBMIT BUTTON
+  async function FetchBooks(searchSubject) {
+    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=200&jscmd=data&details=true&published_in=2000-2100&language:eng`;
     await axios
-     .get(search)
+      .get(search)
       .then(function (response) {
- 
-        // console.log(response);
-       const fetchedBooks = OrganizeBooks(response.data.docs, searchParameters.amount);
+        // console.log("TESTING TO SEE IF DESCRIPTION IS IN! : " + JSON.stringify(response))
+        console.log(response)
+        const fetchedBooks = OrganizeBooks(
+          response.data.docs,
+          searchParameters.amount
+        );
         setCollectedBooks(fetchedBooks);
-        console.log("data is here baby --> " + fetchedBooks);
-
-      }) 
+        // console.log("data is here baby --> " + fetchedBooks);
+      })
       .catch(function (error) {
         // handle error
-        console.log("This is the error when fetching books --> " + error);
-      })
-    
+        console.log("This application has drawn an error when fetching books --> " + error);
+      });
   }
-
-
 
   return (
     <>
@@ -142,7 +131,6 @@ export function BookSearchForm() {
         marginTop={0}
         marginBottom={8}
         backgroundColor={"mintcream"}
-        // backgroundColor={"#A2E4B8"}
       >
         <VStack gap={"25px"}>
           <HStack>
@@ -189,7 +177,7 @@ export function BookSearchForm() {
             colorScheme="teal"
             size="lg"
             onClick={() => {
-              FetchBooks(searchParameters.subject, searchParameters.amount);
+              FetchBooks(searchParameters.subject);
             }}
           >
             Search!

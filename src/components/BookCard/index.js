@@ -1,3 +1,54 @@
+// ------------------------------------
+// NOTES
+// -----------------------------------
+
+// formatting notes
+
+// console.log("Book objects below:");
+// x.forEach((b) => console.log(b));
+// console.log(`This is the pulled array book: ${x[2].title}`);
+
+// DESCRIPTION
+// let description =
+//   "https://openlibrary.org/" + response.data.docs[191].key + ".json";
+
+// BOOK RATINGS
+// let rating =
+//   "https://openlibrary.org" +
+//   response.data.docs[191].key +
+//   "/ratings.json";
+
+// BOOK COVER
+// let cover =
+//   "https://covers.openlibrary.org/b/isbn/" +
+//   response.data.docs[191].isbn[0] +
+//   "-L.jpg";
+
+//   TESTING
+// console.log(cover);
+// console.log(rating);
+// console.log(description);
+
+// LIBRARY THING + LIBRARYTHING_ID
+// https://www.librarything.com/work/ <----4220>
+
+// GOODREADS URL + GOODREADS_ID // RE-ARRANGE TO LARGEST NUMBER FOR ENGLISH VERSION?
+// https://www.goodreads.com/book/show/<----738228>
+// alt version -> https://www.goodreads.com/search?utf8=%E2%9C%93&q=THE+DARK+TOWER&search_type=books
+// alt version -> https://www.goodreads.com/search?utf8=%E2%9C%93&q=THE+mist&search_type=books
+
+// AMAZON URL + AMAZON_ID
+// https://www.amazon.com/dp/<----B006RLQ456>
+
+// AUDIBLE
+// https://www.audible.com/search?keywords=the+mist&ref-override=a_hp_t1_header_search&k=the+mist&crid=2KPCXRBLTF6AN&sprefix=the+mist%2Cna-audible-us%2C76&i=na-audible-us&url=search-alias%3Dna-audible-us&ref=nb_sb_noss_1
+
+// OVERDRIVE URL + OVERDRIVE_ID
+// https://www.overdrive.com/media/<----E7168E5B-47F0-41A1-8D8E-83F05C44985B>
+
+// BETTER WORLD BOOK
+// https://www.betterworldbooks.com/search/results?q=THE%20MAGIC%20FINGER <--- title = book title with spaces between words replaced with %20 and capitalized
+
 import {
   Box,
   Image,
@@ -30,6 +81,8 @@ import { RiBookmark3Fill } from "react-icons/ri";
 import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import "./BookCard.design.css";
+
+import axios from "axios";
 
 // IMAGES
 import missingB from "../../images/missing-cover.png";
@@ -179,6 +232,11 @@ function BookCard(props) {
     });
   }
 
+  const addImageFallback = (e) => {
+    e.currentTarget.src = "../../images/missing-cover.png";
+    console.log(`This book does not have an image loaded!`);
+  };
+
   return (
     <Center key={props.name + "book"}>
       {/* ------------------------- */}
@@ -187,7 +245,7 @@ function BookCard(props) {
       <Modal isOpen={isOpen} onClose={onClose} size={"xl"} isCentered>
         <ModalOverlay alignContent={"center"} />
         <ModalContent justifyContent={"center"}>
-          <ModalHeader>{props.name}</ModalHeader>
+          <ModalHeader fontSize={"2rem"}>{props.title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody
             alignContent={"center"}
@@ -196,7 +254,13 @@ function BookCard(props) {
             width={"100%"}
           >
             <Box width={"100%"}>
-              <Image src={props.cover} boxSize={"650px"} align={"center"} />
+              {/* error handle this! Fallback not working and sometimes errors out */}
+
+              <Image
+                src={`https://covers.openlibrary.org/b/isbn/${props.isbn[0]}-L.jpg`}
+                boxSize={"650px"}
+                align={"center"}
+              />
             </Box>
           </ModalBody>
         </ModalContent>
@@ -227,9 +291,12 @@ function BookCard(props) {
             fit={"contain"}
             maxW={{ lg: "300px", sm: "300px" }}
             alignContent={"center"}
-            src={props.cover}
-            alt={props.name + " book cover"}
-            fallbackSrc={missingB}
+            // error handle this! Fallback not working and sometimes errors out
+            src={`https://covers.openlibrary.org/b/isbn/${props.isbn[0]}-L.jpg`}
+            alt={props.title + " book cover"}
+            // fallbackSrc={missingB}
+            onError={(e) => addImageFallback}
+            // fallbackSrc={missingB}
             onClick={onOpen}
           />
 
@@ -262,14 +329,15 @@ function BookCard(props) {
                 />
               </Box>
               <Divider zIndex={1} size={"lg"} />
-              <Heading size="md">{props.name}</Heading>
+              <Heading size="lg">{props.title}</Heading>
               <Heading size="xs" color={"grey"}>
-                {props.author}
+                {props.author_name}
               </Heading>
               <Text fontSize="xs" as="i" color={"grey"}>
-                {props.subject}
+                {props.subject.slice(0, 3)}
               </Text>
-              <Text py="2">{props.blurb}</Text>
+              {/* <Text py="2">{props.description}</Text> */}
+              <Text py="2">{"placeholllder"}</Text>
             </CardBody>
             <CardFooter alignSelf={"center"}>
               <Wrap

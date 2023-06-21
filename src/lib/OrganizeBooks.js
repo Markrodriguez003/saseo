@@ -1,14 +1,11 @@
 import axios from "axios";
- 
-
-// NOTES
-// https://upmostly.com/tutorials/calling-a-react-component-on-button-click#:~:text=Building%20Out%20the%20Basic%20Structure&text=%2F*%20Write%20a%20button%20component,whenever%20the%20button%20is%20clicked.
 
 // * GRABS THE LARGE OPENLIBRARY API ARRAY OF BOOK OBJECTS, CHOOSES RANDOM BOOKS, THEN SORTS DATA INTO NEW OBJECTS DEPENDING ON HOW MANY BOOK SUGGESTIONS USERS WANTS
 // * THEN RETURNS NEW ARRAY OF OBJECTS
 function OrganizeBooks(fetchedBooks, searchAmount = 20) {
   let finalizedBookArry = [];
-  // LOOPS
+
+  // Loops through massive book object and cuts it down to servicable book object
   for (var i = 0; i < searchAmount; i++) {
     let random = Math.floor(Math.random() * fetchedBooks.length);
     let {
@@ -26,15 +23,30 @@ function OrganizeBooks(fetchedBooks, searchAmount = 20) {
       title,
     } = fetchedBooks[random];
 
-    console.log(
-      "This is the pulled book --> " +
-      fetchedBooks[random].title +
-      " ==> author --> " +
-      fetchedBooks[random].author_name
-    );
+    // console.log(
+    //   "This is the pulled book --> " +
+    //   fetchedBooks[random].title +
+    //   " ==> author --> " +
+    //   fetchedBooks[random].author_name
+    // );
+
     let pd = fetchedBooks[random].publish_year.sort(function (a, b) {
       return a - b;
     });
+    // let description;
+    // // console.log("This is the book key work --> " + fetchedBooks[random].key);
+    // // console.log(`This is the book query url  -->  https://openlibrary.org/${fetchedBooks[random].key}.json`);
+    // axios
+    //   .get(`https://openlibrary.org/${fetchedBooks[random].key}`)
+    //   .then((res) => {
+    //     // description = res.data.description;
+    //     console.log(`BOOK DESCRIPTION: ${res}` )
+    //     // return response.description;
+    //   })
+    //   .catch((err) => {
+    //     console.log("Error in grabbing book decription--> " + err);
+    //     // console.log("Error decription--> " + err.response.data);
+    //   }); 
 
     let publish_year = pd[0];
     finalizedBookArry.push({
@@ -47,6 +59,7 @@ function OrganizeBooks(fetchedBooks, searchAmount = 20) {
       id_better_world_books,
       key,
       isbn,
+      // description: description,
       publish_year,
       rating_sortable,
       subject,
@@ -68,7 +81,7 @@ function OrganizeBooks(fetchedBooks, searchAmount = 20) {
 //       console.log(response);
 
 //       fetchedBooks = pullBooks(response.data.docs, searchAmount);
- 
+
 //       console.log(fetchedBooks);
 //     })
 //     .catch(function (error) {
