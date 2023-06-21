@@ -28,10 +28,9 @@ import { FaSearch, FaBook } from "react-icons/fa";
 
 import OrganizeBooks from "lib/OrganizeBooks";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import CountSlider from "../CountSlider";
-import { useEffect } from "react";
 import "./BookSuggestionForm.design.css";
 import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
@@ -85,6 +84,9 @@ function BookSubjectsOptions(options) {
 // --------------------------------------------------------------------- //
 
 export function BookSearchForm() {
+
+
+  
   const [collectedBooks, setCollectedBooks] = useState();
   const [searchParameters, setSearchParameters] = useState({
     subject: "",
@@ -105,35 +107,30 @@ export function BookSearchForm() {
     }));
   };
 
+ 
 
   //https://stackoverflow.com/questions/70120549/how-to-call-useeffect-again-on-button-click-in-react
   async function FetchBooks(searchSubject, searchAmount) {
-    let fetchedBooks;
+ 
     let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=200&details=false&published_in=2000-2100&language:eng`;
     await axios
      .get(search)
       .then(function (response) {
-        // handle success
+ 
         // console.log(response);
-        return response.data.docs;
-      }).then((data)=>{
-        
-        fetchedBooks = data;
-        setCollectedBooks(OrganizeBooks(fetchedBooks, searchParameters.amount));
-        console.log("data is here baby --> " + collectedBooks);
-      })
+       const fetchedBooks = OrganizeBooks(response.data.docs, searchParameters.amount);
+        setCollectedBooks(fetchedBooks);
+        console.log("data is here baby --> " + fetchedBooks);
+
+      }) 
       .catch(function (error) {
         // handle error
         console.log("This is the error when fetching books --> " + error);
       })
     
-   
-    // return fetchedBooks;
   }
 
-  useEffect(() => {
-    console.log("hey ths --> " + collectedBooks);
-  }, [collectedBooks, setCollectedBooks]);
+
 
   return (
     <>

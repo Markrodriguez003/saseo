@@ -17,6 +17,7 @@ function BookCardAssembly(props) {
   let books;
 
   // console.log("Book result -> " + book_examples.books.length);
+
   props.foundBooks
     ? (books = props.foundBooks.books.map((book, id) => (
       <Suspense>{BookCard(book)}</Suspense>
@@ -65,7 +66,7 @@ export function SearchResult(props) {
         <br />
         <br />
         {/* <BookCardAssembly foundBooks={props.fetchedBooks} /> */}
-        {console.log("This is the books inside search result--> " + props.foundBooks)}
+        {console.log("This is the books inside search result--> " + JSON.stringify(props.fetchedBooks))}
 
       </Box>
     </>
