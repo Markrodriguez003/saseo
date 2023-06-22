@@ -85,7 +85,7 @@ import "./BookCard.design.css";
 import axios from "axios";
 
 // IMAGES
-import missingB from "../../images/missing-cover.png";
+import missingBook from "../../images/missing-cover.png";
 
 // COMPONENTS
 
@@ -257,7 +257,7 @@ function BookCard(props) {
               {/* error handle this! Fallback not working and sometimes errors out */}
 
               <Image
-                src={`https://covers.openlibrary.org/b/isbn/${props.isbn[0]}-L.jpg`}
+                src={`https://covers.openlibrary.org/b/id/${props.cover_i}-L.jpg`}
                 boxSize={"650px"}
                 align={"center"}
               />
@@ -291,8 +291,13 @@ function BookCard(props) {
             fit={"contain"}
             maxW={{ lg: "300px", sm: "300px" }}
             alignContent={"center"}
-            // error handle this! Fallback not working and sometimes errors out
-            src={`https://covers.openlibrary.org/b/isbn/${props.isbn[0]}-L.jpg`}
+            // src={props.isbn === undefined ? missingBook : `https://covers.openlibrary.org/b/isbn/${props.isbn[0]}-L.jpg` }
+            // src={props.key === undefined ? missingBook : `https://covers.openlibrary.org/b/olid/${props.key.slice(0,4)}-L.jpg` }
+            src={
+              props.key === undefined
+                ? missingBook
+                : `https://covers.openlibrary.org/b/id/${props.cover_i}-L.jpg`
+            }
             alt={props.title + " book cover"}
             // fallbackSrc={missingB}
             onError={(e) => addImageFallback}

@@ -102,7 +102,7 @@ export function BookSearchForm() {
 
   // ! ADD THROTTLE TO THIS API CALL SO USER DOESN'T IMMEDIATELY SPAM CLICK SUBMIT BUTTON
   async function FetchBooks(searchSubject) {
-    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=200&jscmd=data&details=true&published_in=2000-2100&language:eng`;
+    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=250&jscmd=data&details=true&published_in=2000-2100&language:eng`;
     await axios
       .get(search)
       .then(function (response) {
