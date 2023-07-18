@@ -82,8 +82,6 @@ import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import "./BookCard.design.css";
 
-import axios from "axios";
-
 // IMAGES
 import missingBook from "../../images/missing-cover.png";
 
@@ -237,6 +235,8 @@ function BookCard(props) {
     console.log(`This book does not have an image loaded!`);
   };
 
+  console.log("This is the book description! --> " + props.description);
+
   return (
     <Center key={props.name + "book"}>
       {/* ------------------------- */}
@@ -289,7 +289,7 @@ function BookCard(props) {
           <Image
             objectFit="contain"
             fit={"contain"}
-            maxW={{ lg: "300px", sm: "300px" }}
+            maxW={{ lg: "325px", sm: "325px" }}
             alignContent={"center"}
             // src={props.isbn === undefined ? missingBook : `https://covers.openlibrary.org/b/isbn/${props.isbn[0]}-L.jpg` }
             // src={props.key === undefined ? missingBook : `https://covers.openlibrary.org/b/olid/${props.key.slice(0,4)}-L.jpg` }
@@ -301,7 +301,6 @@ function BookCard(props) {
             alt={props.title + " book cover"}
             // fallbackSrc={missingB}
             onError={(e) => addImageFallback}
-            // fallbackSrc={missingB}
             onClick={onOpen}
           />
 
@@ -341,8 +340,7 @@ function BookCard(props) {
               <Text fontSize="xs" as="i" color={"grey"}>
                 {props.subject.slice(0, 3)}
               </Text>
-              {/* <Text py="2">{props.description}</Text> */}
-              <Text py="2">{"placeholllder"}</Text>
+              <Text py="2">{props.description}</Text>
             </CardBody>
             <CardFooter alignSelf={"center"}>
               <Wrap

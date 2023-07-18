@@ -7,11 +7,6 @@
 // https://blog.devgenius.io/how-to-pass-data-from-child-to-parent-in-react-33ed99a90f43
 
 // --------------------------------------------------------------------- //
-// TEST DATA
-// --------------------------------------------------------------------- //
-import book_subjects from "../../data/book_subjects.json";
-
-// --------------------------------------------------------------------- //
 // EXTERNAL COMPONENTS
 // --------------------------------------------------------------------- //
 import {
@@ -25,7 +20,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { FaSearch, FaBook } from "react-icons/fa";
-
+import SubjectDropdownOptions from "../SubjectDropdownOptions";
 import OrganizeBooks from "lib/OrganizeBooks";
 import axios from "axios";
 import { useState, useCallback, useEffect } from "react";
@@ -34,46 +29,6 @@ import CountSlider from "../CountSlider";
 import "./BookSuggestionForm.design.css";
 import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
-
-// ? Has to be async? & Move to separate file?
-// --------------------------------------------------------------------- //
-// Book subject select component
-// --------------------------------------------------------------------- //
-function BookSubjectsOptions(options) {
-  // --------------------------------------------------------------------- //
-  // Sorts the JSON data of book subjects (will be used with API call)
-  // --------------------------------------------------------------------- //
-
-  const sorted_subjects = book_subjects.b_subjects.sort((a, b) =>
-    Object.keys(a) > Object.keys(b)
-      ? 1
-      : Object.keys(a) < Object.keys(b)
-      ? -1
-      : 0
-  );
-
-  // --------------------------------------------------------------------- //
-  // Inserts sorted book subjects into individual select option components
-  // --------------------------------------------------------------------- //
-
-  const subjects = sorted_subjects.map((book) => {
-    return (
-      <option
-        key={Object.keys(book)}
-        className="select_placeholder"
-        value={Object.values(book)}
-        style={{ color: "black", backgroundColor: "white" }}
-      >
-        {Object.keys(book)}{" "}
-      </option>
-    );
-  });
-
-  // --------------------------------------------------------------------- //
-  // Inserts array of option components into select component
-  // --------------------------------------------------------------------- //
-  return subjects;
-}
 
 // --------------------------------------------------------------------- //
 // Inserts fetched book data into variable
@@ -86,6 +41,7 @@ export function BookSearchForm() {
     amount: 1,
   });
 
+  // GRABS THE BOOK AMOUNT FROM THE FORM (SLIDER)
   const BookAmount = (BookAmount) => {
     setSearchParameters((prev) => ({
       ...prev,
@@ -93,6 +49,7 @@ export function BookSearchForm() {
     }));
   };
 
+  // GRABS THE BOOK SUBJECT FROM THE FORM (DROPDOWN)
   const BookSubject = (subject) => {
     setSearchParameters((prev) => ({
       ...prev,
@@ -100,14 +57,12 @@ export function BookSearchForm() {
     }));
   };
 
-  // ! ADD THROTTLE TO THIS API CALL SO USER DOESN'T IMMEDIATELY SPAM CLICK SUBMIT BUTTON
+  // ! ADD THROTTLE TO THIS API CALL SO USER DOESN'T IMMEDIATELY SPAM CLICK SUBMIT BUTTON / USEMEMO
   async function FetchBooks(searchSubject) {
-    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=250&jscmd=data&details=true&published_in=2000-2100&language:eng`;
+    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=250&jscmd=data&details=true&published_in=2000-2100&language:eng?details=true`;
     await axios
       .get(search)
-      .then(function (response) {
-        // console.log("TESTING TO SEE IF DESCRIPTION IS IN! : " + JSON.stringify(response))
-        console.log(response)
+      .then((response) => {
         const fetchedBooks = OrganizeBooks(
           response.data.docs,
           searchParameters.amount
@@ -117,7 +72,9 @@ export function BookSearchForm() {
       })
       .catch(function (error) {
         // handle error
-        console.log("This application has drawn an error when fetching books --> " + error);
+        console.log(
+          "This application has drawn an error when fetching books --> " + error
+        );
       });
   }
 
@@ -157,7 +114,7 @@ export function BookSearchForm() {
               BookSubject(e.target.value);
             }}
           >
-            <BookSubjectsOptions />
+            <SubjectDropdownOptions />
           </Select>
           <Flex
             w="100%"
@@ -202,3 +159,29 @@ export function BookSearchForm() {
 }
 
 export default BookSearchForm;
+
+// OLD CODE USED OPEN BOOKS LIBRARY API
+/* 
+
+ async function FetchBooks(searchSubject) {
+    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=250&jscmd=data&details=true&published_in=2000-2100&language:eng?details=true`;
+    await axios
+      .get(search)
+      .then(function (response) {
+        // console.log("TESTING TO SEE IF DESCRIPTION IS IN! : " + JSON.stringify(response))
+        console.log(response)
+        const fetchedBooks = OrganizeBooks(
+          response.data.docs,
+          searchParameters.amount
+        );
+        setCollectedBooks(fetchedBooks);
+        // console.log("data is here baby --> " + fetchedBooks);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("This application has drawn an error when fetching books --> " + error);
+      });
+  }
+
+
+*/
