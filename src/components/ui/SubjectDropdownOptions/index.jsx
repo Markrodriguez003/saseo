@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------- //
 // TEST DATA
 // --------------------------------------------------------------------- //
-import book_subjects from "../../data/book_subjects.json";
+import book_subjects from "../../../data/book_subjects.json";
 
 // ? Has to be async? & Move to separate file?
 // --------------------------------------------------------------------- //

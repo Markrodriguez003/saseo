@@ -20,28 +20,33 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { FaSearch, FaBook } from "react-icons/fa";
-import SubjectDropdownOptions from "../SubjectDropdownOptions";
-import OrganizeBooks from "lib/OrganizeBooks";
-import axios from "axios";
+import SubjectDropdownOptions from "../ui/SubjectDropdownOptions";
 import { useState, useCallback, useEffect } from "react";
 
 import CountSlider from "../CountSlider";
 import "./BookSuggestionForm.design.css";
 import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
+import FetchBooks from "lib/fetchBooks";
 
 // --------------------------------------------------------------------- //
-// Inserts fetched book data into variable
+//  Book search form & results panel
 // --------------------------------------------------------------------- //
 
 export function BookSearchForm() {
-  const [collectedBooks, setCollectedBooks] = useState();
+  // todo: Change this to useReducer(?)
+  // sets the loading state of our search result (Blank, loading, error & results)
+  const [loadState, setLoadState] = useState("Intial");
+  // Sets the collected & organized books from our api request
+  const [collectedBooks, setCollectedBooks] = useState(undefined);
+  // Sets the search parameters user put into book genre search form
   const [searchParameters, setSearchParameters] = useState({
     subject: "",
     amount: 1,
   });
 
-  // GRABS THE BOOK AMOUNT FROM THE FORM (SLIDER)
+  // Grabs how many books user wants to see
+  // todo: Change the amount and paginate results
   const BookAmount = (BookAmount) => {
     setSearchParameters((prev) => ({
       ...prev,
@@ -49,7 +54,8 @@ export function BookSearchForm() {
     }));
   };
 
-  // GRABS THE BOOK SUBJECT FROM THE FORM (DROPDOWN)
+  // Grabs which book subject use wants to query
+  // todo: Change it so user can add multiple genres
   const BookSubject = (subject) => {
     setSearchParameters((prev) => ({
       ...prev,
@@ -57,25 +63,20 @@ export function BookSearchForm() {
     }));
   };
 
-  // ! ADD THROTTLE TO THIS API CALL SO USER DOESN'T IMMEDIATELY SPAM CLICK SUBMIT BUTTON / USEMEMO
-  async function FetchBooks(searchSubject) {
-    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=250&jscmd=data&details=true&published_in=2000-2100&language:eng?details=true`;
-    await axios
-      .get(search)
-      .then((response) => {
-        const fetchedBooks = OrganizeBooks(
-          response.data.docs,
-          searchParameters.amount
-        );
-        setCollectedBooks(fetchedBooks);
-        // console.log("data is here baby --> " + fetchedBooks);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(
-          "This application has drawn an error when fetching books --> " + error
-        );
-      });
+  // HANDLES GRABBING OF FORMATTED & ORAGNIZED BOOKS FETCHED FROM API
+  async function sendBooksRequest() {
+    try {
+      const books = await FetchBooks(
+        searchParameters.subject,
+        searchParameters.amount
+      );
+      await setCollectedBooks(books);
+      await setLoadState("Loaded");
+      console.log(`This is the collected books  ${collectedBooks}`);
+    } catch (err) {
+      console.log(err.message);
+      loadState("Error");
+    }
   }
 
   return (
@@ -134,7 +135,8 @@ export function BookSearchForm() {
             colorScheme="teal"
             size="lg"
             onClick={() => {
-              FetchBooks(searchParameters.subject);
+              setLoadState("Loading");
+              sendBooksRequest();
             }}
           >
             Search!
@@ -143,45 +145,25 @@ export function BookSearchForm() {
       </Box>
 
       {/* ------------------------------------------ */}
-      {/* Loading screen or search results */}
+      {/* Loading search results to either intial state, loading state, loaded state and error state */}
       {/* ------------------------------------------ */}
-      {collectedBooks ? (
+      {loadState === "Loaded" ? (
         <SearchResult fetchedBooks={collectedBooks} />
-      ) : (
+      ) : loadState === "Intial" ? (
+        <></>
+      ) : loadState === "Loading" ? (
         <Box mt={20}>
           <Center>
             <BookLoader />
           </Center>
         </Box>
+      ) : (
+        <>
+          <h1>An error has occured!</h1>
+        </>
       )}
     </>
   );
 }
 
 export default BookSearchForm;
-
-// OLD CODE USED OPEN BOOKS LIBRARY API
-/* 
-
- async function FetchBooks(searchSubject) {
-    let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=250&jscmd=data&details=true&published_in=2000-2100&language:eng?details=true`;
-    await axios
-      .get(search)
-      .then(function (response) {
-        // console.log("TESTING TO SEE IF DESCRIPTION IS IN! : " + JSON.stringify(response))
-        console.log(response)
-        const fetchedBooks = OrganizeBooks(
-          response.data.docs,
-          searchParameters.amount
-        );
-        setCollectedBooks(fetchedBooks);
-        // console.log("data is here baby --> " + fetchedBooks);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log("This application has drawn an error when fetching books --> " + error);
-      });
-  }
-
-
-*/

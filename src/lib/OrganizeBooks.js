@@ -1,9 +1,7 @@
 import axios from "axios";
 
-// IMAGES
-
-// * GRABS THE LARGE OPENLIBRARY API ARRAY OF BOOK OBJECTS, CHOOSES RANDOM BOOKS, THEN SORTS DATA INTO NEW OBJECTS DEPENDING ON HOW MANY BOOK SUGGESTIONS USERS WANTS
-// * THEN RETURNS NEW ARRAY OF OBJECTS
+// * GRABS THE LARGE OPENLIBRARY API ARRAY OF BOOK OBJECTS, CHOOSES RANDOM BOOKS, THEN SORTS DATA INTO NEW OBJECTS DEPENDING
+// * ON HOW MANY BOOK SUGGESTIONS USERS WANTS THEN RETURNS NEW ARRAY OF OBJECTS
 function OrganizeBooks(fetchedBooks, searchAmount = 20) {
   let finalizedBookArry = [];
 
@@ -37,38 +35,29 @@ function OrganizeBooks(fetchedBooks, searchAmount = 20) {
 
     axios
       .get(
-        // `https://openlibrary.org/api/books?bibkeys=OLID:${key.slice(7)}&jscmd=data&format=json`
         // `https://openlibrary.org/api/books?bibkeys=OLID:${key.slice(7)}&jscmd=details&format=json`
         `https://openlibrary.org/works/${key.slice(7)}.json`
-        // `https://openlibrary.org/works/OL827326W.json`
       )
       .then((res) => {
-        // CHECKS TO SEE IF THERE IS AN AVAILABLE BOOK DESCRIPTION. IF NOT, WE PROVDE FALLBACK DEFAULT DESCRIPTION
-        // if (res.data.description === undefined) {
-        //   return (description = "Book Description Not Found!");
-        // } else {
-        //   description = res.data.description.value;
-        // }
-        // console.log("Returning response keys --> " + Object.keys(res.data));
-
+        // CHECKS TO SEE IF THERE IS AN AVAILABLE BOOK DESCRIPTION. IF NOT, WE PROVIDE FALLBACK DEFAULT DESCRIPTION
+        // BOOK DESCRIPTION SOMETIMES IS ENTERED AS DESCRIPTION OR DESCRIPTION.VALUE
         if (res.data.description !== undefined) {
           if (Object.keys(res.data.description).includes("value") === true) {
             description = res.data.description.value;
-            console.log("Book Description value is --> " + description);
           } else {
             description = res.data.description;
-            console.log("Book Description is --> " + description);
           }
         } else {
           description = "Book Description Not Found!";
-          console.log("Fallback Book Description is --> " + description);
         }
       })
       .catch((err) => {
         console.log("Error in grabbing book decription--> " + err);
-        description = "Book Description Not Found!";
       });
 
+
+  
+    // RETURNS FINALIZED BOOKS ARRAY
     finalizedBookArry.push({
       author_name,
       id_amazon,
