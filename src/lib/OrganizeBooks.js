@@ -6,11 +6,12 @@ import CoverImageCheck from "./CoverImageCheck";
 export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
   // * Final array that will hold all the organized, stripped  & final book objects
   let finalizedBookArry = [];
-
+  
   // * Loops through massive book object array & chooses random book object, grabs the necessary data, sorts it, then pushes it into final arry
   // todo: Set a condition to make sure that just in case the amount of books fetched are not enough to carry out search amount, fallback
   // todo: Set a condition to find duplicate books and eliminate them by choosing new book in its place
   // todo: Set a condition to find books that do not have any description or image and replace it with another book (obscure books)
+
   for (var i = 0; i < searchAmount; i++) {
     // * Creates random number within the limits of massive array of books fetched from api
     let random = Math.floor(Math.random() * fetchedBooks.length);

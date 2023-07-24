@@ -11,6 +11,9 @@ import SFooter from "./components/ui/SFooter";
 import Fonts from "./Fonts";
 import theme from "./theme";
 import NotificationToast from "./components/NotificationToast";
+import { Routes, Route } from "react-router-dom";
+// PAGES
+import RandomBookSuggestion from "./components/pages/RandomBookSuggestion";
 
 function App() {
   // 2. Wrap ChakraProvider at the root of your app
@@ -19,7 +22,14 @@ function App() {
       {/* <Fonts /> */}
       <SHeader />
       {/* <FrontPage /> */}
-      <BookSuggestion />
+      {/* <BookSuggestion /> */}
+      {/* <RandomBookSuggestion /> */}
+
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+        <Route path="suggest" element={<BookSuggestion />} />
+        <Route path="random" element={<RandomBookSuggestion />} />
+      </Routes>
     </ChakraProvider>
   );
 }

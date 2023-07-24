@@ -21,7 +21,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaSearch, FaBook } from "react-icons/fa";
-import SubjectDropdownOptions from "../ui/SubjectDropdownOptions";
+import DropdownOptions from "../ui/DropdownOptions";
 import CountSlider from "../CountSlider";
 import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
@@ -130,7 +130,7 @@ export function BookSearchForm() {
                 BookSubject(e.target.value);
               }}
             >   
-              <SubjectDropdownOptions type={"subject"} />
+              <DropdownOptions type={"subject"} />
             </Select>
             <Select
               variant={"outline"}
@@ -145,7 +145,7 @@ export function BookSearchForm() {
                 BookLanguage(e.target.value);
               }}
             >
-              <SubjectDropdownOptions type={"languages"} />
+              <DropdownOptions type={"languages"} />
             </Select>
           </Flex>
           <Flex
