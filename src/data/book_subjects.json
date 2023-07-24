@@ -9,6 +9,7 @@
         {"Fiction": "fiction"},
         {"Religion": "religion"},
         {"Biography": "biography"},
+        {"Children": "children"},
         {"Sports": "sports"},
         {"Music": "music"},
         {"Educational": "educational"},
@@ -16,11 +17,16 @@
         {"Manga": "manga"},
         {"Romance": "romance"},
         {"Thriller": "thriller"},
+        {"Anthology": "anthology"},
         {"Memoir": "memoir"},
         {"Cookbook": "Cookbook"},
         {"Crime": "crime"},
-        {"DIY": "diy"},
+        {"Psychology": "psychology"},
         {"Short Story": "short_story"},
+        {"Alternate History": "alternate_history"},
+        {"Satire": "satire"},
+        {"Journal": "journal"},
+        {"Philosophy": "philosophy"},
         {"Gender": "gender"},
         {"Science": "science"},
         {"Self Help": "self_help"},
@@ -34,6 +40,8 @@
         {"Photography": "photography"},
         {"How-to": "how_to"},
         {"Social": "social"},
-        {"Technology": "technology"}
+        {"Technology": "technology"},
+        {"Architecture": "architecture"},
+        {"Economics": "economics"}
     ]
 }

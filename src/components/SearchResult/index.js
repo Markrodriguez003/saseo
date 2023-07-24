@@ -10,15 +10,11 @@ import { SearchData } from "components/pages/BookSuggestion";
 import emptySearchImg from "../../images/NoBookFound.png";
 
 function BookCardAssembly(props) {
-  // ARRAY OF BOOKS CARDS CREATED FROM JSON FILE ABOVE
-
-  let books;
-
-  // console.log("Book result -> " + book_examples.books.length);
-
+ 
+let books;
   props.foundBooks
     ? (books = props.foundBooks.map((book, id) => (
-        <Suspense>{BookCard(book)}</Suspense>
+        <Suspense key={id}>{BookCard(book)}</Suspense>
       )))
     : (books = (
         <Center

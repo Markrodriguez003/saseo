@@ -235,8 +235,6 @@ function BookCard(props) {
     console.log(`This book does not have an image loaded!`);
   };
 
-  console.log("This is the book description! --> " + props.description);
-
   return (
     <Center key={props.name + "book"}>
       {/* ------------------------- */}
@@ -257,7 +255,11 @@ function BookCard(props) {
               {/* error handle this! Fallback not working and sometimes errors out */}
 
               <Image
-                src={`https://covers.openlibrary.org/b/id/${props.cover_i}-L.jpg`}
+                src={
+                  props.cover === undefined
+                    ? missingBook
+                    : `https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`
+                }
                 boxSize={"650px"}
                 align={"center"}
               />
@@ -294,10 +296,11 @@ function BookCard(props) {
             // src={props.isbn === undefined ? missingBook : `https://covers.openlibrary.org/b/isbn/${props.isbn[0]}-L.jpg` }
             // src={props.key === undefined ? missingBook : `https://covers.openlibrary.org/b/olid/${props.key.slice(0,4)}-L.jpg` }
             src={
-              props.key === undefined
+              props.cover === undefined
                 ? missingBook
-                : `https://covers.openlibrary.org/b/id/${props.cover_i}-L.jpg`
+                : `https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`
             }
+            // src={`https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`}
             alt={props.title + " book cover"}
             // fallbackSrc={missingB}
             onError={(e) => addImageFallback}

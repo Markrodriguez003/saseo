@@ -7,7 +7,7 @@
 // https://blog.devgenius.io/how-to-pass-data-from-child-to-parent-in-react-33ed99a90f43
 
 // --------------------------------------------------------------------- //
-// EXTERNAL COMPONENTS
+// External Components
 // --------------------------------------------------------------------- //
 import {
   Box,
@@ -19,20 +19,22 @@ import {
   HStack,
   Center,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { FaSearch, FaBook } from "react-icons/fa";
 import SubjectDropdownOptions from "../ui/SubjectDropdownOptions";
-import { useState, useCallback, useEffect } from "react";
-
 import CountSlider from "../CountSlider";
-import "./BookSuggestionForm.design.css";
 import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
-import FetchBooks from "lib/fetchBooks";
+import FetchBooks from "lib/FetchBooks";
+
+// CSS DESIGN
+import "./BookSuggestionForm.design.css";
 
 // --------------------------------------------------------------------- //
 //  Book search form & results panel
 // --------------------------------------------------------------------- //
 
+// todo: add language option
 export function BookSearchForm() {
   // todo: Change this to useReducer(?)
   // sets the loading state of our search result (Blank, loading, error & results)
@@ -43,6 +45,7 @@ export function BookSearchForm() {
   const [searchParameters, setSearchParameters] = useState({
     subject: "",
     amount: 1,
+    language: "eng",
   });
 
   // Grabs how many books user wants to see
@@ -63,12 +66,22 @@ export function BookSearchForm() {
     }));
   };
 
-  // HANDLES GRABBING OF FORMATTED & ORAGNIZED BOOKS FETCHED FROM API
+  // Grabs which book language use wants to query
+  // todo: Change it so user can add multiple genres
+  const BookLanguage = (language) => {
+    setSearchParameters((prev) => ({
+      ...prev,
+      language: language,
+    }));
+  };
+
+  // Handles grabbing of formatted & organized books fetched from api & sets loading state
   async function sendBooksRequest() {
     try {
       const books = await FetchBooks(
         searchParameters.subject,
-        searchParameters.amount
+        searchParameters.amount,
+        searchParameters.language
       );
       await setCollectedBooks(books);
       await setLoadState("Loaded");
@@ -103,20 +116,38 @@ export function BookSearchForm() {
               Find me a book!
             </Heading>
           </HStack>
-          <Select
-            variant={"outline"}
-            // backgroundColor={"darkcyan"}
-            backgroundColor={"white"}
-            // color={"white"}
-            color={"black"}
-            border={"3px solid darkcyan"}
-            placeholder="Choose a book genre"
-            onChange={(e) => {
-              BookSubject(e.target.value);
-            }}
-          >
-            <SubjectDropdownOptions />
-          </Select>
+          <Flex flex flexDirection={"row"} textAlign={"center"}>
+            <Select
+              variant={"outline"}
+              // backgroundColor={"darkcyan"}
+              backgroundColor={"white"}
+              // color={"white"}
+              color={"black"}
+              border={"3px solid darkcyan"}
+              placeholder="Genre?"
+              margin={"8px"}
+              onChange={(e) => {
+                BookSubject(e.target.value);
+              }}
+            >   
+              <SubjectDropdownOptions type={"subject"} />
+            </Select>
+            <Select
+              variant={"outline"}
+              // backgroundColor={"darkcyan"}
+              backgroundColor={"white"}
+              // color={"white"}
+              color={"black"}
+              border={"3px solid darkcyan"}
+              margin={"8px"}
+              placeholder="Language?"
+              onChange={(e) => {
+                BookLanguage(e.target.value);
+              }}
+            >
+              <SubjectDropdownOptions type={"languages"} />
+            </Select>
+          </Flex>
           <Flex
             w="100%"
             flex
@@ -130,6 +161,7 @@ export function BookSearchForm() {
             <CountSlider BookAmount={BookAmount} />
           </Flex>
 
+          {/* todo: add a way that user can press enter to press search */}
           <Button
             leftIcon={<FaSearch />}
             colorScheme="teal"

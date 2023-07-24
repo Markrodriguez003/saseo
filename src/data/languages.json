@@ -1,0 +1,28 @@
+{
+  "options": [
+    { "English": "eng" },
+    { "Spanish": "spa" },
+    { "Chinese": "zho" },
+    { "Hungarian": "hun" },
+    { "Arabic": "ara" },
+    { "Japanese": "jpn" },
+    { "Norwegian": "nor" },
+    { "German": "ger" },
+    { "Hebrew": "heb" },
+    { "Czech": "ces" },
+    { "Crotia": "hrv" },
+    { "Bulgarian": "bul" },
+    { "Armenian": "hye" },
+    { "Afrikaans": "afr" },
+    { "Korean": "kor" },
+    { "Polish": "pol" },
+    { "Swedish": "swe" },
+    { "Russian": "rus" },
+    { "Slovenian": "slv" },
+    { "Slovak": "slk" },
+    { "Catalan": "cat" },
+    { "French": "fre" },
+    { "Dutch": "nld" },
+    { "Hindi": "hin" }
+  ]
+}

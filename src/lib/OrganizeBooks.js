@@ -1,14 +1,24 @@
 import axios from "axios";
 
-// * GRABS THE LARGE OPENLIBRARY API ARRAY OF BOOK OBJECTS, CHOOSES RANDOM BOOKS, THEN SORTS DATA INTO NEW OBJECTS DEPENDING
-// * ON HOW MANY BOOK SUGGESTIONS USERS WANTS THEN RETURNS NEW ARRAY OF OBJECTS
-function OrganizeBooks(fetchedBooks, searchAmount = 20) {
+import CoverImageCheck from "./CoverImageCheck";
+
+// * Grabs the large array of fetched book objects, chooses random ones, then sorts them into a new array list according to user's params
+export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
+  // * Final array that will hold all the organized, stripped  & final book objects
   let finalizedBookArry = [];
 
-  // * LOOPS THROUGH MASSIVE BOOK OBJECT FROM GIANT FETCHED BOOK ARRAY, RANDOMLY CHOOSES ONE AND CUTS IT DOWN TO SERVICEABLE BOOK OBJECT
+  // * Loops through massive book object array & chooses random book object, grabs the necessary data, sorts it, then pushes it into final arry
+  // todo: Set a condition to make sure that just in case the amount of books fetched are not enough to carry out search amount, fallback
+  // todo: Set a condition to find duplicate books and eliminate them by choosing new book in its place
+  // todo: Set a condition to find books that do not have any description or image and replace it with another book (obscure books)
   for (var i = 0; i < searchAmount; i++) {
+    // * Creates random number within the limits of massive array of books fetched from api
     let random = Math.floor(Math.random() * fetchedBooks.length);
+
+    // * Grabs a random book from massive book object array
     let book = fetchedBooks[random];
+
+    // * Cuts down & separates all the important book data
     let {
       author_name,
       id_amazon,
@@ -25,19 +35,25 @@ function OrganizeBooks(fetchedBooks, searchAmount = 20) {
       title,
     } = book;
 
-    // * SORTS BOOK PUBLISHING YEAR TO THE LATEST YEAR
+    // * Sorts book publishing year to the latest year (it's sometimes random)
     let publish_year_b = book.publish_year.sort(function (a, b) {
       return a - b;
     });
 
-    // * GRABS DESCRIPTION FROM OBJECT
+    // * Book description var
     let description;
+    let cover;
 
-    axios
-      .get(
-        // `https://openlibrary.org/api/books?bibkeys=OLID:${key.slice(7)}&jscmd=details&format=json`
-        `https://openlibrary.org/works/${key.slice(7)}.json`
-      )
+    await CoverImageCheck(cover_i, title)
+      .then((c) => {
+        cover = c;
+      })
+      .catch((e) => {
+        console.log("An error has occured! " + e);
+      });
+
+    await axios
+      .get(`https://openlibrary.org/works/${key.slice(7)}.json`)
       .then((res) => {
         // CHECKS TO SEE IF THERE IS AN AVAILABLE BOOK DESCRIPTION. IF NOT, WE PROVIDE FALLBACK DEFAULT DESCRIPTION
         // BOOK DESCRIPTION SOMETIMES IS ENTERED AS DESCRIPTION OR DESCRIPTION.VALUE
@@ -55,8 +71,6 @@ function OrganizeBooks(fetchedBooks, searchAmount = 20) {
         console.log("Error in grabbing book decription--> " + err);
       });
 
-
-  
     // RETURNS FINALIZED BOOKS ARRAY
     finalizedBookArry.push({
       author_name,
@@ -67,8 +81,8 @@ function OrganizeBooks(fetchedBooks, searchAmount = 20) {
       id_librevox,
       id_better_world_books,
       key,
+      cover,
       isbn,
-      cover_i,
       description,
       publish_year_b,
       rating_sortable,
@@ -79,8 +93,6 @@ function OrganizeBooks(fetchedBooks, searchAmount = 20) {
 
   return finalizedBookArry;
 }
-
-export default OrganizeBooks;
 
 // ------------------------------------
 // NOTES

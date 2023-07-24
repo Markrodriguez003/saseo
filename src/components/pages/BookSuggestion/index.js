@@ -1,18 +1,26 @@
 import { useState, createContext } from "react";
 
 // EXTERNAL COMPONENTS
-import BookSearchForm from "components/BookSearchForm";
-import FetchBooks from "lib/OrganizeBooks";
-import SearchResult from "components/SearchResult";
+import BookSearchForm from "../../BookSearchForm";
 
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
 // --------------------------------------------------------------------- //
+
+export const SearchData = createContext();
+
 function BookSuggestion() {
+  const [bookData, setBookData] = useState({
+    test: "testttttt!",
+    showearch: false,
+    books: [],
+  });
+
   return (
     <>
-      <BookSearchForm />
-      <SearchResult />
+      <SearchData.Provider value={{ bookData, setBookData }}>
+        <BookSearchForm />
+      </SearchData.Provider>
     </>
   );
 }
