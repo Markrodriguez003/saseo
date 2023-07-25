@@ -1,16 +1,6 @@
-// ------------------------------------
-// NOTES
-// -----------------------------------
-
-// formatting notes
-
-// console.log("Book objects below:");
-// x.forEach((b) => console.log(b));
-// console.log(`This is the pulled array book: ${x[2].title}`);
-
-// DESCRIPTION
-// let description =
-//   "https://openlibrary.org/" + response.data.docs[191].key + ".json";
+// ? ------------------------------------
+// ? NOTES
+// ? -----------------------------------
 
 // BOOK RATINGS
 // let rating =
@@ -18,52 +8,17 @@
 //   response.data.docs[191].key +
 //   "/ratings.json";
 
-// BOOK COVER
-// let cover =
-//   "https://covers.openlibrary.org/b/isbn/" +
-//   response.data.docs[191].isbn[0] +
-//   "-L.jpg";
-
-//   TESTING
-// console.log(cover);
-// console.log(rating);
-// console.log(description);
-
-// LIBRARY THING + LIBRARYTHING_ID
-// https://www.librarything.com/work/ <----4220>
-
-// GOODREADS URL + GOODREADS_ID // RE-ARRANGE TO LARGEST NUMBER FOR ENGLISH VERSION?
-// https://www.goodreads.com/book/show/<----738228>
-// alt version -> https://www.goodreads.com/search?utf8=%E2%9C%93&q=THE+DARK+TOWER&search_type=books
-// alt version -> https://www.goodreads.com/search?utf8=%E2%9C%93&q=THE+mist&search_type=books
-
-// AMAZON URL + AMAZON_ID
-// https://www.amazon.com/dp/<----B006RLQ456>
-
-// AUDIBLE
-// https://www.audible.com/search?keywords=the+mist&ref-override=a_hp_t1_header_search&k=the+mist&crid=2KPCXRBLTF6AN&sprefix=the+mist%2Cna-audible-us%2C76&i=na-audible-us&url=search-alias%3Dna-audible-us&ref=nb_sb_noss_1
-
-// OVERDRIVE URL + OVERDRIVE_ID
-// https://www.overdrive.com/media/<----E7168E5B-47F0-41A1-8D8E-83F05C44985B>
-
-// BETTER WORLD BOOK
-// https://www.betterworldbooks.com/search/results?q=THE%20MAGIC%20FINGER <--- title = book title with spaces between words replaced with %20 and capitalized
-
 import {
   Box,
   Image,
   Heading,
-  Button,
   CardBody,
   CardFooter,
   Text,
-  Tooltip,
   Stack,
   Center,
   Card,
   Wrap,
-  WrapItem,
-  Link,
   useDisclosure,
   Modal,
   ModalBody,
@@ -78,7 +33,6 @@ import {
 
 // ICONS
 import { RiBookmark3Fill } from "react-icons/ri";
-import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import "./BookCard.design.css";
 
@@ -86,6 +40,7 @@ import "./BookCard.design.css";
 import missingBook from "../../images/missing-cover.png";
 
 // COMPONENTS
+import BookCardButtons from "components/BookCard/BookCardButtons";
 
 // Creates Book card filled with book info
 function BookCard(props) {
@@ -107,87 +62,6 @@ function BookCard(props) {
 
   //   return () => console.log("unmounting...");
   // }, [selectBook]);
-
-  /* ------------------------- */
-  // CARD BUTTONS DETAILS
-  /* ------------------------- */
-  function BookCardButtons(bookdetails) {
-    const bookBtnDetails = [
-      {
-        name: "GoodReads",
-        label: "See reader reviews for this book!",
-        background: "darkcyan",
-        color: "white",
-        icon: <FaGoodreads />,
-        variant: "solid",
-        alt: "Goodreads anchor button",
-      },
-      {
-        name: "Amazon",
-        label: "See available products and books for this book on amazon!",
-        background: "gold",
-        color: "black",
-        icon: <FaAmazon />,
-        variant: "solid",
-        alt: "Amazon anchor button",
-      },
-
-      {
-        name: "Audible",
-        label: "Search for the audiobook version here!",
-        background: "orange",
-        color: "black",
-        icon: <FaAudible />,
-        variant: "solid",
-        alt: "Audible anchor button",
-      },
-      {
-        name: "Google",
-        label: "Search for this book on Google Books!",
-        background: "dodgerblue",
-        color: "white",
-        icon: <FaGoogle />,
-        variant: "solid",
-        alt: "Audible anchor button",
-      },
-    ];
-
-    /* ------------------------- */
-    // BOOK CARD BUTTON + ANCHOR LINKS
-    /* ------------------------- */
-    const cardBtns = bookBtnDetails.map((button, id) => {
-      // Converting Button name to href link name from book object
-      let bookSourceName = button.name.toLowerCase(); // works
-      let source = bookdetails.props[bookSourceName];
-      // console.log("The book name  --> " + bookSourceName + " and is of " + typeof(bookSourceName));
-      // console.log("The book name + link  --> " + source);
-      return (
-        <WrapItem key={id + button.name}>
-          <Tooltip
-            label={
-              !source ? `Not available on ${bookSourceName}` : button.label
-            }
-            color={"white"}
-            placement="top"
-          >
-            <Link href={source} isExternal>
-              <Button
-                variant={button.variant}
-                backgroundColor={button.background}
-                color={button.color}
-                leftIcon={button.icon}
-                isDisabled={!source ? true : false}
-              >
-                {button.name}
-              </Button>
-            </Link>
-          </Tooltip>
-        </WrapItem>
-      );
-    });
-
-    return cardBtns;
-  }
 
   // ALLOWS THE USE OF CHAKRA TOAST
   let toast = useToast();
@@ -293,16 +167,13 @@ function BookCard(props) {
             fit={"contain"}
             maxW={{ lg: "325px", sm: "325px" }}
             alignContent={"center"}
-            // src={props.isbn === undefined ? missingBook : `https://covers.openlibrary.org/b/isbn/${props.isbn[0]}-L.jpg` }
-            // src={props.key === undefined ? missingBook : `https://covers.openlibrary.org/b/olid/${props.key.slice(0,4)}-L.jpg` }
             src={
               props.cover === undefined
                 ? missingBook
                 : `https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`
             }
-            // src={`https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`}
             alt={props.title + " book cover"}
-            // fallbackSrc={missingB}
+            fallbackSrc={missingBook}
             onError={(e) => addImageFallback}
             onClick={onOpen}
           />
