@@ -28,11 +28,13 @@ import {
   ModalHeader,
   useToast,
   Divider,
-  cookieStorageManager,
+  Collapse,
+  Button,
 } from "@chakra-ui/react";
 
 // ICONS
 import { RiBookmark3Fill } from "react-icons/ri";
+import { FaRegArrowAltCircleDown } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import "./BookCard.design.css";
 
@@ -48,6 +50,10 @@ function BookCard(props) {
   const [onHoverColor, setOnHoverColor] = useState("white");
   const [collectedBooks, setCollectedBooks] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [show, setShow] = useState(false);
+
+  const handleToggle = () => setShow(!show);
   let bookdetails = props;
 
   /* ------------------------- */
@@ -214,7 +220,17 @@ function BookCard(props) {
               <Text fontSize="xs" as="i" color={"grey"}>
                 {props.subject.slice(0, 3)}
               </Text>
-              <Text py="2">{props.description}</Text>
+              <br/>
+              <Text fontSize="xs" as="i" color={"grey"}>
+                {`ISBN: ${props.isbn}`}
+              </Text>
+
+              <Collapse startingHeight={98} in={show}>
+                <Text py="2">{props.description}</Text>
+              </Collapse>
+              <Button size="sm" onClick={handleToggle} mt="1rem">
+                <FaRegArrowAltCircleDown /> Show {show ? "Less" : "More"}
+              </Button>
             </CardBody>
             <CardFooter alignSelf={"center"}>
               <Wrap
