@@ -4,7 +4,7 @@ import axios from "axios";
 
 import OrganizeBooks from "./OrganizeBooks";
 
-// * Grabs search parameters and will call api for large amount of books.
+// * Grabs search parameters and will call api for large amount of books base on said parameters.
 async function FetchBooks(searchSubject, searchAmount, searchLanguage) {
   console.log("This is the search parameters: " + searchLanguage);
   let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=250&jscmd=data&details=true&published_in=2000-2100&language%3${searchLanguage}?details=true`;

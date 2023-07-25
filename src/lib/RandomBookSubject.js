@@ -4,7 +4,7 @@ function RandomBookSubject() {
   let subject;
   let random = Math.floor(Math.random() * book_subjects.b_subjects.length);
   subject = Object.values(book_subjects.b_subjects[random]);
-  console.log("INSIDE SUBJECT LIB FUNC" + JSON.stringify(Object.values(subject)));
+  // console.log("INSIDE SUBJECT LIB FUNC" + JSON.stringify(Object.values(subject)));
 
   return subject;
 }

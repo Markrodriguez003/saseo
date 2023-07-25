@@ -13,15 +13,15 @@ async function CoverImageCheck(cover, title) {
   let cover_b = await new Promise((resolve, reject) => {
     img.onload = function () {
       if (this.width < 35) {
-        console.log(
-          `Book Title has a shitty extra tiny cover! --> ${title} --> ${this.width}'x' ${this.height} -->${cover}`
-        );
+        // console.log(
+        //   `Book Title has a shitty extra tiny cover! --> ${title} --> ${this.width}'x' ${this.height} -->${cover}`
+        // );
 
         reject(undefined);
       } else {
-        console.log(
-          `Book Title has a good cover image-->  ${title} --> ${this.width}'x' ${this.height} -->${cover}`
-        );
+        // console.log(
+        //   `Book Title has a good cover image-->  ${title} --> ${this.width}'x' ${this.height} -->${cover}`
+        // );
 
         resolve(cover);
       }

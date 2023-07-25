@@ -243,7 +243,7 @@ function BookCard(props) {
       <Modal isOpen={isOpen} onClose={onClose} size={"xl"} isCentered>
         <ModalOverlay alignContent={"center"} />
         <ModalContent justifyContent={"center"}>
-          <ModalHeader fontSize={"2rem"}>{props.title}</ModalHeader>
+          <ModalHeader fontSize={"1rem"}>{props.title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody
             alignContent={"center"}
@@ -260,7 +260,7 @@ function BookCard(props) {
                     ? missingBook
                     : `https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`
                 }
-                boxSize={"650px"}
+                boxSize={"750px"}
                 align={"center"}
               />
             </Box>

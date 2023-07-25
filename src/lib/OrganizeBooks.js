@@ -1,25 +1,44 @@
 import axios from "axios";
 
+// * Promise function that checks to see if book cover is available
 import CoverImageCheck from "./CoverImageCheck";
 
 // * Grabs the large array of fetched book objects, chooses random ones, then sorts them into a new array list according to user's params
 export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
   // * Final array that will hold all the organized, stripped  & final book objects
   let finalizedBookArry = [];
-  
+
+  // * Array that will hold all random numbers collected to check to make sure no book repeats
+  let randomNumberBank = [];
+
+  // * Variable that will hold random number
+  let random;
+
   // * Loops through massive book object array & chooses random book object, grabs the necessary data, sorts it, then pushes it into final arry
   // todo: Set a condition to make sure that just in case the amount of books fetched are not enough to carry out search amount, fallback
-  // todo: Set a condition to find duplicate books and eliminate them by choosing new book in its place
   // todo: Set a condition to find books that do not have any description or image and replace it with another book (obscure books)
 
   for (var i = 0; i < searchAmount; i++) {
     // * Creates random number within the limits of massive array of books fetched from api
-    let random = Math.floor(Math.random() * fetchedBooks.length);
+    random = Math.floor(Math.random() * fetchedBooks.length);
+
+    // * Will check if random number intially generated is already inside random Number Bank (to check for dups)
+    while (randomNumberBank.includes(random)) {
+      random = Math.floor(Math.random() * fetchedBooks.length);
+
+      // * If random number is not included in random number bank, break out of while loop and proceed to next line
+      if (!randomNumberBank.includes(random)) {
+        break;
+      }
+    }
+
+    // * Once the conditionals above clear than random number is pushed to random number bank to check again in loop
+    randomNumberBank.push(random);
 
     // * Grabs a random book from massive book object array
     let book = fetchedBooks[random];
 
-    // * Cuts down & separates all the important book data
+    // * Cuts down & separates all the important book data from large book object
     let {
       author_name,
       id_amazon,
@@ -45,12 +64,14 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
     let description;
     let cover;
 
+    // * Grabs & sets book cover to book object. If all fails sets cover to undefined
     await CoverImageCheck(cover_i, title)
       .then((c) => {
         cover = c;
       })
       .catch((e) => {
         console.log("An error has occured! " + e);
+        cover = undefined;
       });
 
     await axios
@@ -72,7 +93,7 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
         console.log("Error in grabbing book decription--> " + err);
       });
 
-    // RETURNS FINALIZED BOOKS ARRAY
+    // * Pushes all critical book details as a book object into final fetched books array
     finalizedBookArry.push({
       author_name,
       id_amazon,
@@ -92,12 +113,16 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
     });
   }
 
+  // * Clean up by erasing values from number array (just in case)
+  randomNumberBank.length = 0;
+
+  // * Passes final array of book objects
   return finalizedBookArry;
 }
 
-// ------------------------------------
-// NOTES
-// -----------------------------------
+// ? ------------------------------------
+// ? NOTES
+// ? -----------------------------------
 
 // formatting isbn (sorting and fallback checking)
 // let isbn_b;
@@ -120,33 +145,6 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
 //   `Book Title --> ${fetchedBooks[random].title} ---> Book cover--> ${isbn_b}`
 // );
 
-// ! works
-// const img = new Image();
-// img.src = `https://covers.openlibrary.org/b/isbn/${isbn[0]}-L.jpg`;
-// img.onload = function () {
-//   // console.log(this.width + 'x' + this.height);
-//   isbn_b = parseInt(this.width) == 1 ? isbn : undefined;
-//   console.log(
-//     `Book Title has cover! --> ${fetchedBooks[random].title} ---> Book cover--> ${isbn_b}`
-//   );
-// if (this.width < 5) {
-//   isbn_b = undefined;
-//   console.log(
-//     `Book Title --> ${fetchedBooks[random].title} ---> Book cover--> ${isbn_b}`
-//   );
-// } else {
-//   isbn_b = isbn;
-//   console.log(
-//     `Book Title --> ${fetchedBooks[random].title} ---> Book cover--> ${isbn_b}`
-//   );
-// }
-// } else {
-//   isbn_b = undefined;
-//   console.log(
-//     `Book Title has NO cover! --> ${fetchedBooks[random].title} ---> Book cover--> ${isbn_b}`
-//   );
-// }
-
 // formatting notes
 
 // console.log("Book objects below:");
@@ -162,17 +160,6 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
 //   "https://openlibrary.org" +
 //   response.data.docs[191].key +
 //   "/ratings.json";
-
-// BOOK COVER
-// let cover =
-//   "https://covers.openlibrary.org/b/isbn/" +
-//   response.data.docs[191].isbn[0] +
-//   "-L.jpg";
-
-//   TESTING
-// console.log(cover);
-// console.log(rating);
-// console.log(description);
 
 // LIBRARY THING + LIBRARYTHING_ID
 // https://www.librarything.com/work/ <----4220>
@@ -193,29 +180,3 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
 
 // BETTER WORLD BOOK
 // https://www.betterworldbooks.com/search/results?q=THE%20MAGIC%20FINGER <--- title = book title with spaces between words replaced with %20 and capitalized
-
-// OLD
-// function FetchBooks(searchSubject, searchAmount) {
-
-//   let fetchedBooks;
-//   let search = `https://openlibrary.org/search.json?subject=${searchSubject}&limit=200&details=false&published_in=2000-2100&language:eng`;
-//   axios
-//     .get(search)
-//     .then(function (response) {
-//       // handle success
-//       console.log(response);
-
-//       fetchedBooks = pullBooks(response.data.docs, searchAmount);
-
-//       console.log(fetchedBooks);
-//     })
-//     .catch(function (error) {
-//       // handle error
-//       console.log("This is the error when fetching books --> " + error);
-//     })
-//     .finally(function () {
-//       // always executed
-//     });
-//   // fetchedBooks
-//   return fetchedBooks;
-// }
