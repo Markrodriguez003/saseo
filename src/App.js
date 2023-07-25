@@ -30,6 +30,7 @@ function App() {
         <Route path="suggest" element={<BookSuggestion />} />
         <Route path="random" element={<RandomBookSuggestion />} />
       </Routes>
+      <SFooter />
     </ChakraProvider>
   );
 }

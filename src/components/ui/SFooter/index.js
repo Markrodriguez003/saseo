@@ -10,38 +10,53 @@ import {
 
 function sFooter() {
   return (
-    <Box
-      bg={"darkcyan"}
-      color={"white"}
-      pb={6}
-      mt={"lg"}
+    <Container
       position={"relative"}
-      left={0}
-      bottom={0}
-      w="100%"
+      height={"100vh"}
+      w="100vw"
+      maxWidth={"100%"}
     >
-      <Container
-        as={Stack}
+      <Box
+        bg={"darkcyan"}
+        color={"white"}
+        pb={6}
+        mt={12}
+        position={"absolute"}
+        left={0}
+        bottom={0}
         w="100%"
-        // py={4}
-        direction={{ base: "column", md: "row" }}
-        spacing={4}
-        justify={{ base: "center", md: "space-between" }}
-        // justify={{ base: "start", md: "start" }}
-        align={{ base: "start", md: "center" }}
       >
-        <Heading size={"xl"}>SASEO</Heading>
-        <Stack direction={"row"} spacing={6}>
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>Random Book</Link>
-          <Link href={"#"}>Search a Book</Link>
-          <Link href={"#"}>Search ISBN</Link>
-          <Link href={"#"}>About</Link>
-          <Link href={"#"}>Sources</Link>
-        </Stack>
-        <Text>© 2023 Saseo. All rights reserved</Text>
-      </Container>
-    </Box>
+        <Container
+          as={Stack}
+          w="100%"
+          // py={4}
+          direction={{ base: "column", md: "row" }}
+          spacing={8}
+          mb={8}
+          mt={4}
+          justify={{ base: "start", md: "space-between" }}
+          // justify={{ base: "start", md: "start" }}
+          align={{ base: "start", md: "center" }}
+        >
+          <Stack direction={"row"} spacing={6} alignItems={"center"}>
+            <Heading size={"xl"}>SASEO</Heading>
+            <Link href={"#"} fontSize={"xl"}>
+              Home
+            </Link>
+            <Link href={"#"} fontSize={"xl"}>
+              About
+            </Link>
+            <Link href={"#"} fontSize={"xl"}>
+              Contact
+            </Link>
+            <Link href={"#"} fontSize={"xl"}>
+              FAQ
+            </Link>
+          </Stack>
+        </Container>
+        <Text align={"center"}>© 2023 Saseo. All rights reserved</Text>
+      </Box>
+    </Container>
   );
 }
 

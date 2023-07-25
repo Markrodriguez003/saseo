@@ -33,7 +33,6 @@ function BookCardButtons(bookdetails) {
       alt: "Amazon anchor button",
       source:
         bookdetails.props.hasOwnProperty("id_amazon") &&
-        bookdetails.props.id_amazon !== undefined &&
         bookdetails.props.id_amazon.length !== 0
           ? `https://www.amazon.com/dp/${bookdetails.props.id_amazon[0]} `
           : false,
