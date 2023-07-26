@@ -15,22 +15,24 @@ import { Routes, Route } from "react-router-dom";
 // PAGES
 import RandomBookSuggestion from "./components/pages/RandomBookSuggestion";
 
+// test data
+// import test_books from "./data/book_examples.json";
+
 function App() {
-  // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider theme={theme}>
       {/* <Fonts /> */}
       <SHeader />
-      {/* <FrontPage /> */}
-      {/* <BookSuggestion /> */}
-      {/* <RandomBookSuggestion /> */}
+
+      {/* ! TESTING BOOK CARD
+      <BookCard props={test_books.books[0]}/> */}
 
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="suggest" element={<BookSuggestion />} />
         <Route path="random" element={<RandomBookSuggestion />} />
       </Routes>
-      <SFooter />
+      {/* <SFooter /> */}
     </ChakraProvider>
   );
 }

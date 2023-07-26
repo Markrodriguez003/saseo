@@ -2,14 +2,14 @@
   "books": [
     {
       "id": 1245,
-      "name": "The Lord of the Rings",
-      "author": "Christopher Tolkien",
-      "subject": "Fantasy/Adventure",
+      "title": "The Lord of the Rings The Lord of the Rings The Lord of the Rings The Lord of the Rings",
+      "author_name": "Christopher Tolkien",
+      "subject": "Fantasy/Adventure/something/something/something",
       "Release": "1955",
-      "cover": "https://m.media-amazon.com/images/P/0544003411.01._SCLZZZZZZZ_SX500_.jpg",
-      "blurb": "In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. fter many ages it fell by chance into the hands of the hobbit Bilbo Baggins. From Sauron's fastness in the Dark Tower of Mordor, his power spread far and wide. Sauron gathered all the Great Rings to him, but always he searched for the One Ring that would complete his dominion. When Bilbo reached his eleventy-first birthday he disappeared, bequeathing to his young cousin Frodo the Ruling Ring and a perilous quest: to journey across Middle-earth, deep into the shadow of the Dark Lord, and destroy the Ring by casting it into the Cracks of Doom.",
-      "amazon": "https://www.amazon.com/s?k=lord+of+the+rings&i=audible&crid=25C2K8NZIJLJ2&sprefix=lord+of+the+ring%2Caudible%2C105&ref=nb_sb_noss_2",
-      "goodreads": "https://www.goodreads.com/book/show/33.The_Lord_of_the_Rings?from_search=true&from_srp=true&qid=FiO2BL6UN3&rank=4",
+      "cover": "240727",
+      "description": "In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. fter many ages it fell by chance into the hands of the hobbit Bilbo Baggins. From Sauron's fastness in the Dark Tower of Mordor, his power spread far and wide. Sauron gathered all the Great Rings to him, but always he searched for the One Ring that would complete his dominion. When Bilbo reached his eleventy-first birthday he disappeared, bequeathing to his young cousin Frodo the Ruling Ring and a perilous quest: to journey across Middle-earth, deep into the shadow of the Dark Lord, and destroy the Ring by casting it into the Cracks of Doom.",
+      "id_amazon": ["B0095H4Y9W","B0095H4Y9W"],
+      "id_goodreads": ["B0095H4Y9W", "B0095H4Y9W"],
       "audible": "https://www.audible.com/pd/The-Fellowship-of-the-Ring-Audiobook/B0099RKRTY?qid=1684518879&sr=1-1&ref=a_search_c3_lProduct_1_1&pf_rd_p=83218cca-c308-412f-bfcf-90198b687a2f&pf_rd_r=VNJS0KK8MAEP99NXBVE5&pageLoadId=nDkcFjGQ9nzHaM1F&creativeId=0d6f6720-f41c-457e-a42b-8c8dceb62f2c",
       "google": "https://www.google.com/search?q=lord+of+the+rings&ei=trVnZPTXArTk5NoPzryh8AM&ved=0ahUKEwj0isTj94H_AhU0MlkFHU5eCD4Q4dUDCBA&uact=5&oq=lord+of+the+rings&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIHCAAQigUQQzILCC4QgAQQsQMQ1AIyBQgAEIAEMgsILhDUAhCxAxCABDIICAAQgAQQsQMyBQgAEIAEMg4ILhCABBCxAxCDARDUAjIFCAAQgAQyCAgAEIAEELEDMgUIABCABDoICAAQigUQkQI6CwguEIMBELEDEIAEOgsIABCKBRCxAxCDAToRCC4QgAQQsQMQgwEQxwEQ0QM6CwguEIAEELEDEIMBOgsILhCKBRCxAxCDAToUCC4QgAQQsQMQgwEQxwEQ0QMQ1AI6BwguEIoFEEM6CgguEIoFENQCEEM6DgguEIAEELEDEMcBENEDOggILhCKBRCRAjoICC4QgAQQsQM6DQguEIoFELEDENQCEEM6FQguEIoFEEMQlwUQ3AQQ3gQQ4AQYAToLCAAQgAQQsQMQgwE6DQguENQCELEDEIoFEEM6CgguENQCEIoFEENKBAhBGABQAFiID2DqE2gAcAB4AIABkAGIAbENkgEEMTIuNZgBAKABAcABAdoBBggBEAEYFA&sclient=gws-wiz-serp"
     },

@@ -2,11 +2,11 @@
 // ? NOTES
 // ? -----------------------------------
 
-// BOOK RATINGS
-// let rating =
-//   "https://openlibrary.org" +
-//   response.data.docs[191].key +
-//   "/ratings.json";
+// // BOOK RATINGS
+// // let rating =
+// //   "https://openlibrary.org" +
+// //   response.data.docs[191].key +
+// //   "/ratings.json";
 
 import {
   Box,
@@ -34,7 +34,13 @@ import {
 
 // ICONS
 import { RiBookmark3Fill } from "react-icons/ri";
-import { FaRegArrowAltCircleDown } from "react-icons/fa";
+import {
+  FaArrowCircleDown,
+  FaArrowCircleUp,
+  FaPlusCircle,
+  FaMinusCircle,
+} from "react-icons/fa";
+
 import { useState, useEffect } from "react";
 import "./BookCard.design.css";
 
@@ -75,6 +81,7 @@ function BookCard(props) {
   /* ------------------------- */
   // INSERTS NEW BOOKS INTO SHARE ARRAY
   /* ------------------------- */
+
   function addBook(addedBook) {
     setSelectBook(true);
     console.log("User added this book -> " + JSON.stringify(addedBook.name));
@@ -130,6 +137,7 @@ function BookCard(props) {
             alignItems={"center"}
             alignSelf={"center"}
             width={"100%"}
+            p={2}
           >
             <Box width={"100%"}>
               {/* error handle this! Fallback not working and sometimes errors out */}
@@ -140,7 +148,9 @@ function BookCard(props) {
                     ? missingBook
                     : `https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`
                 }
-                boxSize={"750px"}
+                // boxSize={"850px"}
+                w={"100vw"}
+                h={"auto"}
                 align={"center"}
               />
             </Box>
@@ -157,6 +167,7 @@ function BookCard(props) {
         borderColor={selectBook ? "darkcyan" : "transparent"}
         className="show fadeIn"
         padding={"8px"}
+        margin={1}
         variant="outline"
         marginBottom={"25px"}
         w={{ sm: "90%", md: "90%", lg: "75%" }} // mobile
@@ -171,7 +182,7 @@ function BookCard(props) {
           <Image
             objectFit="contain"
             fit={"contain"}
-            maxW={{ lg: "325px", sm: "325px" }}
+            // maxW={{ lg: "325px", sm: "325px" }}
             alignContent={"center"}
             src={
               props.cover === undefined
@@ -184,11 +195,7 @@ function BookCard(props) {
             onClick={onOpen}
           />
 
-          <Stack
-            onClick={() =>
-              !selectBook ? addBook(bookdetails) : minusBook(bookdetails)
-            }
-          >
+          <Stack>
             <CardBody
               letterSpacing={"0.5px"}
               onMouseEnter={(e) => {
@@ -220,16 +227,26 @@ function BookCard(props) {
               <Text fontSize="xs" as="i" color={"grey"}>
                 {props.subject.slice(0, 3)}
               </Text>
-              <br/>
+              <br />
               <Text fontSize="xs" as="i" color={"grey"}>
-                {`ISBN: ${props.isbn}`}
+                {`ISBN: ${props.isbn[0]}`}
               </Text>
 
-              <Collapse startingHeight={98} in={show}>
-                <Text py="2">{props.description}</Text>
+              <Collapse
+                startingHeight={90}
+                in={show}
+                border="1px"
+                borderColor="gray.200"
+              >
+                <Text p={4}>{props.description}</Text>
               </Collapse>
-              <Button size="sm" onClick={handleToggle} mt="1rem">
-                <FaRegArrowAltCircleDown /> Show {show ? "Less" : "More"}
+              <Button
+                leftIcon={show ? <FaArrowCircleUp /> : <FaArrowCircleDown />}
+                size="sm"
+                onClick={handleToggle}
+                mt="1rem"
+              >
+                Show {show ? "Less" : "More"}
               </Button>
             </CardBody>
             <CardFooter alignSelf={"center"}>
@@ -241,6 +258,17 @@ function BookCard(props) {
                 <BookCardButtons props={props} />
               </Wrap>
             </CardFooter>
+            <Button
+              colorScheme={selectBook ? "red" : "teal"}
+              variant="solid"
+              leftIcon={selectBook ? <FaMinusCircle /> : <FaPlusCircle />}
+              padding={2}
+              onClick={() =>
+                !selectBook ? addBook(bookdetails) : minusBook(bookdetails)
+              }
+            >
+              {selectBook ? "Take out Book" : "Add Book"}
+            </Button>
           </Stack>
         </Stack>
       </Card>
