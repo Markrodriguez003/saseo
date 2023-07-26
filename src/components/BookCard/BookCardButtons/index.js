@@ -1,7 +1,7 @@
 import { FaGoodreads, FaAudible, FaGoogle, FaAmazon } from "react-icons/fa";
 import { Button, Tooltip, WrapItem, Link } from "@chakra-ui/react";
 
-import BookTitleWordSplit from "components/ui/BookTitleWordSplit";
+import WordSplit from "lib/WordSplit";
 /* ------------------------- */
 // CARD BUTTONS DETAILS
 /* ------------------------- */
@@ -46,7 +46,7 @@ function BookCardButtons(bookdetails) {
       icon: <FaAudible />,
       variant: "solid",
       alt: "Audible anchor button",
-      source: `https://www.audible.com/search?keywords=${BookTitleWordSplit(
+      source: `https://www.audible.com/search?keywords=${WordSplit(
         bookdetails.props.title
       )} ${bookdetails.props.author_name}`,
     },
@@ -58,21 +58,21 @@ function BookCardButtons(bookdetails) {
       icon: <FaGoogle />,
       variant: "solid",
       alt: "Google anchor button",
-      source: `https://www.google.com/search?q=${BookTitleWordSplit(
+      source: `https://www.google.com/search?q=${WordSplit(
         bookdetails.props.title
       )} book by ${bookdetails.props.author_name}`,
     },
   ];
 
-  console.log(`This is the book's isbn --> ${bookdetails.props.isbn}`);
-  console.log(`This is the book's author --> ${bookdetails.props.author_name}`);
-  console.log(`This is the book's key --> ${bookdetails.props.key}`);
-  console.log(
-    `This is the book's amazon id --> ${bookdetails.props.id_amazon}`
-  );
-  console.log(
-    `This is the book's goodreads id --> ${bookdetails.props.id_goodreads}`
-  );
+  // console.log(`This is the book's isbn --> ${bookdetails.props.isbn}`);
+  // console.log(`This is the book's author --> ${bookdetails.props.author_name}`);
+  // console.log(`This is the book's key --> ${bookdetails.props.key}`);
+  // console.log(
+  //   `This is the book's amazon id --> ${bookdetails.props.id_amazon}`
+  // );
+  // console.log(
+  //   `This is the book's goodreads id --> ${bookdetails.props.id_goodreads}`
+  // );
 
   /* ------------------------- */
   // BOOK CARD BUTTON + ANCHOR LINKS

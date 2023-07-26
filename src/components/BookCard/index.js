@@ -41,39 +41,49 @@ import {
   FaMinusCircle,
 } from "react-icons/fa";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer, useContext } from "react";
 import "./BookCard.design.css";
 
 // IMAGES
 import missingBook from "../../images/missing-cover.png";
 
+// Context globals
+import { SearchData } from "components/pages/BookSuggestion";
+
+// LIBRARY
+// import { bookCardReducer, BOOK_STATE_ACTIONS } from "lib/BookCardReducer";
+
 // COMPONENTS
 import BookCardButtons from "components/BookCard/BookCardButtons";
 
+// useContext data of bookCollection
 // Creates Book card filled with book info
 function BookCard(props) {
-  const [selectBook, setSelectBook] = useState(false);
-  const [onHoverColor, setOnHoverColor] = useState("white");
-  const [collectedBooks, setCollectedBooks] = useState([]);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const [show, setShow] = useState(false);
-
-  const handleToggle = () => setShow(!show);
+  const collection = useContext(SearchData);
   let bookdetails = props;
 
-  /* ------------------------- */
-  // USEEFFECT WHEN SUGGESTED BOOK IS CLICKED ON
-  /* ------------------------- */
-  // useEffect(() => {
-  //   if (selectBook) {
-  //     console.log("You added book!");
-  //   } else {
-  //     console.log("You took out a book!");
-  //   }
+  // const [bookState, dispatch] = useReducer(
+  //   bookCardReducer,
+  //   BOOK_STATE_ACTIONS[0]
+  // );
 
-  //   return () => console.log("unmounting...");
-  // }, [selectBook]);
+  // * Sets book state as selected or not / add book or subtract book
+  const [selectBook, setSelectBook] = useState(false);
+
+  // * Hover color state when user hovers over card
+  const [onHoverColor, setOnHoverColor] = useState("white");
+
+  // * The entire book collection user wants to be emailed in a card
+  // const [collectedBooks, setCollectedBooks] = useState([]);
+
+  // Handles book cover modal
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  //* Sets State of collapsible text tray in card description div
+  const [show, setShow] = useState(false);
+
+  // * Handles collapsible text tray state in card description div
+  const handleToggle = () => setShow(!show);
 
   // ALLOWS THE USE OF CHAKRA TOAST
   let toast = useToast();
@@ -83,12 +93,12 @@ function BookCard(props) {
   /* ------------------------- */
 
   function addBook(addedBook) {
-    setSelectBook(true);
     console.log("User added this book -> " + JSON.stringify(addedBook.name));
-    console.log("Old array: " + JSON.stringify(collectedBooks));
-    setCollectedBooks([...collectedBooks, addedBook]);
-    console.log("Updated array: " + JSON.stringify(collectedBooks));
-
+    // console.log("Old array: " + JSON.stringify(collectedBooks));
+    // setCollectedBooks([...collectedBooks, addedBook]);
+    collection.setBookCollection((prev) => [...prev, bookdetails]);
+    // console.log("Updated array: " + JSON.stringify(collectedBooks));
+    //
     return toast({
       title: "Book added to your wishlist!.",
       description: "Your book list is waiting for you to share!",
@@ -102,7 +112,6 @@ function BookCard(props) {
   // DELETES BOOKS FROM SHARE ARRAY
   /* ------------------------- */
   function minusBook(poppedBook) {
-    setSelectBook(false);
     console.log(
       "User took out this book -> " + JSON.stringify(poppedBook.name)
     );
@@ -117,6 +126,7 @@ function BookCard(props) {
     });
   }
 
+  // * Preventative fallback if book cover fails to load at all.
   const addImageFallback = (e) => {
     e.currentTarget.src = "../../images/missing-cover.png";
     console.log(`This book does not have an image loaded!`);
@@ -255,7 +265,8 @@ function BookCard(props) {
                 justify={"center"}
                 onClick={(e) => e.stopPropagation()}
               >
-                <BookCardButtons props={props} />
+                {/* // todo: Fix array index 0 issue  */}
+                {/* <BookCardButtons props={props} /> */}
               </Wrap>
             </CardFooter>
             <Button
@@ -263,9 +274,10 @@ function BookCard(props) {
               variant="solid"
               leftIcon={selectBook ? <FaMinusCircle /> : <FaPlusCircle />}
               padding={2}
-              onClick={() =>
-                !selectBook ? addBook(bookdetails) : minusBook(bookdetails)
-              }
+              onClick={() => {
+                setSelectBook(!selectBook);
+                selectBook ? minusBook(bookdetails) : addBook(bookdetails);
+              }}
             >
               {selectBook ? "Take out Book" : "Add Book"}
             </Button>

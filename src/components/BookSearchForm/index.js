@@ -26,6 +26,7 @@ import CountSlider from "../CountSlider";
 import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
 import FetchBooks from "lib/FetchBooks";
+import { BookReadingList } from "components/BookReadingList";
 
 // CSS DESIGN
 import "./BookSuggestionForm.design.css";
@@ -76,6 +77,7 @@ export function BookSearchForm() {
   };
 
   // Handles grabbing of formatted & organized books fetched from api & sets loading state
+  // todo: Add cached/memoized version of this when user selects same seach parameters
   async function sendBooksRequest() {
     try {
       const books = await FetchBooks(
@@ -129,7 +131,7 @@ export function BookSearchForm() {
               onChange={(e) => {
                 BookSubject(e.target.value);
               }}
-            >   
+            >
               <DropdownOptions type={"subject"} />
             </Select>
             <Select
@@ -180,7 +182,10 @@ export function BookSearchForm() {
       {/* Loading search results to either intial state, loading state, loaded state and error state */}
       {/* ------------------------------------------ */}
       {loadState === "Loaded" ? (
-        <SearchResult fetchedBooks={collectedBooks} />
+        <>
+          <SearchResult fetchedBooks={collectedBooks} />
+          <BookReadingList />
+        </>
       ) : loadState === "Intial" ? (
         <></>
       ) : loadState === "Loading" ? (
