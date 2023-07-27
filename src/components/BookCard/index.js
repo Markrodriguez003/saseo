@@ -91,10 +91,16 @@ function BookCard(book) {
   // INSERTS NEW BOOKS INTO SHARE ARRAY
   /* ------------------------- */
 
-
   // todo: Research instead of async/await should I use useEffect?
- async function addBook(addedBook) {
-    await context.setBookCollection((prev) => [...prev, book]);
+  async function addBook() {
+    await context.setBookCollection((prev) => [
+      ...prev,
+      {
+        title: book.title,
+        author: book.author_name,
+        isbn: book.isbn[0] !== undefined ? book.isbn[0] : book.isbn,
+      },
+    ]);
 
     return toast({
       title: "Book added to your wishlist!.",
@@ -194,7 +200,7 @@ function BookCard(book) {
         marginBottom={"25px"}
         w={{ sm: "90%", md: "90%", lg: "75%" }} // mobile
         // w={"60%"} // full
-        boxShadow="xl"
+        boxShadow="lg"
         cursor={"pointer"}
       >
         <Stack

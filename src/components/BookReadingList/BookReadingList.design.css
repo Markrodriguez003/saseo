@@ -1,0 +1,4 @@
+.reading-card:nth-child(even) {
+  background-color: cadetblue;
+  color: white;
+}
