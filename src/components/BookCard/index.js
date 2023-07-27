@@ -47,7 +47,7 @@ import "./BookCard.design.css";
 // IMAGES
 import missingBook from "../../images/missing-cover.png";
 
-// Context globals
+// Context globals  data of bookCollection
 import { SearchData } from "components/pages/BookSuggestion";
 
 // LIBRARY
@@ -56,11 +56,10 @@ import { SearchData } from "components/pages/BookSuggestion";
 // COMPONENTS
 import BookCardButtons from "components/BookCard/BookCardButtons";
 
-// useContext data of bookCollection
-// Creates Book card filled with book info
-function BookCard(props) {
-  const collection = useContext(SearchData);
-  let bookdetails = props;
+// * Creates Book card filled with book info
+function BookCard(book) {
+  // Extract only function and state
+  const context = useContext(SearchData);
 
   // const [bookState, dispatch] = useReducer(
   //   bookCardReducer,
@@ -93,28 +92,30 @@ function BookCard(props) {
   /* ------------------------- */
 
   function addBook(addedBook) {
-    console.log("User added this book -> " + JSON.stringify(addedBook.name));
-    // console.log("Old array: " + JSON.stringify(collectedBooks));
-    // setCollectedBooks([...collectedBooks, addedBook]);
-    collection.setBookCollection((prev) => [...prev, bookdetails]);
-    // console.log("Updated array: " + JSON.stringify(collectedBooks));
-    //
+    context.setBookCollection((prev) => [...prev, book]);
+
     return toast({
       title: "Book added to your wishlist!.",
       description: "Your book list is waiting for you to share!",
       status: "success",
       duration: 2400,
       isClosable: true,
+      position: "bottom-right",
     });
   }
 
   /* ------------------------- */
   // DELETES BOOKS FROM SHARE ARRAY
   /* ------------------------- */
-  function minusBook(poppedBook) {
-    console.log(
-      "User took out this book -> " + JSON.stringify(poppedBook.name)
+  function minusBook(e) {
+    // console.log(`Collected books: ${JSON.stringify(context.bookCollection)}`);
+    // let index = context.bookCollection.findIndex((b) => b.title === book.title)
+    // console.log(`Book that needs to be deleted: ${index}`);
+    let updatedBookCollection = context.bookCollection.filter(
+      (b, i, collection) =>
+        collection.findIndex((b2) => b2.title === book.title) === i
     );
+    context.setBookCollection([updatedBookCollection]);
 
     return toast({
       // REFACTOR
@@ -123,6 +124,7 @@ function BookCard(props) {
       status: "error",
       duration: 2400,
       isClosable: true,
+      position: "bottom-right",
     });
   }
 
@@ -133,14 +135,14 @@ function BookCard(props) {
   };
 
   return (
-    <Center key={props.name + "book"}>
+    <Center key={book.name + "-book-card"}>
       {/* ------------------------- */}
       {/* MODAL */}
       {/* ------------------------- */}
       <Modal isOpen={isOpen} onClose={onClose} size={"xl"} isCentered>
         <ModalOverlay alignContent={"center"} />
         <ModalContent justifyContent={"center"}>
-          <ModalHeader fontSize={"1rem"}>{props.title}</ModalHeader>
+          <ModalHeader fontSize={"1rem"}>{book.title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody
             alignContent={"center"}
@@ -150,13 +152,11 @@ function BookCard(props) {
             p={2}
           >
             <Box width={"100%"}>
-              {/* error handle this! Fallback not working and sometimes errors out */}
-
               <Image
                 src={
-                  props.cover === undefined
+                  book.cover === undefined
                     ? missingBook
-                    : `https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`
+                    : `https://covers.openlibrary.org/b/id/${book.cover}-L.jpg`
                 }
                 // boxSize={"850px"}
                 w={"100vw"}
@@ -168,7 +168,7 @@ function BookCard(props) {
         </ModalContent>
       </Modal>
 
-      {/* conditional render here to check to see if there is even a book --> render an empty book card template */}
+      {/* // todo: conditional render here to check to see if there is even a book --> render an empty book card template */}
       <Card
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
@@ -195,11 +195,11 @@ function BookCard(props) {
             // maxW={{ lg: "325px", sm: "325px" }}
             alignContent={"center"}
             src={
-              props.cover === undefined
+              book.cover === undefined
                 ? missingBook
-                : `https://covers.openlibrary.org/b/id/${props.cover}-L.jpg`
+                : `https://covers.openlibrary.org/b/id/${book.cover}-L.jpg`
             }
-            alt={props.title + " book cover"}
+            alt={book.title + " book cover"}
             fallbackSrc={missingBook}
             onError={(e) => addImageFallback}
             onClick={onOpen}
@@ -230,25 +230,20 @@ function BookCard(props) {
                 />
               </Box>
               <Divider zIndex={1} size={"lg"} />
-              <Heading size="lg">{props.title}</Heading>
+              <Heading size="lg">{book.title}</Heading>
               <Heading size="xs" color={"grey"}>
-                {props.author_name}
+                {book.author_name}
               </Heading>
               <Text fontSize="xs" as="i" color={"grey"}>
-                {props.subject.slice(0, 3)}
+                {book.subject.slice(0, 3)}
               </Text>
               <br />
               <Text fontSize="xs" as="i" color={"grey"}>
-                {`ISBN: ${props.isbn[0]}`}
+                {`ISBN: ${book.isbn[0]}`}
               </Text>
 
-              <Collapse
-                startingHeight={90}
-                in={show}
-                border="1px"
-                borderColor="gray.200"
-              >
-                <Text p={4}>{props.description}</Text>
+              <Collapse startingHeight={90} in={show}>
+                <Text p={4}>{book.description}</Text>
               </Collapse>
               <Button
                 leftIcon={show ? <FaArrowCircleUp /> : <FaArrowCircleDown />}
@@ -260,11 +255,7 @@ function BookCard(props) {
               </Button>
             </CardBody>
             <CardFooter alignSelf={"center"}>
-              <Wrap
-                gap="4px"
-                justify={"center"}
-                onClick={(e) => e.stopPropagation()}
-              >
+              <Wrap gap="4px" justify={"center"}>
                 {/* // todo: Fix array index 0 issue  */}
                 {/* <BookCardButtons props={props} /> */}
               </Wrap>
@@ -274,9 +265,11 @@ function BookCard(props) {
               variant="solid"
               leftIcon={selectBook ? <FaMinusCircle /> : <FaPlusCircle />}
               padding={2}
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
                 setSelectBook(!selectBook);
-                selectBook ? minusBook(bookdetails) : addBook(bookdetails);
+                selectBook ? minusBook() : addBook();
               }}
             >
               {selectBook ? "Take out Book" : "Add Book"}
