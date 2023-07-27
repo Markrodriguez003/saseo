@@ -16,6 +16,9 @@ function DropdownOptions(props) {
   // Sorts the JSON data of book subjects (will be used with API call)
   // --------------------------------------------------------------------- //
 
+  // todo: Add a default scheme to prevent "forEach error" that sometimes occur when*
+  // todo: *JSON file above does not load properly. Sync Await?
+
   let options;
   if (props.type === "subject") {
     const sorted_subjects = book_subjects.b_subjects.sort((a, b) =>

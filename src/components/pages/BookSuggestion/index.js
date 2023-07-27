@@ -11,7 +11,7 @@ import { BookReadingList } from "components/BookReadingList";
 export const SearchData = createContext();
 
 export function BookSuggestion() {
-  const [bookCollection, setBookCollection] = useState([{}]);
+  const [bookCollection, setBookCollection] = useState([{title:"Huh"}]);
 
   return (
     <>

@@ -91,8 +91,10 @@ function BookCard(book) {
   // INSERTS NEW BOOKS INTO SHARE ARRAY
   /* ------------------------- */
 
-  function addBook(addedBook) {
-    context.setBookCollection((prev) => [...prev, book]);
+
+  // todo: Research instead of async/await should I use useEffect?
+ async function addBook(addedBook) {
+    await context.setBookCollection((prev) => [...prev, book]);
 
     return toast({
       title: "Book added to your wishlist!.",
@@ -107,15 +109,25 @@ function BookCard(book) {
   /* ------------------------- */
   // DELETES BOOKS FROM SHARE ARRAY
   /* ------------------------- */
-  function minusBook(e) {
+  async function minusBook(e) {
     // console.log(`Collected books: ${JSON.stringify(context.bookCollection)}`);
     // let index = context.bookCollection.findIndex((b) => b.title === book.title)
     // console.log(`Book that needs to be deleted: ${index}`);
-    let updatedBookCollection = context.bookCollection.filter(
-      (b, i, collection) =>
-        collection.findIndex((b2) => b2.title === book.title) === i
+    console.log(
+      `This is the current collection before delete: ${JSON.stringify(
+        context.bookCollection
+      )}`
     );
-    context.setBookCollection([updatedBookCollection]);
+
+    let updatedBookCollection = context.bookCollection.filter(
+      (b) => b.title !== book.title
+    );
+    await context.setBookCollection(updatedBookCollection);
+    console.log(
+      `This is the current collection after delete: ${JSON.stringify(
+        updatedBookCollection
+      )}`
+    );
 
     return toast({
       // REFACTOR

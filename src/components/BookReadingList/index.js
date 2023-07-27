@@ -9,6 +9,7 @@ import {
   Heading,
   Stack,
   Box,
+  Button,
 } from "@chakra-ui/react";
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
@@ -23,7 +24,7 @@ export function BookReadingList() {
         <Heading  size="lg">Book Reading Share List</Heading>
         {collection.bookCollection ? (
           collection.bookCollection.map((b) => (
-            <Card key={`collected-${b.title}`}>
+            <Card key={`collected-${b.title}`} maxW='xl'>
               <CardHeader>
                 <Heading size="md">{b.title}</Heading>
               </CardHeader>
@@ -44,6 +45,7 @@ export function BookReadingList() {
         ) : (
           <h1>Empty!</h1>
         )}
+        <Button colorScheme="teal" alignContent={"center"}>Share!</Button>
       </Container>
     </>
   );
