@@ -21,9 +21,6 @@ import sendEmail from "lib/sendEmail";
 // Page that shows book suggestion form & book card results
 // --------------------------------------------------------------------- //
 
-// todo: https://www.geeksforgeeks.org/how-to-send-an-email-from-javascript/#
-// todo: Use link above to send a pre-formatted email of book list suggestions to user and multiple emails!
-
 // todo: https://shivekkhurana.medium.com/how-to-create-pdfs-from-react-components-client-side-solution-7f506d9dfa6d
 // todo: Print react components to pdf to include in email
 import { SearchData } from "components/pages/BookSuggestion";
@@ -31,9 +28,6 @@ import { SearchData } from "components/pages/BookSuggestion";
 export function BookReadingList() {
   const collection = useContext(SearchData);
 
-  const SERVICE_ID = "service_ovque9t";
-  const TEMPLATE_ID = "template_dv84fsb";
-  const PUBLIC_KEY = "Cy6wkdPzfljkURebV";
   return (
     <>
       <Container
@@ -57,7 +51,7 @@ export function BookReadingList() {
           borderWidth={4}
           p={4}
         >
-          Book Reading Share List
+          Reading List
         </Heading>
         {collection.bookCollection ? (
           collection.bookCollection.map((b) => (
@@ -102,10 +96,12 @@ export function BookReadingList() {
             colorScheme="yellow"
             textAlign={"center"}
             size="lg"
-            // onClick={sendEmail("Test!!!!")}
+            // todo: Add capcha and throttling on submit button
+            // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
+
             onClick={(e) => {
               e.preventDefault();
-              sendEmail("testttt!!");
+              sendEmail(collection.bookCollection);
             }}
           >
             Share!
