@@ -15,6 +15,8 @@ import {
 
 import "./BookReadingList.design.css";
 
+import sendEmail from "lib/sendEmail";
+
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
 // --------------------------------------------------------------------- //
@@ -28,11 +30,35 @@ import { SearchData } from "components/pages/BookSuggestion";
 
 export function BookReadingList() {
   const collection = useContext(SearchData);
+
+  const SERVICE_ID = "service_ovque9t";
+  const TEMPLATE_ID = "template_dv84fsb";
+  const PUBLIC_KEY = "Cy6wkdPzfljkURebV";
   return (
     <>
-      <Container maxW={"50%"} border={"4px"} borderWidth={"5px"} borderColor={"teal"} borderRadius={"25px"} p={6} mb={12}>
+      <Container
+        maxW={"50%"}
+        border={"4px"}
+        borderWidth={"5px"}
+        borderColor={"teal"}
+        borderRadius={"25px"}
+        p={6}
+        mb={12}
+      >
         {/* <Heading size="lg" textAlign={"center"} mb={5} border={"2px"} borderColor={"teal"} borderWidth={4} p={4}>Book Reading Share List</Heading> */}
-        <Heading size="xl" color="white" backgroundColor="teal" textAlign={"center"} mb={5} border={"2px"} borderColor={"white"} borderWidth={4} p={4}>Book Reading Share List</Heading>
+        <Heading
+          size="xl"
+          color="white"
+          backgroundColor="teal"
+          textAlign={"center"}
+          mb={5}
+          border={"2px"}
+          borderColor={"white"}
+          borderWidth={4}
+          p={4}
+        >
+          Book Reading Share List
+        </Heading>
         {collection.bookCollection ? (
           collection.bookCollection.map((b) => (
             <Card
@@ -68,9 +94,20 @@ export function BookReadingList() {
         )}
         <br />
         <br />
-        <Heading color={"teal"} textAlign={"center"} mb={4}>Create share card of all books in your reading list!</Heading>
+        <Heading color={"teal"} textAlign={"center"} mb={4}>
+          Create share card of all books in your reading list!
+        </Heading>
         <Center flex={"column"} gap={2}>
-          <Button colorScheme="yellow" textAlign={"center"} size="lg">
+          <Button
+            colorScheme="yellow"
+            textAlign={"center"}
+            size="lg"
+            // onClick={sendEmail("Test!!!!")}
+            onClick={(e) => {
+              e.preventDefault();
+              sendEmail("testttt!!");
+            }}
+          >
             Share!
           </Button>
           <Button colorScheme="red" textAlign={"center"} size="lg">

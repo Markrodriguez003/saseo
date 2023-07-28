@@ -248,6 +248,7 @@ function BookCard(book) {
                 />
               </Box>
               <Divider zIndex={1} size={"lg"} />
+                {/* // todo: Capitalize each word of title. Sometimes it doesn't come out cleanly. */}
               <Heading size="lg">{book.title}</Heading>
               <Heading size="xs" color={"grey"}>
                 {book.author_name}
@@ -261,6 +262,7 @@ function BookCard(book) {
               </Text>
 
               <Collapse startingHeight={90} in={show}>
+                {/* // todo: Format any and all paragraphs to fit. Some description text overlaps/overflows */}
                 <Text p={4}>{book.description}</Text>
               </Collapse>
               <Button
