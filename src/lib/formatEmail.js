@@ -24,13 +24,13 @@ function CreateEmail(collection) {
         {collection.collection.map((b) => (
           <>
             <Section style={container}>
-              <Column>
+              <Column key={`${b.author} + ${b.title}` }>
                 <Hr style={hr} />
                 <Text style={heading}>{b.title}</Text>
                 <Text style={paragraph}>
                   <Text style={bold}>Author(s):</Text> {b.author}
                 </Text>
-                <Text style={paragraph}>
+                <Text style={paragraph}>tr
                   <Text style={bold}>ISBN:</Text> {b.isbn}
                 </Text>
               </Column>
@@ -58,6 +58,12 @@ const main = {
     '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
 };
 
+const img = {
+  textAlign: "center",
+  marginLeft: "auto",
+  marginRight: "auto",
+};
+
 const container = {
   margin: "30px auto",
   width: "610px",
@@ -79,7 +85,7 @@ const paragraph = {
   fontSize: "18px",
   lineHeight: "2px",
   color: "#3c4043",
-  marginTop: "8px"
+  marginTop: "8px",
 };
 const bold = {
   fontSize: "18px",

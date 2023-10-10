@@ -28,9 +28,6 @@ import { useState } from "react";
 import BookmarkHeader from "components/ui/BookmarkHeader";
 import PageDesignWaves from "components/ui/PageDesignWaves";
 
-// LIBS / UTILITIES
-import FetchBook from "lib/OrganizeBooks";
-
 // IMAGES
 import bgHero from "images/backgrounds/Hero-Book.png";
 import bgHero2 from "images/backgrounds/Hero-2.png";
@@ -49,80 +46,111 @@ function FrontPageHero() {
   const [placeholderText, setPlaceholderText] = useState("");
   return (
     <>
-      {/* <FetchBook /> */}
       <Container maxW={"100%"} p={0} m={0}>
         <Center position={"relative"}>
-          <Stack gap={4}>
-            <Heading color={"darkcyan"} textAlign={"center"} size={"3xl"}>
+          <Stack>
+            {/* TOP HEADER TEXT */}
+            <Heading
+              color={"darkcyan"}
+              textAlign={"center"}
+              size={"2xl"}
+              p={"5px"}
+            >
               <span style={{ color: "#4d2f00" }}>Find your </span> Perfect Book.
             </Heading>
 
-            <InputGroup w={"80%"} alignSelf={"center"}>
-              <InputLeftElement pointerEvents="none">
-                <BiBookReader color="rgba(0,0,0,0.2)" size={"1.3em"} />
-              </InputLeftElement>
-              <Input
-                // mb={2}
-                type="text"
-                placeholder="Type a Book Genre!"
-                border={"2px"}
-                borderColor={"darkcyan"}
+            {/* BOTTOM HALF OF HEADER TEXT */}
+            <Flex
+              direction={{
+                base: "column-reverse",
+                lg: "row",
+                md: "column-reverse",
+                sm: "column-reverse",
+              }}
+              justify={"center"}
+              align={"center"}
+              mb={12}
+              position={"relative"}
+            >
+              <Box w={{ base: "60%", lg: "30%", md: "60%", sm: "60%" }}>
+                <Heading
+                  color={"darkcyan"}
+                  mb={4}
+                  textAlign={{
+                    base: "center",
+                    lg: "left",
+                    md: "center",
+                    sm: "center",
+                  }}
+                >
+                  Looking for a book has never been easier.
+                </Heading>
+                <Stack
+                  direction="row"
+                  spacing={4}
+                  align="center"
+                  justify={{
+                    base: "flex-start",
+                    lg: "flex-start",
+                    md: "center",
+                    sm: "center",
+                  }}
+                >
+                  <Button colorScheme="teal" variant="solid">
+                    More Info!
+                  </Button>
+                  <Button colorScheme="teal" variant="outline">
+                    About
+                  </Button>
+                </Stack>
+              </Box>
+
+              <Image src={bgHero} maxW={"10rem"} mb={8} mt={6} />
+            </Flex>
+
+            {/* BOTTOM OPEN BOOK IMAGE */}
+            <Box>
+              <Image
+                src={splashBook}
+                alt="Open Book image"
+                h={"60vh"}
+                w={"100vw"}
+                m={0}
+                p={0}
               />
-              <InputRightElement
-                backgroundColor={"darkcyan"}
-                pointerEvents={"cursor"}
-              >
-                <BiSearch color="white" size={"1.3em"} />
-              </InputRightElement>
-            </InputGroup>
+            </Box>
           </Stack>
         </Center>
-
-        {/* BOTTOM HALF OF SEARCH BAR */}
-        <Flex
-          direction={{
-            base: "row",
-            lg: "row",
-            md: "column-reverse",
-            sm: "column-reverse",
-          }}
-          justify={"center"}
-          align={"center"}
-          mb={12}
-          position={"relative"}
-        >
-          <Box w={{ base: "30%", lg: "30%", md: "60%", sm: "60%" }}>
-            <Heading color={"darkcyan"} mb={4}>
-              Looking for a book has never been easier.
-            </Heading>
-            <Stack direction="row" spacing={4} align="center">
-              <Button colorScheme="teal" variant="solid">
-                Tell Me More!
-              </Button>
-              <Button colorScheme="teal" variant="outline">
-                About
-              </Button>
-            </Stack>
-          </Box>
-          <Image src={bgHero} maxW={"10rem"} mb={8} mt={6} />
-        </Flex>
-
-        <Box w={"100%"} maxH={"200px"} position={"absolute"} bottom={-2}>
-          <Image
-            src={splashBook}
-            alt="fuck off"
-            h={"500px"}
-            w={"100%"}
-            m={0}
-            p={0}
-          />
-        </Box>
       </Container>
     </>
   );
 }
 
 export default FrontPageHero;
+
+// UNUSED COMPONENTS
+{
+  /* BOOK SEARCH BAR */
+}
+//    <InputGroup w={"80%"} alignSelf={"center"}>
+//    <InputLeftElement pointerEvents="none">
+//      <BiBookReader color="rgba(0,0,0,0.2)" size={"1.3em"} />
+//    </InputLeftElement>
+//    <Input
+//      // mb={2}
+//      type="text"
+//      placeholder="Type a Book Genre!"
+//      border={"2px"}
+
+//      borderColor={"darkcyan"}
+//    />
+//    <InputRightElement
+//      backgroundColor={"darkcyan"}
+//      pointerEvents={"cursor"}
+//    >
+//      <BiSearch color="white" size={"1.3em"} />
+//    </InputRightElement>
+//  </InputGroup>
 
 //  REST OF PAGE
 /*

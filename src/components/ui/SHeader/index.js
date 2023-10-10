@@ -29,7 +29,6 @@ export function SHeader() {
           <img src={Bookmark} className="bookmark" alt="bookmark-panel" />
         </div>
       </Hide>
-      {/* <Show below="md"></Show> */}
 
       {/* FLEXBOX HEADER */}
       <Flex className="container" align={"center"} marginBottom={12}>
