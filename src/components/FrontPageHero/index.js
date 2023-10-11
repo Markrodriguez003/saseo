@@ -122,6 +122,8 @@ function FrontPageHero() {
           </Stack>
         </Center>
       </Container>
+
+  
     </>
   );
 }

@@ -17,7 +17,7 @@ function sFooter() {
       maxWidth={"100%"}
     >
       <Box
-        bg={"darkcyan"}
+        bg={"#277164"}
         color={"white"}
         pb={6}
         mt={12}
