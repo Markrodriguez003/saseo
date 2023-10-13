@@ -156,7 +156,8 @@
 .word-roller-container {
   /* background-color: #277164; */
   /* background-color: transparent; */
-  background-color: rgba(0,0,0,0.35);
+  background-color: rgba(0,0,0,0.45);
+  border-radius: 85px;
   font-family: "Roboto Condensed", cursive;
   display: flex;
   position:absolute;
@@ -165,6 +166,7 @@
   flex-direction: column;
   /* top: 800px; */
   top: -70px;
+  padding-bottom: 35px;
   
 }
 .word-roller-container::after {

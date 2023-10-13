@@ -18,6 +18,16 @@ function WordRollerAnimation() {
           p={0}
         />
         <div className="word-roller-container">
+          <Image
+            textAlign={"center"}
+            src={abstractBG}
+            alt="Open Book image"
+            h={"auto"}
+            w={"115px"}
+            marginTop={"42px"}
+            p={0}
+            borderRadius="full"
+          />
           <h4 class="wordCarousel">
             <span>Explore different genres: </span>
             <div>
@@ -39,22 +49,17 @@ function WordRollerAnimation() {
             Interested in finding a book or two to read? Well, Saseo is here to
             guide you! You can search for many book titles by genre. We have
             almost every book genre to choose from! All you need to do is choose
-            a genre and how many books you would like to see suggested! Once you
-            get your list you can mark the books you wish to put on your reading
-            list and email it to you or to any other avid book reader! If you
-            are feeling lucky you can try our Random book suggestion to get
-            something completely unexpected! In addition, we provide a book
-            search via ISBN.
+            a genre and how many books you would like to see what we suggested!
           </p>
         </div>
-        <Image
+        {/* <Image
           src={middleBook}
           alt="Open Book image"
           h={"60vh"}
           w={"100vw"}
           m={0}
           p={0}
-        />
+        /> */}
       </Box>
 
       <Box>

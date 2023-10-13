@@ -8,7 +8,7 @@ function PageDesignWaves(props) {
 
     return (
         <Box w={"100%"} display={"inline-block"} position={"absolute"} zIndex={0}>
-            {/* <img src={WaveA} alt="background"/> */}
+            <img src={WaveA} alt="background"/>
             <div className="border">
 asfasf
             </div>

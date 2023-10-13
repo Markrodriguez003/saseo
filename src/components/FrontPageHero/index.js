@@ -23,6 +23,7 @@ import {
   position,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // EXTERNAL COMPONENTS
 import BookmarkHeader from "components/ui/BookmarkHeader";
@@ -47,7 +48,7 @@ function FrontPageHero() {
   return (
     <>
       <Container maxW={"100%"} p={0} m={0}>
-        <Center position={"relative"}>
+        <Center position={"relative"} className="header-box">
           <Stack>
             {/* TOP HEADER TEXT */}
             <Heading
@@ -72,7 +73,7 @@ function FrontPageHero() {
               mb={12}
               position={"relative"}
             >
-              <Box w={{ base: "60%", lg: "30%", md: "60%", sm: "60%" }}>
+              <Box w={{ base: "60%", lg: "45%", md: "60%", sm: "60%" }}>
                 <Heading
                   color={"darkcyan"}
                   mb={4}
@@ -83,7 +84,7 @@ function FrontPageHero() {
                     sm: "center",
                   }}
                 >
-                  Looking for a book has never been easier.
+                  Looking for a book has never been easier →
                 </Heading>
                 <Stack
                   direction="row"
@@ -100,30 +101,30 @@ function FrontPageHero() {
                     More Info!
                   </Button>
                   <Button colorScheme="teal" variant="outline">
-                    About
+                    <Link to="about">
+                      About
+                    </Link>
                   </Button>
                 </Stack>
               </Box>
 
               <Image src={bgHero} maxW={"10rem"} mb={8} mt={6} />
             </Flex>
-
-            {/* BOTTOM OPEN BOOK IMAGE */}
-            <Box>
-              <Image
-                src={splashBook}
-                alt="Open Book image"
-                h={"60vh"}
-                w={"100vw"}
-                m={0}
-                p={0}
-              />
-            </Box>
           </Stack>
         </Center>
-      </Container>
 
-  
+        {/* BOTTOM OPEN BOOK (TOP PORTION) IMAGE */}
+        <Box className="openBookImg">
+          <Image
+            src={splashBook}
+            alt="Open Book image"
+            h={"60vh"}
+            w={"100vw"}
+            m={0}
+            p={0}
+          />
+        </Box>
+      </Container>
     </>
   );
 }
