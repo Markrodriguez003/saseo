@@ -1,9 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
-  padding:0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,7 +23,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -30,6 +33,12 @@ code {
   /* src: url("../src/fonts/Comfortaa-Bold.ttf"); */
   src: url("../src/fonts/ftanima-Medium.otf");
   /* src: url("../src/fonts/Mobile\ Sans.ttf"); */
+}
+
+@font-face {
+  font-family: "ransom";
+  src: url("../src/fonts/ransom/Pauls\ Ransom\ Note.ttf");
+  /* src: url("../src/fonts/ransom/Ransom.ttf"); */
 }
 
 @font-face {

@@ -1,0 +1,1 @@
+- Merge all site colors to Chakra UI 

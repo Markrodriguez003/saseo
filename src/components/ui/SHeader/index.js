@@ -31,7 +31,7 @@ export function SHeader() {
       </Hide>
 
       {/* FLEXBOX HEADER */}
-      <Flex className="container" align={"center"} marginBottom={12}>
+      <Flex className="container" align={"center"}  >
         <Hide below="md">
           <div className="spacer-container"></div>
           <div className="brand-container">

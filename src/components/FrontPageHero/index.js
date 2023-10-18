@@ -47,7 +47,7 @@ function FrontPageHero() {
   const [placeholderText, setPlaceholderText] = useState("");
   return (
     <>
-      <Container maxW={"100%"} p={0} m={0}>
+      <Container maxW={"100%"} p={0} m={0} paddingTop={"45px"}>
         <Center position={"relative"} className="header-box">
           <Stack>
             {/* TOP HEADER TEXT */}

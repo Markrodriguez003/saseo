@@ -1,0 +1,98 @@
+.about-us-hero {
+  position: relative;
+  display: flex;
+  /* background-image: url("../../../images/backgrounds/book-background-F.jpg"); */
+  /* background-image: url("../../../images/backgrounds/book-background-B.jpg"); */
+  /* background-image: url("../../../images/backgrounds/book-background-H.jpg"); */
+  background-image: url("../../../images/backgrounds/book-background-I.jpg");
+  height: 100vh;
+  width: 100%;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.75);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 85px;
+}
+
+.about-us-hero h1 {
+  display: inline;
+  text-align: center;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  font-size: 80px;
+  font-style: italic;
+  text-decoration: underline;
+  font-family: "ransom";
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  /* -webkit-text-stroke: black 1px; */
+  font-weight: bold;
+  /* border: white 4px solid; */
+  border-radius: 20px;
+}
+
+/* RANSOM TEXT */
+#ransomizer {
+  font-size: 3em;
+  line-height: normal;
+  word-spacing: 0.5em;
+}
+
+#ransomizer div {
+  display: inline-block;
+}
+
+#ransomizer .rww {
+  white-space: pre;
+  display: inline;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+#ransomizer .rr {
+  -ms-transform: rotate(1.5deg);
+  -webkit-transform: rotate(1.5deg);
+  transform: rotate(1.5deg);
+}
+
+#ransomizer .rl {
+  -ms-transform: rotate(-1.5deg);
+  -webkit-transform: rotate(-1.5deg);
+  transform: rotate(-1.5deg);
+}
+
+.about-header {
+  animation-duration: 0.8s;
+  animation-name: fade-in;
+}
+
+.page-arrow-down {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 145px;
+  right: 35px;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+}
+ 
+
+/* ANIMATIONS */
+@keyframes fade-in {
+  from {
+    /* margin-left: 100%; */
+    /* margin-right: 100%; */
+    opacity: 0;
+  }
+
+  to {
+    /* margin-left: 0%; */
+    /* margin-right: 0%; */
+    opacity: 1;
+  }
+}
