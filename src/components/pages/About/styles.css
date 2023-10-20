@@ -74,13 +74,12 @@
   display: flex;
   flex-direction: row;
   position: absolute;
-  bottom: 145px;
-  right: 35px;
-  color: white;
-  font-size: 16px;
+  bottom: 125px;
+  right: 30px;
+  /* color: white; */
+  font-size: 14px;
   letter-spacing: 1.5px;
 }
- 
 
 /* ANIMATIONS */
 @keyframes fade-in {
@@ -94,5 +93,73 @@
     /* margin-left: 0%; */
     /* margin-right: 0%; */
     opacity: 1;
+  }
+}
+
+/* IMAGE ANIMATION */
+.container-bubble {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.shape {
+  background: linear-gradient(45deg, #00ffb6 0%, #000fa3 100%);
+  animation: morph 8s ease-in-out infinite;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  height: 400px;
+  width: 400px;
+  box-shadow: 0 0 10px #353333;
+}
+
+.top-cog {
+  animation: left-cog-spin 8s ease-in-out infinite;
+}
+
+.other-cog {
+  animation: right-cog-spin 8s ease-in-out infinite;
+}
+
+@keyframes left-cog-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes right-cog-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 20% 40% 34% 72% / 20% 30% 70% 40%;
+    background-size: 100% 100%;
+    transform: rotate(0deg);
+    transform: skew(0);
+    transform: translate(0, 0);
+  }
+
+  50% {
+    border-radius: 30% 60% 73% 42% / 50% 60% 30% 60%;
+    background-size: 300% 150%;
+    transform: rotate(5deg);
+    transform: skew(1.4);
+    transform: translate(10, 8);
+  }
+
+  100% {
+    border-radius: 20% 40% 34% 72% / 20% 30% 70% 40%;
+    background-size: 100% 100%;
+    transform: rotate(0deg);
+    transform: skew(0);
+    transform: translate(0, 0);
   }
 }

@@ -2,6 +2,9 @@
 // Cool font https://www.ransomizer.com/
 // Instead of ransom text above perhaps halftone fonts --> https://www.sliderrevolution.com/resources/css-text-animation/ "Strokes, Shadows + Halftone Effects"
 // HTML TO JSX generator https://transform.tools/html-to-jsx
+// ? Texture used for bottom headers?
+// https://codepen.io/hexagoncircle/pen/Exyewjv
+// https://codepen.io/robdimarzo/pen/VqjvqR
 // CHAKRA COMPONENTS
 import {
   Box,
@@ -31,12 +34,18 @@ import { useState } from "react";
 // EXTERNAL COMPONENTS
 
 // ICONS
-import { CiFaceSmile } from "react-icons/ci";
 import { FaRocket } from "react-icons/fa";
 import { PiArrowBendRightDownBold } from "react-icons/pi";
+import { GiDrippingTube } from "react-icons/gi";
 
 // IMAGES
 import booksBackground from "../../../images/backgrounds/Abstract-2.jpg";
+import techBackground from "../../../images/header/tech-cog-background.png";
+import futureBackground from "../../../images/backgrounds/chemical-1674885_1280.png";
+import cogTop from "../../../images/header/tech-cog-top.png";
+import cogMiddle from "../../../images/header/tech-cog-middle.png";
+import cogBottom from "../../../images/header/tech-cog-bottom.png";
+import digital from "../../../images/backgrounds/circuit-7955446_1280.png";
 
 import "./styles.css";
 
@@ -44,11 +53,10 @@ function About() {
   return (
     <>
       <div className="about-us-hero">
-        {/* <h1>"WE HELP BUILD LIBRARIES"</h1> */}
-
         {/**************************/}
-        {/* HEADER */}
+        {/*//* HEADER */}
         {/* // ! MOVE THIS TO A COMPONENT --> UI */}
+        {/* Download imgur textures */}
         {/**************************/}
         <Box w={"75%"} textAlign={"center"} className="about-header">
           <div id="ransomizer">
@@ -480,22 +488,13 @@ function About() {
         {/**************************/}
         {/**************************/}
 
-        {/* <Heading
-          color={"white"}
-          border="2px"
-          padding={"10px"}
-          borderRadius={"full"}
-          borderColor="white"
-          marginTop={5}
-        >
-          ABOUT US
-        </Heading> */}
         <Container maxW="container.md" color="#262626" className="about-header">
           <Text
             textAlign={"center"}
             fontSize="xl"
             color={"white"}
             marginTop={"50px"}
+            paddingBottom={"50px"}
             letterSpacing={"1px"}
           >
             Saseo was created to solve a problem that should not exist in
@@ -506,21 +505,62 @@ function About() {
           </Text>
         </Container>
         <a href="#about">
-          <span className="page-arrow-down">
+          <Text className="page-arrow-down" color={"white"} fontWeight={"bold"}>
             Technologies Used <PiArrowBendRightDownBold />
-          </span>
+          </Text>
         </a>
       </div>
 
+      {/* //* TECHNOLOGIES USED  */}
       <HStack
         w={"100%"}
         justify={"center"}
         align={"start"}
         paddingTop={"50px"}
         id="about"
- 
       >
-        <Image src={booksBackground} w={"28vw"}></Image>
+        {/* <Image src={booksBackground} w={"28vw"}></Image> */}
+
+        <Box w={"400px"} h={"400px"} position={"relative"}>
+          <Image
+            src={techBackground}
+            position={"absolute"}
+            borderRadius={"3xl"}
+          ></Image>
+          {/* <Image src={digital} position={"absolute"}  width={"400px"} height={"400px"} borderRadius={"3xl"} backgroundBlendMode={""} ></Image> */}
+          <Image
+            src={cogTop}
+            position={"absolute"}
+            className="top-cog"
+            width={"135px"}
+            height={"auto"}
+            top={"108px"}
+            left={"90px"}
+          ></Image>
+          <Image
+            src={cogMiddle}
+            position={"absolute"}
+            className="other-cog"
+            width={"95px"}
+            height={"auto"}
+            top={"150px"}
+            left={"225px"}
+          ></Image>
+          <Image
+            src={cogBottom}
+            position={"absolute"}
+            className="top-cog"
+            width={"60px"}
+            height={"auto"}
+            top={"225px"}
+            left={"182px"}
+          ></Image>
+        </Box>
+
+        {/* //* BUBBLE ANIMATION */}
+        {/* <div class="container-bubble">
+          <Image src={booksBackground} w={"28vw"} className="shape"></Image>
+        </div> */}
         <Container>
           <Heading
             color={"darkcyan"}
@@ -530,7 +570,6 @@ function About() {
             // borderColor="darkcyan"
             marginTop={5}
           >
-            <FaRocket />
             TECHNOLOGIES USED TO BUILD THIS SITE
           </Heading>
           <Divider borderColor={"darkcyan"} />
@@ -541,32 +580,112 @@ function About() {
             paddingTop={"10px"}
           >
             <ListItem>
-              <ListIcon as={CiFaceSmile} color="darkcyan" />
-              ReactJS - We used ReactJS for the Front end
+              <ListIcon as={FaRocket} color="darkcyan" />
+              <strong> ReactJS </strong> - We used ReactJS for the Front end
             </ListItem>
             <ListItem>
-              <ListIcon as={CiFaceSmile} color="darkcyan" />
-              EmailJS - Email Library
+              <ListIcon as={FaRocket} color="darkcyan" />
+              <strong>Vite </strong> - Frontend Development and build
             </ListItem>
             <ListItem>
-              <ListIcon as={CiFaceSmile} color="darkcyan" />
-              Axios - Library used to make API calls
+              <ListIcon as={FaRocket} color="darkcyan" />
+              <strong>EmailJS </strong> - Email Library
             </ListItem>
             <ListItem>
-              <ListIcon as={CiFaceSmile} color="darkcyan" />
-              Chakra UI - CSS Library
+              <ListIcon as={FaRocket} color="darkcyan" />
+              <strong>OpenLibrary API </strong> - Library API
             </ListItem>
             <ListItem>
-              <ListIcon as={CiFaceSmile} color="darkcyan" />
-              React-Icons - Site Icons
+              <ListIcon as={FaRocket} color="darkcyan" />
+              <strong> Axios </strong>- Library used to make API calls
+            </ListItem>
+            <ListItem>
+              <ListIcon as={FaRocket} color="darkcyan" />
+              <strong>Chakra UI </strong> - CSS Library
+            </ListItem>
+            <ListItem>
+              <ListIcon as={FaRocket} color="darkcyan" />
+              <strong>React-Icons </strong>- Site Icons
             </ListItem>
           </List>
         </Container>
       </HStack>
+{/* 
+      <a href="#about">
+        <Text
+          className="page-arrow-down"
+          color={"darkcyan"}
+          fontWeight={"bold"}
+          fontFamily={"brand-font"}
+        >
+          Future Plans <PiArrowBendRightDownBold />
+        </Text>
+      </a> */}
 
       <br />
       <br />
       <br />
+      {/* //* Future updates  */}
+      <HStack
+        w={"100%"}
+        justify={"flex-start"}
+        align={"start"}
+        paddingTop={"50px"}
+        id="future"
+      >
+        <Container>
+          <Heading
+            color={"darkcyan"}
+            // border="2px"
+            // padding={"10px"}
+            borderRadius={"full"}
+            // borderColor="darkcyan"
+            marginTop={5}
+          >
+            FUTURE PLANS
+          </Heading>
+          <Divider borderColor={"darkcyan"} />
+          <List
+            spacing={3}
+            alignContent={"start"}
+            fontSize={"md"}
+            paddingTop={"10px"}
+          >
+            <ListItem>
+              <ListIcon as={GiDrippingTube} color="darkcyan" />
+              <strong> ReactJS </strong> - We used ReactJS for the Front end
+            </ListItem>
+            <ListItem>
+              <ListIcon as={GiDrippingTube} color="darkcyan" />
+              <strong>Vite </strong> - Frontend Development and build
+            </ListItem>
+            <ListItem>
+              <ListIcon as={GiDrippingTube} color="darkcyan" />
+              <strong>EmailJS </strong> - Email Library
+            </ListItem>
+            <ListItem>
+              <ListIcon as={GiDrippingTube} color="darkcyan" />
+              <strong>OpenLibrary API </strong> - Library API
+            </ListItem>
+            <ListItem>
+              <ListIcon as={GiDrippingTube} color="darkcyan" />
+              <strong> Axios </strong>- Library used to make API calls
+            </ListItem>
+            <ListItem>
+              <ListIcon as={GiDrippingTube} color="darkcyan" />
+              <strong>Chakra UI </strong> - CSS Library
+            </ListItem>
+            <ListItem>
+              <ListIcon as={GiDrippingTube} color="darkcyan" />
+              <strong>React-Icons </strong>- Site Icons
+            </ListItem>
+          </List>
+        </Container>
+      
+        <Box w={"400px"} h={"400px"} >
+          <Image src={futureBackground} borderRadius={"3xl"} align={"center"}></Image>
+        </Box>
+      </HStack>
     </>
   );
 }
