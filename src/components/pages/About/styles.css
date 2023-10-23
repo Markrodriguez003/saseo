@@ -1,10 +1,27 @@
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 558px) {
+  #ransomizer {
+    font-size: 9.5vw !important;
+    
+  }
+
+  .about-us-hero {
+    height: 135vh !important;
+
+  }
+}
+
+/* FOLD */
+@media only screen and (max-width: 280px) {
+ 
+}
+
 .about-us-hero {
   position: relative;
   display: flex;
-  /* background-image: url("../../../images/backgrounds/book-background-F.jpg"); */
-  /* background-image: url("../../../images/backgrounds/book-background-B.jpg"); */
-  /* background-image: url("../../../images/backgrounds/book-background-H.jpg"); */
   background-image: url("../../../images/backgrounds/book-background-I.jpg");
+  /* Change this responsive */
   height: 100vh;
   width: 100%;
   background-blend-mode: overlay;
@@ -37,7 +54,7 @@
 
 /* RANSOM TEXT */
 #ransomizer {
-  font-size: 3em;
+  font-size: 3.5em;
   line-height: normal;
   word-spacing: 0.5em;
 }
@@ -120,6 +137,43 @@
 .other-cog {
   animation: right-cog-spin 8s ease-in-out infinite;
 }
+.right-test-tube {
+  animation: right-fill 2s alternate-reverse infinite;
+  width: 30px;
+  right: 111.5px;
+}
+
+.left-test-tube {
+  animation: left-fill 3s alternate-reverse infinite;
+
+  position: absolute;
+  background-color: #f0eadd;
+  filter: hue-rotate(80deg);
+  width: 28px;
+  top: 151px;
+
+  right: 234.5px;
+}
+
+@keyframes left-fill {
+  0% {
+    /* top: 149px; */
+    height: 2px;
+  }
+  100% {
+    /* top: 171px; */
+
+    height: 40px;
+  }
+}
+@keyframes right-fill {
+  0% {
+    top: 200px;
+  }
+  100% {
+    top: 147px;
+  }
+}
 
 @keyframes left-cog-spin {
   from {
@@ -161,5 +215,49 @@
     transform: rotate(0deg);
     transform: skew(0);
     transform: translate(0, 0);
+  }
+}
+
+/* unvisited link */
+.about-anchor:link {
+  color: inherit;
+}
+
+/* visited link */
+.about-anchor:visited {
+  color: inherit;
+}
+
+/* mouse over link */
+.about-anchor:hover {
+  color: darkcyan;
+}
+
+/* selected link */
+.about-anchor:active {
+  color: inherit;
+}
+
+.heart {
+  animation: heartbeat 2s infinite;
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.75);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.75);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(0.75);
   }
 }

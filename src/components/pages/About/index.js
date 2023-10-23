@@ -27,6 +27,7 @@ import {
   InputGroup,
   Text,
   Center,
+  VStack,
   position,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -36,16 +37,16 @@ import { useState } from "react";
 // ICONS
 import { FaRocket } from "react-icons/fa";
 import { PiArrowBendRightDownBold } from "react-icons/pi";
-import { GiDrippingTube } from "react-icons/gi";
+import { GiDrippingTube, GiTechnoHeart } from "react-icons/gi";
 
 // IMAGES
 import booksBackground from "../../../images/backgrounds/Abstract-2.jpg";
 import techBackground from "../../../images/header/tech-cog-background.png";
-import futureBackground from "../../../images/backgrounds/chemical-1674885_1280.png";
+import futureBackground from "../../../images/backgrounds/chemical-1674885_1282.png";
 import cogTop from "../../../images/header/tech-cog-top.png";
 import cogMiddle from "../../../images/header/tech-cog-middle.png";
 import cogBottom from "../../../images/header/tech-cog-bottom.png";
-import digital from "../../../images/backgrounds/circuit-7955446_1280.png";
+import rightTestTube from "../../../images/header/right-test-tube.png";
 
 import "./styles.css";
 
@@ -491,6 +492,7 @@ function About() {
         <Container maxW="container.md" color="#262626" className="about-header">
           <Text
             textAlign={"center"}
+            // fontSize={{ base: "xl", sm: "sm", md: "xl", lg: "xl" }}
             fontSize="xl"
             color={"white"}
             marginTop={"50px"}
@@ -504,30 +506,41 @@ function About() {
             are here to help build libraries everywhere!
           </Text>
         </Container>
-        <a href="#about">
+
+        {/* <a href="#about">
           <Text className="page-arrow-down" color={"white"} fontWeight={"bold"}>
             Technologies Used <PiArrowBendRightDownBold />
           </Text>
-        </a>
+        </a> */}
       </div>
-
-      {/* //* TECHNOLOGIES USED  */}
-      <HStack
+      <br />
+      <br />
+      <br />
+      {/* // ! Replace <Box> with <Flex> */}
+      <Box
         w={"100%"}
         justify={"center"}
         align={"start"}
         paddingTop={"50px"}
         id="about"
+        display={"flex"}
+        gap={1}
+        flexDirection={{
+          base: "column",
+          sm: "column",
+          md: "column",
+          lg: "row",
+        }}
+        marginLeft={"auto"}
+        marginRight={"auto"}
       >
-        {/* <Image src={booksBackground} w={"28vw"}></Image> */}
-
         <Box w={"400px"} h={"400px"} position={"relative"}>
           <Image
             src={techBackground}
             position={"absolute"}
             borderRadius={"3xl"}
           ></Image>
-          {/* <Image src={digital} position={"absolute"}  width={"400px"} height={"400px"} borderRadius={"3xl"} backgroundBlendMode={""} ></Image> */}
+
           <Image
             src={cogTop}
             position={"absolute"}
@@ -557,17 +570,11 @@ function About() {
           ></Image>
         </Box>
 
-        {/* //* BUBBLE ANIMATION */}
-        {/* <div class="container-bubble">
-          <Image src={booksBackground} w={"28vw"} className="shape"></Image>
-        </div> */}
         <Container>
           <Heading
             color={"darkcyan"}
-            // border="2px"
             padding={"10px"}
             borderRadius={"full"}
-            // borderColor="darkcyan"
             marginTop={5}
           >
             TECHNOLOGIES USED TO BUILD THIS SITE
@@ -581,67 +588,135 @@ function About() {
           >
             <ListItem>
               <ListIcon as={FaRocket} color="darkcyan" />
-              <strong> ReactJS </strong> - We used ReactJS for the Front end
+              <a
+                href="https://react.dev/"
+                className="about-anchor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>ReactJS </strong> - We used ReactJS for the Front end
+              </a>
             </ListItem>
             <ListItem>
               <ListIcon as={FaRocket} color="darkcyan" />
-              <strong>Vite </strong> - Frontend Development and build
+              <a
+                href="https://vitejs.dev/"
+                className="about-anchor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>Vite </strong> - Frontend Development and build{" "}
+              </a>
             </ListItem>
             <ListItem>
               <ListIcon as={FaRocket} color="darkcyan" />
-              <strong>EmailJS </strong> - Email Library
+              <a
+                href="https://www.emailjs.com/"
+                className="about-anchor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>EmailJS </strong> - Email Library{" "}
+              </a>
             </ListItem>
             <ListItem>
               <ListIcon as={FaRocket} color="darkcyan" />
-              <strong>OpenLibrary API </strong> - Library API
+              <a
+                href="https://openlibrary.org/developers/api"
+                className="about-anchor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>OpenLibrary API </strong> - Library API{" "}
+              </a>
             </ListItem>
             <ListItem>
               <ListIcon as={FaRocket} color="darkcyan" />
-              <strong> Axios </strong>- Library used to make API calls
+              <a
+                href="https://axios-http.com/"
+                className="about-anchor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong> Axios </strong>- Library used to make API calls{" "}
+              </a>
             </ListItem>
             <ListItem>
               <ListIcon as={FaRocket} color="darkcyan" />
-              <strong>Chakra UI </strong> - CSS Library
+              <a
+                href="https://chakra-ui.com/"
+                className="about-anchor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>Chakra UI </strong> - CSS Library{" "}
+              </a>
             </ListItem>
             <ListItem>
               <ListIcon as={FaRocket} color="darkcyan" />
-              <strong>React-Icons </strong>- Site Icons
+              <a
+                href="https://react-icons.github.io/react-icons/"
+                className="about-anchor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>React-Icons </strong>- Site Icons{" "}
+              </a>
             </ListItem>
           </List>
         </Container>
-      </HStack>
-{/* 
-      <a href="#about">
-        <Text
-          className="page-arrow-down"
-          color={"darkcyan"}
-          fontWeight={"bold"}
-          fontFamily={"brand-font"}
-        >
-          Future Plans <PiArrowBendRightDownBold />
-        </Text>
-      </a> */}
+      </Box>
 
       <br />
       <br />
+
+      <Box
+        backgroundColor={"darkcyan"}
+        w="65%"
+        display={"flex"}
+        justifyContent={"center"}
+        alignContent={"center"}
+        margin={"auto"}
+        padding={"40px"}
+        borderRadius={"10px"}
+      >
+        <VStack>
+          <GiTechnoHeart color="white" fontSize={"65px"} className="heart" />
+          <Text
+            fontSize="xl"
+            color={"white"}
+            letterSpacing={"1px"}
+            textAlign={"center"}
+          >
+            This site would not exist without the help from all of the above
+            technologies! For more information please visit their site by
+            clicking the link above and support them!
+          </Text>
+        </VStack>
+      </Box>
       <br />
-      {/* //* Future updates  */}
-      <HStack
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <Box
         w={"100%"}
-        justify={"flex-start"}
+        justify={"center"}
         align={"start"}
         paddingTop={"50px"}
-        id="future"
+        id="about"
+        display={"flex"}
+        flexDirection={{
+          base: "column-reverse",
+          sm: "column-reverse",
+          md: "column-reverse",
+          lg: "row",
+        }}
+        gap={4}
       >
-        <Container>
-          <Heading
-            color={"darkcyan"}
-            // border="2px"
-            // padding={"10px"}
-            borderRadius={"full"}
-            // borderColor="darkcyan"
-            marginTop={5}
-          >
+        <Box>
+          <Heading color={"darkcyan"} borderRadius={"full"} marginTop={5}>
             FUTURE PLANS
           </Heading>
           <Divider borderColor={"darkcyan"} />
@@ -653,39 +728,43 @@ function About() {
           >
             <ListItem>
               <ListIcon as={GiDrippingTube} color="darkcyan" />
-              <strong> ReactJS </strong> - We used ReactJS for the Front end
+              Personal account for tracking of favorited books
             </ListItem>
             <ListItem>
               <ListIcon as={GiDrippingTube} color="darkcyan" />
-              <strong>Vite </strong> - Frontend Development and build
+              Customizable art assets (bookmarks,ect)
             </ListItem>
             <ListItem>
               <ListIcon as={GiDrippingTube} color="darkcyan" />
-              <strong>EmailJS </strong> - Email Library
+              Expand the search to include magazines & audiobooks
             </ListItem>
             <ListItem>
               <ListIcon as={GiDrippingTube} color="darkcyan" />
-              <strong>OpenLibrary API </strong> - Library API
+              Include better book search options
             </ListItem>
             <ListItem>
               <ListIcon as={GiDrippingTube} color="darkcyan" />
-              <strong> Axios </strong>- Library used to make API calls
-            </ListItem>
-            <ListItem>
-              <ListIcon as={GiDrippingTube} color="darkcyan" />
-              <strong>Chakra UI </strong> - CSS Library
-            </ListItem>
-            <ListItem>
-              <ListIcon as={GiDrippingTube} color="darkcyan" />
-              <strong>React-Icons </strong>- Site Icons
+              Include more helpful/reference links to books
             </ListItem>
           </List>
-        </Container>
-      
-        <Box w={"400px"} h={"400px"} >
-          <Image src={futureBackground} borderRadius={"3xl"} align={"center"}></Image>
         </Box>
-      </HStack>
+
+        <Box w={"400px"} h={"400px"} position={"relative"}>
+          <Image src={futureBackground} borderRadius={"3xl"}></Image>
+          <Image
+            src={rightTestTube}
+            position={"absolute"}
+            className={"right-test-tube"}
+          ></Image>
+          <div position={"absolute"} className={"left-test-tube"}></div>
+        </Box>
+      </Box>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }
@@ -693,6 +772,12 @@ function About() {
 export default About;
 
 /*
+
+
+        // BUBBLE ANIMATION 
+        <div class="container-bubble">
+          <Image src={booksBackground} w={"28vw"} className="shape"></Image>
+        </div>
 
  <Heading
               color={"darkcyan"}
