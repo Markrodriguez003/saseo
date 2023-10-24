@@ -25,16 +25,13 @@ function App() {
       {/* <Fonts /> */}
       <SHeader />
 
-      {/* ! TESTING BOOK CARD
-      <BookCard props={test_books.books[0]}/> */}
-
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="suggest" element={<BookSuggestion />} />
         <Route path="random" element={<RandomBookSuggestion />} />
         <Route path="about" element={<About />} />
       </Routes>
-      {/* <SFooter /> */}
+      <SFooter />
     </ChakraProvider>
   );
 }

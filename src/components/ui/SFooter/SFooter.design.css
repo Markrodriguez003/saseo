@@ -1,0 +1,130 @@
+.footer-container {
+  background-color: darkcyan;
+  background-blend-mode: luminosity;
+  background-size: 450px;
+  z-index: 3;
+  
+}
+
+.footer-spacer-container {
+  display: inline;
+  position: relative;
+  width: 120px;
+  background-color: #954c02;
+}
+
+.footer-brand-container {
+  /* background-color: tomato; */
+}
+
+.footer-brand-container h1 {
+  color: white;
+  font-size: 55px;
+  font-weight: bold;
+  font-family: "brand-font";
+  -webkit-text-stroke: 1.5px white;
+  transition: 0.1s all ease-in-out;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.footer-brand-container h1:hover {
+  background-color: darkcyan;
+  border-left: 8.5px mintcream solid;
+  cursor: pointer;
+}
+
+.footer-mobile-brand-background div img {
+  width: 250px;
+
+  z-index: 0;
+}
+
+.footer-mobile-brand-background div h1 {
+  position: absolute;
+  color: white;
+  font-size: 55px;
+  font-weight: bold;
+  font-family: "brand-font";
+  -webkit-text-stroke: 1.5px white;
+  transition: 0.1s all ease-in-out;
+  bottom: 8px;
+  left: 25px;
+  font-size: 50px;
+  z-index: 0;
+}
+
+@media screen and (max-width: 299px) {
+  .footer-mobile-brand-background div h1 {
+    font-size: 45px;
+    left: 12px;
+  }
+}
+
+.footer-logo-container {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: auto;
+  background-color: transparent;
+  z-index: 6;
+}
+
+.footer-logo-container img {
+  position: relative;
+  display: inline;
+  width: 100px;
+  height: auto;
+  z-index: 0;
+  top: -10px;
+}
+
+@media screen and (max-width: 480px) {
+  .footer-logo-container img {
+    width: 50px;
+    height: auto;
+  }
+}
+
+.footer-bookmark {
+  position: absolute;
+  height: 590px;
+  left: 8px;
+  top: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.1s all ease-in-out;
+  z-index: 4;
+}
+
+.footer-bookmark:active {
+  top: -5px;
+}
+
+.footer-nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: 18px;
+}
+
+.footer-nav-container button {
+  flex-direction: row;
+  color: mintcream;
+  margin-left: 2px;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 18px;
+  transition: 0.1s all ease-in-out;
+}
+
+.footer-nav-container button:hover {
+  background-color: tomato;
+  border-right: 8.5px mintcream solid;
+  border-left: 8.5px mintcream solid;
+}
+
+.footer-bookmark-image {
+  filter: hue-rotate(200deg);
+}

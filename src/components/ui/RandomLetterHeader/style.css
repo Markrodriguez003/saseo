@@ -1,0 +1,37 @@
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 558px) {
+  #ransomizer {
+    font-size: 9.5vw !important;
+  }
+}
+
+/* RANSOM TEXT */
+#ransomizer {
+  font-size: 3.5em;
+  line-height: normal;
+  word-spacing: 0.5em;
+}
+
+#ransomizer div {
+  display: inline-block;
+}
+
+#ransomizer .rww {
+  white-space: pre;
+  display: inline;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+#ransomizer .rr {
+  -ms-transform: rotate(1.5deg);
+  -webkit-transform: rotate(1.5deg);
+  transform: rotate(1.5deg);
+}
+
+#ransomizer .rl {
+  -ms-transform: rotate(-1.5deg);
+  -webkit-transform: rotate(-1.5deg);
+  transform: rotate(-1.5deg);
+}

@@ -1,20 +1,13 @@
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 558px) {
-  #ransomizer {
-    font-size: 9.5vw !important;
-    
-  }
-
   .about-us-hero {
     height: 135vh !important;
-
   }
 }
 
 /* FOLD */
 @media only screen and (max-width: 280px) {
- 
 }
 
 .about-us-hero {
@@ -50,36 +43,6 @@
   font-weight: bold;
   /* border: white 4px solid; */
   border-radius: 20px;
-}
-
-/* RANSOM TEXT */
-#ransomizer {
-  font-size: 3.5em;
-  line-height: normal;
-  word-spacing: 0.5em;
-}
-
-#ransomizer div {
-  display: inline-block;
-}
-
-#ransomizer .rww {
-  white-space: pre;
-  display: inline;
-  margin-left: 0.2em;
-  margin-right: 0.2em;
-}
-
-#ransomizer .rr {
-  -ms-transform: rotate(1.5deg);
-  -webkit-transform: rotate(1.5deg);
-  transform: rotate(1.5deg);
-}
-
-#ransomizer .rl {
-  -ms-transform: rotate(-1.5deg);
-  -webkit-transform: rotate(-1.5deg);
-  transform: rotate(-1.5deg);
 }
 
 .about-header {
@@ -139,8 +102,8 @@
 }
 .right-test-tube {
   animation: right-fill 2s alternate-reverse infinite;
-  width: 30px;
-  right: 111.5px;
+  width: 24.9px;
+  right: 98.5px;
 }
 
 .left-test-tube {
@@ -150,9 +113,9 @@
   background-color: #f0eadd;
   filter: hue-rotate(80deg);
   width: 28px;
-  top: 151px;
+  top: 132px;
 
-  right: 234.5px;
+  right: 201.5px;
 }
 
 @keyframes left-fill {
@@ -168,7 +131,7 @@
 }
 @keyframes right-fill {
   0% {
-    top: 200px;
+    top: 190px;
   }
   100% {
     top: 147px;
@@ -241,6 +204,11 @@
 .heart {
   animation: heartbeat 2s infinite;
 }
+
+.traffic-cone {
+  animation: cone-shake 2s infinite ;
+
+}
 @keyframes heartbeat {
   0% {
     transform: scale(0.75);
@@ -260,4 +228,14 @@
   100% {
     transform: scale(0.75);
   }
+}
+
+
+
+@keyframes cone-shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(7deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-7deg); }
+  100% { transform: rotate(0deg); }
 }
