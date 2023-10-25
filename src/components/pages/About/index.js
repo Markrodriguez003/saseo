@@ -243,6 +243,7 @@ function About() {
               </a>
             </ListItem>
           </List>
+          {/* //TODO: Add separate NPM packages here (confetti + arrows) in a simple list */}
         </Flex>
       </Flex>
 

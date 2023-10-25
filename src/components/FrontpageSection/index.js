@@ -28,11 +28,13 @@ function FrontPageSection() {
     <>
       <Box
         position={"relative"}
-        // backgroundColor={"#E97F71 "}
-        bgGradient="linear(to-tr, #E97F71, #E97F88)"
+        backgroundColor={"#4d2f00 "}
+        // bgGradient="linear(to-tr, #E97F71, #E97F88)"
+        // bgGradient="linear(to-tr, #4d2f00;, black;)"
         // backgroundColor={"rgba(0,0,0,0.9)"}
         // backgroundImage={sectionBackgroundImage}
         // backgroundBlendMode={"difference"}
+        id="genre"
       >
         <br />
         <Image
@@ -67,6 +69,7 @@ function FrontPageSection() {
           paddingTop={"30px"}
           wordBreak={"normal"}
         >
+          {/* //! Add a secondary, offset, solid box shadow (right/left) behind main box  */}
           <Text
             color={"white"}
             fontSize={"xl"}
@@ -96,14 +99,24 @@ function FrontPageSection() {
       <br />
       <br />
       <br />
-      <Heading
-        color={"darkcyan"}
-        fontSize={"6xl"}
-        textAlign={"center"}
-        paddingBottom={"20px"}
-      >
-        How to use Saseo:
-      </Heading>
+      <Center>
+        <Heading
+          //   backgroundColor={"darkcyan"}
+        //   backgroundColor={"#4d2f00"}
+          backgroundColor={"#E97F71"}
+          color={"white"}
+          fontSize={"5xl"}
+          textAlign={"center"}
+          padding={"25px"}
+          display={"inline"}
+          borderRadius={"45px"}
+          id="how"
+        >
+          How to use Saseo:
+        </Heading>
+      </Center>
+      <br />
+      <br />
       <Box
         display={"flex"}
         flexDirection={{ base: "row", sm: "column", md: "column", lg: "row" }}
@@ -145,7 +158,7 @@ function FrontPageSection() {
             letterSpacing={0.5}
             className="highlight-text"
             padding={"15px"}
-            borderRadius={"30px"}
+            borderRadius={"90px"}
             id="middle"
           >
             Your suggested books will be generated. Find the books that interest
@@ -167,6 +180,7 @@ function FrontPageSection() {
           </Text>
         </Box>
 
+        {/* ARROWS */}
         <Xarrow
           start="start" //can be react ref
           end="middle" //or an id
@@ -179,6 +193,14 @@ function FrontPageSection() {
           end="end" //or an id
           color="darkcyan"
           dashness={{ strokeLen: 5, nonStrokeLen: 5, animation: -5 }}
+          animateDrawing={3}
+        />
+        <Xarrow
+          start="genre" //can be react ref
+          end="how" //or an id
+        //   color="#E97F71"
+          color="darkcyan"
+          dashness={{ strokeLen: 10, nonStrokeLen: 10, animation: -5 }}
           animateDrawing={3}
         />
       </Box>
