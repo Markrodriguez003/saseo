@@ -84,7 +84,7 @@ function FrontPageHero() {
                     sm: "center",
                   }}
                 >
-                  Looking for a book has never been easier →
+                  Looking for this has never been easier →
                 </Heading>
                 <Stack
                   direction="row"
@@ -98,7 +98,7 @@ function FrontPageHero() {
                   }}
                 >
                   <Button colorScheme="teal" variant="solid">
-                    More Info!
+                  More Info!
                   </Button>
                   <Button colorScheme="teal" variant="outline">
                     <Link to="about">

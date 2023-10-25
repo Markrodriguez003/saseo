@@ -398,7 +398,8 @@ function About() {
       <br />
       {/* FUTURE LOVE */}
       <Box
-        backgroundColor={"#4d2f00"}
+        // backgroundColor={"#4d2f00"}
+        backgroundColor={"#F37B71"}
         w={{ base: "72%", sm: "72%", md: "75%", lg: "54%" }}
         display={"flex"}
         justifyContent={"center"}

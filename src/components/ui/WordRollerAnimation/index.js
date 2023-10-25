@@ -1,96 +1,51 @@
-import { Box, Image, Stack, Center } from "@chakra-ui/react";
-import "./styles.css";
-// import magnifierImage from "../";
-import abstractBG from "../../../images/backgrounds/icon-347230_1920.png";
-import middleBook from "../../../images/hero/hero-middle-book.png";
-import endBook from "../../../images/hero/hero-end-book.png";
+import { Heading, Flex, Box, Image, Stack, Center } from "@chakra-ui/react";
+import { useState } from "react";
+import "./WordRollerAnimation.design.styles.css";
 
 function WordRollerAnimation() {
+  const [genres, setGenres] = useState([
+    "Non-Fiction",
+    "Sci-fi",
+    "Mystery",
+    "Romance",
+    "Memoir",
+    "Humor",
+    "Thriller",
+    "Fiction",
+    "Philosophy",
+    "Horror",
+    "Fantasy",
+  ]);
   return (
     <>
-      <Box position={"relative"}>
-        <Image
-          src={middleBook}
-          alt="Open Book image"
-          h={"60vh"}
-          w={"100vw"}
-          m={0}
-          p={0}
-        />
-        <div className="word-roller-container">
-          <Image
-            textAlign={"center"}
-            src={abstractBG}
-            alt="Open Book image"
-            h={"auto"}
-            w={"115px"}
-            marginTop={"42px"}
-            p={0}
-            borderRadius="full"
-          />
-          <h4 class="wordCarousel">
-            <span>Explore different genres: </span>
-            <div>
-              <ul class="flip5">
-                <li>Adventure</li>
-                <li>Science Fiction</li>
-                <li>Biography</li>
-                <li>Horror</li>
-                <li>Romance</li>
-                <li>Non-Fiction</li>
-                <li>Fantasy</li>
-                <li>Comedy</li>
-                <li>Mystery</li>
-              </ul>
-            </div>
-          </h4>
-          <hr />
-          <p className="body-text">
-            Interested in finding a book or two to read? Well, Saseo is here to
-            guide you! You can search for many book titles by genre. We have
-            almost every book genre to choose from! All you need to do is choose
-            a genre and how many books you would like to see what we suggested!
-          </p>
+      <div className="scroller-container">
+        <div className="scroller">
+          {/* //! change to array.map function */}
+          <div>
+            <span className="non-fiction">{genres[0]}</span>
+            <br />
+            <span className="sci-fi">{genres[1]}</span>
+            <br />
+            <span className="mystery">{genres[2]}</span>
+            <br />
+            <span className="romance">{genres[3]}</span>
+            <br />
+            <span className="thriller">{genres[6]}</span>
+            <br />
+            <span className="memoir">{genres[4]}</span>
+            <br />
+            <span className="humor">{genres[5]}</span>
+            <br />
+            <span className="fiction">{genres[7]}</span>
+            <br />
+            <span className="philosophy">{genres[8]}</span>
+            <br />
+            <span className="horror">{genres[9]}</span>
+            <br />
+            <span className="fantasy">{genres[10]}</span>
+          </div>
         </div>
-        {/* <Image
-          src={middleBook}
-          alt="Open Book image"
-          h={"60vh"}
-          w={"100vw"}
-          m={0}
-          p={0}
-        /> */}
-      </Box>
-
-      <Box>
-        <Image
-          src={endBook}
-          alt="Open Book image"
-          h={"60vh"}
-          w={"100vw"}
-          m={0}
-          p={0}
-        />
-      </Box>
-
-      <Center
-        position={"relative"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignContent={"center"}
-        flexDirection={"column"}
-      >
-        <Image
-          textAlign={"center"}
-          src={abstractBG}
-          alt="Open Book image"
-          h={"auto"}
-          w={"12vw"}
-          m={0}
-          p={0}
-        />
-        <h1>Search any book via ISBN!</h1>
-      </Center>
+      </div>
     </>
   );
 }

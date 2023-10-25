@@ -1,0 +1,190 @@
+.scroller-container {
+  /* display: flex;
+  justify-content: center;
+  align-content: center; */
+}
+.highlight-text {
+  /* background-image: linear-gradient(0, rgb(255, 255, 0), rgb(255, 255, 0)); */
+  background-image: linear-gradient(0, darkcyan, darkcyan);
+  /* background-size: 100% 65%;
+  background-repeat: no-repeat;
+  background-position: 0 65%; */
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: horror;
+  src: url("../../../fonts/wordScroll/Melted\ Monster.ttf");
+}
+@font-face {
+  font-family: sci-fi;
+  src: url("../../../fonts/wordScroll/Pavelt.ttf");
+}
+@font-face {
+  font-family: fantasy;
+  src: url("../../../fonts/wordScroll/Seagram\ tfb.ttf");
+}
+@font-face {
+  font-family: non-fiction;
+  src: url("../../../fonts/wordScroll/Lost\ Emerald.otf");
+}
+@font-face {
+  font-family: humor;
+  src: url("../../../fonts/wordScroll/Kids\ Magazine.ttf");
+}
+@font-face {
+  font-family: romance;
+  src: url("../../../fonts/wordScroll/Love.ttf");
+}
+@font-face {
+  font-family: fiction;
+  src: url("../../../fonts/wordScroll/JMH\ Typewriter-Black.otf");
+}
+
+@font-face {
+  font-family: thriller;
+  src: url("../../../fonts/wordScroll/Dash-Horizon-Demo.otf");
+}
+
+@font-face {
+  font-family: memoir;
+  src: url("../../../fonts/wordScroll/Moody.otf");
+}
+
+@font-face {
+  font-family: philosophy;
+  src: url("../../../fonts/wordScroll/Pirate\ Scroll.otf");
+}
+
+.scroller {
+  height: 1.2em;
+  line-height: 1.2em;
+  position: relative;
+  overflow: hidden;
+  font-size: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.scroller > div {
+  position: absolute;
+  color: white;
+  top: 0;
+  animation: slide 14s infinite;
+  font-weight: bold;
+}
+
+.horror {
+  font-family: horror;
+}
+.romance {
+  font-family: romance;
+}
+.sci-fi {
+  font-family: sci-fi;
+}
+.memoir {
+  font-family: memoir;
+}
+.philosopher {
+  font-family: philosopher;
+}
+.mystery {
+  font-family: mystery;
+}
+.fantasy {
+  font-family: fantasy;
+}
+.humor {
+  font-family: humor;
+}
+.thriller {
+  font-family: thriller;
+}
+.fiction {
+  font-family: fiction;
+}
+.philosophy {
+  font-family: philosophy;
+}
+@keyframes slide {
+  0% {
+    top: 0;
+    /* background-color: rgb(64, 213, 0); */
+  }
+  11% {
+    top: -1.2em;
+    /* background-color: rgb(17, 33, 105); */
+  }
+  22% {
+    top: -2.4em;
+    /* background-color: rgb(226, 12, 12); */
+  }
+  33% {
+    top: -3.6em;
+    /* background-color: rgb(10, 128, 130); */
+  }
+  44% {
+    top: -4.8em;
+    /* background-color: rgb(130, 10, 120); */
+  }
+  55% {
+    top: -6em;
+    /* background-color: rgb(130, 96, 10); */
+  }
+  66% {
+    top: -7.2em;
+    /* background-color: rgb(10, 26, 130); */
+  }
+  77% {
+    top: -8.4em;
+    /* background-color: rgb(224, 36, 108); */
+  }
+  88% {
+    top: -9.6em;
+    /* background-color: rgb(230, 255, 1); */
+  }
+  99% {
+    top: -10.8em;
+    /* background-color: rgb(250, 15, 15); */
+  }
+  88% {
+    top: -9.6em;
+    /* background-color: rgb(230, 255, 1); */
+  }
+  77% {
+    top: -8.4em;
+    /* background-color: rgb(224, 36, 108); */
+  }
+  66% {
+    top: -7.2em;
+    /* background-color: rgb(10, 26, 130); */
+  }
+  55% {
+    top: -6em;
+    /* background-color: rgb(130, 96, 10); */
+  }
+  44% {
+    top: -4.8em;
+    /* background-color: rgb(130, 10, 120); */
+  }
+  33% {
+    top: -3.6em;
+    /* background-color: rgb(10, 128, 130); */
+  }
+  22% {
+    top: -2.4em;
+    /* background-color: rgb(226, 12, 12); */
+  }
+  11% {
+    top: -1.2em;
+    /* background-color: rgb(17, 33, 105); */
+  }
+  0% {
+    top: 0;
+    /* background-color: rgb(64, 213, 0); */
+  }
+}

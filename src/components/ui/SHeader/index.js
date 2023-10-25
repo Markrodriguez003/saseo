@@ -15,10 +15,18 @@ import "./SHeader.design.css";
 import { ImMenu } from "react-icons/im";
 
 import { Link } from "react-router-dom";
+import confetti from "canvas-confetti";
+
+// NOTES
+// ? https://www.npmjs.com/package/canvas-confetti
+// TODO: When user's click on desktop bookmark, confetti (above) sprays out from left side but instead of confetti it's mini books (SVG)
+// TODO: (continued) it's mini books (SVG path)
+
 
 // https://bobbyhadz.com/blog/react-you-attempted-to-import-which-falls-outside-project
 
 export function SHeader() {
+  var bookEmoji = confetti.shapeFromText({ text: "📗" });
   return (
     <>
       {/* BOOKMARK BRAND IMAGE */}
@@ -26,12 +34,26 @@ export function SHeader() {
         <div className="logo-container">
           {/* Add fallback image? */}
 
-          <img src={Bookmark} className="bookmark" alt="bookmark-panel" />
+          <img
+            src={Bookmark}
+            className="bookmark"
+            alt="bookmark-panel"
+            onClick={() =>
+              confetti({
+                particleCount: 7,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                shapes: [bookEmoji],
+                scalar:2
+              })
+            }
+          />
         </div>
       </Hide>
 
       {/* FLEXBOX HEADER */}
-      <Flex className="container" align={"center"}  >
+      <Flex className="container" align={"center"}>
         <Hide below="md">
           <div className="spacer-container"></div>
           <div className="brand-container">
