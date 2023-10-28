@@ -21,16 +21,16 @@
   src: url("../../../fonts/wordScroll/Pavelt.ttf");
 }
 @font-face {
-  font-family: fantasy;
+  font-family: fantasyFont;
   src: url("../../../fonts/wordScroll/Seagram\ tfb.ttf");
 }
 @font-face {
-  font-family: non-fiction;
+  font-family: nonFiction;
   src: url("../../../fonts/wordScroll/Lost\ Emerald.otf");
 }
 @font-face {
   font-family: humor;
-  src: url("../../../fonts/wordScroll/Kids\ Magazine.ttf");
+  src: url("../../../fonts/wordScroll/Lets\ Coffee.ttf");
 }
 @font-face {
   font-family: romance;
@@ -43,7 +43,7 @@
 
 @font-face {
   font-family: thriller;
-  src: url("../../../fonts/wordScroll/Dash-Horizon-Demo.otf");
+  src: url("../../../fonts/wordScroll/STOREB__.TTF");
 }
 
 @font-face {
@@ -73,10 +73,13 @@
   position: absolute;
   color: white;
   top: 0;
-  animation: slide 14s infinite;
+  animation: slide 18s infinite;
   font-weight: bold;
 }
 
+.nonFiction {
+  font-family: nonFiction;
+}
 .horror {
   font-family: horror;
 }
@@ -95,8 +98,8 @@
 .mystery {
   font-family: mystery;
 }
-.fantasy {
-  font-family: fantasy;
+.fantasyFont {
+  font-family: fantasyFont;
 }
 .humor {
   font-family: humor;
@@ -111,80 +114,59 @@
   font-family: philosophy;
 }
 @keyframes slide {
+  /* nonfiction */
   0% {
     top: 0;
     /* background-color: rgb(64, 213, 0); */
   }
-  11% {
+  /* sci fi */
+  9% {
     top: -1.2em;
     /* background-color: rgb(17, 33, 105); */
   }
-  22% {
+  /* mystery */
+  18% {
     top: -2.4em;
     /* background-color: rgb(226, 12, 12); */
   }
-  33% {
-    top: -3.6em;
+  /* romance */
+  27% {
+    top: -3.7em;
     /* background-color: rgb(10, 128, 130); */
   }
-  44% {
+  /* thriller */
+  36% {
     top: -4.8em;
     /* background-color: rgb(130, 10, 120); */
   }
-  55% {
-    top: -6em;
+  /* fantasy */
+  45% {
+    top: -6.1em;
     /* background-color: rgb(130, 96, 10); */
   }
-  66% {
-    top: -7.2em;
+  /* philosophy */
+  54% {
+    top: -7.3em;
     /* background-color: rgb(10, 26, 130); */
   }
-  77% {
-    top: -8.4em;
+  /* horror */
+  63% {
+    top: -8.7em;
     /* background-color: rgb(224, 36, 108); */
   }
-  88% {
-    top: -9.6em;
+  /* fiction */
+  72% {
+    top: -9.9em;
     /* background-color: rgb(230, 255, 1); */
   }
-  99% {
-    top: -10.8em;
+  /* memoir */
+  81% {
+    top: -11.2em;
     /* background-color: rgb(250, 15, 15); */
   }
-  88% {
-    top: -9.6em;
-    /* background-color: rgb(230, 255, 1); */
-  }
-  77% {
-    top: -8.4em;
-    /* background-color: rgb(224, 36, 108); */
-  }
-  66% {
-    top: -7.2em;
-    /* background-color: rgb(10, 26, 130); */
-  }
-  55% {
-    top: -6em;
-    /* background-color: rgb(130, 96, 10); */
-  }
-  44% {
-    top: -4.8em;
-    /* background-color: rgb(130, 10, 120); */
-  }
-  33% {
-    top: -3.6em;
-    /* background-color: rgb(10, 128, 130); */
-  }
-  22% {
-    top: -2.4em;
-    /* background-color: rgb(226, 12, 12); */
-  }
-  11% {
-    top: -1.2em;
-    /* background-color: rgb(17, 33, 105); */
-  }
-  0% {
-    top: 0;
-    /* background-color: rgb(64, 213, 0); */
+  /* humor */
+  90% {
+    top: -12.4em;
+    /* background-color: rgb(250, 15, 15); */
   }
 }

@@ -22,7 +22,7 @@ function WordRollerAnimation() {
         <div className="scroller">
           {/* //! change to array.map function */}
           <div>
-            <span className="non-fiction">{genres[0]}</span>
+            <span className="nonFiction">{genres[0]}</span>
             <br />
             <span className="sci-fi">{genres[1]}</span>
             <br />
@@ -32,17 +32,18 @@ function WordRollerAnimation() {
             <br />
             <span className="thriller">{genres[6]}</span>
             <br />
-            <span className="memoir">{genres[4]}</span>
-            <br />
-            <span className="humor">{genres[5]}</span>
-            <br />
-            <span className="fiction">{genres[7]}</span>
+            <span className="fantasyFont">{genres[10]}</span>
             <br />
             <span className="philosophy">{genres[8]}</span>
             <br />
             <span className="horror">{genres[9]}</span>
             <br />
-            <span className="fantasy">{genres[10]}</span>
+            <span className="fiction">{genres[7]}</span>
+            <br />
+            <span className="memoir">{genres[4]}</span>
+            <br />
+            <span className="humor">{genres[5]}</span>
+
           </div>
         </div>
       </div>

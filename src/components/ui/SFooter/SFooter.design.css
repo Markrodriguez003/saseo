@@ -1,8 +1,11 @@
 .footer-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   background-color: darkcyan;
-  background-blend-mode: luminosity;
-  background-size: 450px;
   z-index: 3;
+
+
   
 }
 
@@ -35,8 +38,7 @@
 }
 
 .footer-mobile-brand-background div img {
-  width: 250px;
-
+  width: 350px;
   z-index: 0;
 }
 

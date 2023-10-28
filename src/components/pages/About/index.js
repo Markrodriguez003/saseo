@@ -38,6 +38,7 @@ import cogMiddle from "../../../images/header/tech-cog-middle.png";
 import cogBottom from "../../../images/header/tech-cog-bottom.png";
 import rightTestTube from "../../../images/header/right-test-tube.png";
 
+
 import "./styles.css";
 
 function About() {

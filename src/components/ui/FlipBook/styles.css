@@ -22,7 +22,7 @@
 }
 
 .cover {
-  width: calc(var(--baseline) * 60);
+  width: calc(var(--baseline) * 65);
   height: calc(var(--baseline) * 42.6);
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
 }

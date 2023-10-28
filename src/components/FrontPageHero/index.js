@@ -11,16 +11,7 @@ import {
   Container,
   Button,
   Image,
-  Badge,
-  Divider,
-  InputLeftElement,
-  InputRightElement,
-  FormControl,
-  Input,
-  InputGroup,
-  Text,
   Center,
-  position,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -45,6 +36,12 @@ import { color } from "framer-motion";
 
 function FrontPageHero() {
   const [placeholderText, setPlaceholderText] = useState("");
+
+  function StopAnchorPropagration(event) {
+    event.stopPropagation();
+    // event.preventDefault();
+
+  }
   return (
     <>
       <Container maxW={"100%"} p={0} m={0} paddingTop={"45px"}>
@@ -97,13 +94,13 @@ function FrontPageHero() {
                     sm: "center",
                   }}
                 >
-                  <Button colorScheme="teal" variant="solid">
-                  More Info!
-                  </Button>
+                  <a href="#genre" onClick={StopAnchorPropagration}>
+                    <Button colorScheme="teal" variant="solid">
+                      More Info!
+                    </Button>
+                  </a>
                   <Button colorScheme="teal" variant="outline">
-                    <Link to="about">
-                      About
-                    </Link>
+                    <Link to="about">About</Link>
                   </Button>
                 </Stack>
               </Box>
