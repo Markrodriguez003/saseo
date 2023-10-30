@@ -113,6 +113,16 @@
 .philosophy {
   font-family: philosophy;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 485px) {
+  .scroller {
+    font-size:50px;
+  }
+}
+
+/* ANIMATIONS */
 @keyframes slide {
   /* nonfiction */
   0% {

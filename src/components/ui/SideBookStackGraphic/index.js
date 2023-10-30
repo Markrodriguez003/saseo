@@ -28,7 +28,6 @@ function SideBookStackGraphic() {
       offset: 200,
       // anchorPlacement: "center-bottom"
     });
-
   }, []);
 
   return (
@@ -38,7 +37,8 @@ function SideBookStackGraphic() {
       {/* ********************* */}
       <Box
         position={"relative"}
-        display={{ base: "inline", lg: "inline", md: "none", sm: "none" }}
+        display={{ base: "inline", lg: "inline", md: "none", sm: "none", xs: "none", "2xs": "none" }}
+        zIndex={-1}
       >
         {/* SIDE BOOK */}
         <Box
@@ -49,7 +49,7 @@ function SideBookStackGraphic() {
           <Box
             position={"absolute"}
             left={"-20px"}
-            top={"150px"}
+            top={"185px"}
             transform={"scaleX(-1)"}
           >
             <Image
@@ -63,7 +63,7 @@ function SideBookStackGraphic() {
           <Box
             position={"absolute"}
             left={"-20px"}
-            top={"230px"}
+            top={"265px"}
             transform={"scaleX(-1)"}
           >
             <Image
@@ -78,7 +78,7 @@ function SideBookStackGraphic() {
           <Box
             position={"absolute"}
             left={"-25px"}
-            top={"295px"}
+            top={"330px"}
             transform={"scaleX(-1)"}
           >
             <Image
@@ -92,13 +92,14 @@ function SideBookStackGraphic() {
             />
           </Box>
         </Box>
+        {/* ************************* */}
         {/* RIGHTMOST SIDE FLAT BOOK */}
-
+        {/* ************************* */}
         <Box data-aos={"slide-left"}>
           <Box
             position={"absolute"}
             right={"-95px"}
-            top={"315px"}
+            top={"350px"}
             filter={"hue-rotate(190deg)"}
             transform={"rotate(5deg)"}
           >

@@ -1,5 +1,14 @@
 // CHAKRA UI COMPONENTS
-import { Box, Image, Text, Heading, Center } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  Text,
+  Heading,
+  Center,
+  Stack,
+  Button,
+  Link,
+} from "@chakra-ui/react";
 import { useEffect } from "react";
 
 // LIBRARY
@@ -15,18 +24,188 @@ import FlipBook from "components/ui/FlipBook";
 // CSS
 import "./FrontPageSection.design.css";
 import "aos/dist/aos.css";
+
 // IMAGES
 import magnifierIcon from "../../images/backgrounds/icon-347230_1920.png";
-import middleBook from "../../images/hero/hero-middle-book.png";
-import endBook from "../../images/hero/hero-end-book.png";
-import sectionBackgroundImage from "../../images/backgrounds/background-tile-6.png";
 import confusedAvatar from "../../images/confusedAvatar.png";
+
+// ICONS
+import { FaCog } from "react-icons/fa";
+
+// NOTES
+// ? CUSTOM BREAKPOINTS
+// ? https://codesandbox.io/s/chakra-ui-custom-breakpoints-jx5dg?file=/src/App.tsx:269-307
+
+/* ************************** */
+/* INFOGRAPHIC PANEL */
+/* ************************** */
+export function InfographicSection() {
+  return (
+    <Box data-aos="fade-top">
+      <Center marginTop={"45px"}>
+        <Heading
+          backgroundColor={"secondary"}
+          color={"white"}
+          fontSize={"5xl"}
+          textAlign={"center"}
+          padding={"25px"}
+          display={"inline"}
+          borderRadius={"45px"}
+          id="how"
+          marginBottom={"50px"}
+        >
+          How to use Saseo:
+        </Heading>
+      </Center>
+      <br />
+      <br />
+      <Box
+        display={"flex"}
+        flexDirection={{ base: "row", sm: "column", md: "column", lg: "row" }}
+        padding={"30px"}
+        height={"300px"}
+        justifyContent={{
+          base: "space-around",
+          sm: "center",
+          md: "center",
+          lg: "space-around",
+        }}
+      >
+        <Box alignContent={"center"} w={"30%"}>
+          <Text
+            color={"white"}
+            fontSize={"xl"}
+            letterSpacing={0.5}
+            className="highlight-text"
+            padding={"15px"}
+            borderRadius={"30px"}
+            id="start"
+          >
+            First, search for the book genre you wish to have suggested to you,
+            or find a book via isbn.
+          </Text>
+        </Box>
+        <Box
+          alignSelf={{
+            base: "center",
+            sm: "center",
+            md: "end",
+            lg: "end",
+          }}
+          w={"30%"}
+          display={"flex"}
+          flexDirection={"column"}
+          gap={"22px"}
+        >
+          <Image
+            src={confusedAvatar}
+            w={"200px"}
+            h={"auto"}
+            borderRadius={"full"}
+            alignSelf={"center"}
+          />
+          <Text
+            color={"white"}
+            fontSize={"xl"}
+            letterSpacing={0.5}
+            className="highlight-text"
+            padding={"15px"}
+            borderRadius={"90px"}
+            id="middle"
+          >
+            Your suggested books will be generated. Find the books that interest
+            you by saving them in your library.
+          </Text>
+        </Box>
+        <Box alignContent={"center"} w={"30%"}>
+          <Text
+            color={"white"}
+            fontSize={"xl"}
+            letterSpacing={0.5}
+            className="highlight-text"
+            padding={"15px"}
+            borderRadius={"30px"}
+            id="end"
+          >
+            Afterward you can email the book suggestions to yourself or anyone
+            else via email!{" "}
+          </Text>
+        </Box>
+
+        {/* ARROWS */}
+        <Xarrow
+          start="how" //can be react ref
+          end="start" //or an id
+          color="darkcyan"
+          dashness={{ strokeLen: 10, nonStrokeLen: 15, animation: -2 }}
+          animateDrawing={5}
+        />
+        <Xarrow
+          start="start" //can be react ref
+          end="middle" //or an id
+          color="darkcyan"
+          dashness={{ strokeLen: 10, nonStrokeLen: 15, animation: -2 }}
+          animateDrawing={5}
+        />
+        <Xarrow
+          start="middle" //can be react ref
+          end="end" //or an id
+          color="darkcyan"
+          dashness={{ strokeLen: 5, nonStrokeLen: 5, animation: -5 }}
+          animateDrawing={3}
+        />
+        <Xarrow
+          start="genre" //can be react ref
+          end="how" //or an id
+          //   color="#E97F71"
+          color="darkcyan"
+          dashness={{ strokeLen: 10, nonStrokeLen: 10, animation: -5 }}
+          animateDrawing={3}
+        />
+      </Box>
+      <Center>
+        <Link href="about">
+          <Button
+            backgroundColor={"tertiary"}
+            variant="link"
+            color={"white"}
+            fontSize={"3xl"}
+            p={"35px"}
+            marginTop={"55px"}
+            leftIcon={<FaCog />}
+            fontWeight={"bold"}
+          >
+            How did we build this site?
+          </Button>
+        </Link>
+      </Center>
+    </Box>
+  );
+}
+
+/* ************************** */
+/* MONTHLY BOOK SUGGESTION PANEL  */
+/* ************************** */
+export function BookSuggestionSection() {
+  return (
+    <Heading
+      color={"white"}
+      backgroundColor={"primary"}
+      textAlign={"center"}
+      fontSize={"6xl"}
+      letterSpacing={1}
+    >
+      {" "}
+      Suggestions of the Month:
+    </Heading>
+  );
+}
 
 function FrontPageSection() {
   // Initialize aos library
   useEffect(() => {
     aos.init({
-      delay: 29,
+      delay: 32,
       offset: 80,
     });
   });
@@ -37,20 +216,19 @@ function FrontPageSection() {
       {/* ********************* */}
       <Box
         position={"relative"}
-        backgroundColor={"#4d2f00 "}
-        // bgGradient="linear(to-tr, #E97F71, #E97F88)"
-        // bgGradient="linear(to-tr, #4d2f00;, black;)"
-        // backgroundColor={"rgba(0,0,0,0.9)"}
-        // backgroundImage={sectionBackgroundImage}
-        // backgroundBlendMode={"difference"}
+        backgroundColor={"tertiary"}
         id="genre"
         paddingBottom={"40px"}
-        paddingTop={"40px"}
+        paddingTop={"20px"}
+        overflow={"hidden"}
+        zIndex={2}
       >
         <br />
 
         {/* SIDE BOOK */}
+
         <SideBookStackGraphic />
+
         <Image
           src={magnifierIcon}
           w={"120px"}
@@ -69,234 +247,108 @@ function FrontPageSection() {
             letterSpacing={1}
           >
             {" "}
-            Explore different genres <WordRollerAnimation />
+            Explore different genres
           </Heading>
         </Center>
+        <WordRollerAnimation />
 
         <br />
         <Center
           justifyContent={"center"}
           alignContent={"center"}
-          w={"48%"}
+          w={{
+            base: "48%",
+            xs: "85%",
+            "2xs": "85%",
+            sm: "78%",
+            md: "78%",
+            lg: "48%",
+          }}
           marginLeft={"auto"}
           marginRight={"auto"}
-          paddingBottom={"105px"}
+          paddingBottom={"25px"}
           paddingTop={"30px"}
           wordBreak={"normal"}
         >
-          {/* // TODO: Add a secondary, offset, solid box shadow (right/left) behind main box  */}
-          {/* // TODO: Add suggestion, random & ISBN search buttons  */}
           <Text
             color={"white"}
             fontSize={"xl"}
             letterSpacing={0.5}
             className="highlight-text"
-            padding={"15px"}
+            padding={"18px"}
             borderRadius={"30px"}
+            textAlign={"center"}
+            // fontFamily={"body-font"}
           >
             Interested in finding a book or two to read? Well, Saseo is here to
             guide you! You can search for many book titles by genre. We have
             almost every book genre to choose from! All you need to do is choose
-            a genre and how many books you would like to see what we suggested!
+            a genre and how many books you would like suggested to you! You can
+            also roll the dice and get a random book suggested to you!
           </Text>
         </Center>
-
-        {/* <Image
-          src={middleBook}
-          alt="Open Book image"
-          h={"auto"}
-          w={"100vw"}
-          m={0}
-          p={0}
-        /> */}
-      </Box>
-
-      <br />
-      <br />
-      <br />
-      <br />
-
-      {/* //! DEFINE IN A NEW, SEPARATE COMPONENT AND SAVE/CALL IT INSIDE THIS COMPONENT 
-      
-        
-      {/* ************************** */}
-      {/* INFOGRAPHIC */}
-      {/* ************************** */}
-
-      <Box data-aos="fade-top">
-        <Center marginTop={"45px"}>
-          <Heading
-            backgroundColor={"#E97F71"}
-            color={"white"}
-            fontSize={"5xl"}
-            textAlign={"center"}
-            padding={"25px"}
-            display={"inline"}
-            borderRadius={"45px"}
-            id="how"
-            marginBottom={"50px"}
-          >
-            How to use Saseo:
-          </Heading>
-        </Center>
-        <br />
-        <br />
-        <Box
-          display={"flex"}
-          flexDirection={{ base: "row", sm: "column", md: "column", lg: "row" }}
-          padding={"30px"}
-          height={"300px"}
-          justifyContent={{
-            base: "space-around",
-            sm: "center",
+        <Stack
+          direction="row"
+          spacing={4}
+          align="center"
+          justify={{
+            base: "center",
+            lg: "center",
             md: "center",
-            lg: "space-around",
+            sm: "center",
           }}
+          paddingBottom={"45px"}
         >
-          <Box alignContent={"center"} w={"30%"}>
-            <Text
+          <Link href="suggest">
+            <Button
+              backgroundColor={"primary"}
+              variant="solid"
               color={"white"}
+              // fontWeight={"bold"}
               fontSize={"xl"}
-              letterSpacing={0.5}
-              className="highlight-text"
-              padding={"15px"}
-              borderRadius={"30px"}
-              id="start"
             >
-              First, search for the book genre you wish to have suggested to
-              you, or find a book via isbn.
-            </Text>
-          </Box>
-          <Box
-            alignSelf={{
-              base: "center",
-              sm: "center",
-              md: "end",
-              lg: "end",
-            }}
-            w={"30%"}
-            display={"flex"}
-            flexDirection={"column"}
-            gap={"22px"}
-          >
-            <Image
-              src={confusedAvatar}
-              w={"200px"}
-              h={"auto"}
-              borderRadius={"full"}
-              alignSelf={"center"}
-            />
-            <Text
+              Suggestions
+            </Button>
+          </Link>
+          <Link href="random">
+            <Button
+              backgroundColor={"secondary"}
+              variant="solid"
               color={"white"}
+              // fontWeight={"bold"}
               fontSize={"xl"}
-              letterSpacing={0.5}
-              className="highlight-text"
-              padding={"15px"}
-              borderRadius={"90px"}
-              id="middle"
             >
-              Your suggested books will be generated. Find the books that
-              interest you by saving them in your library.
-            </Text>
-          </Box>
-          <Box alignContent={"center"} w={"30%"}>
-            <Text
-              color={"white"}
-              fontSize={"xl"}
-              letterSpacing={0.5}
-              className="highlight-text"
-              padding={"15px"}
-              borderRadius={"30px"}
-              id="end"
-            >
-              Afterward you can email the book suggestions to yourself or anyone
-              else via email!{" "}
-            </Text>
-          </Box>
-
-          {/* ARROWS */}
-          <Xarrow
-            start="how" //can be react ref
-            end="start" //or an id
-            color="darkcyan"
-            dashness={{ strokeLen: 10, nonStrokeLen: 15, animation: -2 }}
-            animateDrawing={5}
-          />
-          <Xarrow
-            start="start" //can be react ref
-            end="middle" //or an id
-            color="darkcyan"
-            dashness={{ strokeLen: 10, nonStrokeLen: 15, animation: -2 }}
-            animateDrawing={5}
-          />
-          <Xarrow
-            start="middle" //can be react ref
-            end="end" //or an id
-            color="darkcyan"
-            dashness={{ strokeLen: 5, nonStrokeLen: 5, animation: -5 }}
-            animateDrawing={3}
-          />
-          <Xarrow
-            start="genre" //can be react ref
-            end="how" //or an id
-            //   color="#E97F71"
-            color="darkcyan"
-            dashness={{ strokeLen: 10, nonStrokeLen: 10, animation: -5 }}
-            animateDrawing={3}
-          />
-        </Box>
+              Random
+            </Button>
+          </Link>
+        </Stack>
       </Box>
-      {/* // TODO: Add panel (UI panel, work on it) saying "How did we build this site?"   */}
 
       <br />
       <br />
       <br />
       <br />
+
+      {/* INFOGRAPHIC */}
+      {/* <InfographicSection /> */}
       <br />
       <br />
       <br />
       <br />
-      {/* ************************** */}
+      <br />
+      <br />
+      <br />
+      <br />
+
       {/* MONTHLY BOOK SUGGESTIONS  */}
-      {/* ************************** */}
-      <Heading
-        color={"white"}
-        backgroundColor={"darkcyan"}
-        textAlign={"center"}
-        fontSize={"6xl"}
-        letterSpacing={1}
-      >
-        {" "}
-        Suggestions of the Month:
-      </Heading>
-      <br />
-      <br />
-      <br />
-
+      {/* <BookSuggestionSection /> */}
       {/* <FlipBook /> */}
       <br />
       <br />
       <br />
       <br />
-
-      {/* <Box>
-        <Image
-          src={endBook}
-          alt="Open Book image"
-          h={"60vh"}
-          w={"100vw"}
-          m={0}
-          p={0}
-        />
-      </Box> */}
     </>
   );
 }
 
 export default FrontPageSection;
-
-/*
-  //   backgroundColor={"darkcyan"}
-            //   backgroundColor={"#4d2f00"}
-
-*/

@@ -34,7 +34,7 @@ code {
   src: url("../src/fonts/ftanima-Medium.otf");
   /* src: url("../src/fonts/Mobile\ Sans.ttf"); */
 }
- 
+
 @font-face {
   font-family: "ransom";
   src: url("../src/fonts/ransom/Pauls\ Ransom\ Note.ttf");
@@ -42,6 +42,7 @@ code {
 }
 
 @font-face {
-  font-family: "body-font";
-  src: url("../src/fonts/CODE\ Light.otf");
+  font-family: "main";
+  /* src: url("../src/fonts/Comfortaa-Regular.ttf"); */
+  src: url("../src/fonts/Sora-VariableFont_wght.ttf");
 }
