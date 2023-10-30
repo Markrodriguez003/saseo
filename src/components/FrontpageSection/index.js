@@ -8,6 +8,8 @@ import {
   Stack,
   Button,
   Link,
+  Show,
+  Hide,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 
@@ -41,7 +43,25 @@ import { FaCog } from "react-icons/fa";
 /* ************************** */
 export function InfographicSection() {
   return (
+    //   <Show above='sm'>
+
+    // </Show>
+    // <Hide below='md'>
+    //   <Box>This text hides at the "md" value screen width and smaller.</Box>
+    // </Hide>
+
     <Box data-aos="fade-top">
+      <Show below="lg">
+        <Center>
+          <Image
+            src={confusedAvatar}
+            w={"220px"}
+            h={"auto"}
+            borderRadius={"full"}
+            marginTop={"45px"}
+          />
+        </Center>
+      </Show>
       <Center marginTop={"45px"}>
         <Heading
           backgroundColor={"secondary"}
@@ -52,7 +72,15 @@ export function InfographicSection() {
           display={"inline"}
           borderRadius={"45px"}
           id="how"
-          marginBottom={"50px"}
+          marginBottom={"120px"}
+          marginTop={{
+            base: "50px",
+            sm: "0px",
+            md: "0px",
+            lg: "50px",
+            xs: "0px",
+            "2xs": "0px",
+          }}
         >
           How to use Saseo:
         </Heading>
@@ -61,7 +89,14 @@ export function InfographicSection() {
       <br />
       <Box
         display={"flex"}
-        flexDirection={{ base: "row", sm: "column", md: "column", lg: "row" }}
+        flexDirection={{
+          base: "row",
+          sm: "column",
+          md: "column",
+          lg: "row",
+          xs: "column",
+          "2xs": "column",
+        }}
         padding={"30px"}
         height={"300px"}
         justifyContent={{
@@ -69,9 +104,30 @@ export function InfographicSection() {
           sm: "center",
           md: "center",
           lg: "space-around",
+          xs: "center",
+          "2xs": "center",
         }}
+        gap={"60px"}
       >
-        <Box alignContent={"center"} w={"30%"}>
+        <Box
+          alignContent={"center"}
+          alignSelf={{
+            base: "flex-start",
+            sm: "center",
+            md: "center",
+            lg: "flex-start",
+            xs: "center",
+            "2xs": "center",
+          }}
+          w={{
+            base: "30%",
+            sm: "80%",
+            md: "50%",
+            lg: "30%",
+            xs: "80%",
+            "2xs": "80%",
+          }}
+        >
           <Text
             color={"white"}
             fontSize={"xl"}
@@ -80,6 +136,7 @@ export function InfographicSection() {
             padding={"15px"}
             borderRadius={"30px"}
             id="start"
+            textAlign={"center"}
           >
             First, search for the book genre you wish to have suggested to you,
             or find a book via isbn.
@@ -89,35 +146,65 @@ export function InfographicSection() {
           alignSelf={{
             base: "center",
             sm: "center",
-            md: "end",
+            md: "center",
             lg: "end",
+            xs: "center",
+            "2xs": "center",
           }}
-          w={"30%"}
+          w={{
+            base: "30%",
+            sm: "80%",
+            md: "50%",
+            lg: "30%",
+            xs: "80%",
+            "2xs": "80%",
+          }}
           display={"flex"}
           flexDirection={"column"}
-          gap={"22px"}
+          gap={"20px"}
         >
-          <Image
-            src={confusedAvatar}
-            w={"200px"}
-            h={"auto"}
-            borderRadius={"full"}
-            alignSelf={"center"}
-          />
+          <Hide below="lg">
+            <Image
+              src={confusedAvatar}
+              w={"220px"}
+              h={"auto"}
+              borderRadius={"full"}
+              alignSelf={"center"}
+            />
+          </Hide>
           <Text
             color={"white"}
             fontSize={"xl"}
             letterSpacing={0.5}
             className="highlight-text"
             padding={"15px"}
-            borderRadius={"90px"}
+            borderRadius={"30px"}
             id="middle"
+            textAlign={"center"}
           >
             Your suggested books will be generated. Find the books that interest
             you by saving them in your library.
           </Text>
         </Box>
-        <Box alignContent={"center"} w={"30%"}>
+        <Box
+          alignContent={"center"}
+          alignSelf={{
+            base: "flex-start",
+            sm: "center",
+            md: "center",
+            lg: "flex-start",
+            xs: "center",
+            "2xs": "center",
+          }}
+          w={{
+            base: "30%",
+            sm: "80%",
+            md: "50%",
+            lg: "30%",
+            xs: "80%",
+            "2xs": "80%",
+          }}
+        >
           <Text
             color={"white"}
             fontSize={"xl"}
@@ -126,6 +213,7 @@ export function InfographicSection() {
             padding={"15px"}
             borderRadius={"30px"}
             id="end"
+            textAlign={"center"}
           >
             Afterward you can email the book suggestions to yourself or anyone
             else via email!{" "}
@@ -133,13 +221,7 @@ export function InfographicSection() {
         </Box>
 
         {/* ARROWS */}
-        <Xarrow
-          start="how" //can be react ref
-          end="start" //or an id
-          color="darkcyan"
-          dashness={{ strokeLen: 10, nonStrokeLen: 15, animation: -2 }}
-          animateDrawing={5}
-        />
+
         <Xarrow
           start="start" //can be react ref
           end="middle" //or an id
@@ -154,16 +236,8 @@ export function InfographicSection() {
           dashness={{ strokeLen: 5, nonStrokeLen: 5, animation: -5 }}
           animateDrawing={3}
         />
-        <Xarrow
-          start="genre" //can be react ref
-          end="how" //or an id
-          //   color="#E97F71"
-          color="darkcyan"
-          dashness={{ strokeLen: 10, nonStrokeLen: 10, animation: -5 }}
-          animateDrawing={3}
-        />
       </Box>
-      <Center>
+      {/* <Center>
         <Link href="about">
           <Button
             backgroundColor={"tertiary"}
@@ -178,7 +252,7 @@ export function InfographicSection() {
             How did we build this site?
           </Button>
         </Link>
-      </Center>
+      </Center> */}
     </Box>
   );
 }
@@ -205,8 +279,8 @@ function FrontPageSection() {
   // Initialize aos library
   useEffect(() => {
     aos.init({
-      delay: 32,
-      offset: 80,
+      delay: 35,
+      offset: 70,
     });
   });
   return (
@@ -324,13 +398,8 @@ function FrontPageSection() {
         </Stack>
       </Box>
 
-      <br />
-      <br />
-      <br />
-      <br />
-
       {/* INFOGRAPHIC */}
-      {/* <InfographicSection /> */}
+      <InfographicSection />
       <br />
       <br />
       <br />
