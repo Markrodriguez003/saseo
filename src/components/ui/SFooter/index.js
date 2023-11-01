@@ -60,7 +60,7 @@ function NewsLetterForm() {
               {({ field, form }) => (
                 <FormControl
                   isInvalid={form.errors.name && form.touched.name}
-                  paddingBottom={"25px"}
+                  paddingBottom={"5px"}
                 >
                   <FormLabel
                     color={"white"}
@@ -135,7 +135,7 @@ export function SFooter() {
           align={"center"}
           justifyContent={"flex-start"}
           backgroundColor={"darkcyan"}
-          gap={"16px"}
+          gap={"18px"}
           p={"0px"}
           m={"0px"}
           flexWrap={"wrap"}
@@ -164,12 +164,12 @@ export function SFooter() {
                 backgroundSize={"contain"}
                 filter={"hue-rotate(180deg)"}
                 marginBottom={{
-                  base: "25px",
-                  lg: "25px",
-                  md: "25px",
-                  sm: "25px",
+                  base: "5px",
+                  lg: "5px",
+                  md: "5px",
+                  sm: "5px",
                   xs: "0px",
-                  "2xs": "00px",
+                  "2xs": "0px",
                 }}
               >
                 <Heading
@@ -259,7 +259,14 @@ export function SFooter() {
       {/* ********************* */}
       {/* Copyright Message */}
       {/* ********************* */}
-      <Flex flexDirection={"column"} color={"white"} backgroundColor={"darkcyan"} justifyContent={"center"} align={"center"}>
+      <Flex
+        flexDirection={"column"}
+        color={"white"}
+        backgroundColor={"darkcyan"}
+        justifyContent={"center"}
+        align={"center"}
+        marginTop={"-25px"}
+      >
         <BookShelfAnimation />
         <Text color={"white"} paddingTop={"20px"} textAlign={"center"}>
           {" "}

@@ -22,7 +22,7 @@ import aos from "aos";
 import WordRollerAnimation from "../ui/WordRollerAnimation";
 import SideBookStackGraphic from "../ui/SideBookStackGraphic";
 import FlipBook from "components/ui/FlipBook";
-
+import TextPanel from "components/ui/TextPanel";
 // CSS
 import "./FrontPageSection.design.css";
 import "aos/dist/aos.css";
@@ -72,7 +72,14 @@ export function InfographicSection() {
           display={"inline"}
           borderRadius={"25px"}
           id="how"
-          marginBottom={"120px"}
+          marginBottom={{
+            base: "120px",
+            sm: "120px",
+            md: "120px",
+            lg: "120px",
+            xs: "120p",
+            "2xs": "145px",
+          }}
           marginTop={{
             base: "40px",
             sm: "0px",
@@ -82,7 +89,7 @@ export function InfographicSection() {
             "2xs": "0px",
           }}
         >
-          How to use Saseo:
+          How to use Saseo
         </Heading>
       </Center>
       <br />
@@ -124,13 +131,21 @@ export function InfographicSection() {
             sm: "80%",
             md: "50%",
             lg: "30%",
-            xs: "80%",
-            "2xs": "80%",
+            xs: "90%",
+            "2xs": "90%",
           }}
         >
+          {/* //TODO : REPLACE THE INFOGRAPHIC TEXT BOXES WITH THE NEWLY CREATED TEXTPANEL COMPONENT */}
           <Text
             color={"white"}
-            fontSize={"xl"}
+            fontSize={{
+              base: "xl",
+              sm: "xl",
+              md: "xl",
+              lg: "xl",
+              xs: "md",
+              "2xs": "md",
+            }}
             letterSpacing={0.5}
             className="highlight-text"
             padding={"15px"}
@@ -156,8 +171,8 @@ export function InfographicSection() {
             sm: "80%",
             md: "50%",
             lg: "30%",
-            xs: "80%",
-            "2xs": "80%",
+            xs: "90%",
+            "2xs": "90%",
           }}
           display={"flex"}
           flexDirection={"column"}
@@ -175,7 +190,14 @@ export function InfographicSection() {
           </Hide>
           <Text
             color={"white"}
-            fontSize={"xl"}
+            fontSize={{
+              base: "xl",
+              sm: "xl",
+              md: "xl",
+              lg: "xl",
+              xs: "md",
+              "2xs": "md",
+            }}
             letterSpacing={0.5}
             className="highlight-text"
             padding={"15px"}
@@ -202,13 +224,20 @@ export function InfographicSection() {
             sm: "80%",
             md: "50%",
             lg: "30%",
-            xs: "80%",
-            "2xs": "80%",
+            xs: "90%",
+            "2xs": "90%",
           }}
         >
           <Text
             color={"white"}
-            fontSize={"xl"}
+            fontSize={{
+              base: "xl",
+              sm: "xl",
+              md: "xl",
+              lg: "xl",
+              xs: "md",
+              "2xs": "md",
+            }}
             letterSpacing={0.5}
             className="highlight-text"
             padding={"15px"}
@@ -329,39 +358,14 @@ function FrontPageSection() {
         <WordRollerAnimation />
 
         <br />
-        <Center
-          justifyContent={"center"}
-          alignContent={"center"}
-          w={{
-            base: "48%",
-            xs: "85%",
-            "2xs": "85%",
-            sm: "78%",
-            md: "78%",
-            lg: "48%",
-          }}
-          marginLeft={"auto"}
-          marginRight={"auto"}
-          paddingBottom={"25px"}
-          paddingTop={"30px"}
-          wordBreak={"normal"}
-        >
-          <Text
-            color={"white"}
-            fontSize={"xl"}
-            letterSpacing={0.5}
-            className="highlight-text"
-            padding={"18px"}
-            borderRadius={"30px"}
-            textAlign={"center"}
-            // fontFamily={"body-font"}
-          >
+        <Center paddingBottom={"25px"} paddingTop={"20px"} wordBreak={"normal"}>
+          <TextPanel>
             Interested in finding a book or two to read? Well, Saseo is here to
             guide you! You can search for many book titles by genre. We have
             almost every book genre to choose from! All you need to do is choose
             a genre and how many books you would like suggested to you! You can
             also roll the dice and get a random book suggested to you!
-          </Text>
+          </TextPanel>
         </Center>
         <Stack
           direction={{
