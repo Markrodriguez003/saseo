@@ -114,7 +114,7 @@ function NewsLetterForm() {
 export function SFooter() {
   return (
     <>
-      <Slide bottom opposite cascade>
+      {/* <Slide bottom opposite cascade> */}
         <Box>
           <Box maxW={"full"} p={"0px"} m={"0px"}>
             <Flex
@@ -269,7 +269,7 @@ export function SFooter() {
             </Text>
           </Flex>
         </Box>
-      </Slide>
+      {/* </Slide> */}
     </>
   );
 }

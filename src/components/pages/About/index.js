@@ -18,16 +18,18 @@ import {
   Divider,
   Text,
   VStack,
+  HStack,
 } from "@chakra-ui/react";
 
 // EXTERNAL COMPONENTS
 import RandomLetterHeader from "components/ui/RandomLetterHeader";
 
 // ICONS
-import { FaRocket } from "react-icons/fa";
+import { FaRocket, FaRegGem, FaNpm } from "react-icons/fa";
 import { PiArrowBendRightDownBold } from "react-icons/pi";
 import { GiTechnoHeart } from "react-icons/gi";
 import { BsClipboard2CheckFill, BsConeStriped } from "react-icons/bs";
+import {SiPnpm } from "react-icons/si";
 
 // IMAGES
 import booksBackground from "../../../images/backgrounds/Abstract-2.jpg";
@@ -37,7 +39,6 @@ import cogTop from "../../../images/header/tech-cog-top.png";
 import cogMiddle from "../../../images/header/tech-cog-middle.png";
 import cogBottom from "../../../images/header/tech-cog-bottom.png";
 import rightTestTube from "../../../images/header/right-test-tube.png";
-
 
 import "./styles.css";
 
@@ -65,7 +66,6 @@ function About() {
         </Container>
       </div>
       <br />
-
       <Flex
         justifyContent={"center"}
         align={"center"}
@@ -247,13 +247,150 @@ function About() {
           {/* //TODO: Add separate NPM packages here (confetti + arrows) in a simple list */}
         </Flex>
       </Flex>
-
       <br />
       <br />
       {/* TECH LOVE */}
+
+      {/* *********** */}
+      {/* NPM PACKAGES */}
+      {/* *********** */}
       <Box
-        backgroundColor={"darkcyan"}
-        // backgroundColor={"#4d2f00"}
+        backgroundColor={"tertiary"}
+        w={{ base: "72%", sm: "72%", md: "75%", lg: "54%" }}
+        display={"flex"}
+        justifyContent={"center"}
+        alignContent={"center"}
+        margin={"auto"}
+        padding={"40px"}
+        borderRadius={"10px"}
+      >
+        <VStack w={"100%"}>
+          <HStack backgroundColor={"tertiary"} w={"100%"} justify={"center"}>
+            <FaRegGem color="white" fontSize={"65px"} className="heart" />
+            <Heading
+              color={"white"}
+              borderRadius={"full"}
+              textAlign={{
+                base: "center",
+                sm: "center",
+                md: "center",
+                lg: "start",
+              }}
+              marginLeft={{
+                base: "30px",
+                sm: "30px",
+                md: "50px",
+                lg: "0px",
+              }}
+              marginRight={{
+                base: "30px",
+                sm: "30px",
+                md: "50px",
+                lg: "0px",
+              }}
+              maxW="28rem"
+            >
+              Additional Libraries
+            </Heading>
+          </HStack>
+          <HStack gap={"20px"}>
+            <FaNpm size={"200px"} color="white" />
+            <Text
+              backgroundColor={"transparent"}
+              fontSize="xl"
+              color={"white"}
+              letterSpacing={"1px"}
+              textAlign={"center"}
+            >
+              <List
+                spacing={3}
+                fontSize={"md"}
+                paddingTop={"10px"}
+                textAlign={{
+                  base: "center",
+                  sm: "center",
+                  md: "start",
+                  lg: "start",
+                }}
+                alignContent={"center"}
+                marginLeft={{
+                  base: "0px",
+                  sm: "auto",
+                  md: "auto",
+                  lg: "0px",
+                }}
+                marginRight={{
+                  base: "0px",
+                  sm: "auto",
+                  md: "auto",
+                  lg: "0px",
+                }}
+                p={"20px"}
+         
+              >
+                <ListItem color={"text"}>
+                  <ListIcon as={SiPnpm} color="text" />
+                  <a
+                    href="https://react.dev/"
+                    className="about-anchor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>React-Reveal </strong>
+                  </a>
+                </ListItem>
+                <ListItem color={"text"}>
+                  <ListIcon as={SiPnpm} color="text" />
+                  <a
+                    href="https://react.dev/"
+                    className="about-anchor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>React-XArrows </strong>
+                  </a>
+                </ListItem>
+                <ListItem color={"text"}>
+                  <ListIcon as={SiPnpm} color="text" />
+                  <a
+                    href="https://react.dev/"
+                    className="about-anchor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>Formik </strong>
+                  </a>
+                </ListItem>
+                <ListItem color={"text"}>
+                  <ListIcon as={SiPnpm} color="text" />
+                  <a
+                    href="https://react.dev/"
+                    className="about-anchor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>Canvas Confetti </strong>
+                  </a>
+                </ListItem>
+                <ListItem color={"text"}>
+                  <ListIcon as={SiPnpm} color="text" />
+                  <a
+                    href="https://react.dev/"
+                    className="about-anchor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>Framer Motion </strong>
+                  </a>
+                </ListItem>
+              </List>
+            </Text>
+          </HStack>
+        </VStack>
+      </Box>
+      <br />
+      <Box
+        backgroundColor={"primary"}
         w={{ base: "72%", sm: "72%", md: "75%", lg: "54%" }}
         display={"flex"}
         justifyContent={"center"}
@@ -294,7 +431,6 @@ function About() {
           </Text>
         </VStack>
       </Box>
-
       <Flex
         justifyContent={"center"}
         align={"center"}
@@ -385,7 +521,7 @@ function About() {
             </ListItem>
             <ListItem>
               <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
-              Add AI search assistance.  
+              Add AI search assistance.
             </ListItem>
           </List>
         </Flex>
@@ -431,7 +567,6 @@ function About() {
           </Text>
         </VStack>
       </Box>
-
       <br />
       <br />
       <br />
