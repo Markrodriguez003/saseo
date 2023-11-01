@@ -16,16 +16,18 @@ import { useEffect } from "react";
 // LIBRARY
 // ? https://www.npmjs.com/package/react-xarrows
 import Xarrow from "react-xarrows";
-import aos from "aos";
+
+// ! replace with https://www.react-reveal.com/
 
 // COMPONENTS
 import WordRollerAnimation from "../ui/WordRollerAnimation";
 import SideBookStackGraphic from "../ui/SideBookStackGraphic";
 import FlipBook from "components/ui/FlipBook";
 import TextPanel from "components/ui/TextPanel";
+import Fade from "react-reveal/Fade";
+ 
 // CSS
 import "./FrontPageSection.design.css";
-import "aos/dist/aos.css";
 
 // IMAGES
 import magnifierIcon from "../../images/backgrounds/icon-347230_1920.png";
@@ -50,9 +52,9 @@ export function InfographicSection() {
     //   <Box>This text hides at the "md" value screen width and smaller.</Box>
     // </Hide>
 
-    <Box data-aos="fade-top">
+    <Box>
       <Show below="lg">
-        <Center ata-aos="flip-left">
+        <Center>
           <Image
             src={confusedAvatar}
             w={"220px"}
@@ -180,7 +182,6 @@ export function InfographicSection() {
         >
           <Hide below="lg">
             <Image
-              ata-aos="flip-left"
               src={confusedAvatar}
               w={"220px"}
               h={"auto"}
@@ -306,13 +307,6 @@ export function BookSuggestionSection() {
 }
 
 function FrontPageSection() {
-  // Initialize aos library
-  useEffect(() => {
-    aos.init({
-      delay: 5,
-      offset: 65,
-    });
-  });
   return (
     <>
       {/* ********************* */}
@@ -423,7 +417,9 @@ function FrontPageSection() {
       </Box>
 
       {/* INFOGRAPHIC */}
-      <InfographicSection />
+      <Fade>
+        <InfographicSection />
+      </Fade>
       <br />
       <br />
       <br />

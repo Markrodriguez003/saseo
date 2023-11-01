@@ -7,7 +7,7 @@ function TextPanel({children}) {
         justifyContent={"center"}
         alignContent={"center"}
         w={{
-          base: "48%",
+          base: "88%",
           xs: "85%",
           "2xs": "85%",
           sm: "78%",
