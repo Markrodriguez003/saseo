@@ -1,5 +1,4 @@
 import {
-  Hide,
   Button,
   Text,
   Flex,
@@ -10,14 +9,11 @@ import {
   FormControl,
   FormErrorMessage,
   useToast,
-  InputGroup,
-  InputRightAddon,
-  Container,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import aos from "aos";
 import BookmarkMobile from "../../../images/header/ribbon-1202755_1920 - Mobile.png";
-
+import BookShelfAnimation from "../BookShelfAnimation";
 import { Link } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
 
@@ -263,12 +259,13 @@ export function SFooter() {
       {/* ********************* */}
       {/* Copyright Message */}
       {/* ********************* */}
-      <Box color={"white"} backgroundColor={"darkcyan"}>
+      <Flex flexDirection={"column"} color={"white"} backgroundColor={"darkcyan"} justifyContent={"center"} align={"center"}>
+        <BookShelfAnimation />
         <Text color={"white"} paddingTop={"20px"} textAlign={"center"}>
           {" "}
           © 2023 SASEO - All Rights Reserved{" "}
         </Text>
-      </Box>
+      </Flex>
     </>
   );
 }
