@@ -95,7 +95,9 @@ export function SHeader() {
             <Link to="random">
               <button>Random pick</button>
             </Link>
-            <button>ISBN Search</button>
+            <Link to="isbn">
+              <button>ISBN Search</button>
+            </Link>
             <Link to="about">
               <button>About</button>
             </Link>

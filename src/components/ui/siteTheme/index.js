@@ -45,6 +45,7 @@ const siteTheme = extendTheme({
     body: `main, 'Open Sans', sans-serif`,
   },
   colors: {
+    background: "#F0FDF9",
     primary: "darkCyan",
     secondary: "#E97F71",
     tertiary: "#4d2f00",

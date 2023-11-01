@@ -220,7 +220,7 @@ export function SFooter() {
               Random pick
             </Text>
           </Link>
-          <Link to="about">
+          <Link to="isbn">
             <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
               ISBN Search
             </Text>

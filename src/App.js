@@ -6,6 +6,7 @@ import FrontPage from "./components/pages/FrontPage";
 import About from "./components/pages/About";
 import { BookSuggestion } from "./components/pages/BookSuggestion";
 import SFooter from "./components/ui/SFooter";
+import ISBNSearch from "./components/pages/ISBNSearch"
 
 import { Routes, Route } from "react-router-dom";
 // PAGES
@@ -27,6 +28,7 @@ function App() {
         <Route path="suggest" element={<BookSuggestion />} />
         <Route path="random" element={<RandomBookSuggestion />} />
         <Route path="about" element={<About />} />
+        <Route path="isbn" element={<ISBNSearch />} />
       </Routes>
       <SFooter />
     </ChakraProvider>

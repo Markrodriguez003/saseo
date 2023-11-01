@@ -309,7 +309,7 @@ function FrontPageSection() {
   // Initialize aos library
   useEffect(() => {
     aos.init({
-      delay: 35,
+      delay: 5,
       offset: 65,
     });
   });
