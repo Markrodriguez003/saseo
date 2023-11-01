@@ -383,6 +383,10 @@ function About() {
               <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
               Display first paragraph of book
             </ListItem>
+            <ListItem>
+              <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
+              Add AI search assistance.  
+            </ListItem>
           </List>
         </Flex>
 

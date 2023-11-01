@@ -52,7 +52,7 @@ export function InfographicSection() {
 
     <Box data-aos="fade-top">
       <Show below="lg">
-        <Center>
+        <Center ata-aos="flip-left">
           <Image
             src={confusedAvatar}
             w={"220px"}
@@ -70,14 +70,14 @@ export function InfographicSection() {
           textAlign={"center"}
           padding={"25px"}
           display={"inline"}
-          borderRadius={"45px"}
+          borderRadius={"25px"}
           id="how"
           marginBottom={"120px"}
           marginTop={{
-            base: "50px",
+            base: "40px",
             sm: "0px",
             md: "0px",
-            lg: "50px",
+            lg: "40px",
             xs: "0px",
             "2xs": "0px",
           }}
@@ -161,10 +161,11 @@ export function InfographicSection() {
           }}
           display={"flex"}
           flexDirection={"column"}
-          gap={"20px"}
+          gap={"35px"}
         >
           <Hide below="lg">
             <Image
+              ata-aos="flip-left"
               src={confusedAvatar}
               w={"220px"}
               h={"auto"}
@@ -280,7 +281,7 @@ function FrontPageSection() {
   useEffect(() => {
     aos.init({
       delay: 35,
-      offset: 70,
+      offset: 65,
     });
   });
   return (
@@ -290,6 +291,7 @@ function FrontPageSection() {
       {/* ********************* */}
       <Box
         position={"relative"}
+        // backgroundColor={"dark-accent-1"}
         backgroundColor={"tertiary"}
         id="genre"
         paddingBottom={"40px"}
@@ -305,7 +307,7 @@ function FrontPageSection() {
 
         <Image
           src={magnifierIcon}
-          w={"120px"}
+          w={"100px"}
           h={"auto"}
           borderRadius={"8px"}
           textAlign={"center"}
@@ -315,7 +317,7 @@ function FrontPageSection() {
         />
         <Center padding={5}>
           <Heading
-            color={"white"}
+            color={"text"}
             textAlign={"center"}
             fontSize={"6xl"}
             letterSpacing={1}
@@ -362,7 +364,14 @@ function FrontPageSection() {
           </Text>
         </Center>
         <Stack
-          direction="row"
+          direction={{
+            base: "row",
+            lg: "row",
+            md: "row",
+            sm: "column",
+            xs: "column",
+            "2xs": "column",
+          }}
           spacing={4}
           align="center"
           justify={{
@@ -393,6 +402,17 @@ function FrontPageSection() {
               fontSize={"xl"}
             >
               Random
+            </Button>
+          </Link>
+          <Link href="isbn">
+            <Button
+              backgroundColor={"white"}
+              // variant="outline"
+              color={"primary"}
+              fontWeight={"bold"}
+              fontSize={"xl"}
+            >
+              ISBN
             </Button>
           </Link>
         </Stack>

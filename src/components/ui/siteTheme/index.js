@@ -48,8 +48,10 @@ const siteTheme = extendTheme({
     primary: "darkCyan",
     secondary: "#E97F71",
     tertiary: "#4d2f00",
+    "dark-accent-1": "#12574C",
     "accent-1": "#00CBCB",
     text: "#ffff",
+    "text-accent-1": "#ECCFB6",
   },
   breakpoints: {
     base: "0em",

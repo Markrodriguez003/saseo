@@ -3,7 +3,7 @@ import { useState, createContext } from "react";
 // EXTERNAL COMPONENTS
 import BookSearchForm from "../../BookSearchForm";
 import { BookReadingList } from "components/BookReadingList";
-
+import {Box} from "@chakra-ui/react"
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
 // --------------------------------------------------------------------- //
@@ -17,7 +17,9 @@ export function BookSuggestion() {
     <>
       {/* // todo: Move this context to Book Reading List component  */}
       <SearchData.Provider value={{ bookCollection, setBookCollection }}>
-        <BookSearchForm />
+        <Box marginTop={"100px"} marginBottom={"200px"}>
+          <BookSearchForm />
+        </Box>
       </SearchData.Provider>
     </>
   );

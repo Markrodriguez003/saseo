@@ -9,28 +9,33 @@ import {
   Heading,
   FormControl,
   FormErrorMessage,
+  useToast,
+  InputGroup,
+  InputRightAddon,
+  Container,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import aos from "aos";
 import BookmarkMobile from "../../../images/header/ribbon-1202755_1920 - Mobile.png";
-import "./SFooter.design.css";
+
 import { Link } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
 
 function NewsLetterForm() {
-  useEffect(() => {
-    aos.init({
-      delay: 29,
-      offset: 80,
-    });
-  });
+  // useEffect(() => {
+  //   aos.init({
+  //     delay: 29,
+  //     offset: 80,
+  //   });
+  // });
 
+  const toast = useToast();
   function validateName(value) {
     let error;
     if (!value) {
-      error = "Name is required";
+      error = "Email is required";
     } else if (value.toLowerCase() !== "naruto") {
-      error = "Jeez! You're not a fan 😱";
+      error = "Email is required";
     }
     return error;
   }
@@ -38,10 +43,17 @@ function NewsLetterForm() {
   return (
     <>
       <Formik
-        initialValues={{ name: "Sasuke" }}
+        initialValues={{ name: "you@email" }}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            toast({
+              title: "Thank you!",
+              description: "We've signed you up to our newsletter!",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+            });
+
             actions.setSubmitting(false);
           }, 1000);
         }}
@@ -50,30 +62,59 @@ function NewsLetterForm() {
           <Form>
             <Field name="name" validate={validateName}>
               {({ field, form }) => (
-                <FormControl isInvalid={form.errors.name && form.touched.name}>
-                  <FormLabel color={"white"}>
+                <FormControl
+                  isInvalid={form.errors.name && form.touched.name}
+                  paddingBottom={"25px"}
+                >
+                  <FormLabel
+                    color={"white"}
+                    textAlign={{
+                      base: "left",
+                      lg: "left",
+                      md: "center",
+                      sm: "center",
+                      xs: "center",
+                      "2xs": "center",
+                    }}
+                  >
                     Sign up to our newsletter
                   </FormLabel>
-                  <Input
-                    {...field}
-                    placeholder="name"
-                    backgroundColor={"white"}
-                    color={"darkcyan"}
-                    w={"300px"}
-                  />
-                  <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                  <FormErrorMessage paddingBottom={"5px"}>
+                    {form.errors.name}
+                  </FormErrorMessage>
+                  <Flex
+                    flexDirection={{
+                      base: "row",
+                      lg: "row",
+                      md: "rowr",
+                      sm: "row",
+                      xs: "column",
+                      "2xs": "column",
+                    }}
+                    gap={"8px"}
+                  >
+                    <Input
+                      {...field}
+                      placeholder="Enter your email here!"
+                      backgroundColor={"white"}
+                      color={"darkcyan"}
+                      w={"255px"}
+                    />
+
+                    <Box textAlign={"center"}>
+                      <Button
+                        backgroundColor={"salmon"}
+                        isLoading={props.isSubmitting}
+                        type="submit"
+                        color={"white"}
+                      >
+                        Submit
+                      </Button>
+                    </Box>
+                  </Flex>
                 </FormControl>
               )}
             </Field>
-            <Button
-              mt={4}
-              backgroundColor={"salmon"}
-              isLoading={props.isSubmitting}
-              type="submit"
-              color={"white"}
-            >
-              Submit
-            </Button>
           </Form>
         )}
       </Formik>
@@ -84,93 +125,150 @@ function NewsLetterForm() {
 export function SFooter() {
   return (
     <>
-      <Flex
-        data-aos={"slide-up"}
-        flexDirection={{
-          base: "row",
-          lg: "row",
-          md: "column",
-          sm: "column",
-        }}
-        alignContent={"center"}
-        align={"center"}
-        justifyContent={"flex-start"}
-        backgroundColor={"darkcyan"}
-        gap={"16px"}
-      >
-        <Link to={"/"}>
-          <Box>
-            <Box
-              backgroundImage={BookmarkMobile}
-              w={"350px"}
-              h={"125px"}
-              backgroundRepeat={"no-repeat"}
-              backgroundSize={"contain"}
-              filter={"hue-rotate(180deg)"}
-              marginBottom={"35px"}
-            >
-              <Heading
-                fontFamily={"brand-font"}
-                fontWeight={"bold"}
-                color={"white"}
-                fontSize={"7xl"}
-                textAlign={"center"}
-                marginTop="35px"
-                marginRight="5px"
-                paddingRight={"52px"}
-                paddingTop={"20px"}
+      <Box maxW={"full"} p={"0px"} m={"0px"}>
+        <Flex
+          flexDirection={{
+            base: "row",
+            lg: "row",
+            md: "column",
+            sm: "column",
+            xs: "column",
+            "2xs": "column",
+          }}
+          alignContent={"center"}
+          align={"center"}
+          justifyContent={"flex-start"}
+          backgroundColor={"darkcyan"}
+          gap={"16px"}
+          p={"0px"}
+          m={"0px"}
+          flexWrap={"wrap"}
+        >
+          <Link to={"/"}>
+            <Box>
+              <Box
+                backgroundImage={BookmarkMobile}
+                w={{
+                  base: "350px",
+                  lg: "350px",
+                  md: "350px",
+                  sm: "350px",
+                  xs: "250px",
+                  "2xs": "250px",
+                }}
+                h={{
+                  base: "125px",
+                  lg: "125px",
+                  md: "125px",
+                  sm: "125px",
+                  xs: "90px",
+                  "2xs": "90px",
+                }}
+                backgroundRepeat={"no-repeat"}
+                backgroundSize={"contain"}
+                filter={"hue-rotate(180deg)"}
+                marginBottom={{
+                  base: "25px",
+                  lg: "25px",
+                  md: "25px",
+                  sm: "25px",
+                  xs: "0px",
+                  "2xs": "00px",
+                }}
               >
-                {" "}
-                SASEO
-              </Heading>
+                <Heading
+                  fontFamily={"brand-font"}
+                  fontWeight={"bold"}
+                  color={"white"}
+                  fontSize={{
+                    base: "7xl",
+                    lg: "7xl",
+                    md: "7xl",
+                    sm: "7xl",
+                    xs: "50px",
+                    "2xs": "50px",
+                  }}
+                  textAlign={"center"}
+                  marginTop="35px"
+                  marginRight="5px"
+                  paddingRight={{
+                    base: "52px",
+                    lg: "52px",
+                    md: "52px",
+                    sm: "52px",
+                    xs: "38px",
+                    "2xs": "38px",
+                  }}
+                  paddingTop={{
+                    base: "20px",
+                    lg: "20px",
+                    md: "20px",
+                    sm: "20px",
+                    xs: "15px",
+                    "2xs": "15px",
+                  }}
+                >
+                  {" "}
+                  SASEO
+                </Heading>
+              </Box>
             </Box>
-          </Box>
-        </Link>
-        <Link to={"suggest"}>
-          <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
-            Suggest Books
-          </Text>
-        </Link>
-        <Link to="random">
-          <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
-            Random pick
-          </Text>
-        </Link>
-        <Link to="about">
-          <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
-            ISBN Search
-          </Text>
-        </Link>
-        <Box flexGrow={1}>
-          <Link to="about">
+          </Link>
+          <Link to={"suggest"}>
             <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
-              About
+              Suggest Books
             </Text>
           </Link>
-        </Box>
+          <Link to="random">
+            <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
+              Random pick
+            </Text>
+          </Link>
+          <Link to="about">
+            <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
+              ISBN Search
+            </Text>
+          </Link>
+          <Box flexGrow={1}>
+            <Link to="about">
+              <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
+                About
+              </Text>
+            </Link>
+          </Box>
 
-        {/* ********************* */}
-        {/* Newsletter form */}
-        {/* ********************* */}
-
-        <Box justifySelf={"flex-end"} paddingRight={"20px"}>
-          <NewsLetterForm />
-        </Box>
-      </Flex>
+          <Box
+            justifySelft={{
+              base: "flex-end",
+              lg: "flex-end",
+              md: "flex-end",
+              sm: "center",
+              xs: "center",
+              "2xs": "center",
+            }}
+            paddingRight={{
+              base: "row",
+              lg: "20px",
+              md: "20px",
+              sm: "0px",
+              xs: "0px",
+              "2xs": "0px",
+            }}
+          >
+            <NewsLetterForm />
+          </Box>
+        </Flex>
+      </Box>
 
       {/* ********************* */}
       {/* Copyright Message */}
       {/* ********************* */}
-      {/* <Box color={"white"} backgroundColor={"darkcyan"}>
-        <Text
-          color={"white"}
-          paddingTop={"20px"}
-          textAlign={{ base: "left", md: "left", lg: "left", sm: "center" }}
-        >
+      <Box color={"white"} backgroundColor={"darkcyan"}>
+        <Text color={"white"} paddingTop={"20px"} textAlign={"center"}>
           {" "}
           © 2023 SASEO - All Rights Reserved{" "}
         </Text>
-      </Box> */}
+      </Box>
     </>
   );
 }

@@ -13,9 +13,9 @@ body {
 }
 
 .background {
-  background-color: mintcream;
-  /* background-color: rgb(61, 225, 143); */
-  /* background-color: rgb(22, 101, 92); */
+  /* background-color: mintcream; */
+  background-color: rgb(240, 253, 249);
+ 
 
   /* background-image: url("../src/images/backgrounds/background-tile-6.png"); */
   /* background-blend-mode: exclusion;  */
