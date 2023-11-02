@@ -109,12 +109,7 @@ export function BookSearchForm() {
           <HStack>
             <FaBook size={"45px"} color="darkcyan" />
 
-            <Heading
-              as="h1"
-              size={"2xl"}
-              color={"darkcyan"}
-              textShadow="1px 1px darkgreen"
-            >
+            <Heading as="h1" size={"2xl"} color={"darkcyan"}>
               Find me a book!
             </Heading>
           </HStack>

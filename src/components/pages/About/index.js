@@ -29,7 +29,7 @@ import { FaRocket, FaRegGem, FaNpm } from "react-icons/fa";
 import { PiArrowBendRightDownBold } from "react-icons/pi";
 import { GiTechnoHeart } from "react-icons/gi";
 import { BsClipboard2CheckFill, BsConeStriped } from "react-icons/bs";
-import {SiPnpm } from "react-icons/si";
+import { SiPnpm } from "react-icons/si";
 
 // IMAGES
 import booksBackground from "../../../images/backgrounds/Abstract-2.jpg";
@@ -263,38 +263,40 @@ function About() {
         margin={"auto"}
         padding={"40px"}
         borderRadius={"10px"}
+        marginBottom={"20px"}
       >
         <VStack w={"100%"}>
-          <HStack backgroundColor={"tertiary"} w={"100%"} justify={"center"}>
-            <FaRegGem color="white" fontSize={"65px"} className="heart" />
-            <Heading
-              color={"white"}
-              borderRadius={"full"}
-              textAlign={{
-                base: "center",
-                sm: "center",
-                md: "center",
-                lg: "start",
-              }}
-              marginLeft={{
-                base: "30px",
-                sm: "30px",
-                md: "50px",
-                lg: "0px",
-              }}
-              marginRight={{
-                base: "30px",
-                sm: "30px",
-                md: "50px",
-                lg: "0px",
-              }}
-              maxW="28rem"
-            >
-              Additional Libraries
-            </Heading>
-          </HStack>
+          <Heading
+            color={"white"}
+            borderRadius={"full"}
+            textAlign={{
+              base: "center",
+              sm: "center",
+              md: "center",
+              lg: "start",
+            }}
+            marginLeft={{
+              base: "30px",
+              sm: "30px",
+              md: "50px",
+              lg: "0px",
+            }}
+            marginRight={{
+              base: "30px",
+              sm: "30px",
+              md: "50px",
+              lg: "0px",
+            }}
+            maxW="28rem"
+          >
+            ADDITIONAL LIBRARIES
+          </Heading>
+
           <HStack gap={"20px"}>
-            <FaNpm size={"200px"} color="white" />
+            <FaNpm
+              size={"200px"}
+              color="white"
+            />
             <Text
               backgroundColor={"transparent"}
               fontSize="xl"
@@ -326,7 +328,6 @@ function About() {
                   lg: "0px",
                 }}
                 p={"20px"}
-         
               >
                 <ListItem color={"text"}>
                   <ListIcon as={SiPnpm} color="text" />

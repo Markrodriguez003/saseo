@@ -2,8 +2,9 @@ import { useState, createContext } from "react";
 
 // EXTERNAL COMPONENTS
 import BookSearchForm from "../../BookSearchForm";
-import { BookReadingList } from "components/BookReadingList";
-import {Box} from "@chakra-ui/react"
+import BookCoverAnimation from "components/ui/BookCoverAnimation";
+
+import { Box } from "@chakra-ui/react";
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
 // --------------------------------------------------------------------- //

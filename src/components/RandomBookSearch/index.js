@@ -15,7 +15,7 @@ import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
 import FetchBooks from "lib/FetchBooks";
 import RandomBookSubject from "lib/RandomBookSubject";
-import BookCoverAnimation from "components/ui/BookCoverAnimation";
+import RandomBookCoverAnimation from "components/ui/RandomBookCoverAnimation";
 
 import { useEffect } from "react";
 
@@ -145,7 +145,7 @@ export function RandomBookSearch() {
       ) : loadState === "Loading" ? (
         <Box mt={20}>
           <Center>
-            <BookCoverAnimation />
+            <RandomBookCoverAnimation />
           </Center>
         </Box>
       ) : (

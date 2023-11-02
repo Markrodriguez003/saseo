@@ -134,7 +134,12 @@ export function ISBNSearchSection() {
                       >
                         Search for 7,8 or 9 digit ISBN
                       </FormLabel>
-                      <Tooltip label="Learn more about ISBN" backgroundColor={"primary"} color={"text"} marginTop={"12px"}>
+                      <Tooltip
+                        label="Learn more about ISBN"
+                        backgroundColor={"primary"}
+                        color={"text"}
+                        marginTop={"12px"}
+                      >
                         <Button paddingTop={"18px"} onClick={onOpen}>
                           <FaQuestionCircle size={"20px"} color="darkcyan" />
                         </Button>

@@ -14,7 +14,7 @@ import {
 import { useEffect } from "react";
 
 // LIBRARY
-// ? https://www.npmjs.com/package/react-xarrows
+
 import Xarrow from "react-xarrows";
 
 // ! replace with https://www.react-reveal.com/
@@ -25,7 +25,7 @@ import SideBookStackGraphic from "../ui/SideBookStackGraphic";
 import FlipBook from "components/ui/FlipBook";
 import TextPanel from "components/ui/TextPanel";
 import Fade from "react-reveal/Fade";
- 
+
 // CSS
 import "./FrontPageSection.design.css";
 
@@ -45,13 +45,6 @@ import { FaCog } from "react-icons/fa";
 /* ************************** */
 export function InfographicSection() {
   return (
-    //   <Show above='sm'>
-
-    // </Show>
-    // <Hide below='md'>
-    //   <Box>This text hides at the "md" value screen width and smaller.</Box>
-    // </Hide>
-
     <Box>
       <Show below="lg">
         <Center>
@@ -336,7 +329,7 @@ function FrontPageSection() {
           textAlign={"center"}
           marginLeft={"auto"}
           marginRight={"auto"}
-          marginTop={"20px"}
+          marginTop={"2px"}
         />
         <Center padding={5}>
           <Heading

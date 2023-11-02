@@ -1,13 +1,3 @@
-// ? ------------------------------------
-// ? NOTES
-// ? -----------------------------------
-
-// // BOOK RATINGS
-// // let rating =
-// //   "https://openlibrary.org" +
-// //   response.data.docs[191].key +
-// //   "/ratings.json";
-
 import {
   Box,
   Image,
@@ -15,10 +5,8 @@ import {
   CardBody,
   CardFooter,
   Text,
-  Stack,
   Center,
   Card,
-  Wrap,
   useDisclosure,
   Modal,
   ModalBody,
@@ -30,6 +18,7 @@ import {
   Divider,
   Collapse,
   Button,
+  Flex,
 } from "@chakra-ui/react";
 
 // ICONS
@@ -55,6 +44,7 @@ import { SearchData } from "components/pages/BookSuggestion";
 
 // COMPONENTS
 import BookCardButtons from "components/BookCard/BookCardButtons";
+import BookCoverAnimation from "components/ui/BookCoverAnimation";
 
 // * Creates Book card filled with book info
 function BookCard(book) {
@@ -154,6 +144,7 @@ function BookCard(book) {
 
   return (
     <Center key={book.name + "-book-card"}>
+      {/* //TODO MOVE THIS MODAL TO COMPONENT AND ADD CONTENT VIA DATA ARRAY FOR EVERY SITUATION */}
       {/* ------------------------- */}
       {/* MODAL */}
       {/* ------------------------- */}
@@ -200,17 +191,33 @@ function BookCard(book) {
         marginBottom={"25px"}
         w={{ sm: "90%", md: "90%", lg: "75%" }} // mobile
         // w={"60%"} // full
+        h={"850px"}
         boxShadow="lg"
         cursor={"pointer"}
       >
-        <Stack
-          direction={{ base: "column", sm: "column", md: "column", lg: "row" }}
-          align={"center"}
+        {/* *************** */}
+        {/* CARD BOOK IMAGE */}
+        {/* *************** */}
+        <Box
+          w={{ lg: "325px", sm: "325px" }}
+          backgroundColor={"background"}
+          onClick={onOpen}
         >
-          <Image
-            objectFit="contain"
-            fit={"contain"}
-            // maxW={{ lg: "325px", sm: "325px" }}
+          <BookCoverAnimation
+            cover={book.cover}
+            author_name={book.author_name}
+            title={book.title}
+            // src={
+            //   book.cover === undefined
+            //     ? missingBook
+            //     : `https://covers.openlibrary.org/b/id/${book.cover}-L.jpg`
+            // }
+            // onClick={onOpen}
+          />
+
+          {/* <Image
+            objectFit="cover"
+            fit={"cover"}
             alignContent={"center"}
             src={
               book.cover === undefined
@@ -221,81 +228,109 @@ function BookCard(book) {
             fallbackSrc={missingBook}
             onError={(e) => addImageFallback}
             onClick={onOpen}
-          />
+          /> */}
+        </Box>
 
-          <Stack>
-            <CardBody
-              letterSpacing={"0.5px"}
-              onMouseEnter={(e) => {
-                setOnHoverColor("rgba(228, 233, 237)");
-              }}
-              onMouseLeave={(e) => {
-                setOnHoverColor("white");
-              }}
+        {/* *************** */}
+        {/* CARD BOOK INFO BODY */}
+        {/* *************** */}
+        <Flex
+          w={"100%"}
+          flexDirection={"column"}
+          justifyContent={"center"}
+          justify={"center"}
+          align={"center"}
+          alignContent={"center"}
+        >
+          <CardBody
+            letterSpacing={"0.5px"}
+            onMouseEnter={(e) => {
+              setOnHoverColor("rgba(228, 233, 237)");
+            }}
+            onMouseLeave={(e) => {
+              setOnHoverColor("white");
+            }}
+            w={"725px"}
+          >
+            <Box
+              position={"absolute"}
+              className="bookmark-slide"
+              top={selectBook ? "-4px" : "-28px"}
+              right="5"
+              overflow={"hidden"}
+              zIndex={2}
             >
-              <Box
-                position={"absolute"}
-                className="bookmark-slide"
-                top={selectBook ? "-4px" : "-28px"}
-                right="5"
-                overflow={"hidden"}
-                zIndex={2}
-              >
-                <RiBookmark3Fill
-                  className="bookmark-icon"
-                  fill={selectBook ? "darkcyan" : "lightgrey"}
-                  size={"3em"}
-                />
-              </Box>
-              <Divider zIndex={1} size={"lg"} />
-                {/* // todo: Capitalize each word of title. Sometimes it doesn't come out cleanly. */}
-              <Heading size="lg">{book.title}</Heading>
-              <Heading size="xs" color={"grey"}>
-                {book.author_name}
-              </Heading>
-              <Text fontSize="xs" as="i" color={"grey"}>
-                {book.subject.slice(0, 3)}
-              </Text>
-              <br />
-              <Text fontSize="xs" as="i" color={"grey"}>
-                {`ISBN: ${book.isbn[0]}`}
-              </Text>
+              <RiBookmark3Fill
+                className="bookmark-icon"
+                fill={selectBook ? "darkcyan" : "lightgrey"}
+                size={"3em"}
+              />
+            </Box>
 
-              <Collapse startingHeight={90} in={show}>
-                {/* // todo: Format any and all paragraphs to fit. Some description text overlaps/overflows */}
-                <Text p={4}>{book.description}</Text>
-              </Collapse>
-              <Button
-                leftIcon={show ? <FaArrowCircleUp /> : <FaArrowCircleDown />}
-                size="sm"
-                onClick={handleToggle}
-                mt="1rem"
-              >
-                Show {show ? "Less" : "More"}
-              </Button>
-            </CardBody>
-            <CardFooter alignSelf={"center"}>
-              <Wrap gap="4px" justify={"center"}>
-                {/* // todo: Fix array index 0 issue  */}
-                {/* <BookCardButtons props={props} /> */}
-              </Wrap>
-            </CardFooter>
+            {/* *********** */}
+            {/* CARD BODY  */}
+            {/* *********** */}
+            <Divider zIndex={1} size={"lg"} />
+            {/* // todo: Capitalize each word of title. Sometimes it doesn't come out cleanly. */}
+            <Heading size="lg">{book.title}</Heading>
+            <Heading size="xs" color={"grey"}>
+              {book.author_name}
+            </Heading>
+            <Text fontSize="xs" as="i" color={"grey"}>
+              {book.subject.slice(0, 3)}
+            </Text>
+            <br />
+            <Text fontSize="xs" as="i" color={"grey"}>
+              {`ISBN: ${book.isbn[0]}`}
+            </Text>
+
+            <Collapse startingHeight={90} in={show}>
+              {/* // todo: Format any and all paragraphs to fit. Some description text overlaps/overflows */}
+              <Text p={4}>{book.description}</Text>
+            </Collapse>
             <Button
-              colorScheme={selectBook ? "red" : "teal"}
-              variant="solid"
-              leftIcon={selectBook ? <FaMinusCircle /> : <FaPlusCircle />}
-              padding={2}
-              onClick={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-                setSelectBook(!selectBook);
-                selectBook ? minusBook() : addBook();
-              }}
+              leftIcon={show ? <FaArrowCircleUp /> : <FaArrowCircleDown />}
+              size="sm"
+              onClick={handleToggle}
+              mt="1rem"
             >
-              {selectBook ? "Take out Book" : "Add Book"}
+              Show {show ? "Less" : "More"}
             </Button>
-          </Stack>
-        </Stack>
+          </CardBody>
+          {/* *********** */}
+          {/* CARD FOOTER */}
+          {/* *********** */}
+          <CardFooter alignSelf={"center"} backgroundColor={"lavender"}>
+            <Flex
+              flexDirection={"column"}
+              justifyContent={"center"}
+              alignContent={"center"}
+              align={"center"}
+              justify={"center"}
+              backgroundColor={"limegreen"}
+            >
+              <Flex flexDirection={"row"} wrap={"wrap"}>
+                <BookCardButtons props={book} />
+              </Flex>
+              <Button
+                colorScheme={selectBook ? "red" : "teal"}
+                variant="solid"
+                w={"90%"}
+                p={"60px"}
+                leftIcon={selectBook ? <FaMinusCircle /> : <FaPlusCircle />}
+                padding={2}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  setSelectBook(!selectBook);
+                  selectBook ? minusBook() : addBook();
+                }}
+              >
+                {selectBook ? "Take out Book" : "Add Book"}
+              </Button>
+            </Flex>
+          </CardFooter>
+        </Flex>
       </Card>
     </Center>
   );

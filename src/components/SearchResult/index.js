@@ -11,6 +11,7 @@ import emptySearchImg from "../../images/NoBookFound.png";
 
 function BookCardAssembly(props) {
   let books;
+  // todo: verify that susoense is loading in books one by one
   props.foundBooks
     ? (books = props.foundBooks.map((b, id) => (
         <Suspense key={id}>{BookCard(b)}</Suspense>
