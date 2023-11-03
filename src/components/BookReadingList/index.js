@@ -21,6 +21,7 @@ import {
   ModalBody,
   useDisclosure,
   Link,
+  Tooltip,
   Input,
   FormLabel,
   FormControl,
@@ -38,7 +39,7 @@ import { Field, Form, Formik } from "formik";
 import Xarrow from "react-xarrows";
 import TextPanel from "components/ui/TextPanel";
 import sendEmail from "lib/sendEmail";
- 
+
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
 // --------------------------------------------------------------------- //
@@ -59,11 +60,6 @@ export function BookReadingList() {
     }
     return error;
   }
-
-
-
- 
-
 
   return (
     <>
@@ -224,43 +220,55 @@ export function BookReadingList() {
                     </FormControl>
                   )}
                 </Field>
-                <Button
-                  colorScheme="yellow"
-                  textAlign={"center"}
-                  size="lg"
-                  m={"4px"}
-                  // todo: Add capcha and throttling on submit button
-                  // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
-                  onClick={(event) => {
-                    setTimeout(() => {
-                      toast({
-                        title: "Thank you!",
-                        description: "We've signed you up to our newsletter!",
-                        status: "success",
-                        duration: 9000,
-                        isClosable: true,
-                      });
+                <Tooltip
+                  label={"Email your sugggested book list!"}
+                  color={"white"}
+                  placement="top"
+                >
+                  <Button
+                    colorScheme="yellow"
+                    textAlign={"center"}
+                    size="lg"
+                    m={"4px"}
+                    // todo: Add capcha and throttling on submit button
+                    // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
+                    onClick={(event) => {
+                      setTimeout(() => {
+                        toast({
+                          title: "Thank you!",
+                          description: "We've signed you up to our newsletter!",
+                          status: "success",
+                          duration: 9000,
+                          isClosable: true,
+                        });
 
-                      // actions.setSubmitting(false);
-                      event.preventDefault();
-                      sendEmail(collection.bookCollection);
-                    }, 1000);
-                  }}
-                  // onClick={(e) => {
-                  //   e.preventDefault();
-                  //   sendEmail(collection.bookCollection);
-                  // }}
+                        // actions.setSubmitting(false);
+                        event.preventDefault();
+                        sendEmail(collection.bookCollection);
+                      }, 1000);
+                    }}
+                    // onClick={(e) => {
+                    //   e.preventDefault();
+                    //   sendEmail(collection.bookCollection);
+                    // }}
+                  >
+                    Share!
+                  </Button>
+                </Tooltip>
+                <Tooltip
+                  label={"Clear your entire sugggested book list!"}
+                  color={"white"}
+                  placement="top"
                 >
-                  Share!
-                </Button>
-                <Button
-                  colorScheme="red"
-                  textAlign={"center"}
-                  size="lg"
-                  m={"4px"}
-                >
-                  Empty List
-                </Button>
+                  <Button
+                    colorScheme="red"
+                    textAlign={"center"}
+                    size="lg"
+                    m={"4px"}
+                  >
+                    Empty List
+                  </Button>
+                </Tooltip>
               </Form>
             </Center>
           )}

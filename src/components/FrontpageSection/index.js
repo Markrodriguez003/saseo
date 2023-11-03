@@ -26,6 +26,9 @@ import FlipBook from "components/ui/FlipBook";
 import TextPanel from "components/ui/TextPanel";
 import Fade from "react-reveal/Fade";
 
+// TESTING
+import BookCard from "components/BookCard";
+
 // CSS
 import "./FrontPageSection.design.css";
 
@@ -300,6 +303,18 @@ export function BookSuggestionSection() {
 }
 
 function FrontPageSection() {
+  // TESTING
+  const booktest = {
+    title: "Example Title",
+    name: "Example book name",
+    author_name: "Example Author II",
+    subject: "SubjectII",
+    isbn: "19812712432",
+    cover: "240727",
+    description:
+      "While hitchhiking through the galaxy, Arthur Dent is dropped off on a planet in a rainstorm. He appears to be in England on Earth, even though he had seen the planet destroyed by the Vogons. He has been gone for several years, but only a few months have passed on Earth. He hitches a lift with a man named Russell and his sister Fenchurch (nicknamed Fenny). Russell explains that Fenny, who is sitting in a drugged state in the back seat of the car, became delusional after worldwide mass hysteria, in which everyone hallucinated big yellow spaceships (the Vogon destructor ships that demolished the Earth). Arthur becomes curious about Fenchurch, but he is dropped off before he can ask more questions. Inside his inexplicably undamaged home, Arthur finds a gift-wrapped bowl inscribed with the words So long and thanks for all the fish, into which he puts his Babel Fish. Arthur thinks that Fenchurch is somehow connected to him and to the Earth's destruction. He still has the ability to fly whenever he lets his thoughts wander. Arthur puts his life in order, and then tries to find out more about Fenchurch. He happens to find her hitchhiking and picks her up. He obtains her phone number, but shortly thereafter loses it. He discovers her home by accident when he searches for the cave in which he had lived on prehistoric Earth; Fenchurch's flat is built on the same spot. Arthur and Fenchurch find more circumstances connecting them. Fenchurch reveals that, moments before her hallucinations, she had an epiphany about how to make everything right, but then blacked out. She has not been able to recall the substance of the epiphany. Eventually discovering that Fenchurch's feet do not touch the ground, Arthur teaches her how to fly. They have sex in the skies over London.",
+  };
+
   return (
     <>
       {/* ********************* */}
@@ -429,6 +444,7 @@ function FrontPageSection() {
       <br />
       <br />
       <br />
+      {/* {BookCard(booktest)} */}
     </>
   );
 }

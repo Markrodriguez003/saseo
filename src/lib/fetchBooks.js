@@ -1,5 +1,5 @@
 // todo: ADD THROTTLE TO THIS API CALL SO USER DOESN'T IMMEDIATELY SPAM CLICK SUBMIT BUTTON / USEMEMO
-
+// ! OPTIMIZE API CALLS https://prismic.io/blog/api-response-times
 import axios from "axios";
 
 import OrganizeBooks from "./OrganizeBooks";

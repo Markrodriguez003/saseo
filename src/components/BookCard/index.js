@@ -19,6 +19,8 @@ import {
   Collapse,
   Button,
   Flex,
+  Tooltip,
+  Wrap,
 } from "@chakra-ui/react";
 
 // ICONS
@@ -50,6 +52,7 @@ import BookCoverAnimation from "components/ui/BookCoverAnimation";
 function BookCard(book) {
   // Extract only function and state
   const context = useContext(SearchData);
+  console.log(`tHIS IS THE BOOK --> ${JSON.stringify(book)}`);
 
   // const [bookState, dispatch] = useReducer(
   //   bookCardReducer,
@@ -179,69 +182,63 @@ function BookCard(book) {
 
       {/* // todo: conditional render here to check to see if there is even a book --> render an empty book card template */}
       <Card
-        direction={{ base: "column", sm: "row" }}
+        flexDirection={{
+          base: "row",
+          "2xs": "column",
+          xs: "column",
+          sm: "column",
+          md: "column",
+          lg: "column",
+          xl: "row",
+        }}
         overflow="hidden"
         backgroundColor={onHoverColor}
         border={"4px"}
         borderColor={selectBook ? "darkcyan" : "transparent"}
         className="show fadeIn"
-        padding={"8px"}
+        padding={"25px"}
         margin={1}
         variant="outline"
         marginBottom={"25px"}
-        w={{ sm: "90%", md: "90%", lg: "75%" }} // mobile
-        // w={"60%"} // full
-        h={"850px"}
+        w={{ sm: "90%", md: "90%", lg: "75%" }}
+        // h={"100%"}
         boxShadow="lg"
         cursor={"pointer"}
+        alignItems={"center"}
+        // justifyContent={{
+        //   base: "flex-start",
+        //   sm: "center",
+        //   xs: "center",
+        //   "2xs": "center",
+        //   md: "flex-start",
+        //   lg: "flex-start",
+        // }}
+        // alignContent={{
+        //   base: "flex-start",
+        //   sm: "center",
+        //   xs: "center",
+        //   "2xs": "center",
+        //   md: "flex-start",
+        //   lg: "flex-start",
+        // }}
+        gap={"10px"}
       >
         {/* *************** */}
         {/* CARD BOOK IMAGE */}
         {/* *************** */}
-        <Box
-          w={{ lg: "325px", sm: "325px" }}
-          backgroundColor={"background"}
-          onClick={onOpen}
-        >
+        <Box borderRadius={"5px"} onClick={onOpen}>
           <BookCoverAnimation
             cover={book.cover}
             author_name={book.author_name}
             title={book.title}
-            // src={
-            //   book.cover === undefined
-            //     ? missingBook
-            //     : `https://covers.openlibrary.org/b/id/${book.cover}-L.jpg`
-            // }
-            // onClick={onOpen}
           />
-
-          {/* <Image
-            objectFit="cover"
-            fit={"cover"}
-            alignContent={"center"}
-            src={
-              book.cover === undefined
-                ? missingBook
-                : `https://covers.openlibrary.org/b/id/${book.cover}-L.jpg`
-            }
-            alt={book.title + " book cover"}
-            fallbackSrc={missingBook}
-            onError={(e) => addImageFallback}
-            onClick={onOpen}
-          /> */}
         </Box>
 
         {/* *************** */}
         {/* CARD BOOK INFO BODY */}
         {/* *************** */}
-        <Flex
-          w={"100%"}
-          flexDirection={"column"}
-          justifyContent={"center"}
-          justify={"center"}
-          align={"center"}
-          alignContent={"center"}
-        >
+        {/* //! problem is here */}
+        <Box display={"flex"} flexDirection={"column"} wordBreak={"break-word"}>
           <CardBody
             letterSpacing={"0.5px"}
             onMouseEnter={(e) => {
@@ -250,8 +247,11 @@ function BookCard(book) {
             onMouseLeave={(e) => {
               setOnHoverColor("white");
             }}
-            w={"725px"}
+            wordBreak={"break-word"}
           >
+            {/* *********** */}
+            {/* CARD BOOKMARK  */}
+            {/* *********** */}
             <Box
               position={"absolute"}
               className="bookmark-slide"
@@ -270,70 +270,102 @@ function BookCard(book) {
             {/* *********** */}
             {/* CARD BODY  */}
             {/* *********** */}
-            <Divider zIndex={1} size={"lg"} />
             {/* // todo: Capitalize each word of title. Sometimes it doesn't come out cleanly. */}
-            <Heading size="lg">{book.title}</Heading>
-            <Heading size="xs" color={"grey"}>
-              {book.author_name}
-            </Heading>
-            <Text fontSize="xs" as="i" color={"grey"}>
-              {book.subject.slice(0, 3)}
-            </Text>
-            <br />
-            <Text fontSize="xs" as="i" color={"grey"}>
-              {`ISBN: ${book.isbn[0]}`}
-            </Text>
+            <Box w={"100%"}>
+              <Heading size="lg">{book.title}</Heading>
+              <Heading size="xs" color={"grey"}>
+                {book.author_name}
+              </Heading>
+              <Text fontSize="xs" as="i" color={"grey"}>
+               
+                {book.subject.slice(0, 3)}
+       
+              </Text>
+              <br />
+              <Text fontSize="xs" as="i" color={"grey"}>
+         
+                {`ISBN: ${book.isbn[0]}`}
+            
+              </Text>
 
-            <Collapse startingHeight={90} in={show}>
-              {/* // todo: Format any and all paragraphs to fit. Some description text overlaps/overflows */}
-              <Text p={4}>{book.description}</Text>
-            </Collapse>
-            <Button
-              leftIcon={show ? <FaArrowCircleUp /> : <FaArrowCircleDown />}
-              size="sm"
-              onClick={handleToggle}
-              mt="1rem"
-            >
-              Show {show ? "Less" : "More"}
-            </Button>
+              <Collapse startingHeight={90} in={show}>
+                <Text>{book.description}</Text>
+              </Collapse>
+              <Button
+                leftIcon={show ? <FaArrowCircleUp /> : <FaArrowCircleDown />}
+                size="sm"
+                onClick={handleToggle}
+                mt="1rem"
+              >
+                Show {show ? "Less" : "More"}
+              </Button>
+            </Box>
           </CardBody>
           {/* *********** */}
           {/* CARD FOOTER */}
           {/* *********** */}
-          <CardFooter alignSelf={"center"} backgroundColor={"lavender"}>
-            <Flex
-              flexDirection={"column"}
-              justifyContent={"center"}
-              alignContent={"center"}
-              align={"center"}
-              justify={"center"}
-              backgroundColor={"limegreen"}
-            >
-              <Flex flexDirection={"row"} wrap={"wrap"}>
-                <BookCardButtons props={book} />
-              </Flex>
-              <Button
-                colorScheme={selectBook ? "red" : "teal"}
-                variant="solid"
-                w={"90%"}
-                p={"60px"}
-                leftIcon={selectBook ? <FaMinusCircle /> : <FaPlusCircle />}
-                padding={2}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  setSelectBook(!selectBook);
-                  selectBook ? minusBook() : addBook();
-                }}
+          <CardFooter justifyContent={"center"}>
+            <Flex flexDirection={"column"} gap={"12px"} alignItems={"center"}>
+              <Flex
+                flexDirection={"row"}
+                wrap={"wrap"}
+                gap={"12px"}
+                justifyContent={"center"}
+                alignContent={"center"}
               >
-                {selectBook ? "Take out Book" : "Add Book"}
-              </Button>
+                {/* <BookCardButtons props={book} /> */}
+              </Flex>
+              <Tooltip
+                label={
+                  selectBook
+                    ? "Take out book from reading card list!"
+                    : "Add book to reading card list!"
+                }
+                color={"white"}
+                placement="top"
+              >
+                <Button
+                  colorScheme={selectBook ? "red" : "teal"}
+                  variant="solid"
+                  w={"90%"}
+                  p={"80px"}
+                  leftIcon={selectBook ? <FaMinusCircle /> : <FaPlusCircle />}
+                  padding={2}
+                  marginTop={"12px"}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    setSelectBook(!selectBook);
+                    selectBook ? minusBook() : addBook();
+                  }}
+                >
+                  {selectBook ? "Take out Book" : "Add Book"}
+                </Button>
+              </Tooltip>
             </Flex>
           </CardFooter>
-        </Flex>
+        </Box>
       </Card>
     </Center>
   );
 }
 
 export default BookCard;
+
+/*
+          <Image
+            objectFit="cover"
+            fit={"cover"}
+            alignContent={"center"}
+            src={
+              book.cover === undefined
+                ? missingBook
+                : `https://covers.openlibrary.org/b/id/${book.cover}-L.jpg`
+            }
+            alt={book.title + " book cover"}
+            fallbackSrc={missingBook}
+            onError={(e) => addImageFallback}
+            onClick={onOpen}
+          /> 
+
+*/
