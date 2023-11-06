@@ -1,0 +1,19 @@
+.cookies-prompt-container {
+  animation-duration: 0.8s;
+  animation-delay: 2s;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: fade-slide-top;
+}
+
+@keyframes fade-slide-top {
+  from {
+    bottom: -150px;
+  }
+
+  to {
+    bottom: 0px;
+  }
+}

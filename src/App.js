@@ -10,6 +10,8 @@ import ISBNSearch from "./components/pages/ISBNSearch";
 import CookiesDisclaimer from "./components/ui/CookiesDisclaimer";
 import CookiesInformation from "./components/pages/CookiesInformation";
 import { Routes, Route } from "react-router-dom";
+
+import { CookiesProvider, Cookies, useCookies } from "react-cookie";
 // PAGES
 import RandomBookSuggestion from "./components/pages/RandomBookSuggestion";
 
@@ -19,21 +21,33 @@ import RandomBookSuggestion from "./components/pages/RandomBookSuggestion";
 import SiteTheme from "./components/ui/siteTheme";
 
 function App() {
+  const [cookies, setCookie, removeCookie] = useCookies();
+ 
   return (
     <ChakraProvider theme={SiteTheme}>
       {/* <Fonts /> */}
-      <SHeader />
+      <CookiesProvider defaultSetOptions={{ path: "/" }}>
+        <SHeader />
 
-      <Routes>
-        <Route path="/" element={<FrontPage />} />
-        <Route path="suggest" element={<BookSuggestion />} />
-        <Route path="random" element={<RandomBookSuggestion />} />
-        <Route path="about" element={<About />} />
-        <Route path="isbn" element={<ISBNSearch />} />
-        <Route path="cookies" element={<CookiesInformation />} />
-      </Routes>
-      <CookiesDisclaimer />
-      <SFooter />
+        <Routes>
+          <Route path="/" element={<FrontPage />} />
+          <Route path="suggest" element={<BookSuggestion />} />
+          <Route path="random" element={<RandomBookSuggestion />} />
+          <Route path="about" element={<About />} />
+          <Route path="isbn" element={<ISBNSearch />} />
+          <Route path="cookies" element={<CookiesInformation />} />
+        </Routes>
+        {cookies["cookies_accept"] === false ? (
+          <CookiesDisclaimer />
+        ) : (
+          <>
+            <h1>jdgjd</h1>
+          </>
+        )}
+        {/* <CookiesDisclaimer /> */}
+        {/* {console.log(cookies["cookies_accept"])} */}
+        <SFooter />
+      </CookiesProvider>
     </ChakraProvider>
   );
 }

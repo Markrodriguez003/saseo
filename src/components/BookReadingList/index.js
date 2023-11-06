@@ -61,6 +61,9 @@ export function BookReadingList() {
     return error;
   }
 
+  // todo: add card design using links below
+  // ? https://codepen.io/blindingstars/pen/XGxPOP
+  // ? https://codepen.io/HighFlyer/pen/QWmwBaG
   return (
     <>
       {/* ******************* */}
