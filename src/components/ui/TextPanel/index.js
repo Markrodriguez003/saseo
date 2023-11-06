@@ -1,6 +1,6 @@
 import { Button, Text, Flex, Box, Heading } from "@chakra-ui/react";
 
-function TextPanel({children}) {
+function TextPanel({children, backgroundC = "primary"}) {
   return (
     <>
       <Box

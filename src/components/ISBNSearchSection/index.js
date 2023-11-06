@@ -1,7 +1,6 @@
 // CHAKRA UI COMPONENTS
 import {
   Box,
-  Heading,
   HStack,
   Button,
   Flex,
@@ -26,6 +25,7 @@ import {
 // COMPONENTS
 import { Field, Form, Formik } from "formik";
 import TextPanel from "components/ui/TextPanel";
+import HeadingPanel from "components/ui/HeadingPanel";
 // CSS
 
 // IMAGES
@@ -97,11 +97,7 @@ export function ISBNSearchSection() {
         marginBottom={"380px"}
       >
         <HStack>
-          <FaSearch size={"45px"} color="darkcyan" />
-
-          <Heading as="h1" size={"2xl"} color={"darkcyan"}>
-            ISBN Book Search
-          </Heading>
+          <HeadingPanel>ISBN Search</HeadingPanel>
         </HStack>
         <Formik
           onSubmit={(values, actions) => {
@@ -160,12 +156,17 @@ export function ISBNSearchSection() {
 
                     <Box textAlign={"center"} paddingTop={"20px"}>
                       <Button
-                        backgroundColor={"darkcyan"}
+                        leftIcon={<FaSearch />}
+                        colorScheme="teal"
+                        size="lg"
                         isLoading={props.isSubmitting}
                         type="submit"
-                        color={"white"}
+                        // onClick={() => {
+                        //   setLoadState("Loading");
+                        //   sendBooksRequest();
+                        // }}
                       >
-                        Search
+                        Search!
                       </Button>
                     </Box>
                   </FormControl>

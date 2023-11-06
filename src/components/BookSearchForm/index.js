@@ -27,6 +27,7 @@ import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
 import FetchBooks from "lib/FetchBooks";
 import { BookReadingList } from "components/BookReadingList";
+import HeadingPanel from "components/ui/HeadingPanel";
 
 // CSS DESIGN
 import "./BookSuggestionForm.design.css";
@@ -102,17 +103,12 @@ export function BookSearchForm() {
         alignItems="center"
         justifyContent="center"
         marginTop={0}
-        marginBottom={8}
+        marginBottom={2}
         backgroundColor={"mintcream"}
       >
         <VStack gap={"25px"}>
-          <HStack>
-            <FaBook size={"45px"} color="darkcyan" />
+          <HeadingPanel>Find me a book!</HeadingPanel>
 
-            <Heading as="h1" size={"2xl"} color={"darkcyan"}>
-              Find me a book!
-            </Heading>
-          </HStack>
           <Flex flex flexDirection={"row"} textAlign={"center"}>
             <Select
               variant={"outline"}

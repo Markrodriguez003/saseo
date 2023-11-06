@@ -14,6 +14,7 @@ import DropdownOptions from "../ui/DropdownOptions";
 import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
 import FetchBooks from "lib/FetchBooks";
+import HeadingPanel from "components/ui/HeadingPanel";
 import RandomBookSubject from "lib/RandomBookSubject";
 import RandomBookCoverAnimation from "components/ui/RandomBookCoverAnimation";
 
@@ -86,37 +87,10 @@ export function RandomBookSearch() {
         backgroundColor={"mintcream"}
       >
         <VStack gap={"25px"}>
-          <HStack>
-            <FaBook size={"45px"} color="darkcyan" />
+          <HeadingPanel>Suggest a Random Book!</HeadingPanel>
 
-            <Heading
-              as="h1"
-              size={"2xl"}
-              color={"darkcyan"}
-              textShadow="1px 1px darkgreen"
-            >
-              Pick a random book!
-            </Heading>
-          </HStack>
-          {/* <Flex flex flexDirection={"row"} textAlign={"center"}>
-            <Select
-              variant={"outline"}
-              // backgroundColor={"darkcyan"}
-              backgroundColor={"white"}
-              // color={"white"}
-              color={"black"}
-              border={"3px solid darkcyan"}
-              margin={"8px"}
-              placeholder="Language?"
-              onChange={(e) => {
-                BookLanguage(e.target.value);
-              }}
-            >
-              <DropdownOptions type={"languages"} />
-            </Select>
-          </Flex> */}
-
-          {/* todo: add a way that user can press enter to press search */}
+          {/* //todo: add a way that user can press enter to press search */}
+          {/* //todo: add button animation (top and down movement) */}
           <Button
             leftIcon={<FaSearch />}
             colorScheme="teal"
