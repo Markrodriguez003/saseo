@@ -11,6 +11,8 @@ import CookiesDisclaimer from "./components/ui/CookiesDisclaimer";
 import CookiesInformation from "./components/pages/CookiesInformation";
 import { Routes, Route } from "react-router-dom";
 
+// NOTES
+// ? https://biblioreads.eu.org/
 import { CookiesProvider, Cookies, useCookies } from "react-cookie";
 // PAGES
 import RandomBookSuggestion from "./components/pages/RandomBookSuggestion";
@@ -22,7 +24,7 @@ import SiteTheme from "./components/ui/siteTheme";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
- 
+
   return (
     <ChakraProvider theme={SiteTheme}>
       {/* <Fonts /> */}
@@ -37,15 +39,9 @@ function App() {
           <Route path="isbn" element={<ISBNSearch />} />
           <Route path="cookies" element={<CookiesInformation />} />
         </Routes>
-        {cookies["cookies_accept"] === false ? (
-          <CookiesDisclaimer />
-        ) : (
-          <>
-            <h1>jdgjd</h1>
-          </>
-        )}
+        {cookies["cookies_accept"] === false ? <CookiesDisclaimer /> : <></>}
         {/* <CookiesDisclaimer /> */}
-        {/* {console.log(cookies["cookies_accept"])} */}
+        {console.log(JSON.stringify(cookies))}
         <SFooter />
       </CookiesProvider>
     </ChakraProvider>

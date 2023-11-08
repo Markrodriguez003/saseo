@@ -3,7 +3,7 @@ import { Suspense, useState, useContext } from "react";
 
 // COMPONENTS
 import BookCard from "../BookCard";
-import EmailShareCard from "../EmailShareCard";
+
 import { fetchedBooksResults } from "lib/OrganizeBooks";
 import { SearchData } from "components/pages/BookSuggestion";
 // ASSETS - IMAGES
@@ -11,7 +11,10 @@ import emptySearchImg from "../../images/NoBookFound.png";
 
 function BookCardAssembly(props) {
   let books;
-  // todo: verify that susoense is loading in books one by one
+
+  // console.log("This is the books inside assembly--> " + props);
+
+  // todo: verify that suspense is loading in books one by one
   props.foundBooks
     ? (books = props.foundBooks.map((b, id) => (
         <Suspense key={id}>{BookCard(b)}</Suspense>
@@ -27,9 +30,6 @@ function BookCardAssembly(props) {
           <Heading color={"grey"} paddingTop={6}>
             Unfortunately, No books found. :(
           </Heading>
-          {console.log(
-            "This is the books inside assembly--> " + props.foundBooks
-          )}
         </Center>
       ));
 
@@ -38,7 +38,7 @@ function BookCardAssembly(props) {
 
 export function SearchResult(props) {
   // const test = useContext(SearchData);
-  // console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + JSON.stringify(test.bookData));
+  // console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + JSON.stringify(props));
   return (
     <>
       <Box
@@ -57,17 +57,24 @@ export function SearchResult(props) {
           float={"right"}
           paddingRight={10}
         >
-          {props.fetchedBooks.length} Book Results Found!
+          {props.fetchedBooks.length === 0 || undefined || null
+            ? "0"
+            : props.fetchedBooks.length}{" "}
+          Book Results Found!
         </Heading>
         <br />
         <br />
         <BookCardAssembly foundBooks={props.fetchedBooks} />
-
-        {/*  //! This is firing everytime I change the form parameters. Leak? */}
-        {/* {console.log("This is the books inside search result--> " + JSON.stringify(props.fetchedBooks))} */}
       </Box>
     </>
   );
 }
 
 export default SearchResult;
+
+/*
+
+     {props.fetchedBooks.length === 0 || undefined || null ? "0" : props.fetchedBooks.length}{" "} 
+     Book Results Found!
+
+*/

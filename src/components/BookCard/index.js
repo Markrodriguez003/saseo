@@ -15,12 +15,10 @@ import {
   ModalOverlay,
   ModalHeader,
   useToast,
-  Divider,
   Collapse,
   Button,
   Flex,
   Tooltip,
-  Wrap,
 } from "@chakra-ui/react";
 
 // ICONS
@@ -52,7 +50,7 @@ import BookCoverAnimation from "components/ui/BookCoverAnimation";
 function BookCard(book) {
   // Extract only function and state
   const context = useContext(SearchData);
-  console.log(`tHIS IS THE BOOK --> ${JSON.stringify(book)}`);
+  // console.log(`tHIS IS THE BOOK --> ${JSON.stringify(book)}`);
 
   // const [bookState, dispatch] = useReducer(
   //   bookCardReducer,
@@ -91,7 +89,7 @@ function BookCard(book) {
       {
         title: book.title,
         author: book.author_name,
-        isbn: book.isbn[0] !== undefined ? book.isbn[0] : book.isbn,
+        isbn: book.isbn_b[0] !== undefined ? book.isbn_b[0] : book.isbn_b,
       },
     ]);
 
@@ -112,21 +110,21 @@ function BookCard(book) {
     // console.log(`Collected books: ${JSON.stringify(context.bookCollection)}`);
     // let index = context.bookCollection.findIndex((b) => b.title === book.title)
     // console.log(`Book that needs to be deleted: ${index}`);
-    console.log(
-      `This is the current collection before delete: ${JSON.stringify(
-        context.bookCollection
-      )}`
-    );
+    // console.log(
+    //   `This is the current collection before delete: ${JSON.stringify(
+    //     context.bookCollection
+    //   )}`
+    // );
 
     let updatedBookCollection = context.bookCollection.filter(
       (b) => b.title !== book.title
     );
     await context.setBookCollection(updatedBookCollection);
-    console.log(
-      `This is the current collection after delete: ${JSON.stringify(
-        updatedBookCollection
-      )}`
-    );
+    // console.log(
+    //   `This is the current collection after delete: ${JSON.stringify(
+    //     updatedBookCollection
+    //   )}`
+    // );
 
     return toast({
       // REFACTOR
@@ -140,10 +138,10 @@ function BookCard(book) {
   }
 
   // * Preventative fallback if book cover fails to load at all.
-  const addImageFallback = (e) => {
-    e.currentTarget.src = "../../images/missing-cover.png";
-    console.log(`This book does not have an image loaded!`);
-  };
+  // const addImageFallback = (e) => {
+  //   e.currentTarget.src = "../../images/missing-cover.png";
+  //   console.log(`This book does not have an image loaded!`);
+  // };
 
   return (
     <Center key={book.name + "-book-card"}>
@@ -228,9 +226,14 @@ function BookCard(book) {
         {/* *************** */}
         <Box borderRadius={"5px"} onClick={onOpen}>
           <BookCoverAnimation
-            cover={book.cover}
+            cover={
+              book.cover !== undefined
+                ? `https://covers.openlibrary.org/b/id/${book.cover}-L.jpg`
+                : "https://drive.google.com/uc?export=view&id=1ktt3FKoqaG487JzHIsvyb5291_bs7g8K"
+            }
             author_name={book.author_name}
             title={book.title}
+            size={"md"}
           />
         </Box>
 
@@ -242,7 +245,8 @@ function BookCard(book) {
           <CardBody
             letterSpacing={"0.5px"}
             onMouseEnter={(e) => {
-              setOnHoverColor("rgba(228, 233, 237)");
+              // setOnHoverColor("rgba(228, 233, 237,0.5)");
+              setOnHoverColor("mintgreen");
             }}
             onMouseLeave={(e) => {
               setOnHoverColor("white");
@@ -277,15 +281,11 @@ function BookCard(book) {
                 {book.author_name}
               </Heading>
               <Text fontSize="xs" as="i" color={"grey"}>
-               
                 {book.subject.slice(0, 3)}
-       
               </Text>
               <br />
               <Text fontSize="xs" as="i" color={"grey"}>
-         
-                {`ISBN: ${book.isbn[0]}`}
-            
+                {`ISBN: ${book.isbn_b[0]}`}
               </Text>
 
               <Collapse startingHeight={90} in={show}>
@@ -313,7 +313,7 @@ function BookCard(book) {
                 justifyContent={"center"}
                 alignContent={"center"}
               >
-                {/* <BookCardButtons props={book} /> */}
+                <BookCardButtons props={book} />
               </Flex>
               <Tooltip
                 label={

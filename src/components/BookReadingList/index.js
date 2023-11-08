@@ -7,9 +7,8 @@ import {
   Text,
   Heading,
   Stack,
-  HStack,
-  Box,
   Center,
+  HStack,
   Button,
   Flex,
   Modal,
@@ -21,6 +20,7 @@ import {
   ModalBody,
   useDisclosure,
   Link,
+  Divider,
   Tooltip,
   Input,
   FormLabel,
@@ -29,10 +29,19 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
+// COMPONENTS
+import HeadingPanel from "components/ui/HeadingPanel";
+
 // ICONS
 import { FaQuestionCircle } from "react-icons/fa";
+import { VscBook } from "react-icons/vsc";
 
+// CSS
 import "./BookReadingList.design.css";
+
+// import cardStockTexture from "../../images/textures/texture2.png";
+import cardStockTexture from "../../images/textures/texture-card-stock.png";
+// import cardStockTexture from "../../images/textures/texture13.jpg"
 
 // LIBRARY
 import { Field, Form, Formik } from "formik";
@@ -66,9 +75,9 @@ export function BookReadingList() {
   // ? https://codepen.io/HighFlyer/pen/QWmwBaG
   return (
     <>
-      {/* ******************* */}
+      {/* *************************************************************************************** */}
       {/* READING CARD MODAL */}
-      {/* ******************* */}
+      {/* *************************************************************************************** */}
       {/* //todo: move to separate component(?) */}
       <Modal isOpen={isOpen} onClose={onClose} size={"4xl"}>
         <ModalOverlay />
@@ -124,8 +133,13 @@ export function BookReadingList() {
         </ModalContent>
       </Modal>
 
-      <Container
-        maxW={{
+      <Center
+        boxShadow={"dark-lg"}
+        p={0}
+        // display={"inline-block"}
+        marginLeft={"auto"}
+        marginRight={"auto"}
+        w={{
           base: "60%",
           "2xs": "90%",
           xs: "90%",
@@ -133,150 +147,213 @@ export function BookReadingList() {
           md: "65%",
           lg: "55%",
         }}
-        border={"4px"}
-        borderWidth={"5px"}
-        borderColor={"teal"}
-        borderRadius={"25px"}
-        p={6}
-        mb={12}
       >
-        <Heading
-          size="xl"
-          color="white"
-          backgroundColor="teal"
-          textAlign={"center"}
-          mb={5}
-          border={"2px"}
-          borderColor={"white"}
-          borderWidth={4}
-          p={4}
-        >
-          Reading List
-          <Button paddingTop={"18px"} onClick={onOpen}>
-            <FaQuestionCircle size={"20px"} color="darkcyan" />
-          </Button>
-        </Heading>
-        <Flex
-          flexDirection={"column"}
-          justify={"center"}
-          justifyContent={"center"}
-          alignContent={"center"}
-        >
-          {collection.bookCollection ? (
-            collection.bookCollection.map((b) => (
-              <Card
-                key={`collected-${b.title}`}
-                maxW="xl"
-                className="reading-card"
-                boxShadow="xl"
-                padding={"8px"}
-                margin={1}
-                variant="outline"
-                marginBottom={"25px"}
-                alignSelf={"center"}
-                textAlign={"center"}
-                w={"100%"} // m
-              >
-                <CardHeader>
-                  <Heading size="md">{b.title}</Heading>
-                </CardHeader>
-                <CardBody>
-                  <Stack>
-                    <Text fontSize="sm">
-                      Author(s): {b.author} <br />
-                    </Text>
-                    <Text>ISBN: {b.isbn}</Text>
-                  </Stack>
-                </CardBody>
-              </Card>
-            ))
-          ) : (
-            <h1>Empty!</h1>
-          )}
-        </Flex>
-        <br />
-        <br />
-        <Heading color={"teal"} textAlign={"center"} mb={4}>
-          Create share card of all books in your reading list!
-        </Heading>
-
-        <Formik
-          initialValues={{ name: "Sasuke" }}
-          onSubmit={(values, actions) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              actions.setSubmitting(false);
-            }, 1000);
+        <Container
+          maxW={{
+            base: "1000%",
+            "2xs": "100%",
+            xs: "100%",
+            sm: "100%",
+            md: "100%",
+            lg: "100%",
           }}
+          textAlign={"center"}
+          className="book-card-special-border"
+          p={8}
+          m={0}
+          // mb={12}
         >
-          {(props) => (
-            <Center>
-              <Form>
-                <Field name="name" validate={validateName}>
-                  {({ field, form }) => (
-                    <FormControl
-                      isInvalid={form.errors.name && form.touched.name}
-                    >
-                      <FormLabel>First name</FormLabel>
-                      <Input {...field} placeholder="name" />
-                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-                <Tooltip
-                  label={"Email your sugggested book list!"}
-                  color={"white"}
-                  placement="top"
+          <HeadingPanel>
+            Reading List
+            <Button paddingTop={"18px"} onClick={onOpen}>
+              <FaQuestionCircle size={"20px"} color="darkcyan" />
+            </Button>
+          </HeadingPanel>
+          <Flex
+            flexDirection={"column"}
+            justify={"center"}
+            justifyContent={"center"}
+            alignContent={"center"}
+          >
+            {collection.bookCollection ? (
+              collection.bookCollection.map((b) => (
+                <Card
+                  key={`collected-${b.title}`}
+                  maxW="xl"
+                  className="reading-card"
+                  boxShadow="xl"
+                  padding={"8px"}
+                  margin={1}
+                  variant="outline"
+                  marginBottom={"25px"}
+                  alignSelf={"center"}
+                  textAlign={"left"}
+                  // backgroundColor={"beige"}
+                  backgroundColor={"white"}
+                  backgroundImage={cardStockTexture}
+                  backgroundPosition={"top"}
+                  backgroundBlendMode={"darken"}
+                  backgroundSize={"cover"}
+                  w={"100%"} // m
                 >
-                  <Button
-                    colorScheme="yellow"
-                    textAlign={"center"}
-                    size="lg"
-                    m={"4px"}
-                    // todo: Add capcha and throttling on submit button
-                    // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
-                    onClick={(event) => {
-                      setTimeout(() => {
-                        toast({
-                          title: "Thank you!",
-                          description: "We've signed you up to our newsletter!",
-                          status: "success",
-                          duration: 9000,
-                          isClosable: true,
-                        });
+                  <CardHeader>
+                    <Heading size="md" fontFamily={"typewriter"}>
+                      {b.title}
+                    </Heading>
+                  </CardHeader>
+                  <Divider
+                    borderColor={"rgba(255,1,1,0.8)"}
+                    borderBottomWidth={"4px"}
+                    w={"100%"}
+                    m={0}
+                    p={0}
+                  />
+                  <CardBody>
+                    <Stack>
+                      <Text fontFamily={"typewriter"}>
+                        <strong style={{ paddingRight: "8px" }}>
+                          AUTHOR(s):{" "}
+                        </strong>
+                        {b.author} <br />
+                      </Text>
+                      <Divider
+                        borderColor={"rgba(70,130,180,0.8)"}
+                        borderBottomWidth={"2.5px"}
+                        w={"100%"}
+                        m={0}
+                        p={0}
+                      />
 
-                        // actions.setSubmitting(false);
-                        event.preventDefault();
-                        sendEmail(collection.bookCollection);
-                      }, 1000);
-                    }}
-                    // onClick={(e) => {
-                    //   e.preventDefault();
-                    //   sendEmail(collection.bookCollection);
-                    // }}
+                      <Text fontFamily={"typewriter"}>
+                        <strong style={{ paddingRight: "8px" }}>
+                          SUBJECT:
+                        </strong>{" "}
+                        {b.subject}
+                      </Text>
+                      <Divider
+                        borderColor={"rgba(70,130,180,0.8)"}
+                        borderBottomWidth={"2.5px"}
+                        w={"100%"}
+                        m={0}
+                        p={0}
+                      />
+
+                      <Text fontFamily={"typewriter"}>
+                        <strong style={{ paddingRight: "8px" }}>ISBN:</strong>{" "}
+                        {b.isbn}
+                      </Text>
+                      <Divider
+                        borderColor={"rgba(70,130,180,0.8)"}
+                        borderBottomWidth={"2.5px"}
+                        w={"100%"}
+                        marginBottom={"5px"}
+                        p={0}
+                      />
+                    </Stack>
+                    <HStack justifyContent={"flex-end"} marginTop={"15px"} paddingTop={"18px"}>
+                      <VscBook color="rgba(0,0,0,0.3)" size={"22px"} style={{verticalAlign:"bottom"}} />
+
+                      <Text
+                        fontFamily={"brand-font"}
+                        color="rgba(0,0,0,0.3)"
+                        fontWeight={"bold"}
+                        textAlign={"right"}
+                        marginTop={"10px"}
+                      >
+                        SASEO
+                      </Text>
+                    </HStack>
+                  </CardBody>
+                </Card>
+              ))
+            ) : (
+              <h1>Empty!</h1>
+            )}
+          </Flex>
+          <br />
+          <br />
+          <Heading color={"teal"} textAlign={"center"} mb={4}>
+            Create share card of all books in your reading list!
+          </Heading>
+          <Formik
+            initialValues={{ name: "Sasuke" }}
+            onSubmit={(values, actions) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                actions.setSubmitting(false);
+              }, 1000);
+            }}
+          >
+            {(props) => (
+              <Center>
+                <Form>
+                  <Field name="name" validate={validateName}>
+                    {({ field, form }) => (
+                      <FormControl
+                        isInvalid={form.errors.name && form.touched.name}
+                      >
+                        <FormLabel>First name</FormLabel>
+                        <Input {...field} placeholder="name" />
+                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Tooltip
+                    label={"Email your sugggested book list!"}
+                    color={"white"}
+                    placement="top"
                   >
-                    Share!
-                  </Button>
-                </Tooltip>
-                <Tooltip
-                  label={"Clear your entire sugggested book list!"}
-                  color={"white"}
-                  placement="top"
-                >
-                  <Button
-                    colorScheme="red"
-                    textAlign={"center"}
-                    size="lg"
-                    m={"4px"}
+                    <Button
+                      colorScheme="yellow"
+                      textAlign={"center"}
+                      size="lg"
+                      m={"4px"}
+                      // todo: Add capcha and throttling on submit button
+                      // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
+                      onClick={(event) => {
+                        setTimeout(() => {
+                          toast({
+                            title: "Thank you!",
+                            description:
+                              "We've signed you up to our newsletter!",
+                            status: "success",
+                            duration: 9000,
+                            isClosable: true,
+                          });
+
+                          // actions.setSubmitting(false);
+                          event.preventDefault();
+                          sendEmail(collection.bookCollection);
+                        }, 1000);
+                      }}
+                      // onClick={(e) => {
+                      //   e.preventDefault();
+                      //   sendEmail(collection.bookCollection);
+                      // }}
+                    >
+                      Share!
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    label={"Clear your entire sugggested book list!"}
+                    color={"white"}
+                    placement="top"
                   >
-                    Empty List
-                  </Button>
-                </Tooltip>
-              </Form>
-            </Center>
-          )}
-        </Formik>
-      </Container>
+                    <Button
+                      colorScheme="red"
+                      textAlign={"center"}
+                      size="lg"
+                      m={"4px"}
+                    >
+                      Empty List
+                    </Button>
+                  </Tooltip>
+                </Form>
+              </Center>
+            )}
+          </Formik>
+        </Container>
+      </Center>
     </>
   );
 }

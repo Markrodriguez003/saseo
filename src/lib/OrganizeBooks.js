@@ -3,8 +3,11 @@ import axios from "axios";
 // * Promise function that checks to see if book cover is available
 import CoverImageCheck from "./CoverImageCheck";
 
+// Fallback image
+
+
 // * Grabs the large array of fetched book objects, chooses random ones, then sorts them into a new array list according to user's params
-export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
+export default async function OrganizeBooks(fetchedBooks, searchAmount = 15) {
   // * Final array that will hold all the organized, stripped  & final book objects
   let finalizedBookArry = [];
 
@@ -60,6 +63,10 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
       return a - b;
     });
 
+    // * Checks to see if there is an ISBN and sorts it
+    let isbn_b = book.isbn  !== undefined || null  ? book.isbn : ["ISBN: Not found!"];
+
+
     // * Book description var
     let description;
     let cover;
@@ -70,14 +77,14 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
         cover = c;
       })
       .catch((e) => {
-        console.log("An error has occured! " + e);
+        // console.log("No book cover can be found! " + e);
         cover = undefined;
       });
 
     await axios
       .get(`https://openlibrary.org/works/${key.slice(7)}.json`)
       .then((res) => {
-        // CHECKS TO SEE IF THERE IS AN AVAILABLE BOOK DESCRIPTION. IF NOT, WE PROVIDE FALLBACK DEFAULT DESCRIPTION
+        // CHECKS TO SEE IF THERE IS AN AVAILABLE BOOK DESCRIPTION. IF NOT, PROVIDE FALLBACK DEFAULT DESCRIPTION
         // BOOK DESCRIPTION SOMETIMES IS ENTERED AS DESCRIPTION OR DESCRIPTION.VALUE
         if (res.data.description !== undefined) {
           if (Object.keys(res.data.description).includes("value") === true) {
@@ -93,6 +100,8 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
         console.log("Error in grabbing book decription--> " + err);
       });
 
+
+
     // * Pushes all critical book details as a book object into final fetched books array
     finalizedBookArry.push({
       author_name,
@@ -104,7 +113,7 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
       id_better_world_books,
       key,
       cover,
-      isbn,
+      isbn_b,
       description,
       publish_year_b,
       rating_sortable,
@@ -115,11 +124,12 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 20) {
 
   // * Clean up by erasing values from number array (just in case)
   randomNumberBank.length = 0;
-
-  // * Passes final array of book objects
+  // ! works
+  // console.log(
+  //   "This is the finalized fetched books --> " +
+  //     JSON.stringify(finalizedBookArry)
+  // );
+  // // * Passes final array of book objects
   return finalizedBookArry;
 }
 
-// ? ------------------------------------
-// ? NOTES
-// ? -----------------------------------

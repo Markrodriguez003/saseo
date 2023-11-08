@@ -144,9 +144,8 @@ function CookiesInformation() {
           To learn more about cookies, and find more information about blocking
           certain types of cookies, please visit the{" "}
           <Link href="https://ico.org.uk/for-the-public/online/cookies/">
-            <Text>ICO website Cookies page</Text>
+            <Text>ICO website Cookies page.</Text>
           </Link>
-          .
         </TextPanel>
       </VStack>
     </>

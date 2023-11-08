@@ -113,7 +113,7 @@ export function SHeader() {
               ml={"auto"}
               pr={4}
             >
-              <ImMenu color="white" size={"1.5em"} class="mobile-mobile-icon" />
+              <ImMenu color="white" size={"1.5em"} className="mobile-mobile-icon" />
             </MenuButton>
             <MenuList>
               <Link to={"suggest"}>

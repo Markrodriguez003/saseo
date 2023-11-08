@@ -35,6 +35,17 @@ code {
   src: url("../src/fonts/ftanima-Medium.otf");
   /* src: url("../src/fonts/Mobile\ Sans.ttf"); */
 }
+@font-face {
+  font-family: "special-font";
+  src: url("../src/fonts/special/EnglishTowne.ttf");
+}
+@font-face {
+  font-family: "typewriter";
+  /* src: url("../src/fonts/typewriter/aflfont.TTF"); */
+  /* src: url("../src/fonts/typewriter/artisan12.otf"); */
+  /* src: url("../src/fonts/typewriter/F25_Executive.otf"); */
+  src: url("../src/fonts/typewriter/OldNewspaperTypes.ttf");
+}
 
 @font-face {
   font-family: "ransom";

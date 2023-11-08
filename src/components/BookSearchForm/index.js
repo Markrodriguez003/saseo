@@ -19,15 +19,24 @@ import {
   HStack,
   Center,
 } from "@chakra-ui/react";
-import { useState } from "react";
+
+//REACT
+import { useState, useEffect } from "react";
+
+// ICONS
 import { FaSearch, FaBook } from "react-icons/fa";
+
+// COMPONENTS
 import DropdownOptions from "../ui/DropdownOptions";
 import CountSlider from "../CountSlider";
 import SearchResult from "components/SearchResult";
 import BookLoader from "components/ui/BookLoader/BookLoader";
-import FetchBooks from "lib/FetchBooks";
 import { BookReadingList } from "components/BookReadingList";
 import HeadingPanel from "components/ui/HeadingPanel";
+
+// LIBRARY
+import FetchBooks from "lib/FetchBooks";
+import { useCookies } from "react-cookie";
 
 // CSS DESIGN
 import "./BookSuggestionForm.design.css";
@@ -38,6 +47,8 @@ import "./BookSuggestionForm.design.css";
 
 // todo: add language option
 export function BookSearchForm() {
+  // cookies
+  const [cookies, setCookie, removeCookie] = useCookies(["cookies_denied"]);
   // todo: Change this to useReducer(?)
   // sets the loading state of our search result (Blank, loading, error & results)
   const [loadState, setLoadState] = useState("Intial");
@@ -49,6 +60,10 @@ export function BookSearchForm() {
     amount: 1,
     language: "eng",
   });
+
+  // useEffect(() => {
+  //   console.log("Hey this is the collected books! --> " + collectedBooks);
+  // }, [collectedBooks]);
 
   // Grabs how many books user wants to see
   // todo: Change the amount and paginate results
@@ -77,18 +92,25 @@ export function BookSearchForm() {
     }));
   };
 
+  // HOLDS BOOKS
+  let books;
+
   // Handles grabbing of formatted & organized books fetched from api & sets loading state
   // todo: Add cached/memoized version of this when user selects same seach parameters
   async function sendBooksRequest() {
+    // cookies
+    removeCookie("cookies_last_searched_genre", { path: "/" });
+    setCookie("cookies_last_searched_genre", searchParameters.subject, {
+      path: "/",
+    });
     try {
-      const books = await FetchBooks(
+      books = await FetchBooks(
         searchParameters.subject,
         searchParameters.amount,
         searchParameters.language
       );
       await setCollectedBooks(books);
       await setLoadState("Loaded");
-      console.log(`This is the collected books  ${collectedBooks}`);
     } catch (err) {
       console.log(err.message);
       loadState("Error");

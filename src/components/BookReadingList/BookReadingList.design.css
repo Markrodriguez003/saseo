@@ -1,4 +1,10 @@
 .reading-card:nth-child(even) {
-  background-color: darkcyan;
-  color: white;
+  background-color: rgba(0, 215, 154, 0.03);
+  color: black;
+}
+
+.book-card-special-border {
+  box-shadow: inset #009688 0 0 0 5px, inset #059c8e 0 0 0 1px,
+    inset #0cab9c 0 0 0 10px, inset #1fbdae 0 0 0 11px, inset #8ce9ff 0 0 0 16px,
+    inset #48e4d6 0 0 0 17px, inset #e5f9f7 0 0 0 21px, inset #bfecf7 0 0 0 22px;
 }

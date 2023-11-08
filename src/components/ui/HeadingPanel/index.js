@@ -9,9 +9,10 @@ function HeadingPanel({
     <>
       <Heading
         as={"h1"}
+        position={"relative"}
         backgroundColor={backgroundColor}
         color={color}
-        fontSize={"5xl"}
+        fontSize={"4xl"}
         textAlign={"center"}
         padding={"25px"}
         display={"inline-block"}
@@ -19,6 +20,8 @@ function HeadingPanel({
         marginBottom={"30px"}
         marginTop={"30px"}
         boxShadow={"xl"}
+        fontWeight={"bold"}
+        letterSpacing={"1.2px"}
       >
         {children}
       </Heading>

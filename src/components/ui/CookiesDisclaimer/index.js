@@ -6,6 +6,10 @@ import { BsFillExclamationSquareFill } from "react-icons/bs";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import "./CookiesDisclaimer.design.css";
+
+//? NOTES
+// ? https://clerk.com/blog/setting-and-using-cookies-in-react?utm_source=www.google.com&utm_medium=referral&utm_campaign=none
+
 function CookiesDisclaimer() {
   const [acceptCookies, setAcceptCookies] = useState(true);
   const [cookies, setCookie, removeCookie] = useCookies(["cookies_denied"]);

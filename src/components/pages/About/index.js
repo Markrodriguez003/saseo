@@ -381,6 +381,17 @@ function About() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
+                    <strong>React-Cookies</strong>
+                  </a>
+                </ListItem>
+                <ListItem color={"text"}>
+                  <ListIcon as={SiPnpm} color="text" />
+                  <a
+                    href="https://react.dev/"
+                    className="about-anchor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <strong>Framer Motion </strong>
                   </a>
                 </ListItem>
@@ -523,6 +534,10 @@ function About() {
             <ListItem>
               <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
               Add AI search assistance.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
+              Improve site accessibility for screen readers and design.
             </ListItem>
           </List>
         </Flex>

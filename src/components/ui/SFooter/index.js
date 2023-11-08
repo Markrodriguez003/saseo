@@ -115,160 +115,164 @@ export function SFooter() {
   return (
     <>
       {/* <Slide bottom opposite cascade> */}
-        <Box>
-          <Box maxW={"full"} p={"0px"} m={"0px"}>
-            <Flex
-              flexDirection={{
-                base: "row",
-                lg: "row",
-                md: "column",
-                sm: "column",
-                xs: "column",
-                "2xs": "column",
-              }}
-              alignContent={"center"}
-              align={"center"}
-              justifyContent={"flex-start"}
-              backgroundColor={"darkcyan"}
-              gap={"18px"}
-              p={"0px"}
-              m={"0px"}
-              flexWrap={"wrap"}
-            >
-              <Link to={"/"}>
-                <Box>
-                  <Box
-                    backgroundImage={BookmarkMobile}
-                    w={{
-                      base: "350px",
-                      lg: "350px",
-                      md: "350px",
-                      sm: "350px",
-                      xs: "250px",
-                      "2xs": "250px",
+      <Box>
+        <Box maxW={"full"} p={"0px"} m={"0px"}>
+          <Flex
+            flexDirection={{
+              base: "row",
+              lg: "row",
+              md: "column",
+              sm: "column",
+              xs: "column",
+              "2xs": "column",
+            }}
+            alignContent={"center"}
+            align={"center"}
+            justifyContent={"flex-start"}
+            backgroundColor={"darkcyan"}
+            gap={"18px"}
+            p={"0px"}
+            m={"0px"}
+            flexWrap={"wrap"}
+          >
+            <Link to={"/"}>
+              <Box>
+                <Box
+                  backgroundImage={BookmarkMobile}
+                  w={{
+                    base: "350px",
+                    lg: "350px",
+                    md: "350px",
+                    sm: "350px",
+                    xs: "250px",
+                    "2xs": "250px",
+                  }}
+                  h={{
+                    base: "125px",
+                    lg: "125px",
+                    md: "125px",
+                    sm: "125px",
+                    xs: "90px",
+                    "2xs": "90px",
+                  }}
+                  backgroundRepeat={"no-repeat"}
+                  backgroundSize={"contain"}
+                  filter={"hue-rotate(180deg)"}
+                  marginBottom={{
+                    base: "5px",
+                    lg: "5px",
+                    md: "5px",
+                    sm: "5px",
+                    xs: "0px",
+                    "2xs": "0px",
+                  }}
+                >
+                  <Heading
+                    fontFamily={"brand-font"}
+                    fontWeight={"bold"}
+                    color={"white"}
+                    fontSize={{
+                      base: "7xl",
+                      lg: "7xl",
+                      md: "7xl",
+                      sm: "7xl",
+                      xs: "50px",
+                      "2xs": "50px",
                     }}
-                    h={{
-                      base: "125px",
-                      lg: "125px",
-                      md: "125px",
-                      sm: "125px",
-                      xs: "90px",
-                      "2xs": "90px",
+                    textAlign={"center"}
+                    marginTop="35px"
+                    marginRight="5px"
+                    paddingRight={{
+                      base: "52px",
+                      lg: "52px",
+                      md: "52px",
+                      sm: "52px",
+                      xs: "38px",
+                      "2xs": "38px",
                     }}
-                    backgroundRepeat={"no-repeat"}
-                    backgroundSize={"contain"}
-                    filter={"hue-rotate(180deg)"}
-                    marginBottom={{
-                      base: "5px",
-                      lg: "5px",
-                      md: "5px",
-                      sm: "5px",
-                      xs: "0px",
-                      "2xs": "0px",
+                    paddingTop={{
+                      base: "20px",
+                      lg: "20px",
+                      md: "20px",
+                      sm: "20px",
+                      xs: "15px",
+                      "2xs": "15px",
                     }}
                   >
-                    <Heading
-                      fontFamily={"brand-font"}
-                      fontWeight={"bold"}
-                      color={"white"}
-                      fontSize={{
-                        base: "7xl",
-                        lg: "7xl",
-                        md: "7xl",
-                        sm: "7xl",
-                        xs: "50px",
-                        "2xs": "50px",
-                      }}
-                      textAlign={"center"}
-                      marginTop="35px"
-                      marginRight="5px"
-                      paddingRight={{
-                        base: "52px",
-                        lg: "52px",
-                        md: "52px",
-                        sm: "52px",
-                        xs: "38px",
-                        "2xs": "38px",
-                      }}
-                      paddingTop={{
-                        base: "20px",
-                        lg: "20px",
-                        md: "20px",
-                        sm: "20px",
-                        xs: "15px",
-                        "2xs": "15px",
-                      }}
-                    >
-                      {" "}
-                      SASEO
-                    </Heading>
-                  </Box>
+                    {" "}
+                    SASEO
+                  </Heading>
                 </Box>
-              </Link>
-              <Link to={"suggest"}>
-                <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
-                  Suggest Books
-                </Text>
-              </Link>
-              <Link to="random">
-                <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
-                  Random pick
-                </Text>
-              </Link>
-              <Link to="isbn">
-                <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
-                  ISBN Search
-                </Text>
-              </Link>
-              <Box flexGrow={1}>
-                <Link to="about">
-                  <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
-                    About
-                  </Text>
-                </Link>
               </Box>
+            </Link>
+            <Link to={"suggest"}>
+              <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
+                Suggest Books
+              </Text>
+            </Link>
+            <Link to="random">
+              <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
+                Random pick
+              </Text>
+            </Link>
+            <Link to="isbn">
+              <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
+                ISBN Search
+              </Text>
+            </Link>
+            <Box flexGrow={1}>
+              <Link to="about">
+                <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
+                  About
+                </Text>
+              </Link>
+            </Box>
 
-              <Box
-                justifySelft={{
-                  base: "flex-end",
-                  lg: "flex-end",
-                  md: "flex-end",
-                  sm: "center",
-                  xs: "center",
-                  "2xs": "center",
-                }}
-                paddingRight={{
-                  base: "row",
-                  lg: "20px",
-                  md: "20px",
-                  sm: "0px",
-                  xs: "0px",
-                  "2xs": "0px",
-                }}
-              >
-                <NewsLetterForm />
-              </Box>
-            </Flex>
-          </Box>
-
-          {/* ********************* */}
-          {/* Copyright Message */}
-          {/* ********************* */}
-          <Flex
-            flexDirection={"column"}
-            color={"white"}
-            backgroundColor={"darkcyan"}
-            justifyContent={"center"}
-            align={"center"}
-            marginTop={"-25px"}
-          >
-            <BookShelfAnimation />
-            <Text color={"white"} paddingTop={"20px"} textAlign={"center"}>
-              {" "}
-              © 2023 SASEO - All Rights Reserved{" "}
-            </Text>
+            <Box
+              justifySelf={{
+                base: "flex-end",
+                lg: "flex-end",
+                md: "flex-end",
+                sm: "center",
+                xs: "center",
+                "2xs": "center",
+              }}
+              paddingRight={{
+                base: "row",
+                lg: "20px",
+                md: "20px",
+                sm: "0px",
+                xs: "0px",
+                "2xs": "0px",
+              }}
+            >
+              <NewsLetterForm />
+            </Box>
           </Flex>
         </Box>
+
+        {/* ********************* */}
+        {/* Copyright Message */}
+        {/* ********************* */}
+        <Flex
+          flexDirection={"column"}
+          color={"white"}
+          backgroundColor={"darkcyan"}
+          justifyContent={"center"}
+          align={"center"}
+          marginTop={"-25px"}
+        >
+          <BookShelfAnimation />
+
+          <Text color={"white"} paddingTop={"20px"} textAlign={"center"}>
+            <Link to="cookies"> Site Cookies & Privacy Disclosure</Link>
+          </Text>
+          <Text color={"white"} paddingTop={"4px"} textAlign={"center"}>
+            {" "}
+            © 2023 SASEO - All Rights Reserved{" "}
+          </Text>
+        </Flex>
+      </Box>
       {/* </Slide> */}
     </>
   );

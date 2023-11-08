@@ -16,8 +16,8 @@ function TextPanel({children, backgroundC = "primary"}) {
         }}
         marginLeft={"auto"}
         marginRight={"auto"}
-        paddingBottom={"25px"}
-        paddingTop={"30px"}
+        paddingBottom={"35px"}
+        paddingTop={"35px"}
         wordBreak={"normal"}
       >
         <Text
@@ -25,7 +25,7 @@ function TextPanel({children, backgroundC = "primary"}) {
           fontSize={"xl"}
           letterSpacing={0.5}
           className="highlight-text"
-          padding={"18px"}
+          padding={"40px"}
           borderRadius={"30px"}
           textAlign={"center"}
           // fontFamily={"body-font"}
