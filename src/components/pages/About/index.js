@@ -381,6 +381,17 @@ function About() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
+                    <strong>Slick Slider </strong>
+                  </a>
+                </ListItem>
+                <ListItem color={"text"}>
+                  <ListIcon as={SiPnpm} color="text" />
+                  <a
+                    href="https://react.dev/"
+                    className="about-anchor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <strong>React-Cookies</strong>
                   </a>
                 </ListItem>
@@ -538,6 +549,10 @@ function About() {
             <ListItem>
               <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
               Improve site accessibility for screen readers and design.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
+              Create additional tools like genre quiz and AI chatbot
             </ListItem>
           </List>
         </Flex>

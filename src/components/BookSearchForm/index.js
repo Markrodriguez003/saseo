@@ -53,7 +53,7 @@ export function BookSearchForm() {
   // sets the loading state of our search result (Blank, loading, error & results)
   const [loadState, setLoadState] = useState("Intial");
   // Sets the collected & organized books from our api request
-  const [collectedBooks, setCollectedBooks] = useState(undefined);
+  const [collectedBooks, setCollectedBooks] = useState([{}]);
   // Sets the search parameters user put into book genre search form
   const [searchParameters, setSearchParameters] = useState({
     subject: "",
@@ -189,6 +189,7 @@ export function BookSearchForm() {
             Search!
           </Button>
         </VStack>
+     
       </Box>
 
       {/* ------------------------------------------ */}

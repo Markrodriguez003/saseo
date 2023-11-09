@@ -2,7 +2,7 @@ import { useState, createContext } from "react";
 
 // EXTERNAL COMPONENTS
 import BookSearchForm from "../../BookSearchForm";
-import BookCoverAnimation from "components/ui/BookCoverAnimation";
+import EmailShareCard from "components/EmailShareCard";
 
 import { Box } from "@chakra-ui/react";
 // --------------------------------------------------------------------- //
@@ -12,7 +12,7 @@ import { Box } from "@chakra-ui/react";
 export const SearchData = createContext();
 
 export function BookSuggestion() {
-  const [bookCollection, setBookCollection] = useState([{}]);
+  const [bookCollection, setBookCollection] = useState([]);
 
   return (
     <>

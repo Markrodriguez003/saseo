@@ -44,8 +44,8 @@ function BookCoverAnimation({
       book_h = "510px";
       break;
     case "md":
-      book_w = "317px";
-      book_h = "490px";
+      book_w = "277px";
+      book_h = "450px";
       break;
     case "sm":
       book_w = "170px";

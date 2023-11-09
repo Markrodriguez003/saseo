@@ -39,9 +39,10 @@ import { VscBook } from "react-icons/vsc";
 // CSS
 import "./BookReadingList.design.css";
 
+// IMAGES / TEXTURES
 // import cardStockTexture from "../../images/textures/texture2.png";
-import cardStockTexture from "../../images/textures/texture-card-stock.png";
-// import cardStockTexture from "../../images/textures/texture13.jpg"
+// import cardStockTexture from "../../images/textures/texture-card-stock.png";
+import cardStockTexture from "../../images/textures/texture13.jpg";
 
 // LIBRARY
 import { Field, Form, Formik } from "formik";
@@ -70,9 +71,6 @@ export function BookReadingList() {
     return error;
   }
 
-  // todo: add card design using links below
-  // ? https://codepen.io/blindingstars/pen/XGxPOP
-  // ? https://codepen.io/HighFlyer/pen/QWmwBaG
   return (
     <>
       {/* *************************************************************************************** */}
@@ -165,8 +163,8 @@ export function BookReadingList() {
         >
           <HeadingPanel>
             Reading List
-            <Button paddingTop={"18px"} onClick={onOpen}>
-              <FaQuestionCircle size={"20px"} color="darkcyan" />
+            <Button backgroundColor="transparent" onClick={onOpen}>
+              <FaQuestionCircle size={"20px"} color="white" />
             </Button>
           </HeadingPanel>
           <Flex
@@ -175,7 +173,7 @@ export function BookReadingList() {
             justifyContent={"center"}
             alignContent={"center"}
           >
-            {collection.bookCollection ? (
+            {collection.bookCollection.length !== 0 ? (
               collection.bookCollection.map((b) => (
                 <Card
                   key={`collected-${b.title}`}
@@ -192,7 +190,7 @@ export function BookReadingList() {
                   backgroundColor={"white"}
                   backgroundImage={cardStockTexture}
                   backgroundPosition={"top"}
-                  backgroundBlendMode={"darken"}
+                  backgroundBlendMode={"hard-light"}
                   backgroundSize={"cover"}
                   w={"100%"} // m
                 >
@@ -250,8 +248,16 @@ export function BookReadingList() {
                         p={0}
                       />
                     </Stack>
-                    <HStack justifyContent={"flex-end"} marginTop={"15px"} paddingTop={"18px"}>
-                      <VscBook color="rgba(0,0,0,0.3)" size={"22px"} style={{verticalAlign:"bottom"}} />
+                    <HStack
+                      justifyContent={"flex-end"}
+                      marginTop={"15px"}
+                      paddingTop={"18px"}
+                    >
+                      <VscBook
+                        color="rgba(0,0,0,0.3)"
+                        size={"22px"}
+                        style={{ verticalAlign: "bottom" }}
+                      />
 
                       <Text
                         fontFamily={"brand-font"}
@@ -261,6 +267,16 @@ export function BookReadingList() {
                         marginTop={"10px"}
                       >
                         SASEO
+                      </Text>
+                      <Text
+                        fontFamily={"times new roman"}
+                        color="rgba(0,0,0,0.3)"
+                        fontWeight={"bold"}
+                        textAlign={"right"}
+                        marginTop={"10px"}
+                        fontSize={"10px"}
+                      >
+                        - BOOK CARD
                       </Text>
                     </HStack>
                   </CardBody>
