@@ -89,7 +89,11 @@ function BookCardButtons(bookdetails) {
           color={"white"}
           placement="top"
         >
-          <Link href={button.source} isExternal>
+          <Link
+            href={button.source}
+            isExternal
+            rel="Noopener noreferrer nofollow"
+          >
             <Button
               variant={button.variant}
               backgroundColor={button.background}

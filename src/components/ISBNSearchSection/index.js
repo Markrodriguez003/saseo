@@ -69,7 +69,7 @@ export function ISBNSearchSection() {
             </TextPanel>
             <TextPanel>
               For more information -{" "}
-              <Link href="  https://en.wikipedia.org/wiki/List_of_ISBN_registration_groups">
+              <Link href="  https://en.wikipedia.org/wiki/List_of_ISBN_registration_groups" target="_blank" rel="help">
                 wikipedia
               </Link>
             </TextPanel>

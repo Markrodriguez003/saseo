@@ -67,7 +67,7 @@ export function SHeader() {
         <Hide below="md">
           <div className="spacer-container"></div>
           <div className="brand-container">
-            <Link to="/">
+            <Link to="/" rel="bookmark">
               <h1> SASEO</h1>
             </Link>
           </div>
@@ -75,7 +75,7 @@ export function SHeader() {
 
         {/* MOBILE BRAND */}
         <Show below="md">
-          <Link to={"/"}>
+          <Link to={"/"} rel="bookmark">
             <div className="mobile-brand-background">
               <div>
                 <img src={BookmarkMobile} alt="bookmark-panel" />
@@ -90,16 +90,16 @@ export function SHeader() {
         {/* <Hide breakpoint="(max-width: 835px)"> */}
         <Hide below="md">
           <nav className="nav-container">
-            <Link to={"suggest"}>
+            <Link to={"suggest"} rel="search">
               <button>Suggest Books</button>
             </Link>
-            <Link to="random">
+            <Link to="random" rel="search">
               <button>Random pick</button>
             </Link>
-            <Link to="isbn">
+            <Link to="isbn" rel="search">
               <button>ISBN Search</button>
             </Link>
-            <Link to="about">
+            <Link to="about" rel="search">
               <button>About</button>
             </Link>
           </nav>
@@ -113,17 +113,21 @@ export function SHeader() {
               ml={"auto"}
               pr={4}
             >
-              <ImMenu color="white" size={"1.5em"} className="mobile-mobile-icon" />
+              <ImMenu
+                color="white"
+                size={"1.5em"}
+                className="mobile-mobile-icon"
+              />
             </MenuButton>
             <MenuList>
-              <Link to={"suggest"}>
+              <Link to={"suggest"} rel="search">
                 <MenuItem>Suggest Books</MenuItem>
               </Link>
-              <Link to="random">
+              <Link to="random" rel="search">
                 <MenuItem>Random Pick</MenuItem>
               </Link>
               <MenuItem>ISBN Search</MenuItem>
-              <Link to="About">
+              <Link to="About" rel="search">
                 <MenuItem>About</MenuItem>
               </Link>
             </MenuList>

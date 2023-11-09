@@ -51,7 +51,7 @@ import { FaCog } from "react-icons/fa";
 /*// ************************************************************************************************* */
 export function InfographicSection() {
   return (
-    <Box marginBottom={"180px"}>
+    <Box marginBottom={"150px"}>
       <Show below="lg">
         <Center ata-aos="flip-left">
           <Image
@@ -295,6 +295,8 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
           key={`suggested-book-cover${index}`}
           href={book.link}
           alt={"Book cover"}
+          target="_blank"
+          rel="nofollow"
         >
           <Box w={"150px"} backgroundColor={"rgba(0,0,0,0.2)"} boxShadow="2xl">
             <BookCoverAnimation
@@ -499,9 +501,7 @@ export function ExploreSection() {
           </Heading>
         </Center>
         <br />
-        <br />
         <WordRollerAnimation />
-        <br />
         <br />
         <TextPanel>
           Interested in finding a book or two to read? Well, Saseo is here to
@@ -533,7 +533,7 @@ export function ExploreSection() {
           paddingBottom={"45px"}
           paddingTop={"15px"}
         >
-          <Link href="suggest">
+          <Link href="suggest" rel="search">
             <Button
               backgroundColor={"primary"}
               variant="solid"
@@ -543,7 +543,7 @@ export function ExploreSection() {
               Suggestions
             </Button>
           </Link>
-          <Link href="random">
+          <Link href="random" rel="search">
             <Button
               backgroundColor={"secondary"}
               variant="solid"
@@ -553,7 +553,7 @@ export function ExploreSection() {
               Random
             </Button>
           </Link>
-          <Link href="isbn">
+          <Link href="isbn" rel="search">
             <Button
               backgroundColor={"white"}
               color={"primary"}

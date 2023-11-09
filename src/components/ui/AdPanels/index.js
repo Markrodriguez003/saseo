@@ -14,8 +14,12 @@ import ad_1 from "../../../images/ads/ad-8.jpeg";
 function AdPanels({ type }) {
   return (
     <>
-      <Center marginBottom={"80px"}>
-        <Link href="https://www.audible.com/">
+      <Center marginBottom={"150px"}>
+        <Link
+          href="https://www.audible.com/"
+          target="_blank"
+          rel=" Noopener noreferrer nofollow"
+        >
           <Image src={ad_1} w={"880px"} backgroundSize={"cover"} />
         </Link>
       </Center>

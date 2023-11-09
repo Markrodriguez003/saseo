@@ -1,19 +1,8 @@
 // CHAKRA UI
-import {
-  Box,
-  Text,
-  Divider,
-  Center,
-  Heading,
-  Image,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Text, Link, Heading, Image, VStack } from "@chakra-ui/react";
 
 // REACT
-import { Suspense, useState, useContext } from "react";
-
-// IMAGES
-import NYTimesBanner from "../../images/banners/NYTimesBestseller-Banner.svg";
+import { Suspense, useEffect, useState, useContext } from "react";
 
 // COMPONENTS
 import HeadingPanel from "components/ui/HeadingPanel";
@@ -21,37 +10,49 @@ import BookCoverAnimation from "components/ui/BookCoverAnimation";
 
 // LIBRARIES
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
+import { EffectCreative, Navigation } from "swiper/modules";
+import FetchNYBestSellers from "lib/FetchNYBestSellers";
+
+// CSS
+import "./BestsellerBookSection.design.css";
 import "swiper/css";
 import "swiper/css/effect-creative";
 import "swiper/css/navigation";
 
-import "./BestsellerBookSection.design.css";
+// TEST
+import test_data from "../../data/NY_bestseller_example.json";
 
-// import required modules
-import { EffectCreative, Navigation } from "swiper/modules";
-
-// COMPONENTS
-
-// ASSETS - IMAGES
+// ICONS
+import { FaChevronCircleDown } from "react-icons/fa";
+// IMAGES
+import NYTimesBanner from "../../images/banners/NYTimesBestseller-Banner.svg";
 import emptySearchImg from "../../images/NoBookFound.png";
 
 function BestsellerBookSection(props) {
+  const bestsellerBooks = test_data.results.books;
+  // Makes the call to retrieve best seller books json data
+  useEffect(() => {
+    console.log(`Loading New York Best Seller Books!`);
+    FetchNYBestSellers();
+  });
+
   return (
     <>
+      <br />
       <VStack
         justifyContent={"center"}
         alignContent={"center"}
         position={"relative"}
         zIndex={1}
       >
-        <Image
-          alt="NY-Times-Bestseller-Banner"
-          src={NYTimesBanner}
-          w={"650px"}
-        />
+        <Image alt="NY-Times-Bestseller-Banner" src={NYTimesBanner} w={"70%"} />
         <Heading fontFamily={"times new roman"}>Bestsellers</Heading>
+        {/* <br />
+        <FaChevronCircleDown className="floating" color="darkcyan" size={"35px"} /> */}
         <br />
+        {/* ********************************************************************* */}
+        {/* CAROUSEL */}
+        {/* ********************************************************************* */}
         <Box>
           <Swiper
             grabCursor={true}
@@ -69,75 +70,41 @@ function BestsellerBookSection(props) {
             navigation={true}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <VStack>
-                <BookCoverAnimation
-                  reverseFlip={true}
-                  size="lg"
-                  cover="https://m.media-amazon.com/images/I/81rITw6eLTL._AC_UY218_.jpg"
-                />
-                <Text color={"black"}>The Three Body Problem - Cixin Liu</Text>
-              </VStack>
-            </SwiperSlide>
-            <SwiperSlide>
-              <VStack>
-                <BookCoverAnimation
-                  reverseFlip={true}
-                  size="lg"
-                  cover="https://m.media-amazon.com/images/I/81rZH5mC2xL._AC_UY218_.jpg"
-                />
-                <Text color={"black"}>Hail Mary - Andy Weir</Text>
-              </VStack>
-            </SwiperSlide>
-            <SwiperSlide>
-              <VStack>
-                <BookCoverAnimation
-                  reverseFlip={true}
-                  size="lg"
-                  cover="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683827919l/101673225.jpg"
-                />
-                <Text color={"black"}>
-                  The Land of Milk and Honey - C Pam Zhang
-                </Text>
-              </VStack>
-            </SwiperSlide>
-            <SwiperSlide>
-              <VStack gap={"10px"}>
-                <BookCoverAnimation
-                  reverseFlip={true}
-                  size="lg"
-                  cover="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683827919l/101673225.jpg"
-                />
-                <Text color={"black"}>
-                  The Land of Milk and Honey - C Pam Zhang
-                </Text>
-              </VStack>
-            </SwiperSlide>
-            <SwiperSlide>
-              <VStack>
-                <BookCoverAnimation
-                  reverseFlip={true}
-                  size="lg"
-                  cover="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683827919l/101673225.jpg"
-                />
-                <Text color={"black"}>
-                  The Land of Milk and Honey - C Pam Zhang
-                </Text>
-              </VStack>
-            </SwiperSlide>
+            {bestsellerBooks.map((book, index) => (
+              <SwiperSlide key={`NYT-Bestseller-${book.title}-${index} `}>
+                <Link
+                  href={book.amazon_product_url}
+                  target="_blank"
+                  isExternal
+                  rel="Noopener noreferrer nofollow"
+                >
+                  <VStack>
+                    <BookCoverAnimation
+                      reverseFlip={false}
+                      size="lg"
+                      cover={book.book_image}
+                    />
+                    <Text color={"black"}>{book.title}</Text>
+                    <Text color={"grey"} fontSize={"16px"}>
+                      {book.author}
+                    </Text>
+                  </VStack>
+                </Link>
+              </SwiperSlide>
+            ))}
           </Swiper>
-          <Heading
+          {/* <Heading
             fontFamily={"times new roman"}
             size={"2xl"}
             position={"absolute"}
             bottom={"205px"}
             left={"645px"}
             zIndex={2}
-            style={{ writingMode: "vertical-rl", transform:"rotate(180deg)" }}
+            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             {" "}
             FICTION{" "}
-          </Heading>
+          </Heading> */}
         </Box>
       </VStack>
     </>

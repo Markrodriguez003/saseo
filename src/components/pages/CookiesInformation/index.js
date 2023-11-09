@@ -103,32 +103,62 @@ function CookiesInformation() {
           <Center paddingTop={"20px"}>
             <UnorderedList textAlign={"left"}>
               <ListItem>
-                <Link href="https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies">
+                <Link
+                  href="https://support.microsoft.com/en-gb/help/17442/windows-internet-explorer-delete-manage-cookies"
+                  target="_blank"
+                  isExternal
+                  rel="Noopener noreferrer nofollow"
+                >
                   Microsoft Internet Explorer
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy">
+                <Link
+                  href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy"
+                  target="_blank"
+                  isExternal
+                  rel="Noopener noreferrer nofollow"
+                >
                   Microsoft Edge
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer">
+                <Link
+                  href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer"
+                  target="_blank"
+                  isExternal
+                  rel="Noopener noreferrer nofollow"
+                >
                   Mozilla Firefox
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href="https://support.google.com/chrome/answer/95647?hl=en">
+                <Link
+                  href="https://support.google.com/chrome/answer/95647?hl=en"
+                  target="_blank"
+                  isExternal
+                  rel="Noopener noreferrer nofollow"
+                >
                   Google Chrome
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href="https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac">
+                <Link
+                  href="https://support.apple.com/en-gb/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
+                  target="_blank"
+                  isExternal
+                  rel="Noopener noreferrer nofollow"
+                >
                   Safari for macOS
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href="https://support.apple.com/en-gb/HT201265">
+                <Link
+                  href="https://support.apple.com/en-gb/HT201265"
+                  target="_blank"
+                  isExternal
+                  rel="Noopener noreferrer nofollow"
+                >
                   Safari for iOS
                 </Link>
               </ListItem>
@@ -143,7 +173,12 @@ function CookiesInformation() {
           <br />
           To learn more about cookies, and find more information about blocking
           certain types of cookies, please visit the{" "}
-          <Link href="https://ico.org.uk/for-the-public/online/cookies/">
+          <Link
+            href="https://ico.org.uk/for-the-public/online/cookies/"
+            target="_blank"
+            isExternal
+            rel="Noopener noreferrer nofollow"
+          >
             <Text>ICO website Cookies page.</Text>
           </Link>
         </TextPanel>

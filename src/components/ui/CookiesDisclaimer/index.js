@@ -59,7 +59,7 @@ function CookiesDisclaimer() {
             </Button>
 
             <Button>
-              <Link href="cookies">Learn More</Link>
+              <Link href="cookies" target="_blank" rel="help">Learn More</Link>
             </Button>
           </HStack>
         </HStack>

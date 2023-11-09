@@ -135,7 +135,7 @@ export function SFooter() {
             m={"0px"}
             flexWrap={"wrap"}
           >
-            <Link to={"/"}>
+            <Link to={"/"} rel="bookmark Shortcut ">
               <Box>
                 <Box
                   backgroundImage={BookmarkMobile}
@@ -205,23 +205,23 @@ export function SFooter() {
                 </Box>
               </Box>
             </Link>
-            <Link to={"suggest"}>
+            <Link to={"suggest"} target="_blank" rel="search">
               <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
                 Suggest Books
               </Text>
             </Link>
-            <Link to="random">
+            <Link to="random" rel="search">
               <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
                 Random pick
               </Text>
             </Link>
-            <Link to="isbn">
+            <Link to="isbn" rel="search">
               <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
                 ISBN Search
               </Text>
             </Link>
             <Box flexGrow={1}>
-              <Link to="about">
+              <Link to="about" rel="search">
                 <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
                   About
                 </Text>
@@ -265,7 +265,10 @@ export function SFooter() {
           <BookShelfAnimation />
 
           <Text color={"white"} paddingTop={"20px"} textAlign={"center"}>
-            <Link to="cookies"> Site Cookies & Privacy Disclosure</Link>
+            <Link to="cookies" rel="copyright license help">
+              {" "}
+              Site Cookies & Privacy Disclosure
+            </Link>
           </Text>
           <Text color={"white"} paddingTop={"4px"} textAlign={"center"}>
             {" "}
