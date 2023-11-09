@@ -327,6 +327,7 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
       marginLeft={"auto"}
       marginRight={"auto"}
       borderRadius={"30px"}
+      paddingBottom={"50px"}
     >
       <HeadingPanel backgroundColor={"primary"}>
         Books you might like!
@@ -472,13 +473,11 @@ export function ExploreSection() {
         overflow={"hidden"}
         zIndex={2}
         h={"100%"}
+        shadow={"2xl"}
       >
         <br />
-
         {/* SIDE BOOK */}
-
         <SideBookStackGraphic />
-
         <Image
           src={magnifierIcon}
           w={"100px"}
@@ -510,60 +509,62 @@ export function ExploreSection() {
           genre and how many books you would like suggested to you! You can also
           roll the dice and get a random book suggested to you!
         </TextPanel>
-        <Text color={"white"} textAlign={"center"} paddingTop={"10px"}>
-          Grab your book suggestions here:{" "}
-        </Text>
-        <Stack
-          direction={{
-            base: "row",
-            lg: "row",
-            md: "row",
-            sm: "column",
-            xs: "column",
-            "2xs": "column",
-          }}
-          spacing={4}
-          align="center"
-          justify={{
-            base: "center",
-            lg: "center",
-            md: "center",
-            sm: "center",
-          }}
-          paddingBottom={"45px"}
-          paddingTop={"15px"}
-        >
-          <Link href="suggest" rel="search">
-            <Button
-              backgroundColor={"primary"}
-              variant="solid"
-              color={"white"}
-              fontSize={"xl"}
-            >
-              Suggestions
-            </Button>
-          </Link>
-          <Link href="random" rel="search">
-            <Button
-              backgroundColor={"secondary"}
-              variant="solid"
-              color={"white"}
-              fontSize={"xl"}
-            >
-              Random
-            </Button>
-          </Link>
-          <Link href="isbn" rel="search">
-            <Button
-              backgroundColor={"white"}
-              color={"primary"}
-              fontWeight={"bold"}
-              fontSize={"xl"}
-            >
-              ISBN
-            </Button>
-          </Link>
-        </Stack>
+        <VStack w={"100%"} backgroundColor={"page"} marginTop={"50px"}>
+          <Text color={"black"} textAlign={"center"} paddingTop={"10px"}>
+            Grab your book suggestions here:{" "}
+          </Text>
+          <Stack
+            direction={{
+              base: "row",
+              lg: "row",
+              md: "row",
+              sm: "column",
+              xs: "column",
+              "2xs": "column",
+            }}
+            spacing={4}
+            align="center"
+            justify={{
+              base: "center",
+              lg: "center",
+              md: "center",
+              sm: "center",
+            }}
+            paddingBottom={"45px"}
+            paddingTop={"15px"}
+          >
+            <Link href="suggest" rel="search">
+              <Button
+                backgroundColor={"primary"}
+                variant="solid"
+                color={"white"}
+                fontSize={"xl"}
+              >
+                Suggestions
+              </Button>
+            </Link>
+            <Link href="random" rel="search">
+              <Button
+                backgroundColor={"secondary"}
+                variant="solid"
+                color={"white"}
+                fontSize={"xl"}
+              >
+                Random
+              </Button>
+            </Link>
+            <Link href="isbn" rel="search">
+              <Button
+                backgroundColor={"white"}
+                color={"primary"}
+                fontWeight={"bold"}
+                fontSize={"xl"}
+              >
+                ISBN
+              </Button>
+            </Link>
+          </Stack>
+        </VStack>
       </Box>
     </>
   );

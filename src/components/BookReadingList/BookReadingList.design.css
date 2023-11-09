@@ -1,7 +1,9 @@
-/* .reading-card:nth-child(even) {
-  background-color: rgba(230, 230, 230, 0.03);
-  color: black;
-} */
+.reading-card:nth-child(even) {
+ background-position: 40%;
+ /* background-position-x: 40%; */
+ /* background-position-y: 40%; */
+ 
+}
 
 .book-card-special-border {
   border: 5px dashed rgba(0, 139, 139, 0.534);

@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import {
+  Box,
   Container,
   Card,
   CardBody,
@@ -33,7 +34,7 @@ import {
 import HeadingPanel from "components/ui/HeadingPanel";
 
 // ICONS
-import { FaQuestionCircle } from "react-icons/fa";
+import { FaQuestionCircle, FaWindowClose } from "react-icons/fa";
 import { VscBook } from "react-icons/vsc";
 
 // CSS
@@ -78,7 +79,10 @@ export function BookReadingList() {
       {/* *************************************************************************************** */}
       {/* //todo: move to separate component(?) */}
       <Modal isOpen={isOpen} onClose={onClose} size={"4xl"}>
-        <ModalOverlay />
+        <ModalOverlay
+          bg="blackAlpha.300"
+          backdropFilter="blur(10px) hue-rotate(10deg)"
+        />
         <ModalContent backgroundColor={"background"}>
           <ModalHeader color={"primary"} textAlign={"center"} fontSize={"2xl"}>
             Suggested Book Search
@@ -176,6 +180,7 @@ export function BookReadingList() {
             {collection.bookCollection.length !== 0 ? (
               collection.bookCollection.map((b) => (
                 <Card
+                  position={"relative"}
                   key={`collected-${b.title}`}
                   maxW="xl"
                   className="reading-card"
@@ -194,6 +199,18 @@ export function BookReadingList() {
                   backgroundSize={"cover"}
                   w={"100%"} // m
                 >
+                  <Box
+                    position={"absolute"}
+                    color="rgba(0,0,0,0.3)"
+                    fontSize="20px"
+                    top={"20px"}
+                    right={"20px"}
+                    onClick={(event) =>
+                      console.log("Delete this book --> " + event.target)
+                    }
+                  >
+                    <FaWindowClose />
+                  </Box>
                   <CardHeader>
                     <Heading size="md" fontFamily={"typewriter"}>
                       {b.title}
@@ -288,7 +305,14 @@ export function BookReadingList() {
           </Flex>
           <br />
           <br />
-          <Heading color={"teal"} textAlign={"center"} mb={4}>
+          <Divider />
+          <br />
+          <Heading
+            color={"primary"}
+            textAlign={"center"}
+            mb={4}
+            fontSize={"2xl"}
+          >
             Create share card of all books in your reading list!
           </Heading>
           <Formik
@@ -314,6 +338,7 @@ export function BookReadingList() {
                       </FormControl>
                     )}
                   </Field>
+                  <br />
                   <Tooltip
                     label={"Email your sugggested book list!"}
                     color={"white"}
@@ -322,7 +347,7 @@ export function BookReadingList() {
                     <Button
                       colorScheme="yellow"
                       textAlign={"center"}
-                      size="lg"
+                      size="md"
                       m={"4px"}
                       // todo: Add capcha and throttling on submit button
                       // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
@@ -342,12 +367,41 @@ export function BookReadingList() {
                           sendEmail(collection.bookCollection);
                         }, 1000);
                       }}
-                      // onClick={(e) => {
-                      //   e.preventDefault();
-                      //   sendEmail(collection.bookCollection);
-                      // }}
                     >
                       Share!
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    label={"Add book to your account library!"}
+                    color={"white"}
+                    placement="top"
+                  >
+                    <Button
+                      color={"white"}
+                      backgroundColor={"primary"}
+                      textAlign={"center"}
+                      size="md"
+                      m={"4px"}
+                      // todo: Add capcha and throttling on submit button
+                      // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
+                      onClick={(event) => {
+                        setTimeout(() => {
+                          toast({
+                            title: "Book saved!",
+                            description:
+                              "We've assigned this book to your person library!",
+                            status: "success",
+                            duration: 9000,
+                            isClosable: true,
+                          });
+
+                          // actions.setSubmitting(false);
+                          event.preventDefault();
+                          // sendEmail(collection.bookCollection);
+                        }, 1000);
+                      }}
+                    >
+                      Save to Library!
                     </Button>
                   </Tooltip>
                   <Tooltip
@@ -358,7 +412,7 @@ export function BookReadingList() {
                     <Button
                       colorScheme="red"
                       textAlign={"center"}
-                      size="lg"
+                      size="md"
                       m={"4px"}
                     >
                       Empty List

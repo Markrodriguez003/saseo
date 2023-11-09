@@ -293,10 +293,7 @@ function About() {
           </Heading>
 
           <HStack gap={"20px"}>
-            <FaNpm
-              size={"200px"}
-              color="white"
-            />
+            <FaNpm size={"200px"} color="white" />
             <Text
               backgroundColor={"transparent"}
               fontSize="xl"
@@ -404,6 +401,17 @@ function About() {
                     rel="noopener noreferrer"
                   >
                     <strong>Framer Motion </strong>
+                  </a>
+                </ListItem>
+                <ListItem color={"text"}>
+                  <ListIcon as={SiPnpm} color="text" />
+                  <a
+                    href="https://react.dev/"
+                    className="about-anchor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>Yup</strong>
                   </a>
                 </ListItem>
               </List>

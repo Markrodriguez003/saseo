@@ -49,6 +49,7 @@ const siteTheme = extendTheme({
     primary: "#008b8b",
     secondary: "#E97F71",
     tertiary: "#4d2f00",
+    page: "#ECCFB6",
     "dark-accent-1": "#12574C",
     "accent-1": "rgba(0, 139, 139,0.13)",
     "accent-2": "#00CBCB",

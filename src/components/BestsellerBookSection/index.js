@@ -45,7 +45,7 @@ function BestsellerBookSection(props) {
         position={"relative"}
         zIndex={1}
       >
-        <Image alt="NY-Times-Bestseller-Banner" src={NYTimesBanner} w={"70%"} />
+        <Image alt="NY-Times-Bestseller-Banner" src={NYTimesBanner} w={{base:"45%", md:"50%", sm:"70%", xs:"75%"}} />
         <Heading fontFamily={"times new roman"}>Bestsellers</Heading>
         {/* <br />
         <FaChevronCircleDown className="floating" color="darkcyan" size={"35px"} /> */}
