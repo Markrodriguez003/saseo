@@ -11,6 +11,7 @@ import {
   FormLabel,
   Input,
   Flex,
+  Image,
   Modal,
   FormControl,
   ModalBody,
@@ -21,9 +22,17 @@ import {
   ModalOverlay,
   useDisclosure,
   VStack,
+  Collapse,
   HStack,
+  Box,
   Select,
   List,
+  Tab,
+  Tabs,
+  TabList,
+  TabPanel,
+  TabPanels,
+  TabIndicator,
   ListItem,
   Text,
   ListIcon,
@@ -35,14 +44,16 @@ import bookSubjects from "../../../data/book_subjects.json";
 
 // CSS
 import "./SHeader.design.css";
-import { ImMenu } from "react-icons/im";
 
 // IMAGES
 import Bookmark from "../../../images/header/ribbon-1202755_1920.png";
 import BookmarkMobile from "../../../images/header/ribbon-1202755_1920 - Mobile.png";
+import avatarIcon from "../../../images/avatars/avatar-0.png";
 
 // ICONS
+import { ImMenu } from "react-icons/im";
 import { MdAccountCircle } from "react-icons/md";
+import { BsBookmarkPlusFill } from "react-icons/bs";
 // LIBRARIES
 import { Link } from "react-router-dom";
 import confetti from "canvas-confetti";
@@ -115,76 +126,152 @@ export function SHeader() {
           bg="blackAlpha.300"
           backdropFilter="blur(10px) hue-rotate(10deg)"
         />
+
         <ModalContent>
-          <ModalHeader
-            fontSize={"45px"}
-            backgroundColor="primary"
-            color={"white"}
-            display={"flex"}
-            flexDirection={"row"}
-          >
-            <MdAccountCircle fontSize={"55px"} />
-            <Text paddingLeft={"10px"}> Sign Up! </Text>
-          </ModalHeader>
-          {/* <Divider/> */}
-          <ModalCloseButton color={"white"} fontSize={"15px"} />
-          <ModalBody>
-            <VStack
-              justifyContent={"center"}
-              alignContent={"center"}
-              padding={"40px"}
-            >
-              <Formik validateOnChange={false}>
-                <FormControl>
-                  <FormLabel>Favorite Genre:</FormLabel>
-                  <Select placeholder="Select Favorite Book Genre">
-                    {bookSubjects.b_subjects.map((genre, index) => (
-                      <option value={Object.values(genre)}>
-                        {Object.keys(genre)}
-                      </option>
-                    ))}
-                    <option value={"Undecided"}>
-                      Undecided
-                    </option>
+          <Tabs isFitted variant="enclosed">
+            <TabList mb="1em" backgroundColor={"rgba(0,0,0,0.65)"}>
+              <Tab
+                _selected={{ color: "white", bg: "primary" }}
+                display={"block"}
+                p={0}
+                m={0}
+              >
+                {" "}
+                <ModalHeader fontSize={"30px"} color={"white"} width={"100%"}>
+                  <HStack>
+                    {" "}
+                    <MdAccountCircle fontSize={"45px"} />
+                    <Text paddingLeft={"10px"}> Log in </Text>
+                  </HStack>
+                </ModalHeader>{" "}
+              </Tab>
+              <Tab
+                _selected={{ color: "white", bg: "primary" }}
+                p={0}
+                m={0}
+                display={"block"}
+              >
+                {" "}
+                <ModalHeader fontSize={"30px"} color={"white"} width={"100%"}>
+                  <HStack>
+                    {" "}
+                    <BsBookmarkPlusFill fontSize={"45px"} />
+                    <Text paddingLeft={"10px"}> Sign up </Text>
+                  </HStack>
+                </ModalHeader>{" "}
+              </Tab>
+            </TabList>
 
-                    {/* value={genre[Object.keys[index]]} */}
-                  </Select>
-                  <br />
-                  <FormLabel>Email address</FormLabel>
-                  <Input type="email" />
-                  <FormHelperText>We'll never share your email.</FormHelperText>
-                  <br />
-                  <FormLabel>Password:</FormLabel>
-                  <Input type="password" />
-
-                  <UnorderedList
-                    fontSize={"12.5px"}
-                    color="grey"
-                    paddingTop={"15px"}
-                    paddingLeft={"10px"}
+            <TabIndicator
+              mt="-14.5px"
+              height="5px"
+              bg="primary"
+              borderRadius="1px"
+            />
+            <TabPanels>
+              <TabPanel>
+                <ModalBody>
+                  <VStack
+                    justifyContent={"center"}
+                    alignContent={"center"}
+                    padding={"10px"}
                   >
-                    <ListItem>One lowercase character</ListItem>
-                    <ListItem>One uppercase character</ListItem>
-                    <ListItem>One number</ListItem>
-                    <ListItem>One special character</ListItem>
-                    <ListItem>8 characters minimum</ListItem>
-                  </UnorderedList>
-                </FormControl>
-              </Formik>
-              <HStack paddingTop={"10px"}>
-                <Button
-                  backgroundColor={"primary"}
-                  color={"white"}
-                  type="submit"
-                >
-                  Sign Up!
-                </Button>
-                <Button backgroundColor={"red"} color={"white"} type="submit">
-                  Clear
-                </Button>
-              </HStack>
-            </VStack>
-          </ModalBody>
+                    <Formik validateOnChange={false}>
+                      <FormControl>
+                        <FormLabel>Email address</FormLabel>
+                        <Input type="email" />
+
+                        <br />
+                        <br />
+                        <FormLabel>Password:</FormLabel>
+                        <Input type="password" />
+                        <Box paddingTop={"10px"}>
+                          <Link href="#">
+                            <Text color="primary">Reset Password</Text>
+                          </Link>
+                        </Box>
+                      </FormControl>
+                    </Formik>
+                    <HStack paddingTop={"6px"}>
+                      <Button
+                        backgroundColor={"primary"}
+                        color={"white"}
+                        type="submit"
+                      >
+                        Log In
+                      </Button>
+                    </HStack>
+                  </VStack>
+                </ModalBody>
+              </TabPanel>
+              <TabPanel>
+                {" "}
+                <ModalBody>
+                  <VStack
+                    justifyContent={"center"}
+                    alignContent={"center"}
+                    padding={"10px"}
+                  >
+                    <Formik validateOnChange={false}>
+                      <FormControl>
+                        <FormLabel>Favorite Genre:</FormLabel>
+                        <Select placeholder="Select Favorite Book Genre">
+                          {bookSubjects.b_subjects.map((genre, index) => (
+                            <option value={Object.values(genre)}>
+                              {Object.keys(genre)}
+                            </option>
+                          ))}
+                          <option value={"Undecided"}>Undecided</option>
+                        </Select>
+                        <br />
+                        <FormLabel>Email address</FormLabel>
+                        <Input type="email" />
+                        <FormHelperText>
+                          We'll never share your email.
+                        </FormHelperText>
+                        <br />
+                        <FormLabel>Password:</FormLabel>
+                        <Input type="password" />
+
+                        <UnorderedList
+                          fontSize={"12.5px"}
+                          color="grey"
+                          paddingTop={"10px"}
+                          paddingLeft={"10px"}
+                        >
+                          <ListItem>One lowercase character</ListItem>
+                          <ListItem>One uppercase character</ListItem>
+                          <ListItem>One number</ListItem>
+                          <ListItem>One special character</ListItem>
+                          <ListItem>8 characters minimum</ListItem>
+                        </UnorderedList>
+                      </FormControl>
+                    </Formik>
+                    <HStack paddingTop={"6px"}>
+                      <Button
+                        backgroundColor={"primary"}
+                        color={"white"}
+                        type="submit"
+                      >
+                        Sign Up!
+                      </Button>
+                      <Button
+                        backgroundColor={"red"}
+                        color={"white"}
+                        type="submit"
+                      >
+                        Clear
+                      </Button>
+                    </HStack>
+                  </VStack>
+                </ModalBody>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+
+          <Divider />
+          <ModalCloseButton color={"white"} fontSize={"15px"} />
+
           <ModalFooter>
             <Button
               backgroundColor={"primary"}
@@ -245,7 +332,6 @@ export function SHeader() {
 
         <Divider orientation="vertical" size={"xl"} />
 
-        {/* <Hide breakpoint="(max-width: 835px)"> */}
         <Hide below="md">
           <nav className="nav-container">
             <Link to={"suggest"} rel="search">
@@ -260,7 +346,23 @@ export function SHeader() {
             <Link to="about" rel="search">
               <button>About</button>
             </Link>
-            <button onClick={handleSignIn}>Sign-In</button>
+            <HStack flexGrow={8} justify={"end"} paddingRight={"12px"}>
+              <Menu>
+                <MenuButton as={Button} backgroundColor={"transparent"}>
+                  <Image src={avatarIcon} w={"40px"} />
+                </MenuButton>
+
+                <MenuList color={"white"} backgroundColor={"primary"}>
+                  <MenuItem color={"white"} backgroundColor={"primary"}>
+                    Dashboard
+                  </MenuItem>
+                  <MenuItem color={"white"} backgroundColor={"primary"}>
+                    Account information
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+              <button onClick={handleSignIn}>Sign-In</button>
+            </HStack>
           </nav>
         </Hide>
         <Show below="md">
@@ -289,7 +391,23 @@ export function SHeader() {
               <Link to="About" rel="search">
                 <MenuItem>About</MenuItem>
               </Link>
-              <button onClick={handleSignIn}>Sign-In</button>
+              <HStack flexGrow={8} justify={"end"} paddingRight={"12px"}>
+                <Menu>
+                  <MenuButton as={Button} backgroundColor={"transparent"}>
+                    <Image src={avatarIcon} w={"40px"} />
+                  </MenuButton>
+
+                  <MenuList color={"white"} backgroundColor={"primary"}>
+                    <MenuItem color={"white"} backgroundColor={"primary"}>
+                      Dashboard
+                    </MenuItem>
+                    <MenuItem color={"white"} backgroundColor={"primary"}>
+                      Account information
+                    </MenuItem>
+                  </MenuList>
+                </Menu>
+                <button onClick={handleSignIn}>Sign-In</button>
+              </HStack>
             </MenuList>
           </Menu>
         </Show>

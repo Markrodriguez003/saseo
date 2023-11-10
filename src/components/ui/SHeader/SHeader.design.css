@@ -91,9 +91,8 @@
 
 @media screen and (max-width: 299px) {
   .mobile-brand-background div h1 {
-  font-size: 45px;
-  left: 12px;
-   
+    font-size: 45px;
+    left: 12px;
   }
 }
 
@@ -155,6 +154,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   margin-left: 18px;
+  width: 100%;
 }
 
 .nav-container button {
