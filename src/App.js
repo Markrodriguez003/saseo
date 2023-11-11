@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import SHeader from "./components/ui/SHeader";
 import FrontPage from "./components/pages/FrontPage";
 import About from "./components/pages/About";
+import Account from "./components/pages/Account";
 import { BookSuggestion } from "./components/pages/BookSuggestion";
 import SFooter from "./components/ui/SFooter";
 import ISBNSearch from "./components/pages/ISBNSearch";
@@ -33,6 +34,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<FrontPage />} />
+          <Route path="/account" element={<Account />} />
           <Route path="suggest" element={<BookSuggestion />} />
           <Route path="random" element={<RandomBookSuggestion />} />
           <Route path="about" element={<About />} />
