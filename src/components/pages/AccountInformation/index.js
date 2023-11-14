@@ -31,7 +31,7 @@ import {
 } from "@chakra-ui/react";
 
 // COMPONENTS
-import HeadingPanel from "../HeadingPanel";
+import HeadingPanel from "../../ui/HeadingPanel";
 
 // ICONS
 import { HiInformationCircle } from "react-icons/hi";

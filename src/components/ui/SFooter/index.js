@@ -13,103 +13,12 @@ import {
 
 import BookmarkMobile from "../../../images/header/ribbon-1202755_1920 - Mobile.png";
 import BookShelfAnimation from "../BookShelfAnimation";
+import NewsletterForm from "components/NewsletterForm";
 import Slide from "react-reveal/Slide";
 import { Link } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
 
-function NewsLetterForm() {
-  const toast = useToast();
-  function validateName(value) {
-    let error;
-    if (!value) {
-      error = "Email is required";
-    } else if (value.toLowerCase() !== "naruto") {
-      error = "Email is required";
-    }
-    return error;
-  }
-
-  return (
-    <>
-      <Formik
-        initialValues={{ name: "you@email" }}
-        onSubmit={(values, actions) => {
-          setTimeout(() => {
-            toast({
-              title: "Thank you!",
-              description: "We've signed you up to our newsletter!",
-              status: "success",
-              duration: 9000,
-              isClosable: true,
-            });
-
-            actions.setSubmitting(false);
-          }, 1000);
-        }}
-      >
-        {(props) => (
-          <Form>
-            <Field name="name" validate={validateName}>
-              {({ field, form }) => (
-                <FormControl
-                  isInvalid={form.errors.name && form.touched.name}
-                  paddingBottom={"5px"}
-                >
-                  <FormLabel
-                    color={"white"}
-                    textAlign={{
-                      base: "left",
-                      lg: "left",
-                      md: "center",
-                      sm: "center",
-                      xs: "center",
-                      "2xs": "center",
-                    }}
-                  >
-                    Sign up to our newsletter
-                  </FormLabel>
-                  <FormErrorMessage paddingBottom={"5px"}>
-                    {form.errors.name}
-                  </FormErrorMessage>
-                  <Flex
-                    flexDirection={{
-                      base: "row",
-                      lg: "row",
-                      md: "rowr",
-                      sm: "row",
-                      xs: "column",
-                      "2xs": "column",
-                    }}
-                    gap={"8px"}
-                  >
-                    <Input
-                      {...field}
-                      placeholder="Enter your email here!"
-                      backgroundColor={"white"}
-                      color={"darkcyan"}
-                      w={"255px"}
-                    />
-
-                    <Box textAlign={"center"}>
-                      <Button
-                        backgroundColor={"salmon"}
-                        isLoading={props.isSubmitting}
-                        type="submit"
-                        color={"white"}
-                      >
-                        Submit
-                      </Button>
-                    </Box>
-                  </Flex>
-                </FormControl>
-              )}
-            </Field>
-          </Form>
-        )}
-      </Formik>
-    </>
-  );
-}
+ 
 
 export function SFooter() {
   return (
@@ -246,7 +155,7 @@ export function SFooter() {
                 "2xs": "0px",
               }}
             >
-              <NewsLetterForm />
+              <NewsletterForm />
             </Box>
           </Flex>
         </Box>

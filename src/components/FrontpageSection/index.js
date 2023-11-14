@@ -53,7 +53,7 @@ export function InfographicSection() {
   return (
     <Box marginBottom={"150px"}>
       <Show below="lg">
-        <Center ata-aos="flip-left">
+        <Center>
           <Image
             src={confusedAvatar}
             w={"220px"}

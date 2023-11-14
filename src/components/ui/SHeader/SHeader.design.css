@@ -39,7 +39,7 @@
 .spacer-container {
   display: inline;
   position: relative;
-  width: 120px;
+  width: 162px;
   /* height: 150px; */
   /* background-color: rgb(226, 44, 135); */
   background-color: #954c02;
@@ -51,7 +51,7 @@
 
 .brand-container h1 {
   color: white;
-  font-size: 55px;
+  font-size: 50px;
   font-weight: bold;
   font-family: "brand-font";
   -webkit-text-stroke: 1.5px white;
@@ -163,7 +163,7 @@
   margin-left: 2px;
   font-weight: bold;
   padding: 10px;
-  font-size: 18px;
+  font-size: 16px;
   transition: 0.1s all ease-in-out;
 }
 

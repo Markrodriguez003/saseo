@@ -1,4 +1,4 @@
-// NOTES
+// ? NOTES
 // https://codepen.io/lmoroz/pen/jLMLRE
 // https://codepen.io/mikedevelops/pen/vOavQB
 
@@ -12,6 +12,8 @@ import {
   Button,
   Image,
   Center,
+  Hide,
+  Show,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -40,7 +42,6 @@ function FrontPageHero() {
   function StopAnchorPropagration(event) {
     event.stopPropagation();
     // event.preventDefault();
-
   }
   return (
     <>
@@ -81,7 +82,20 @@ function FrontPageHero() {
                     sm: "center",
                   }}
                 >
-                  Looking for this has never been easier →
+                  <Hide above="992.1px">
+                    <span
+                      style={{ paddingBottom: "10px", fontWeight: "bold" }}
+                      textAlign="center"
+                    >
+                      ↑
+                    </span>
+                    <br />
+                  </Hide>
+                  Looking for this has never been easier{" "}
+                  <Hide below="992.1px">
+                    {" "}
+                    <span>→</span>
+                  </Hide>
                 </Heading>
                 <Stack
                   direction="row"
@@ -128,126 +142,4 @@ function FrontPageHero() {
 
 export default FrontPageHero;
 
-// UNUSED COMPONENTS
-{
-  /* BOOK SEARCH BAR */
-}
-//    <InputGroup w={"80%"} alignSelf={"center"}>
-//    <InputLeftElement pointerEvents="none">
-//      <BiBookReader color="rgba(0,0,0,0.2)" size={"1.3em"} />
-//    </InputLeftElement>
-//    <Input
-//      // mb={2}
-//      type="text"
-//      placeholder="Type a Book Genre!"
-//      border={"2px"}
-
-//      borderColor={"darkcyan"}
-//    />
-//    <InputRightElement
-//      backgroundColor={"darkcyan"}
-//      pointerEvents={"cursor"}
-//    >
-//      <BiSearch color="white" size={"1.3em"} />
-//    </InputRightElement>
-//  </InputGroup>
-
-//  REST OF PAGE
-/*
-
-
-    {/* <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Divider />
-      <br />
-      <br />
-      <br />
-      <br />
-      <BookmarkHeader>
-        Explore many book genres
-      </BookmarkHeader>
-
-      <Flex
-        direction={{
-          base: "row",
-          lg: "row",
-          md: "column-reverse",
-          sm: "column-reverse",
-        }}
-        justify={"center"}
-        align={"center"}
-        textAlign={"center"}
-        mb={12}
-      >
-        <Stack direction='column' m={4} className="badge-zoom">
-          <Badge backgroundColor={"darkcyan"} fontSize='xl' color={"white"}>Fiction</Badge>
-          <Badge backgroundColor={"white"} fontSize='xl' color={"darkcyan"} border='1px' borderColor='darkcyan'>Sci-Fi</Badge>
-          <Badge backgroundColor={"hotpink"} fontSize='xl' color={"white"}>Educational</Badge>
-          <Badge backgroundColor={"white"} fontSize='xl' color={"darkcyan"} border='1px' borderColor='darkcyan'>Memoir</Badge>
-          <Badge backgroundColor={"tomato"} fontSize='xl' color={"white"}>DYI</Badge>
-          <Badge backgroundColor={"white"} fontSize='xl' color={"darkcyan"} border='1px' borderColor='darkcyan'>Religion</Badge>
-          <Badge backgroundColor={"dodgerblue"} fontSize='xl' color={"white"}>Sports</Badge>
-          <Badge backgroundColor={"white"} fontSize='xl' color={"darkcyan"} border='1px' borderColor='darkcyan'>Art</Badge>
-
-
-        </Stack>
-        <Image src={bgHero3} style={{ width: "385px", height: "auto" }} mb={6} />
-        <Stack direction='column' m={4} className="badge-zoom">
-          <Badge backgroundColor={"white"} fontSize='xl' color={"darkcyan"} border='1px' borderColor='darkcyan'>History</Badge>
-          <Badge backgroundColor={"darkmagenta"} fontSize='xl' color={"white"}>Mystery</Badge>
-          <Badge backgroundColor={"white"} fontSize='xl' color={"darkcyan"} border='1px' borderColor='darkcyan'>Travel</Badge>
-          <Badge backgroundColor={"darkolivegreen"} fontSize='xl' color={"white"}>Crime</Badge>
-          <Badge backgroundColor={"white"} fontSize='xl' color={"darkcyan"} border='1px' borderColor='darkcyan'>Western</Badge>
-          <Badge backgroundColor={"orange"} fontSize='xl' color={"white"}>Thriller</Badge>
-          <Badge backgroundColor={"white"} fontSize='xl' color={"darkcyan"} border='1px' borderColor='darkcyan'>LGBTQ+</Badge>
-          <Badge backgroundColor={"brown"} fontSize='xl' color={"white"} border='1px' borderColor='darkcyan'>Non-Fiction</Badge>
-        </Stack>
-      </Flex>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Divider />
-      <br />
-      <br />
-      <Flex
-        direction={{
-          base: "row",
-          lg: "row",
-          md: "column-reverse",
-          sm: "column-reverse",
-        }}
-        justify={"center"}
-        align={"center"}
-        mb={12}
-      >
-        <Image src={bgHero2} style={{ width: "385px", height: "auto" }} mb={6} mr={8} />
-        <Box w={{ base: "20%", lg: "20%", md: "60%", sm: "60%" }}>
-          <Heading color={"darkcyan"} mb={4}>
-            Expand your mind or get lost in fiction.
-          </Heading>
-          <Stack direction="row" spacing={4} align="center">
-            <Button
-              leftIcon={<BsFillArrowDownCircleFill />}
-              colorScheme="teal"
-              variant="solid"
-            >
-              Tell Me More!
-            </Button>
-            <Button
-              colorScheme="teal"
-              variant="outline"
-              rightIcon={<BiSearch />}
-            >
-              Search
-            </Button>
-          </Stack>
-        </Box>
-      </Flex>
-      <Divider />
-      <br />
-      <br /> */
+// UNUSED CODE

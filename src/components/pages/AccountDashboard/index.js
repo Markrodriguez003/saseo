@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 // COMPONENTS
-import HeadingPanel from "../HeadingPanel";
+import HeadingPanel from "../../ui/HeadingPanel";
 
 // ICONS
 import { IoLibrarySharp } from "react-icons/io5";

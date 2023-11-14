@@ -18,7 +18,7 @@ export function BookSuggestion() {
     <>
       {/* // todo: Move this context to Book Reading List component  */}
       <SearchData.Provider value={{ bookCollection, setBookCollection }}>
-        <Box marginTop={"100px"} marginBottom={"200px"}>
+      <Box marginTop={"25px"} marginBottom={"200px"}>
           <BookSearchForm />
         </Box>
       </SearchData.Provider>

@@ -1,8 +1,8 @@
 import { useState, createContext } from "react";
 
 // EXTERNAL COMPONENTS
-import AccountDashboard from "../../ui/AccountDashboard";
-import AccountInformation from "../../ui/AccountInformation";
+import AccountDashboard from "../AccountDashboard";
+import AccountInformation from "../AccountInformation";
  
 
 import { Box } from "@chakra-ui/react";
