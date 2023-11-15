@@ -3,26 +3,20 @@
 // **********************************************************************************
 // * Checks book cover image to make sure it is not 1x1px
 // *********************************************************************************
-async function CoverImageCheck(cover, title) {
+async function CoverImageCheck(cover, type = "id") {
   // * Creates new & cleaned isbn var to insert into final book object
 
   const img = new Image();
-  // todo: Do a check to see if an IBSN code is available for the book.
-  img.src = `https://covers.openlibrary.org/b/id/${cover}-L.jpg`;
+
+  type === "id"
+    ? (img.src = `https://covers.openlibrary.org/b/id/${cover}-L.jpg`)
+    : (img.src = `https://covers.openlibrary.org/b/isbn/${cover}-L.jpg`);
 
   let cover_b = await new Promise((resolve, reject) => {
     img.onload = function () {
       if (this.width < 35) {
-        // console.log(
-        //   `Book Title has a shitty extra tiny cover! --> ${title} --> ${this.width}'x' ${this.height} -->${cover}`
-        // );
-
         reject(undefined);
       } else {
-        // console.log(
-        //   `Book Title has a good cover image-->  ${title} --> ${this.width}'x' ${this.height} -->${cover}`
-        // );
-
         resolve(cover);
       }
     };

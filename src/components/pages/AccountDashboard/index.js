@@ -27,7 +27,7 @@ import { HiInformationCircle } from "react-icons/hi";
 function AccountDashboard() {
   return (
     <>
-      <Center>
+      <Center marginBottom={"150px"}>
         <VStack>
           <HeadingPanel letterSpacing={"1.2px"}>Account Dashboard</HeadingPanel>
           <br />

@@ -84,8 +84,8 @@ function FrontPageHero() {
                 >
                   <Hide above="992.1px">
                     <span
-                      style={{ paddingBottom: "10px", fontWeight: "bold" }}
-                      textAlign="center"
+                      style={{ paddingBottom: "10px", fontWeight: "bold", textAlign:"center" }}
+                      
                     >
                       ↑
                     </span>

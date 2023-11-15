@@ -365,13 +365,13 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
                 cover="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1676734077i/122757672.jpg"
               />
             </Box>
-            <Box w={"170px"} hbackgroundColor={"pink"} boxShadow="2xl">
+            <Box w={"170px"}  boxShadow="2xl">
               <BookCoverAnimation
                 size="sm"
                 cover="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1684818185i/75665890.jpg"
               />
             </Box>
-            <Box w={"170px"} hbackgroundColor={"pink"}>
+            <Box w={"170px"} >
               <BookCoverAnimation
                 reverseFlip={true}
                 size="sm"
@@ -509,8 +509,8 @@ export function ExploreSection() {
           genre and how many books you would like suggested to you! You can also
           roll the dice and get a random book suggested to you!
         </TextPanel>
-        <VStack w={"100%"} backgroundColor={"page"} marginTop={"50px"}>
-          <Text color={"black"} textAlign={"center"} paddingTop={"10px"}>
+        <VStack w={"100%"}  marginTop={"50px"}>
+          <Text color={"page"} textAlign={"center"} paddingTop={"10px"}>
             Grab your book suggestions here:{" "}
           </Text>
           <Stack
@@ -564,6 +564,16 @@ export function ExploreSection() {
               </Button>
             </Link>
           </Stack>
+          <Link href="isbn" rel="search">
+            <Button
+              backgroundColor={"white"}
+              color={"primary"}
+              fontWeight={"bold"}
+              fontSize={"xl"}
+            >
+              Sign Up!
+            </Button>
+          </Link>
         </VStack>
       </Box>
     </>

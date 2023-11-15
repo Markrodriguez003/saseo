@@ -1,10 +1,8 @@
 // CHAKRA UI COMPONENTS
 import {
-  Box,
   HStack,
   Button,
   Flex,
-  Input,
   Link,
   Tooltip,
   Modal,
@@ -15,35 +13,21 @@ import {
   ModalHeader,
   ModalBody,
   useDisclosure,
-  FormLabel,
-  FormControl,
-  FormErrorMessage,
-  useToast,
 } from "@chakra-ui/react";
-// LIBRARY
 
+// LIBRARY
+import ISBNSearchForm from "../ISBNSearchForm";
 // COMPONENTS
 import { Field, Form, Formik } from "formik";
 import TextPanel from "components/ui/TextPanel";
 import HeadingPanel from "components/ui/HeadingPanel";
+
 // CSS
 
 // IMAGES
 
-// ICONS
-import { FaSearch, FaQuestionCircle } from "react-icons/fa";
 export function ISBNSearchSection() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast();
-  function validateISBN(value) {
-    let error;
-    if (!value) {
-      error = "Email is required";
-    } else if (value.toLowerCase() !== "naruto") {
-      error = "Email is required";
-    }
-    return error;
-  }
 
   return (
     <>
@@ -69,7 +53,11 @@ export function ISBNSearchSection() {
             </TextPanel>
             <TextPanel>
               For more information -{" "}
-              <Link href="  https://en.wikipedia.org/wiki/List_of_ISBN_registration_groups" target="_blank" rel="help">
+              <Link
+                href="  https://en.wikipedia.org/wiki/List_of_ISBN_registration_groups"
+                target="_blank"
+                rel="help"
+              >
                 wikipedia
               </Link>
             </TextPanel>
@@ -96,85 +84,8 @@ export function ISBNSearchSection() {
         marginTop={"80px"}
         marginBottom={"380px"}
       >
-        <HStack>
-          <HeadingPanel>ISBN Search</HeadingPanel>
-        </HStack>
-        <Formik
-          onSubmit={(values, actions) => {
-            setTimeout(() => {
-              toast({
-                title: "Thank you!",
-                description: "We've signed you up to our newsletter!",
-                status: "success",
-                duration: 9000,
-                isClosable: true,
-              });
-
-              actions.setSubmitting(false);
-            }, 1000);
-          }}
-        >
-          {(props) => (
-            <Form>
-              <Field isbn="isbn" validate={validateISBN}>
-                {({ field, form }) => (
-                  <FormControl
-                    isInvalid={form.errors.isbn && form.touched.isbn}
-                    paddingBottom={"5px"}
-                  >
-                    <HStack justifyContent={"space-between"}>
-                      <FormLabel
-                        color={"darkcyan"}
-                        textAlign={"center"}
-                        paddingTop={"35px"}
-                      >
-                        Search for 7,8 or 9 digit ISBN
-                      </FormLabel>
-                      <Tooltip
-                        label="Learn more about ISBN"
-                        backgroundColor={"primary"}
-                        color={"text"}
-                        marginTop={"12px"}
-                      >
-                        <Button paddingTop={"18px"} onClick={onOpen}>
-                          <FaQuestionCircle size={"20px"} color="darkcyan" />
-                        </Button>
-                      </Tooltip>
-                    </HStack>
-
-                    <FormErrorMessage paddingBottom={"5px"}>
-                      {form.errors.isbn}
-                    </FormErrorMessage>
-
-                    <Input
-                      {...field}
-                      placeholder="Enter ISBN here"
-                      backgroundColor={"white"}
-                      color={"darkcyan"}
-                      w={"455px"}
-                    />
-
-                    <Box textAlign={"center"} paddingTop={"20px"}>
-                      <Button
-                        leftIcon={<FaSearch />}
-                        colorScheme="teal"
-                        size="lg"
-                        isLoading={props.isSubmitting}
-                        type="submit"
-                        // onClick={() => {
-                        //   setLoadState("Loading");
-                        //   sendBooksRequest();
-                        // }}
-                      >
-                        Search!
-                      </Button>
-                    </Box>
-                  </FormControl>
-                )}
-              </Field>
-            </Form>
-          )}
-        </Formik>
+        <HeadingPanel>ISBN Search</HeadingPanel>
+        <ISBNSearchForm />
       </Flex>
     </>
   );

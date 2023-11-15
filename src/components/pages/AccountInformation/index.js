@@ -78,6 +78,7 @@ function AccountInformation() {
         justifyItems={"flex-start"}
         alignContent={"flex-start"}
         textAlign={"left"}
+        marginBottom={"150px"}
       >
         <HeadingPanel>Account Information</HeadingPanel>
         <Accordion defaultIndex={[0]} allowMultiple w={"65%"} color={"white"}>

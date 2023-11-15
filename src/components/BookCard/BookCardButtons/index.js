@@ -18,8 +18,11 @@ function BookCardButtons(bookdetails) {
       alt: "Goodreads anchor button",
       source:
         bookdetails.props.hasOwnProperty("id_goodreads") === true &&
-        bookdetails.props.id_goodreads &&
-        bookdetails.props.id_goodreads !== ""
+        bookdetails.props.id_goodreads !== null &&
+        bookdetails.props.id_goodreads !== undefined &&
+        bookdetails.props.id_goodreads[0] !== undefined &&
+        bookdetails.props.id_goodreads !== "" &&
+        Array.isArray(bookdetails.props.id_goodreads) === true
           ? `https://www.goodreads.com/book/show/${bookdetails.props.id_goodreads[0]} `
           : false,
     },
@@ -32,10 +35,15 @@ function BookCardButtons(bookdetails) {
       variant: "solid",
       alt: "Amazon anchor button",
       source:
-        bookdetails.props.hasOwnProperty("id_amazon") &&
-        bookdetails.props.id_amazon !== ""
-          ? `https://www.amazon.com/dp/${bookdetails.props.id_amazon[0]} `
-          : false,
+      bookdetails.props.hasOwnProperty("id_amazon") === true &&
+      bookdetails.props.id_amazon !== null &&
+      bookdetails.props.id_amazon !== undefined &&
+      bookdetails.props.id_amazon[0] !== undefined &&
+      bookdetails.props.id_amazon !== "" &&
+      Array.isArray(bookdetails.props.id_amazon) === true
+        ? `https://www.amazon.com/dp/${bookdetails.props.id_amazon[0]}`
+
+        : false,
     },
 
     {
