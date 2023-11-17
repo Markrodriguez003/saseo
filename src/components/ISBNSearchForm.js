@@ -49,6 +49,7 @@ import TextPanel from "./ui/TextPanel";
 
 // ? Test: 0394588169 (Jurrassic Park)
 // ? Test: 9780593472118 (A Haunting in Hialeah Gardens) - error loading
+// ? Test: 9780451460271  (Ghost Story: Dresden Files Book 7 ) - error loading
 
 function ISBNSearchForm() {
   function BookComponent(book) {
@@ -247,7 +248,7 @@ function ISBNSearchForm() {
             marginLeft={"auto"}
             marginRight={"auto"}
             // onChange={formik.handleChange}
-            value={formik.values.isbn}
+            value={formik.values.isbn.replace(/\s/g, "").replace(/-/g, "")}
             onChange={formik.handleChange}
           />
 

@@ -44,8 +44,8 @@ function BestsellerBookSection(props) {
   const bestsellerBooks = test_data.results.books;
   // Makes the call to retrieve best seller books json data
   useEffect(() => {
-    console.log(`Loading New York Best Seller Books!`);
-    FetchNYBestSellers();
+    // console.log(`Loading New York Best Seller Books!`);
+    // FetchNYBestSellers();
   });
 
   return (

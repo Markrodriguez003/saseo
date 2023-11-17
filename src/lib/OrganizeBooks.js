@@ -72,7 +72,7 @@ export default async function OrganizeBooks(fetchedBooks, searchAmount = 15) {
     let cover;
 
     // * Grabs & sets book cover to book object. If all fails sets cover to undefined
-    await CoverImageCheck(cover_i, title)
+    await CoverImageCheck(cover_i, "id")
       .then((c) => {
         cover = c;
       })

@@ -40,6 +40,7 @@ function DropdownOptions(props) {
           className="select_placeholder"
           value={Object.values(book)}
           style={{ color: "black", backgroundColor: "white" }}
+          placeholder="zombie"
         >
           {Object.keys(book)}{" "}
         </option>

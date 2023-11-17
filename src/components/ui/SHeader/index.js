@@ -26,6 +26,7 @@ import {
   TabPanels,
   TabIndicator,
   Text,
+  Select,
 } from "@chakra-ui/react";
 
 // COMPONENTS
@@ -46,6 +47,7 @@ import avatarIcon from "../../../images/avatars/avatar-1.png";
 import { ImMenu } from "react-icons/im";
 import { MdAccountCircle } from "react-icons/md";
 import { BsBookmarkPlusFill } from "react-icons/bs";
+import { IoIosArrowDown } from "react-icons/io";
 
 // LIBRARIES
 import { Link } from "react-router-dom";
@@ -256,7 +258,7 @@ export function SHeader() {
         <Hide below="xl">
           <div className="spacer-container"></div>
           <div className="brand-container">
-            <Link to="/" rel="bookmark">
+            <Link to="/" reloadDocument rel="bookmark">
               <h1> SASEO</h1>
             </Link>
           </div>
@@ -264,7 +266,7 @@ export function SHeader() {
 
         {/* MOBILE BRAND */}
         <Show below="xl">
-          <Link to={"/"} rel="bookmark">
+          <Link to={"/"} reloadDocument rel="bookmark">
             <div className="mobile-brand-background">
               <div>
                 <img src={BookmarkMobile} alt="bookmark-panel" />
@@ -278,15 +280,52 @@ export function SHeader() {
 
         <Hide below="xl">
           <nav className="nav-container">
-            <Link to={"suggest"} rel="search">
+            <Link to={"suggest"} reloadDocument rel="search">
               <button>Suggest Books</button>
             </Link>
-            <Link to="random" rel="search">
+            <Link to="random" reloadDocument rel="search">
               <button>Random pick</button>
             </Link>
-            <Link to="isbn" rel="search">
-              <button>ISBN Search</button>
-            </Link>
+
+            <button>
+              <Menu className="header-dropdown-menu">
+                <MenuButton
+                  as={Button}
+                  h={"100%"}
+                  marginTop={"7.5px"}
+                  backgroundColor={"transparent"}
+                  rightIcon={<IoIosArrowDown />}
+                  _hover={{
+                    backgroundColor: "transparent !important",
+
+                    border: "0 transparent solid !important",
+                  }}
+                >
+                  Search
+                </MenuButton>
+                <MenuList
+                  h={"100%"}
+                  backgroundColor={"primary"}
+                  _hover={{
+                    backgroundColor: "pink !important",
+                    padding: "0 !important",
+                    border: "0 transparent solid !important",
+                  }}
+                >
+                  <MenuItem color={"white"}>
+                    {" "}
+                    <Link to="isbn" reloadDocument rel="search">
+                      <button>ISBN Search</button>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to="author" reloadDocument rel="search">
+                      <button>Author Search</button>
+                    </Link>
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+            </button>
             <Link to="about" rel="search">
               <button>About</button>
             </Link>
@@ -306,12 +345,12 @@ export function SHeader() {
 
                 <MenuList color={"white"} backgroundColor={"primary"}>
                   <MenuItem color={"white"} backgroundColor={"primary"}>
-                    <Link to={"/account/dashboard"} rel="">
+                    <Link to={"/account/dashboard"} reloadDocument rel="">
                       Dashboard
                     </Link>
                   </MenuItem>
                   <MenuItem color={"white"} backgroundColor={"primary"}>
-                    <Link to={"/account/settings"} rel="">
+                    <Link to={"/account/settings"} reloadDocument rel="">
                       Account information
                     </Link>
                   </MenuItem>
@@ -348,12 +387,12 @@ export function SHeader() {
                   </MenuButton>
 
                   <MenuList color={"white"} backgroundColor={"primary"}>
-                    <Link to={"/account/dashboard"} rel="">
+                    <Link to={"/account/dashboard"} reloadDocument rel="">
                       <MenuItem color={"white"} backgroundColor={"primary"}>
                         Dashboard
                       </MenuItem>
                     </Link>
-                    <Link to={"/account/settings"} rel="">
+                    <Link to={"/account/settings"} reloadDocument rel="">
                       <MenuItem color={"white"} backgroundColor={"primary"}>
                         Account information
                       </MenuItem>
@@ -362,16 +401,19 @@ export function SHeader() {
                 </Menu>
                 <button onClick={handleSignIn}>Sign-In</button>
               </HStack>
-              <Link to={"suggest"} rel="search">
+              <Link to={"suggest"} reloadDocument rel="search">
                 <MenuItem>Suggest Books</MenuItem>
               </Link>
-              <Link to="random" rel="search">
+              <Link to="random" reloadDocument rel="search">
                 <MenuItem>Random Pick</MenuItem>
               </Link>
-              <Link to="isbn">
+              <Link to="isbn" reloadDocument rel="search">
                 <MenuItem>ISBN Search</MenuItem>
               </Link>
-              <Link to="About" rel="search">
+              <Link to="author" reloadDocument rel="search">
+                <MenuItem>Author Search</MenuItem>
+              </Link>
+              <Link to="About" reloadDocument rel="search">
                 <MenuItem>About</MenuItem>
               </Link>
             </MenuList>

@@ -163,6 +163,7 @@
   margin-left: 2px;
   font-weight: bold;
   padding: 10px;
+  height: 100%;
   font-size: 16px;
   transition: 0.1s all ease-in-out;
 }
@@ -171,6 +172,7 @@
   /* background-color: rgb(247, 86, 166); */
   /* background-color: #926334; */
   background-color: darkcyan;
+
   border-right: 8.5px mintcream solid;
   border-left: 8.5px mintcream solid;
 }
@@ -178,4 +180,8 @@
 /* MOBILE HAMBURGER ICON */
 .mobile-mobile-icon {
   cursor: pointer;
+}
+
+.header-dropdown-menu{
+  background-color: rgba(0,139,139,1) !important;
 }

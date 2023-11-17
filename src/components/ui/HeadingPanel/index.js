@@ -12,7 +12,7 @@ function HeadingPanel({
         position={"relative"}
         backgroundColor={backgroundColor}
         color={color}
-        fontSize={"4xl"}
+        fontSize={"3xl"}
         textAlign={"center"}
         padding={"25px"}
         display={"inline-block"}

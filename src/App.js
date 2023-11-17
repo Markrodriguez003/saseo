@@ -6,6 +6,7 @@ import FrontPage from "./components/pages/FrontPage";
 import About from "./components/pages/About";
 import AccountDashboard from "./components/pages/AccountDashboard";
 import AccountInformation from "./components/pages/AccountInformation";
+import AuthorSearch from "./components/pages/AuthorSearch";
 import { BookSuggestion } from "./components/pages/BookSuggestion";
 import SFooter from "./components/ui/SFooter";
 import ISBNSearch from "./components/pages/ISBNSearch";
@@ -41,6 +42,7 @@ function App() {
           <Route path="random" element={<RandomBookSuggestion />} />
           <Route path="about" element={<About />} />
           <Route path="isbn" element={<ISBNSearch />} />
+          <Route path="author" element={<AuthorSearch />} />
           <Route path="cookies" element={<CookiesInformation />} />
         </Routes>
         {cookies["cookies_accept"] === false ? <CookiesDisclaimer /> : <></>}

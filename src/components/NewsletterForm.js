@@ -97,7 +97,7 @@ function NewsletterForm() {
           <br />
 
           <Button
-            backgroundColor={"primary"}
+            backgroundColor={"secondary"}
             color={"white"}
             type="submit"
             onClick={formik.handleSubmit}

@@ -44,14 +44,13 @@ import "./BookSuggestionForm.design.css";
 // --------------------------------------------------------------------- //
 //  Book search form & results panel
 // --------------------------------------------------------------------- //
-
 // todo: add language option
-export function BookSearchForm() {
+export function BookSearchForm(props) {
   // cookies
   const [cookies, setCookie, removeCookie] = useCookies(["cookies_denied"]);
   // todo: Change this to useReducer(?)
   // sets the loading state of our search result (Blank, loading, error & results)
-  const [loadState, setLoadState] = useState("Intial");
+  const [loadState, setLoadState] = useState("Initial");
   // Sets the collected & organized books from our api request
   const [collectedBooks, setCollectedBooks] = useState([{}]);
   // Sets the search parameters user put into book genre search form
@@ -61,9 +60,31 @@ export function BookSearchForm() {
     language: "eng",
   });
 
-  // useEffect(() => {
-  //   console.log("Hey this is the collected books! --> " + collectedBooks);
-  // }, [collectedBooks]);
+  useEffect(() => {
+    let frontPageSubject = props.frontPageSearch?.subject;
+    console.log(`What is subject? `, frontPageSubject);
+
+    if (frontPageSubject !== undefined) {
+      console.log(
+        `Front page search subject is NOT undefined or null! `,
+        frontPageSubject
+      );
+      setLoadState("Loading");
+      // !! Do test to check subject
+      // todo Do test to check subject
+      sendBooksRequest({ subject: frontPageSubject });
+      frontPageSubject = undefined;
+    } else {
+      setLoadState("Initial");
+      console.log(`The Front Page search is undefined!`, frontPageSubject);
+      
+    }
+
+    return () => {
+      // will run on every unmount.
+      console.log("component is unmounting");
+    };
+  }, []);
 
   // Grabs how many books user wants to see
   // todo: Change the amount and paginate results
@@ -97,23 +118,23 @@ export function BookSearchForm() {
 
   // Handles grabbing of formatted & organized books fetched from api & sets loading state
   // todo: Add cached/memoized version of this when user selects same seach parameters
-  async function sendBooksRequest() {
+  async function sendBooksRequest({
+    subject = "fantasy",
+    amount = 5,
+    language = "eng",
+  }) {
     // cookies
     removeCookie("cookies_last_searched_genre", { path: "/" });
     setCookie("cookies_last_searched_genre", searchParameters.subject, {
       path: "/",
     });
     try {
-      books = await FetchBooks(
-        searchParameters.subject,
-        searchParameters.amount,
-        searchParameters.language
-      );
+      books = await FetchBooks(subject, amount, language);
       await setCollectedBooks(books);
       await setLoadState("Loaded");
     } catch (err) {
       console.log(err.message);
-      loadState("Error");
+      setLoadState("Error");
     }
   }
 
@@ -183,25 +204,28 @@ export function BookSearchForm() {
             size="lg"
             onClick={() => {
               setLoadState("Loading");
-              sendBooksRequest();
+              sendBooksRequest(searchParameters);
             }}
           >
             Search!
           </Button>
         </VStack>
-     
       </Box>
 
       {/* ------------------------------------------ */}
-      {/* Loading search results to either intial state, loading state, loaded state and error state */}
+      {/* Loading search results to either initial state, loading state, loaded state and error state */}
       {/* ------------------------------------------ */}
       {loadState === "Loaded" ? (
         <>
           <SearchResult fetchedBooks={collectedBooks} />
           <BookReadingList />
         </>
-      ) : loadState === "Intial" ? (
+      ) : loadState === "Initial" ? (
         <></>
+      ) : loadState === "Front-Page" ? (
+        <>
+          <h1>Loading docs from front page selection</h1>
+        </>
       ) : loadState === "Loading" ? (
         <Box mt={20}>
           <Center>
