@@ -8,31 +8,22 @@ import {
   InputRightElement,
   Text,
   InputGroup,
-  useToast,
-  Toast,
 } from "@chakra-ui/react";
 
 // LIBRARIES
 import { useFormik } from "formik";
 import { useState } from "react";
-import * as Yup from "yup";
 import Shake from "react-reveal/Shake";
 import { Link } from "react-router-dom";
+import { loginSchema } from "lib/validationSchemas";
 
-const loginSchema = Yup.object({
-  password: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email address").required("Required"),
-});
-
-// ^ Log in form
-// ! MOVE TO SEPARATE JS FILE -> LIBRARY
 function LogInForm(props) {
   // True/False values for "show password characters" process
   const [show, setShow] = useState(false);
   // Handles showing password characters or hiding them from user"
   const handleClick = () => setShow(!show);
 
-  const formik = useFormik({
+  const { values, handleChange, handleSubmit, errors } = useFormik({
     initialValues: { email: "", password: "" },
     validateOnChange: false,
     validateOnBlur: false,
@@ -43,18 +34,18 @@ function LogInForm(props) {
   });
 
   return (
-    <FormControl onSubmit={formik.handleSubmit}>
+    <FormControl onSubmit={handleSubmit}>
       <FormLabel htmlFor="email">Email address</FormLabel>
       <Input
         type="email"
         name="email"
         id="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
+        onChange={handleChange}
+        value={values.email}
       />
-      {formik.errors.email ? (
+      {errors.email ? (
         <small style={{ color: "red", fontStyle: "italic" }}>
-          <Shake>{formik.errors.email}</Shake>
+          <Shake>{errors.email}</Shake>
         </small>
       ) : (
         <>
@@ -71,8 +62,8 @@ function LogInForm(props) {
           pr="4.5rem"
           type={show ? "text" : "password"}
           placeholder="Enter password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
+          onChange={handleChange}
+          value={values.password}
         />
 
         <InputRightElement width="4.5rem">
@@ -81,9 +72,9 @@ function LogInForm(props) {
           </Button>
         </InputRightElement>
       </InputGroup>
-      {formik.errors.password ? (
+      {errors.password ? (
         <small style={{ color: "red", fontStyle: "italic" }}>
-          <Shake>{formik.errors.password}</Shake>
+          <Shake>{errors.password}</Shake>
         </small>
       ) : null}
 
@@ -97,7 +88,7 @@ function LogInForm(props) {
           backgroundColor={"primary"}
           color={"white"}
           type="submit"
-          onClick={formik.handleSubmit}
+          onClick={handleSubmit}
         >
           Log In
         </Button>

@@ -12,7 +12,8 @@ import {
   InputRightElement,
   InputGroup,
   Toast,
-  useToast
+  useToast,
+  Wrap,
 } from "@chakra-ui/react";
 
 // NOTES
@@ -29,38 +30,12 @@ import Shake from "react-reveal/Shake";
 import { Link } from "react-router-dom";
 import { BookGenreSuggestionSection } from "./FrontpageSection";
 import DropdownOptions from "./ui/DropdownOptions";
+import { registerNewAccountSchema } from "../lib/validationSchemas";
+import { MdPendingActions } from "react-icons/md";
 
 const bookGenreValues = bookSubjects.b_subjects
   .map((genre, i) => Object.values(genre))
   .flat();
-
-// ^ Creating new account form validation
-const registerNewAccountSchema = Yup.object({
-  // favoriteGenre: Yup.string()
-  //   .required("Please select your favorite book genre")
-  //   .oneOf(bookGenreValues),
-  //   favoriteGenre: Yup.object({
-  //     value: Yup.string().oneOf(bookGenreValues),
-  //   }),
-
-  nickname: Yup.string()
-    .max(15, "Must be above 4 characters (max 15)")
-    .min(5, "Must be above 4 characters (max 15)")
-    .required("Please enter your favorite genre!"),
-  password: Yup.string()
-    .max(15, "Must be above 4 characters (max 15)")
-    .min(5, "Must be above 4 characters (max 15)")
-    .matches(/^(?=.*[a-z])/, " Must Contain One Lowercase Character")
-    .matches(/^(?=.*[A-Z])/, "  Must Contain One Uppercase Character")
-    .matches(/^(?=.*[0-9])/, "  Must Contain One Number Character")
-    .matches(/^(?=.*[0-9])/, "  Must Contain One Number Character")
-    .matches(
-      /^(?=.*[!@#\$%\^&\*])/,
-      "  Must Contain  One Special Case Character"
-    )
-    .required("Required"),
-  email: Yup.string().email("Invalid email address").required("Required"),
-});
 
 function RegisterNewAccount() {
   let toast = useToast();
@@ -72,10 +47,23 @@ function RegisterNewAccount() {
   );
   // Handles showing password characters or hiding them from user"
   const handleClick = () => setShow(!show);
-  let registrationFormValues = {};
-  // console.log("This is inside the array! " + JSON.stringify(bookGenreValues));
 
-  const formik = useFormik({
+  // * Holds form data
+  let registrationFormValues = {};
+
+  function handleFormReset() {
+    resetForm();
+  }
+  async function handleFormSubmission() {}
+
+  const {
+    values,
+    handleChange,
+    handleSubmit,
+    resetForm,
+    isSubmitting,
+    errors,
+  } = useFormik({
     initialValues: { nickname: "", email: "", password: "" },
     validateOnChange: false,
     validateOnBlur: false,
@@ -99,28 +87,32 @@ function RegisterNewAccount() {
   });
   return (
     <>
-      <FormControl onSubmit={formik.handleSubmit}>
+      <FormControl onSubmit={handleSubmit}>
         <FormLabel htmlFor="nickname">Profile Nickname:</FormLabel>
         <Input
           type="text"
           name="nickname"
           id=" nickname"
-          onChange={formik.handleChange}
-          value={formik.values.nickname}
+          onChange={handleChange}
+          value={values.nickname}
         />
-        {formik.errors.favoriteGenre ? (
+        {errors.nickname ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{formik.errors.nickname}</Shake>
+            <Shake>{errors.nickname}</Shake>
           </small>
         ) : null}
         <br />
         <br />
-        <FormLabel>Favorite Book Genre <span style={{fontSize:"12px", color:"grey"}}>(optional)</span>:</FormLabel>
+        <FormLabel>
+          Favorite Book Genre{" "}
+          <span style={{ fontSize: "12px", color: "grey" }}>(optional)</span>:
+        </FormLabel>
         <Select
           name="favoriteGenre"
           id="favoriteGenre"
+          
           placeholder={genreOption}
-          value={formik.values.favoriteGenre}
+          value={values.favoriteGenre}
           onChange={(e) =>
             setGenreOption(e.target.options[e.target.selectedIndex].text)
           }
@@ -129,9 +121,9 @@ function RegisterNewAccount() {
           <option value={"Undecided"}>Undecided</option>
           <option value={"Undecided"}>All of them!</option>
         </Select>
-        {formik.errors.favoriteGenre ? (
+        {errors.favoriteGenre ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{formik.errors.favoriteGenre}</Shake>
+            <Shake>{errors.favoriteGenre}</Shake>
           </small>
         ) : null}
         <br />
@@ -141,12 +133,12 @@ function RegisterNewAccount() {
           type="email"
           name="email"
           id="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
+          onChange={handleChange}
+          value={values.email}
         />
-        {formik.errors.favoriteGenre ? (
+        {errors.email ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{formik.errors.email}</Shake>
+            <Shake>{errors.email}</Shake>
           </small>
         ) : (
           <FormHelperText>We'll never share your email.</FormHelperText>
@@ -161,8 +153,8 @@ function RegisterNewAccount() {
             pr="4.5rem"
             type={show ? "text" : "password"}
             placeholder="Enter password"
-            onChange={formik.handleChange}
-            value={formik.values.password}
+            onChange={handleChange}
+            value={values.password}
           />
 
           <InputRightElement width="4.5rem">
@@ -171,12 +163,29 @@ function RegisterNewAccount() {
             </Button>
           </InputRightElement>
         </InputGroup>
-        {formik.errors.password ? (
+        {errors.password ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{formik.errors.password}</Shake>
+            <Shake>{errors.password}</Shake>
+            <Wrap>
+              <UnorderedList
+                fontSize={"12.5px"}
+                color="red"
+                paddingTop={"10px"}
+                paddingLeft={"10px"}
+              >
+                <ListItem>One lowercase character</ListItem>
+                <ListItem>One uppercase character</ListItem>
+                <ListItem>One number</ListItem>
+                <ListItem>One special character</ListItem>
+                <ListItem>8 characters minimum</ListItem>
+              </UnorderedList>
+            </Wrap>
+          </small>
+        ) : (
+          <Wrap>
             <UnorderedList
               fontSize={"12.5px"}
-              color="red"
+              color="grey"
               paddingTop={"10px"}
               paddingLeft={"10px"}
             >
@@ -186,20 +195,34 @@ function RegisterNewAccount() {
               <ListItem>One special character</ListItem>
               <ListItem>8 characters minimum</ListItem>
             </UnorderedList>
+          </Wrap>
+        )}
+
+        <br />
+        <FormLabel>Confirm Password:</FormLabel>
+        <InputGroup>
+          <Input
+            id="confirmPassword"
+            name="confirmPassword"
+            pr="4.5rem"
+            type={show ? "text" : "password"}
+            placeholder="Re-enter password"
+            onChange={handleChange}
+            value={values.confirmPassword}
+          />
+          <InputRightElement width="4.5rem">
+            <Button h="1.75rem" size="sm" onClick={handleClick}>
+              {show ? "Hide" : "Show"}
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+
+        {errors.confirmPassword ? (
+          <small style={{ color: "red", fontStyle: "italic" }}>
+            <Shake>{errors.confirmPassword}</Shake>
           </small>
         ) : (
-          <UnorderedList
-            fontSize={"12.5px"}
-            color="grey"
-            paddingTop={"10px"}
-            paddingLeft={"10px"}
-          >
-            <ListItem>One lowercase character</ListItem>
-            <ListItem>One uppercase character</ListItem>
-            <ListItem>One number</ListItem>
-            <ListItem>One special character</ListItem>
-            <ListItem>8 characters minimum</ListItem>
-          </UnorderedList>
+          <></>
         )}
 
         {/* FORM FOOTER */}
@@ -208,11 +231,18 @@ function RegisterNewAccount() {
             backgroundColor={"primary"}
             color={"white"}
             type="submit"
-            onClick={formik.handleSubmit}
+            onClick={handleSubmit}
+            disabled={isSubmitting ? true : false}
           >
             Sign Up!
           </Button>
-          <Button backgroundColor={"red"} color={"white"} type="submit">
+          <Button
+            backgroundColor={"red"}
+            color={"white"}
+            type="submit"
+            disabled={isSubmitting ? true : false}
+            onClick={handleFormReset}
+          >
             Clear
           </Button>
         </HStack>

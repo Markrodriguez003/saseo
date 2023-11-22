@@ -1,8 +1,10 @@
 // NOTES
 //? https://www.youtube.com/watch?v=7Ophfq0lEAY&ab_channel=NikitaDev
+// ! TODO: SEARCH JOHN GRISHAM, AN ERROR POPS UP, UNDEFINED
 
 import {
   Button,
+  Box,
   FormLabel,
   Input,
   FormControl,
@@ -18,6 +20,9 @@ import {
 } from "@chakra-ui/react";
 
 import { useState } from "react";
+// DATA
+import book_authors from "../data/book_authors.json";
+
 // COMPONENTS
 import HeadingPanel from "../components/ui/HeadingPanel";
 
@@ -25,7 +30,7 @@ import HeadingPanel from "../components/ui/HeadingPanel";
 import authorSearchFetch from "lib/authorSearchFetch";
 
 // LIBRARIES
-import { useFormik } from "formik";
+import { Formik, useFormik, useFormikContext } from "formik";
 
 import * as Yup from "yup";
 import Fade from "react-reveal/Fade";
@@ -77,13 +82,57 @@ function AuthorSearchForm() {
             type="author"
             name="author"
             id="author"
-            placeholder="Enter Author name here"
             backgroundColor={"white"}
             color={"darkcyan"}
             w={"355px"}
             onChange={formik.handleChange}
             value={formik.values.author}
+            placeholder={
+              formik.values.author === ""
+                ? "Enter author name here"
+                : formik.values.author
+            }
           />
+          <Box
+            borderColor={"grey"}
+            borderRadius={"md"}
+            borderWidth={"1px"}
+            borderTopWidth={"0px"}
+            marginLeft={"auto"}
+            marginRight={"auto"}
+            w={"355px"}
+            // h={formik.values.author === "" ? "0px" : "200px"}
+            // overflow={formik.values.author === "" ? "none" : "scroll"}
+          >
+            {book_authors.authors
+              .filter((author) => {
+                const userSearchTerm = formik.values.author.toLowerCase();
+                const authorSearchTerm = author.toLowerCase();
+                return (
+                  userSearchTerm &&
+                  authorSearchTerm.startsWith(userSearchTerm) &&
+                  authorSearchTerm !== userSearchTerm
+                );
+              })
+              .map((author) => (
+                <Text
+                  textAlign={"left"}
+                  color={"grey"}
+                  paddingLeft={"15px"}
+                  _hover={{
+                    backgroundColor: "rgba(0,139,139,1)",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                  onClick={(e) => {
+                    console.log(author);
+                    formik.setFieldValue("author", author);
+                  }}
+                >
+                  {author}
+                </Text>
+              ))}
+          </Box>
           <br />
           <Button
             backgroundColor={"secondary"}
@@ -104,6 +153,7 @@ function AuthorSearchForm() {
           )}
         </FormControl>
 
+        {/* //* AUTHOR CARD COMPONENT */}
         {fetchedAuthor !== undefined ? (
           <>
             <Card minW="lg" shadow={"2xl"}>

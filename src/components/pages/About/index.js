@@ -290,6 +290,7 @@ function About() {
             maxW="28rem"
           >
             ADDITIONAL LIBRARIES
+            {/* //! add this contribution website --> list of authors https://www.scribblewhatever.com/list-of-all-authors-their-first-name/#a */}
           </Heading>
 
           <HStack gap={"20px"}>
