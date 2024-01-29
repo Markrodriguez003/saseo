@@ -1,18 +1,14 @@
-import { Box, Text, Divider, Center, Heading, Image } from "@chakra-ui/react";
-import { Suspense, useState, useContext } from "react";
+import { Box, Divider, Center, Heading, Image } from "@chakra-ui/react";
+import { Suspense } from "react";
 
 // COMPONENTS
 import BookCard from "../BookCard";
 
-import { fetchedBooksResults } from "lib/OrganizeBooks";
-import { SearchData } from "components/pages/BookSuggestion";
 // ASSETS - IMAGES
 import emptySearchImg from "../../images/NoBookFound.png";
 
 function BookCardAssembly(props) {
   let books;
-
-  // console.log("This is the books inside assembly--> " + props);
 
   // todo: verify that suspense is loading in books one by one
   props.foundBooks
@@ -38,7 +34,7 @@ function BookCardAssembly(props) {
 
 export function SearchResult(props) {
   // const test = useContext(SearchData);
-  // console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + JSON.stringify(props));
+  console.log("OI! THIS IS INSIDE SEARCH RESULT ---> " + JSON.stringify(props));
   return (
     <>
       <Box
@@ -71,10 +67,3 @@ export function SearchResult(props) {
 }
 
 export default SearchResult;
-
-/*
-
-     {props.fetchedBooks.length === 0 || undefined || null ? "0" : props.fetchedBooks.length}{" "} 
-     Book Results Found!
-
-*/

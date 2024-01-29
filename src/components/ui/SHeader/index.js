@@ -19,6 +19,7 @@ import {
   useDisclosure,
   VStack,
   HStack,
+  Box,
   Tab,
   Tabs,
   TabList,
@@ -26,7 +27,7 @@ import {
   TabPanels,
   TabIndicator,
   Text,
-  Select,
+  Heading,
 } from "@chakra-ui/react";
 
 // COMPONENTS
@@ -234,12 +235,27 @@ export function SHeader() {
       {/* HEADER */}
       {/* BOOKMARK BRAND IMAGE */}
       <Hide below="xl">
-        <div className="logo-container">
+        <Box
+          display={"block"}
+          position={"absolute"}
+          top={0}
+          w={"120px"}
+          h={"auto"}
+          backgroundColor={"transparent"}
+          zIndex={6}
+        >
           {/* Add fallback image? */}
-          <img
+          <Image
             src={Bookmark}
-            className="bookmark"
+            position={"relative"}
+            display={"inline"}
+            w="100px"
+            h={"auto"}
+            zIndex={0}
+            top={"-10px"}
             alt="bookmark-panel"
+            _active={{ top: "-5px" }}
+            _hover={{ cursor: "pointer" }}
             onClick={() =>
               confetti({
                 particleCount: 7,
@@ -252,83 +268,148 @@ export function SHeader() {
               })
             }
           />
-        </div>
+        </Box>
       </Hide>
-      <Flex className="container" align={"center"}>
+      <Flex
+        className="container"
+        backgroundColor="tetriary"
+        zIndex={3}
+        align={"center"}
+      >
         <Hide below="xl">
-          <div className="spacer-container"></div>
-          <div className="brand-container">
+          <Box
+            display={"inline"}
+            position={"relative"}
+            w={"145px"}
+            backgroundColor={"secondary"}
+          ></Box>
+          <Box>
             <Link to="/" reloadDocument rel="bookmark">
-              <h1> SASEO</h1>
+              <Heading
+                color={"white"}
+                fontSize={"50px"}
+                fontWeight={"bold"}
+                fontFamily={"brand-font"}
+                paddingLeft={"0px"}
+                paddingRight={"12px"}
+                style={{ WebkitTextStroke: " 1.5px white" }}
+              >
+                {" "}
+                SASEO
+              </Heading>
             </Link>
-          </div>
+          </Box>
         </Hide>
 
+        {/* // TODO: PUT THIS IN A SEPARATE COMPONENT */}
         {/* MOBILE BRAND */}
         <Show below="xl">
           <Link to={"/"} reloadDocument rel="bookmark">
-            <div className="mobile-brand-background">
-              <div>
-                <img src={BookmarkMobile} alt="bookmark-panel" />
-                <h1>SASEO</h1>
-              </div>
-            </div>
+            <Box className="mobile-brand-background">
+              <Image
+                src={BookmarkMobile}
+                alt="bookmark-panel"
+                w={"250px"}
+                zIndex={0}
+              />
+              <Heading
+                position={"absolute"}
+                color={"white"}
+                fontSize={{
+                  base: "50px",
+                  "2xl": "50px",
+                  xl: "50px",
+                  lg: "50px",
+                  md: "50px",
+                  sm: "50px",
+                  xs: "50px",
+                  "2xs": "45px",
+                }}
+                fontWeight={"bold"}
+                fontFamily={"brand-font"}
+                top={"16px"}
+                left={"20px"}
+                zIndex={0}
+                style={{ WebkitTextStroke: " 1.5px white" }}
+              >
+                SASEO
+              </Heading>
+            </Box>
           </Link>
         </Show>
 
         <Divider orientation="vertical" size={"xl"} />
 
         <Hide below="xl">
-          <nav className="nav-container">
+          <Flex
+            flexWrap={"wrap"}
+            flexDirection={"row"}
+            marginLeft={"18px"}
+            w={"100%"}
+          >
             <Link to={"suggest"} reloadDocument rel="search">
-              <button>Suggest Books</button>
+              <Button variant={"menu-button"}>Suggest Books</Button>
             </Link>
             <Link to="random" reloadDocument rel="search">
-              <button>Random pick</button>
+              <Button variant={"menu-button"}>Random pick</Button>
             </Link>
+            {/* *********************************************************** */}
+            {/* Search Menu item */}
+            {/* *********************************************************** */}
 
-            <button>
-              <Menu className="header-dropdown-menu">
-                <MenuButton
-                  as={Button}
-                  h={"100%"}
-                  marginTop={"7.5px"}
-                  backgroundColor={"transparent"}
-                  rightIcon={<IoIosArrowDown />}
-                  _hover={{
-                    backgroundColor: "transparent !important",
+            <Menu className="header-dropdown-menu">
+              <MenuButton
+                marginLeft={"5px"}
+                marginRight={"5px"}
+                color={"white"}
+                as={Button}
+                padding="10px"
+                fontWeight={"bold"}
+                variant={"unstyled"}
+                transition="0.1s all ease-in-out"
+                h={"auto"}
+                _hover={{
+                  backgroundColor: "primary",
+                  borderRadius: "0px",
+                  borderRight: "8.5px white solid",
+                  borderLeft: "8.5px white solid",
+                }}
+                // backgroundColor={"transparent"}
+                rightIcon={<IoIosArrowDown />}
+              >
+                Search
+              </MenuButton>
+              <MenuList
+                h={"auto"}
+                w="auto"
+                fontSize={"16px"}
+                color={"primary"}
+                fontWeight={"bold"}
+              >
+                <MenuItem
+                  p={"15px"}
+                  _hover={{ color: "white", backgroundColor: "primary" }}
+                >
+                  {" "}
+                  <Link to="isbn" reloadDocument rel="search">
+                    ISBN Search
+                  </Link>
+                </MenuItem>
+                <MenuItem
+                  p={"15px"}
+                  _hover={{ color: "white", backgroundColor: "primary" }}
+                >
+                  <Link to="author" reloadDocument rel="search">
+                    Author Search
+                  </Link>
+                </MenuItem>
+              </MenuList>
+            </Menu>
 
-                    border: "0 transparent solid !important",
-                  }}
-                >
-                  Search
-                </MenuButton>
-                <MenuList
-                  h={"100%"}
-                  backgroundColor={"primary"}
-                  _hover={{
-                    backgroundColor: "pink !important",
-                    padding: "0 !important",
-                    border: "0 transparent solid !important",
-                  }}
-                >
-                  <MenuItem color={"white"}>
-                    {" "}
-                    <Link to="isbn" reloadDocument rel="search">
-                      <button>ISBN Search</button>
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to="author" reloadDocument rel="search">
-                      <button>Author Search</button>
-                    </Link>
-                  </MenuItem>
-                </MenuList>
-              </Menu>
-            </button>
             <Link to="about" rel="search">
-              <button>About</button>
+              <Button variant={"menu-button"}>About</Button>
             </Link>
+
             <HStack flexGrow={8} justify={"end"} paddingRight={"12px"}>
               <Menu>
                 <MenuButton
@@ -356,9 +437,11 @@ export function SHeader() {
                   </MenuItem>
                 </MenuList>
               </Menu>
-              <button onClick={handleSignIn}>Sign-In</button>
+              <Button variant={"menu-button"} onClick={handleSignIn}>
+                Sign-In
+              </Button>
             </HStack>
-          </nav>
+          </Flex>
         </Hide>
         <Show below="xl">
           <Menu>
@@ -399,7 +482,9 @@ export function SHeader() {
                     </Link>
                   </MenuList>
                 </Menu>
-                <button onClick={handleSignIn}>Sign-In</button>
+                <Button variant={"menu-button"} onClick={handleSignIn}>
+                  Sign-In
+                </Button>
               </HStack>
               <Link to={"suggest"} reloadDocument rel="search">
                 <MenuItem>Suggest Books</MenuItem>

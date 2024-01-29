@@ -1,14 +1,3 @@
-// --------------------------------------------------------------------- //
-// NOTES
-// --------------------------------------------------------------------- //
-// https://upmostly.com/tutorials/calling-a-react-component-on-button-click#:~:text=Building%20Out%20the%20Basic%20Structure&text=%2F*%20Write%20a%20button%20component,whenever%20the%20button%20is%20clicked.
-//https://stackoverflow.com/questions/70120549/how-to-call-useeffect-again-on-button-click-in-react
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
-// https://blog.devgenius.io/how-to-pass-data-from-child-to-parent-in-react-33ed99a90f43
-
-// --------------------------------------------------------------------- //
-// External Components
-// --------------------------------------------------------------------- //
 import {
   Box,
   Flex,
@@ -16,15 +5,20 @@ import {
   Button,
   Select,
   VStack,
-  HStack,
   Center,
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionIcon,
+  AccordionPanel,
+  Switch,
 } from "@chakra-ui/react";
 
 //REACT
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useReducer, useRef } from "react";
 
 // ICONS
-import { FaSearch, FaBook } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 // COMPONENTS
 import DropdownOptions from "../ui/DropdownOptions";
@@ -35,24 +29,28 @@ import { BookReadingList } from "components/BookReadingList";
 import HeadingPanel from "components/ui/HeadingPanel";
 
 // LIBRARY
+import { ACTION_TYPES } from "./searchActionTypes";
 import FetchBooks from "lib/FetchBooks";
 import { useCookies } from "react-cookie";
+import { initialState, searchReducer } from "./searchFormReducer";
 
 // CSS DESIGN
 import "./BookSuggestionForm.design.css";
+import OrganizeBooks from "lib/OrganizeBooks";
 
 // --------------------------------------------------------------------- //
 //  Book search form & results panel
 // --------------------------------------------------------------------- //
-// todo: add language option
 export function BookSearchForm(props) {
+  // todo: Change this to useReducer(?)
+  // todo: cookies, search parameters, form expand/collapse, useMemo fn, misc. fn calls
+
+  // * useReducer that controls all search form actions
+  const [state, dispatch] = useReducer(searchReducer, initialState);
+
   // cookies
   const [cookies, setCookie, removeCookie] = useCookies(["cookies_denied"]);
-  // todo: Change this to useReducer(?)
-  // sets the loading state of our search result (Blank, loading, error & results)
-  const [loadState, setLoadState] = useState("Initial");
-  // Sets the collected & organized books from our api request
-  const [collectedBooks, setCollectedBooks] = useState([{}]);
+
   // Sets the search parameters user put into book genre search form
   const [searchParameters, setSearchParameters] = useState({
     subject: "",
@@ -60,83 +58,78 @@ export function BookSearchForm(props) {
     language: "eng",
   });
 
-  useEffect(() => {
-    let frontPageSubject = props.frontPageSearch?.subject;
-    console.log(`What is subject? `, frontPageSubject);
+  const [finalBooks, setFinalBooks] = useState();
 
-    if (frontPageSubject !== undefined) {
-      console.log(
-        `Front page search subject is NOT undefined or null! `,
-        frontPageSubject
-      );
-      setLoadState("Loading");
-      // !! Do test to check subject
-      // todo Do test to check subject
-      sendBooksRequest({ subject: frontPageSubject });
-      frontPageSubject = undefined;
-    } else {
-      setLoadState("Initial");
-      console.log(`The Front Page search is undefined!`, frontPageSubject);
-      
-    }
-
-    return () => {
-      // will run on every unmount.
-      console.log("component is unmounting");
-    };
-  }, []);
+  // Holds the ref of users search parameters so not to re-render paget
+  const unSubmittedParameters = useRef({
+    subject: "",
+    amount: 1,
+    language: "eng",
+  });
 
   // Grabs how many books user wants to see
   // todo: Change the amount and paginate results
   const BookAmount = (BookAmount) => {
-    setSearchParameters((prev) => ({
-      ...prev,
+    unSubmittedParameters.current = {
+      ...unSubmittedParameters.current,
       amount: BookAmount,
-    }));
+    };
   };
 
   // Grabs which book subject use wants to query
   // todo: Change it so user can add multiple genres
   const BookSubject = (subject) => {
-    setSearchParameters((prev) => ({
-      ...prev,
+    unSubmittedParameters.current = {
+      ...unSubmittedParameters.current,
       subject: subject,
-    }));
+    };
   };
 
-  // Grabs which book language use wants to query
-  // todo: Change it so user can add multiple genres
-  const BookLanguage = (language) => {
-    setSearchParameters((prev) => ({
-      ...prev,
-      language: language,
-    }));
-  };
+  // * FETCHES DATA FROM API & CACHES PREVIOUS VALUE IF SEARCH PARAMETERS ARE THE SAME
+  // const booksToBeOrganized = useMemo(async () => {
+  //   console.log(`These are the search parameters: `, searchParameters);
+  //   if (searchParameters.subject.length < 1) {
+  //     console.log("This search response is empty");
+  //   } else {
+  //     console.log("Search parameters have something");
+  //     // let books = await FetchBooks(searchParameters);
+  //     // return books;
+  //   }
 
-  // HOLDS BOOKS
-  let books;
+  //   // return searchParameters.subject !== "" || searchParameters !== undefined
+  //   //   ? books
+  //   //   : "";
+  // }, [searchParameters]);
 
-  // Handles grabbing of formatted & organized books fetched from api & sets loading state
-  // todo: Add cached/memoized version of this when user selects same seach parameters
-  async function sendBooksRequest({
-    subject = "fantasy",
-    amount = 5,
-    language = "eng",
-  }) {
-    // cookies
-    removeCookie("cookies_last_searched_genre", { path: "/" });
-    setCookie("cookies_last_searched_genre", searchParameters.subject, {
-      path: "/",
-    });
-    try {
-      books = await FetchBooks(subject, amount, language);
-      await setCollectedBooks(books);
-      await setLoadState("Loaded");
-    } catch (err) {
-      console.log(err.message);
-      setLoadState("Error");
+  useEffect(() => {
+    // * HANDLES USER SUBMIT
+    async function handleSubmit() {
+      // * SETS / RESETS COOKIES
+      removeCookie("cookies_last_searched_genre", { path: "/" });
+      setCookie("cookies_last_searched_genre", searchParameters.subject, {
+        path: "/",
+      });
+
+      dispatch({ type: ACTION_TYPES._SUBMIT_SEARCH });
+
+      try {
+        setSearchParameters(unSubmittedParameters.current);
+        console.log("Search parameters: ", searchParameters);
+        const fetchedBooks = await FetchBooks(searchParameters);
+        const organizedBooks = await OrganizeBooks(
+          fetchedBooks,
+          searchParameters.amount
+        );
+        setFinalBooks(organizedBooks);
+        dispatch({ type: ACTION_TYPES._SUCCESSFUL_SEARCH });
+      } catch {
+        console.log(`An error has occurred!`);
+        dispatch({ type: ACTION_TYPES._FAILED_SEARCH });
+      }
     }
-  }
+
+    handleSubmit();
+  }, [searchParameters]);
 
   return (
     <>
@@ -149,84 +142,121 @@ export function BookSearchForm(props) {
         marginBottom={2}
         backgroundColor={"mintcream"}
       >
-        <VStack gap={"25px"}>
+        <VStack gap={"20px"}>
           <HeadingPanel>Find me a book!</HeadingPanel>
 
-          <Flex flex flexDirection={"row"} textAlign={"center"}>
-            <Select
-              variant={"outline"}
-              // backgroundColor={"darkcyan"}
-              backgroundColor={"white"}
-              // color={"white"}
-              color={"black"}
-              border={"3px solid darkcyan"}
-              placeholder="Genre?"
-              margin={"8px"}
-              onChange={(e) => {
-                BookSubject(e.target.value);
-              }}
-            >
-              <DropdownOptions type={"subject"} />
-            </Select>
-            <Select
-              variant={"outline"}
-              // backgroundColor={"darkcyan"}
-              backgroundColor={"white"}
-              // color={"white"}
-              color={"black"}
-              border={"3px solid darkcyan"}
-              margin={"8px"}
-              placeholder="Language?"
-              onChange={(e) => {
-                BookLanguage(e.target.value);
-              }}
-            >
-              <DropdownOptions type={"languages"} />
-            </Select>
-          </Flex>
-          <Flex
-            w="100%"
-            flex
-            flexDirection={"column"}
-            textAlign={"center"}
-            gap={"12px"}
+          <Accordion
+            defaultIndex={0}
+            index={state.toggle_form_window}
+            w={"100%"}
+            allowToggle
           >
-            <Heading as="h3" size="xs" color={"grey"}>
-              How many book suggestions?
-            </Heading>
-            <CountSlider BookAmount={BookAmount} />
-          </Flex>
+            <AccordionItem
+              w={{
+                base: "xl",
+                "2xl": "xl",
+                xl: "xl",
+                lg: "xl",
+                md: "xl",
+                sm: "md",
+                xs: "xs",
+                "2xs": "260px",
+              }}
+            >
+              <h2>
+                <AccordionButton
+                  onClick={() => {
+                    dispatch({ type: ACTION_TYPES._TOGGLE_SEARCH_FORM });
+                  }}
+                >
+                  <Box as="span" flex="1" textAlign="left">
+                    Book Suggestion Form
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <br />
+              <AccordionPanel pb={4}>
+                <VStack gap={"20px"}>
+                  <Heading
+                    as="h3"
+                    size="xs"
+                    color={"grey"}
+                    textAlign={"center"}
+                  >
+                    What book genre would you like?
+                  </Heading>
+                  <Flex flex flexDirection={"row"} textAlign={"center"}>
+                    <Select
+                      variant={"outline"}
+                      backgroundColor={"white"}
+                      color={"black"}
+                      border={"3px solid darkcyan"}
+                      placeholder="Genre?"
+                      margin={"8px"}
+                      onChange={(e) => {
+                        BookSubject(e.target.value);
+                      }}
+                    >
+                      <DropdownOptions type={"subject"} />
+                    </Select>
+                  </Flex>
+                  <Flex
+                    w="100%"
+                    flex
+                    flexDirection={"column"}
+                    textAlign={"center"}
+                    gap={"12px"}
+                  >
+                    <Heading as="h3" size="xs" color={"grey"}>
+                      How many book suggestions?
+                    </Heading>
+                    <CountSlider BookAmount={BookAmount} />
+                  </Flex>
 
-          {/* todo: add a way that user can press enter to press search */}
-          <Button
-            leftIcon={<FaSearch />}
-            colorScheme="teal"
-            size="lg"
-            onClick={() => {
-              setLoadState("Loading");
-              sendBooksRequest(searchParameters);
-            }}
-          >
-            Search!
-          </Button>
+                  <Heading
+                    as="h3"
+                    size="xs"
+                    color={"grey"}
+                    textAlign={"center"}
+                  >
+                    Enable strange books? <br /> (No isbn, cover and/or author)
+                  </Heading>
+                  <Switch id="strange-books" />
+                  {/* // todo: add a way that user can press enter to press search */}
+                  <Button
+                    loadingText="Submitting"
+                    leftIcon={<FaSearch />}
+                    colorScheme="teal"
+                    size="lg"
+                    onClick={() => {
+                      setSearchParameters(unSubmittedParameters.current);
+                    }}
+                  >
+                    Search!
+                  </Button>
+                </VStack>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
         </VStack>
       </Box>
 
       {/* ------------------------------------------ */}
       {/* Loading search results to either initial state, loading state, loaded state and error state */}
       {/* ------------------------------------------ */}
-      {loadState === "Loaded" ? (
+      {state.load_state === "Loaded" && finalBooks !== undefined ? (
         <>
-          <SearchResult fetchedBooks={collectedBooks} />
+          <SearchResult fetchedBooks={finalBooks} />
           <BookReadingList />
         </>
-      ) : loadState === "Initial" ? (
+      ) : state.load_state === "Initial" ? (
         <></>
-      ) : loadState === "Front-Page" ? (
+      ) : state.load_state === "Front-Page" ? (
         <>
           <h1>Loading docs from front page selection</h1>
         </>
-      ) : loadState === "Loading" ? (
+      ) : state.load_state === "Loading" ? (
         <Box mt={20}>
           <Center>
             <BookLoader />
@@ -242,3 +272,31 @@ export function BookSearchForm(props) {
 }
 
 export default BookSearchForm;
+
+// todo: Add language selection for book searh
+/*
+
+
+ <Select
+              variant={"outline"}
+              backgroundColor={"white"}
+              color={"black"}
+              border={"3px solid darkcyan"}
+              margin={"8px"}
+              placeholder="Language?"
+              onChange={(e) => {
+                BookLanguage(e.target.value);
+              }}
+            >
+              <DropdownOptions type={"languages"} />
+            </Select> 
+
+              // Grabs which book language use wants to query
+  // todo: Change it so user can add multiple genres
+  // const BookLanguage = (language) => {
+  //   setSearchParameters((prev) => ({
+  //     ...prev,
+  //     language: language,
+  //   }));
+  // };
+*/

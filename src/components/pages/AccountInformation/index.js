@@ -1,13 +1,8 @@
 import {
-  Link,
-  Center,
-  Heading,
   Image,
   Box,
   Flex,
-  Text,
   Button,
-  HStack,
   Input,
   FormLabel,
   VStack,
@@ -21,9 +16,7 @@ import {
   Switch,
   Divider,
   Modal,
-  ModalBody,
   ModalCloseButton,
-  ModalHeader,
   ModalFooter,
   ModalContent,
   ModalOverlay,
@@ -34,7 +27,6 @@ import {
 import HeadingPanel from "../../ui/HeadingPanel";
 
 // ICONS
-import { HiInformationCircle } from "react-icons/hi";
 
 // IMAGES
 import avatarImage from "../../../images/avatars/avatar-1.png";
@@ -227,7 +219,11 @@ function AccountInformation() {
                   </FormLabel>
                   <InputGroup>
                     <Box onClick={handleSignIn}>
-                      <Image src={avatarImage} w={"135px"} _hover={{cursor:"pointer"}} />
+                      <Image
+                        src={avatarImage}
+                        w={"135px"}
+                        _hover={{ cursor: "pointer" }}
+                      />
                     </Box>
                   </InputGroup>
                 </Flex>

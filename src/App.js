@@ -47,7 +47,7 @@ function App() {
         </Routes>
         {cookies["cookies_accept"] === false ? <CookiesDisclaimer /> : <></>}
         {/* <CookiesDisclaimer /> */}
-        {console.log(JSON.stringify(cookies))}
+        {/* {console.log(JSON.stringify(cookies))} */}
         <SFooter />
       </CookiesProvider>
     </ChakraProvider>

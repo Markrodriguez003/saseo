@@ -1,24 +1,13 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Button,
-  Select,
-  VStack,
-  HStack,
-  Center,
-} from "@chakra-ui/react";
+import { Box, Button, VStack, Center } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaSearch, FaBook } from "react-icons/fa";
-import DropdownOptions from "../ui/DropdownOptions";
+
 import SearchResult from "components/SearchResult";
-import BookLoader from "components/ui/BookLoader/BookLoader";
+import OrganizeBooks from "lib/OrganizeBooks";
 import FetchBooks from "lib/FetchBooks";
 import HeadingPanel from "components/ui/HeadingPanel";
 import RandomBookSubject from "lib/RandomBookSubject";
 import RandomBookCoverAnimation from "components/ui/RandomBookCoverAnimation";
-
-import { useEffect } from "react";
 
 // todo: add language option
 export function RandomBookSearch() {
@@ -27,48 +16,18 @@ export function RandomBookSearch() {
   const [loadState, setLoadState] = useState("Intial");
   // Sets the collected & organized books from our api request
   const [collectedBooks, setCollectedBooks] = useState(undefined);
-  // Sets the search parameters user put into book genre search form
-  const [searchParameters, setSearchParameters] = useState({
-    subject: "",
-    amount: 1,
-    language: "eng",
-  });
-
-  useEffect(() => {
-    if (loadState !== "Intial") {
-      console.log(
-        `Parameters: ${searchParameters.amount}, ${searchParameters.subject}, ${searchParameters.language}`
-      );
-      sendBooksRequest();
-    }
-  }, [searchParameters.subject]);
-
-  // Grabs which book language use wants to query
-  // todo: Change it so user can add multiple genres
-  const BookLanguage = (language) => {
-    setSearchParameters((prev) => ({
-      ...prev,
-      language: language,
-    }));
-  };
-
-  const BookSubject = (e) => {
-    setSearchParameters((prev) => ({
-      ...prev,
-      subject: RandomBookSubject(),
-    }));
-  };
 
   // Handles grabbing of formatted & organized books fetched from api & sets loading state
   async function sendBooksRequest() {
+    let randomBook = RandomBookSubject();
+    console.log(`Random book subject chosen: `, { subject: randomBook[0] });
     try {
-      const books = await FetchBooks(
-        searchParameters.subject,
-        searchParameters.amount,
-        searchParameters.language
-      );
-      await setCollectedBooks(books);
-      await setLoadState("Loaded");
+      const books = await FetchBooks({ subject: randomBook[0] });
+      console.log(`Fetched books: `, books);
+      const finalizedBook = await OrganizeBooks(books, 1);
+      console.log(`Organized book: `, finalizedBook);
+      setCollectedBooks(finalizedBook);
+      setLoadState("Loaded");
     } catch (err) {
       console.log(err.message);
       loadState("Error");
@@ -92,16 +51,14 @@ export function RandomBookSearch() {
           {/* //todo: add a way that user can press enter to press search */}
           {/* //todo: add button animation (top and down movement) */}
           <Button
+            isLoading={loadState === "Loading" ? true : false}
+            loadingText="Finding"
             leftIcon={<FaSearch />}
             colorScheme="teal"
             size="lg"
             onClick={() => {
               setLoadState("Loading");
-              setSearchParameters((prev) => ({
-                ...prev,
-                subject: RandomBookSubject(),
-              }));
-              BookSubject();
+              sendBooksRequest();
             }}
           >
             Search!

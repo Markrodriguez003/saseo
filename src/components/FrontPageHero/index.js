@@ -26,19 +26,13 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 // EXTERNAL COMPONENTS
-import ISBNSearch from "../pages/ISBNSearch";
-import { color } from "framer-motion";
+
 import Shake from "react-reveal/Shake";
 
 // IMAGES
 import bgHero from "images/backgrounds/Hero-Book.png";
 import "./styles.css";
 import splashBook from "images/hero/hero-half-book.png";
-
-// ICONS
-import { BsFillArrowDownCircleFill } from "react-icons/bs";
-import { BiSearch, BiBookReader } from "react-icons/bi";
-// import { AiOutlineBook } from "react-icons/ai";
 
 function FrontPageHero() {
   // * Detects the size of the user's browser window. Used to change styling for certain components
@@ -57,35 +51,9 @@ function FrontPageHero() {
     subject: "",
   });
 
-  // useEffect(() => {
-  //   const onKeyDown = (e) => {
-  //     if (e.key === "Enter") {
-  //       console.log("You pressed Enter");
-  //     }
-  //   };
-
-  //   window.addEventListener("keydown", onKeyDown);
-  //   return () => window.removeEventListener("keydown", onKeyDown);
-  // }, []);
-
   function StopAnchorPropagration(event) {
     event.stopPropagation();
-    // event.preventDefault();
   }
-
-  const [keyPress, setKeyPress] = useState();
-  // Handles the submit of call to action if user presses enter
-  const handleEnterPress = (event) => {
-    console.log(`Key pressed: `, event.key);
-    // look for the `Enter` keyCode
-    // setKeyPress(event.key);
-    // if (event.key === "Enter" || event.which === "Enter") {
-    //   console.log("User pressed enter!!!!!!!!");
-
-    //   // handleCallToActionSubmit();
-    // }
-    // console.log("User Pressed: ", keyPress);
-  };
 
   // Handles the submit of call to action search input
   function handleCallToActionSubmit(e) {
@@ -166,7 +134,6 @@ function FrontPageHero() {
                   type="submit"
                   _hover={{ backgroundColor: "transparent" }}
                   onClick={(e) => handleCallToActionSubmit(e)}
-                  onKeyDown={(e) => handleEnterPress(e)}
                 >
                   Search!
                 </Button>
@@ -197,7 +164,6 @@ function FrontPageHero() {
                       </Button>
                     }
                     onClick={(e) => handleCallToActionSubmit(e)}
-                    onKeyDown={(e) => handleEnterPress(e)}
                   />
                 </InputGroup>
                 {errorText ? (
@@ -224,13 +190,12 @@ function FrontPageHero() {
               }}
               justify={"center"}
               align={"center"}
-              mb={12}
               position={"relative"}
             >
               <Box w={{ base: "60%", lg: "45%", md: "60%", sm: "60%" }}>
                 <Heading
                   color={"darkcyan"}
-                  mb={4}
+                  mb={2}
                   textAlign={{
                     base: "center",
                     lg: "left",
@@ -278,7 +243,7 @@ function FrontPageHero() {
                 </Stack>
               </Box>
 
-              <Image src={bgHero} maxW={"10rem"} mb={8} mt={6} />
+              <Image src={bgHero} maxW={"8rem"} mb={8} mt={6} />
             </Flex>
           </Stack>
         </Center>

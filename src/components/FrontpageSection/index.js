@@ -8,25 +8,18 @@ import {
   Stack,
   Button,
   Link,
-  Show,
-  Hide,
-  Flex,
   HStack,
   VStack,
 } from "@chakra-ui/react";
-import { useEffect } from "react";
 
 // LIBRARY
-import Xarrow from "react-xarrows";
 import { bookGenreRetrival } from "lib/bookGenreRetrieval";
 
 // COMPONENTS
 import WordRollerAnimation from "../ui/WordRollerAnimation";
 import SideBookStackGraphic from "../ui/SideBookStackGraphic";
-import FlipBook from "components/ui/FlipBook";
 import HeadingPanel from "components/ui/HeadingPanel";
 import TextPanel from "components/ui/TextPanel";
-import Fade from "react-reveal/Fade";
 import BookCoverAnimation from "components/ui/BookCoverAnimation";
 import AdPanels from "components/ui/AdPanels";
 import BestsellerBookSection from "components/BestsellerBookSection";
@@ -39,244 +32,6 @@ import book_subject_cover_images from "../../data/book_subjects_cover_images.jso
 
 // IMAGES
 import magnifierIcon from "../../images/backgrounds/icon-347230_1920.png";
-import confusedAvatar from "../../images/confusedAvatar.png";
-
-// ICONS
-import { FaCog } from "react-icons/fa";
-
-// NOTES
-
-/*// ************************************************************************************************* */
-/* INFOGRAPHIC SECTION  */
-/*// ************************************************************************************************* */
-export function InfographicSection() {
-  return (
-    <Box marginBottom={"150px"}>
-      <Show below="lg">
-        <Center>
-          <Image
-            src={confusedAvatar}
-            w={"220px"}
-            h={"auto"}
-            borderRadius={"full"}
-            marginTop={"45px"}
-          />
-        </Center>
-      </Show>
-      <Center marginTop={"45px"}>
-        <Heading
-          backgroundColor={"secondary"}
-          color={"white"}
-          fontSize={"5xl"}
-          textAlign={"center"}
-          padding={"25px"}
-          display={"inline"}
-          borderRadius={"25px"}
-          marginBottom={{
-            base: "120px",
-            sm: "120px",
-            md: "120px",
-            lg: "120px",
-            xs: "120p",
-            "2xs": "145px",
-          }}
-          marginTop={{
-            base: "40px",
-            sm: "0px",
-            md: "0px",
-            lg: "40px",
-            xs: "0px",
-            "2xs": "0px",
-          }}
-          id="intro"
-        >
-          How to use Saseo
-        </Heading>
-      </Center>
-      <br />
-      <br />
-      <Box
-        display={"flex"}
-        flexDirection={{
-          base: "row",
-          sm: "column",
-          md: "column",
-          lg: "row",
-          xs: "column",
-          "2xs": "column",
-        }}
-        padding={"30px"}
-        height={"300px"}
-        justifyContent={{
-          base: "space-around",
-          sm: "center",
-          md: "center",
-          lg: "space-around",
-          xs: "center",
-          "2xs": "center",
-        }}
-        gap={"60px"}
-      >
-        <Box
-          alignContent={"center"}
-          alignSelf={{
-            base: "flex-start",
-            sm: "center",
-            md: "center",
-            lg: "flex-start",
-            xs: "center",
-            "2xs": "center",
-          }}
-          w={{
-            base: "30%",
-            sm: "80%",
-            md: "50%",
-            lg: "30%",
-            xs: "90%",
-            "2xs": "90%",
-          }}
-        >
-          <Text
-            color={"white"}
-            fontSize={{
-              base: "xl",
-              sm: "xl",
-              md: "xl",
-              lg: "xl",
-              xs: "md",
-              "2xs": "md",
-            }}
-            letterSpacing={0.5}
-            className="highlight-text"
-            padding={"15px"}
-            borderRadius={"30px"}
-            id="start"
-            textAlign={"center"}
-          >
-            First, search for the book genre you wish to have suggested to you,
-            or find a book via isbn.
-          </Text>
-        </Box>
-        <Box
-          alignSelf={{
-            base: "center",
-            sm: "center",
-            md: "center",
-            lg: "end",
-            xs: "center",
-            "2xs": "center",
-          }}
-          w={{
-            base: "30%",
-            sm: "80%",
-            md: "50%",
-            lg: "30%",
-            xs: "90%",
-            "2xs": "90%",
-          }}
-          display={"flex"}
-          flexDirection={"column"}
-          gap={"35px"}
-        >
-          <Hide below="lg">
-            <Image
-              ata-aos="flip-left"
-              src={confusedAvatar}
-              w={"220px"}
-              h={"auto"}
-              borderRadius={"full"}
-              alignSelf={"center"}
-            />
-          </Hide>
-          <Text
-            color={"white"}
-            fontSize={{
-              base: "xl",
-              sm: "xl",
-              md: "xl",
-              lg: "xl",
-              xs: "md",
-              "2xs": "md",
-            }}
-            letterSpacing={0.5}
-            className="highlight-text"
-            padding={"15px"}
-            borderRadius={"30px"}
-            id="middle"
-            textAlign={"center"}
-          >
-            Your suggested books will be generated. Find the books that interest
-            you by saving them in your library.
-          </Text>
-        </Box>
-        <Box
-          alignContent={"center"}
-          alignSelf={{
-            base: "flex-start",
-            sm: "center",
-            md: "center",
-            lg: "flex-start",
-            xs: "center",
-            "2xs": "center",
-          }}
-          w={{
-            base: "30%",
-            sm: "80%",
-            md: "50%",
-            lg: "30%",
-            xs: "90%",
-            "2xs": "90%",
-          }}
-        >
-          <Text
-            color={"white"}
-            fontSize={{
-              base: "xl",
-              sm: "xl",
-              md: "xl",
-              lg: "xl",
-              xs: "md",
-              "2xs": "md",
-            }}
-            letterSpacing={0.5}
-            className="highlight-text"
-            padding={"15px"}
-            borderRadius={"30px"}
-            id="end"
-            textAlign={"center"}
-          >
-            Afterward you can email the book suggestions to yourself or anyone
-            else via email!{" "}
-          </Text>
-        </Box>
-
-        {/* ARROWS */}
-
-        {/* <Xarrow
-          start="intro"
-          end="start"
-          color="darkcyan"
-          dashness={{ strokeLen: 10, nonStrokeLen: 15, animation: -2 }}
-          animateDrawing={5}
-        /> */}
-        <Xarrow
-          start="start"
-          end="middle"
-          color="darkcyan"
-          dashness={{ strokeLen: 10, nonStrokeLen: 15, animation: -2 }}
-          animateDrawing={5}
-        />
-        <Xarrow
-          start="middle"
-          end="end"
-          color="darkcyan"
-          dashness={{ strokeLen: 5, nonStrokeLen: 5, animation: -5 }}
-          animateDrawing={3}
-        />
-      </Box>
-    </Box>
-  );
-}
 
 /*// ************************************************************************************************* */
 /* MONTHLY BOOK SUGGESTION PANEL  */
@@ -365,13 +120,13 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
                 cover="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1676734077i/122757672.jpg"
               />
             </Box>
-            <Box w={"170px"}  boxShadow="2xl">
+            <Box w={"170px"} boxShadow="2xl">
               <BookCoverAnimation
                 size="sm"
                 cover="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1684818185i/75665890.jpg"
               />
             </Box>
-            <Box w={"170px"} >
+            <Box w={"170px"}>
               <BookCoverAnimation
                 reverseFlip={true}
                 size="sm"
@@ -509,7 +264,7 @@ export function ExploreSection() {
           genre and how many books you would like suggested to you! You can also
           roll the dice and get a random book suggested to you!
         </TextPanel>
-        <VStack w={"100%"}  marginTop={"50px"}>
+        <VStack w={"100%"} marginTop={"50px"}>
           <Text color={"page"} textAlign={"center"} paddingTop={"10px"}>
             Grab your book suggestions here:{" "}
           </Text>
@@ -587,9 +342,8 @@ function FrontPageSection() {
   return (
     <>
       <ExploreSection />
-      <Fade>
-        <InfographicSection />
-      </Fade>
+      <br />
+      <br />
       <AdPanels />
       <BookGenreSuggestionSection />
       <br />

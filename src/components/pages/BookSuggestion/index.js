@@ -19,10 +19,13 @@ export function BookSuggestion() {
   // grabs the data and places it in a
   // const callToActionFrontPageSearch = location.state;
   const [bookCollection, setBookCollection] = useState([]);
+  const [selectBook, setSelectBook] = useState(false);
   return (
     <>
       {/* // todo: Move this context to Book Reading List component  */}
-      <SearchData.Provider value={{ bookCollection, setBookCollection }}>
+      <SearchData.Provider
+        value={{ bookCollection, setBookCollection, selectBook, setSelectBook }}
+      >
         {location.state !== null ? (
           <Box marginTop={"25px"} marginBottom={"200px"}>
             <BookSearchForm frontPageSearch={location.state} />

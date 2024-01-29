@@ -35,15 +35,14 @@ function BookCardButtons(bookdetails) {
       variant: "solid",
       alt: "Amazon anchor button",
       source:
-      bookdetails.props.hasOwnProperty("id_amazon") === true &&
-      bookdetails.props.id_amazon !== null &&
-      bookdetails.props.id_amazon !== undefined &&
-      bookdetails.props.id_amazon[0] !== undefined &&
-      bookdetails.props.id_amazon !== "" &&
-      Array.isArray(bookdetails.props.id_amazon) === true
-        ? `https://www.amazon.com/dp/${bookdetails.props.id_amazon[0]}`
-
-        : false,
+        bookdetails.props.hasOwnProperty("id_amazon") === true &&
+        bookdetails.props.id_amazon !== null &&
+        bookdetails.props.id_amazon !== undefined &&
+        bookdetails.props.id_amazon[0] !== undefined &&
+        bookdetails.props.id_amazon !== "" &&
+        Array.isArray(bookdetails.props.id_amazon) === true
+          ? `https://www.amazon.com/dp/${bookdetails.props.id_amazon[0]}`
+          : false,
     },
 
     {
@@ -71,16 +70,6 @@ function BookCardButtons(bookdetails) {
       )} book by ${bookdetails.props.author_name}`,
     },
   ];
-
-  // console.log(`This is the book's isbn --> ${bookdetails.props.isbn}`);
-  // console.log(`This is the book's author --> ${bookdetails.props.author_name}`);
-  // console.log(`This is the book's key --> ${bookdetails.props.key}`);
-  // console.log(
-  //   `This is the book's amazon id --> ${bookdetails.props.id_amazon}`
-  // );
-  // console.log(
-  //   `This is the book's goodreads id --> ${bookdetails.props.id_goodreads}`
-  // );
 
   /* ------------------------- */
   // BOOK CARD BUTTON + ANCHOR LINKS

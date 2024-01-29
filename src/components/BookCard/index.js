@@ -50,7 +50,6 @@ import BookCoverAnimation from "components/ui/BookCoverAnimation";
 function BookCard(book) {
   // Extract only function and state
   const context = useContext(SearchData);
-  // console.log(`tHIS IS THE BOOK --> ${JSON.stringify(book)}`);
 
   // const [bookState, dispatch] = useReducer(
   //   bookCardReducer,
@@ -78,12 +77,26 @@ function BookCard(book) {
   // ALLOWS THE USE OF CHAKRA TOAST
   let toast = useToast();
 
+  // * Checks which books are in the book collection, and highlights them in the list
+  // Similar to componentDidMount and componentDidUpdate:
+  // useEffect(() => {
+  //   console.log(`Book collection is: `, context.bookCollection);
+  //   return 0;
+  // }, [context.bookCollection]);
+
   /* ------------------------- */
   // INSERTS NEW BOOKS INTO SHARE ARRAY
   /* ------------------------- */
 
-  // todo: Research instead of async/await should I use useEffect?
-  async function addBook() {
+
+  function handleSelectBook(){
+
+    
+  }
+
+  async function addBook(e) {
+    console.log(`Clicked Book info: `, e);
+
     await context.setBookCollection((prev) => [
       ...prev,
       {
@@ -107,24 +120,12 @@ function BookCard(book) {
   // DELETES BOOKS FROM SHARE ARRAY
   /* ------------------------- */
   async function minusBook(e) {
-    // console.log(`Collected books: ${JSON.stringify(context.bookCollection)}`);
-    // let index = context.bookCollection.findIndex((b) => b.title === book.title)
-    // console.log(`Book that needs to be deleted: ${index}`);
-    // console.log(
-    //   `This is the current collection before delete: ${JSON.stringify(
-    //     context.bookCollection
-    //   )}`
-    // );
+    console.log(`Clicked Book info: `, e);
 
     let updatedBookCollection = context.bookCollection.filter(
       (b) => b.title !== book.title
     );
     await context.setBookCollection(updatedBookCollection);
-    // console.log(
-    //   `This is the current collection after delete: ${JSON.stringify(
-    //     updatedBookCollection
-    //   )}`
-    // );
 
     return toast({
       // REFACTOR
@@ -203,22 +204,6 @@ function BookCard(book) {
         boxShadow="lg"
         cursor={"pointer"}
         alignItems={"center"}
-        // justifyContent={{
-        //   base: "flex-start",
-        //   sm: "center",
-        //   xs: "center",
-        //   "2xs": "center",
-        //   md: "flex-start",
-        //   lg: "flex-start",
-        // }}
-        // alignContent={{
-        //   base: "flex-start",
-        //   sm: "center",
-        //   xs: "center",
-        //   "2xs": "center",
-        //   md: "flex-start",
-        //   lg: "flex-start",
-        // }}
         gap={"10px"}
       >
         {/* *************** */}
@@ -240,12 +225,16 @@ function BookCard(book) {
         {/* *************** */}
         {/* CARD BOOK INFO BODY */}
         {/* *************** */}
-        {/* //! problem is here */}
-        <Box display={"flex"} flexDirection={"column"} wordBreak={"break-word"}>
+
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          wordBreak={"break-word"}
+          w="100%"
+        >
           <CardBody
             letterSpacing={"0.5px"}
             onMouseEnter={(e) => {
-              // setOnHoverColor("rgba(228, 233, 237,0.5)");
               setOnHoverColor("mintgreen");
             }}
             onMouseLeave={(e) => {
@@ -336,7 +325,7 @@ function BookCard(book) {
                     e.stopPropagation();
                     e.preventDefault();
                     setSelectBook(!selectBook);
-                    selectBook ? minusBook() : addBook();
+                    selectBook ? minusBook(book.title) : addBook(book.title);
                   }}
                 >
                   {selectBook ? "Take out Book" : "Add Book"}

@@ -30,6 +30,22 @@ export const Button = {
       color: "black",
       border: "1px solid break",
     },
+    // Header button
+    "menu-button": {
+      color: "white",
+      fontWeight: "bold",
+      fontSize: "16px",
+      height: "100px",
+      padding: "15px",
+      transition: "0.1s all ease-in-out",
+      // border: "1px solid break",
+      _hover: {
+        backgroundColor: "primary",
+        borderRadius: "0px",
+        borderRight: "8.5px white solid",
+        borderLeft: "8.5px white solid",
+      },
+    },
   },
   //   // The default `size` or `variant` values
   //   defaultProps: {},

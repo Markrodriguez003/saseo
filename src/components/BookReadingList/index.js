@@ -20,7 +20,6 @@ import {
   ModalHeader,
   ModalBody,
   useDisclosure,
-  Link,
   Divider,
   Tooltip,
   Input,
@@ -47,9 +46,9 @@ import cardStockTexture from "../../images/textures/texture13.jpg";
 
 // LIBRARY
 import { Field, Form, Formik } from "formik";
-import Xarrow from "react-xarrows";
 import TextPanel from "components/ui/TextPanel";
 import sendEmail from "lib/sendEmail";
+import Xarrow from "react-xarrows"
 
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
@@ -59,17 +58,37 @@ import { SearchData } from "components/pages/BookSuggestion";
 
 export function BookReadingList() {
   const toast = useToast();
-  const collection = useContext(SearchData);
+  const context = useContext(SearchData);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   function validateName(value) {
     let error;
     if (!value) {
-      error = "Name is required";
+      error = "Email is required";
     } else if (value.toLowerCase() !== "naruto") {
-      error = "Jeez! You're not a fan 😱";
+      error = "Invalid Email!";
     }
     return error;
+  }
+
+  /* ------------------------- */
+  // DELETES BOOKS FROM SHARE ARRAY
+  /* ------------------------- */
+  async function minusBook(title) {
+    let updatedBookCollection = context.bookCollection.filter(
+      (b) => b.title !== title
+    );
+    await context.setBookCollection(updatedBookCollection);
+
+    return toast({
+      // REFACTOR
+      title: "Book taken out of your wishlist!.",
+      description: "That book wasn't interesting anyways!",
+      status: "error",
+      duration: 2400,
+      isClosable: true,
+      position: "bottom-right",
+    });
   }
 
   return (
@@ -177,8 +196,8 @@ export function BookReadingList() {
             justifyContent={"center"}
             alignContent={"center"}
           >
-            {collection.bookCollection.length !== 0 ? (
-              collection.bookCollection.map((b) => (
+            {context.bookCollection.length !== 0 ? (
+              context.bookCollection.map((b) => (
                 <Card
                   position={"relative"}
                   key={`collected-${b.title}`}
@@ -191,7 +210,6 @@ export function BookReadingList() {
                   marginBottom={"25px"}
                   alignSelf={"center"}
                   textAlign={"left"}
-                  // backgroundColor={"beige"}
                   backgroundColor={"white"}
                   backgroundImage={cardStockTexture}
                   backgroundPosition={"top"}
@@ -199,18 +217,21 @@ export function BookReadingList() {
                   backgroundSize={"cover"}
                   w={"100%"} // m
                 >
-                  <Box
+                  {/* CLOSE BUTTON */}
+                  {/* <Box
                     position={"absolute"}
                     color="rgba(0,0,0,0.3)"
                     fontSize="20px"
                     top={"20px"}
                     right={"20px"}
-                    onClick={(event) =>
-                      console.log("Delete this book --> " + event.target)
-                    }
+                    cursor={"pointer"}
+                    onClick={(event) => {
+                      minusBook(b.title);
+                      context.setSelectBook(!context.selectBook);
+                    }}
                   >
                     <FaWindowClose />
-                  </Box>
+                  </Box> */}
                   <CardHeader>
                     <Heading size="md" fontFamily={"typewriter"}>
                       {b.title}
@@ -315,6 +336,8 @@ export function BookReadingList() {
           >
             Create share card of all books in your reading list!
           </Heading>
+
+          {/* EMAIL */}
           <Formik
             initialValues={{ name: "Sasuke" }}
             onSubmit={(values, actions) => {
@@ -327,14 +350,14 @@ export function BookReadingList() {
             {(props) => (
               <Center>
                 <Form>
-                  <Field name="name" validate={validateName}>
+                  <Field name="email" validate={validateName}>
                     {({ field, form }) => (
                       <FormControl
-                        isInvalid={form.errors.name && form.touched.name}
+                        isInvalid={form.errors.email && form.touched.email}
                       >
-                        <FormLabel>First name</FormLabel>
-                        <Input {...field} placeholder="name" />
-                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                        <FormLabel>Email</FormLabel>
+                        <Input {...field} placeholder="email" />
+                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>
@@ -364,7 +387,7 @@ export function BookReadingList() {
 
                           // actions.setSubmitting(false);
                           event.preventDefault();
-                          sendEmail(collection.bookCollection);
+                          sendEmail(context.bookCollection);
                         }, 1000);
                       }}
                     >
