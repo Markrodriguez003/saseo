@@ -1,5 +1,4 @@
 import { ChakraProvider } from "@chakra-ui/react";
-
 // SITE COMPONENTS
 import SHeader from "./components/ui/SHeader";
 import FrontPage from "./components/pages/FrontPage";

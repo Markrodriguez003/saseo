@@ -14,7 +14,7 @@ import {
 
 // LIBRARY
 import { bookGenreRetrival } from "lib/bookGenreRetrieval";
-
+import { useEffect, useState } from "react";
 // COMPONENTS
 import WordRollerAnimation from "../ui/WordRollerAnimation";
 import SideBookStackGraphic from "../ui/SideBookStackGraphic";
@@ -65,6 +65,14 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
     }
   );
 
+  // GRABBING SUGGESTED BOOK DATA (BY PREVIOUS COOKIES) FROM SERVER
+  const [message, setMessage] = useState("");
+  
+  useEffect(() => {
+    fetch("http://localhost:8000/message")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
   return (
     <Box
       textAlign={"center"}
@@ -87,6 +95,7 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
       <HeadingPanel backgroundColor={"primary"}>
         Books you might like!
       </HeadingPanel>
+      <Heading>{message}</Heading>
 
       <HStack justifyContent={"center"} wrap={"WRAP"} gap={"10px"}>
         {/* INSERT BUILT COMPONENT HERE! */}
