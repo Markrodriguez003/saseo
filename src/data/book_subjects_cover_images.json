@@ -1,396 +1,814 @@
 {
   "science_fiction": [
     {
+      "title": "Dune",
       "cover": "https://m.media-amazon.com/images/I/910N36lR+kL._SY466_.jpg",
       "link": "https://www.amazon.com/Dune-Frank-Herbert-ebook/dp/B00B7NPRY8/ref=sr_1_14?crid=3775ROLL458KF&keywords=sci+books&qid=1699382169&refinements=p_72%3A1248987011&rnid=1248985011&s=digital-text&sprefix=sci+books%2Caps%2C106&sr=1-14"
     },
     {
+      "title": "The Three Body Problem",
       "cover": "https://m.media-amazon.com/images/I/81rITw6eLTL._SY466_.jpg",
       "link": "https://www.amazon.com/Three-Body-Problem-Remembrance-Earths-Past-ebook/dp/B00IQO403K/ref=sr_1_23?crid=3775ROLL458KF&keywords=sci+books&qid=1699381951&refinements=p_72%3A1248987011&rnid=1248985011&s=digital-text&sprefix=sci+books%2Caps%2C106&sr=1-23"
     },
     {
+      "title": "Project Hail Mary",
       "cover": "https://m.media-amazon.com/images/I/81rZH5mC2xL._SY466_.jpg",
       "link": "https://www.amazon.com/Project-Hail-Mary-Andy-Weir-ebook/dp/B08FHBV4ZX/ref=sr_1_24?crid=3775ROLL458KF&keywords=sci+books&qid=1699381951&refinements=p_72%3A1248987011&rnid=1248985011&s=digital-text&sprefix=sci+books%2Caps%2C106&sr=1-24"
     },
     {
+      "title": "The Many Colored Land",
       "cover": "https://m.media-amazon.com/images/I/81Qt+L2IvCL._SY466_.jpg",
       "link": "https://www.amazon.com/Many-Colored-Land-Saga-Pliocene-Exile-ebook/dp/B00633YOUU/ref=sr_1_20?crid=3775ROLL458KF&keywords=sci+books&qid=1699381951&refinements=p_72%3A1248987011&rnid=1248985011&s=digital-text&sprefix=sci+books%2Caps%2C106&sr=1-20"
     },
     {
+      "title": "The Quite Room",
       "cover": "https://m.media-amazon.com/images/I/91OZGl7XHCL._SY466_.jpg",
       "link": "https://www.amazon.com/Quiet-Room-Rabbits-Novel-ebook/dp/B0BRMJ7RWP/ref=sr_1_6?crid=1AQI5QYGN9GU8&keywords=the+quiet+room+book&qid=1699382198&s=digital-text&sprefix=the+quiet+room+book%2Cdigital-text%2C83&sr=1-6"
     },
     {
+      "title": "Phantom",
       "cover": "https://m.media-amazon.com/images/I/71p8PwXhipL._SY466_.jpg",
       "link": "https://www.amazon.com/Phantom-Helen-Power-ebook/dp/B0CF3KP2PG/ref=sr_1_1?crid=26279OZDU4QHC&keywords=phantom+helen+power&qid=1699382216&s=digital-text&sprefix=phantom+helen+%2Cdigital-text%2C90&sr=1-1"
     },
     {
+      "title": "The Land of Milk and Honey",
       "cover": "https://m.media-amazon.com/images/I/81m1Vbh-5NL._SY466_.jpg",
       "link": "https://www.amazon.com/Land-Milk-Honey-Pam-Zhang-ebook/dp/B0BTVF2541/ref=sr_1_1?crid=32N8YIPBZY0FF&keywords=land+of+milk+and+honey&qid=1699382189&s=digital-text&sprefix=land+of+milk+and+honey%2Cdigital-text%2C84&sr=1-1"
     },
     {
+      "title": "Mountain Sea",
       "cover": "https://m.media-amazon.com/images/I/91ON4YVnjlL._SY466_.jpg",
       "link": "https://www.amazon.com/Mountain-Sea-Novel-Ray-Nayler/dp/1250872278/ref=sr_1_8?crid=P22Y4ZXX5IQ5&keywords=science+fiction&qid=1699390731&sprefix=science+fictio%2Caps%2C168&sr=8-8"
+    },
+    {
+      "title": "The Cage of Souls",
+      "cover": "https://m.media-amazon.com/images/I/51d3KkBohNL.jpg",
+      "link": "https://www.amazon.com/Audible-Cage-of-Souls/dp/B0BTDTFTH2/ref=sr_1_5?crid=3QAS4VUWC7ATK&keywords=science+fiction+book&qid=1707159585&refinements=p_72%3A1250221011&rnid=1250219011&s=books&sprefix=science+fiction+book%2Caps%2C124&sr=1-5"
+    },
+    {
+      "title": "The Fifth Science",
+      "cover": "https://m.media-amazon.com/images/I/61OPJ7+h5bL._SL1500_.jpg",
+      "link": "https://www.amazon.com/Fifth-Science-Exurb1a/dp/1796356301/ref=sr_1_2?crid=3QAS4VUWC7ATK&keywords=science+fiction+book&qid=1707159585&refinements=p_72%3A1250221011&rnid=1250219011&s=books&sprefix=science+fiction+book%2Caps%2C124&sr=1-2"
+    },
+    {
+      "title": "Dark Matter",
+      "cover": "https://m.media-amazon.com/images/I/51cM1xXdA-L.jpg",
+      "link": "https://www.amazon.com/Dark-Matter-Blake-Crouch-audiobook/dp/B01CUKUN90/ref=sr_1_7?crid=3QAS4VUWC7ATK&keywords=science+fiction+book&qid=1707159585&refinements=p_72%3A1250221011&rnid=1250219011&s=books&sprefix=science+fiction+book%2Caps%2C124&sr=1-7"
+    },
+    {
+      "title": "The Midnight Library",
+      "cover": "https://m.media-amazon.com/images/I/419rQcegOyL.jpg",
+      "link": "https://www.amazon.com/The-Midnight-Library-A-Novel/dp/B085S8BSYS/ref=sr_1_11?crid=3QAS4VUWC7ATK&keywords=science+fiction+book&qid=1707159585&refinements=p_72%3A1250221011&rnid=1250219011&s=books&sprefix=science+fiction+book%2Caps%2C124&sr=1-11"
     }
   ],
   "horror": [
     {
-      "cover": "",
-      "link": ""
+      "title": "The Outsider",
+      "cover": "https://m.media-amazon.com/images/I/61-QjYwjyBL.jpg",
+      "link": "https://www.amazon.com/The-Outsider-Stephen-King-audiobook/dp/B079586RDT/ref=sr_1_1?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "What Moves is Dead",
+      "cover": "https://m.media-amazon.com/images/I/515lDkhA3xL.jpg",
+      "link": "https://www.amazon.com/Audible-What-Moves-the-Dead/dp/B09VVR6N9Y/ref=sr_1_2?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-2"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Only One Left",
+      "cover": "https://m.media-amazon.com/images/I/51WWQVSEMzL.jpg",
+      "link": "https://www.amazon.com/Only-One-Left-Novel/dp/B0BJ17G933/ref=sr_1_3?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-3"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Clown in the Cornfield",
+      "cover": "https://m.media-amazon.com/images/I/51FkcGI7EmL.jpg",
+      "link": "https://www.amazon.com/Clown-in-a-Cornfield/dp/B082XJKZ7K/ref=sr_1_8?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-8"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Home Before Dark",
+      "cover": "https://m.media-amazon.com/images/I/51N5yPENVgL.jpg",
+      "link": "https://www.amazon.com/Home-Before-Dark-A-Novel/dp/B07ZPF1GN2/ref=sr_1_9?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-9"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Hidden Pictures",
+      "cover": "https://m.media-amazon.com/images/I/51o3USb9YTL.jpg",
+      "link": "https://www.amazon.com/Audible-Hidden-Pictures-A-Novel/dp/B09GCKQGYG/ref=sr_1_10?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-10"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Southern Book Club's Guide to Slaying Vampires",
+      "cover": "https://m.media-amazon.com/images/I/516HVDpIskL.jpg",
+      "link": "https://www.amazon.com/Southern-Clubs-Guide-Slaying-Vampires/dp/B082WMSL4B/ref=sr_1_27?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160105&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-27"
+    },
+    {
+      "title": "The Troop",
+      "cover": "https://m.media-amazon.com/images/I/51fnmJ295cL.jpg",
+      "link": "https://www.amazon.com/The-Troop-Nick-Cutter-audiobook/dp/B00I52R1HA/ref=sr_1_11?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-11"
+    },
+    {
+      "title": "Don't Look Back",
+      "cover": "https://m.media-amazon.com/images/I/41eM+wPq2GL.jpg",
+      "link": "https://www.amazon.com/Dont-Look-Back-Fenton-House/dp/B09VMCDSGX/ref=sr_1_13?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-13"
+    },
+    {
+      "title": "Tender is the Flesh",
+      "cover": "https://m.media-amazon.com/images/I/517uuXADGYL.jpg",
+      "link": "https://www.amazon.com/Tender-Is-the-Flesh/dp/B0844LSNPP/ref=sr_1_16?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160072&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-16"
+    },
+    {
+      "title": "Behind the Horror",
+      "cover": "https://m.media-amazon.com/images/I/51T9dOdBhhL.jpg",
+      "link": "https://www.amazon.com/Behind-Horror-Stories-Inspired-Movies/dp/B086H5KJLZ/ref=sr_1_19?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160105&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-19"
+    },
+    {
+      "title": "Never Whistle at Night",
+      "cover": "https://m.media-amazon.com/images/I/51fbpSksqwL.jpg",
+      "link": "https://www.amazon.com/Never-Whistle-Night-Indigenous-Anthology/dp/B0BWSN5SJT/ref=sr_1_21?crid=2KRFHEBZB2MKR&keywords=horror+book&qid=1707160105&s=audible&sprefix=horror+book%2Caudible%2C124&sr=1-21"
     }
   ],
   "humor": [
     {
-      "cover": "",
-      "link": ""
+      "title": "Swamp Story",
+      "cover": "https://m.media-amazon.com/images/I/51XoLOhboNL.jpg",
+      "link": "https://www.amazon.com/Audible-Swamp-Story-A-Novel/dp/B0BJRK2YZY/ref=sr_1_27?crid=1FKVL6OXZ2S2A&keywords=humor+book&qid=1707160731&refinements=p_72%3A1250221011&rnid=1250219011&s=books&sprefix=humor+book%2Cstripbooks%2C123&sr=1-27"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Your Guide to Not Getting Murdered in a Quaint English Village",
+      "cover": "https://m.media-amazon.com/images/I/81rrayYNvvL._SL1500_.jpg",
+      "link": "https://www.amazon.com/Getting-Murdered-Quaint-English-Village/dp/1984859625/ref=sr_1_34?crid=1FKVL6OXZ2S2A&keywords=humor+book&qid=1707160731&refinements=p_72%3A1250221011&rnid=1250219011&s=books&sprefix=humor+book%2Cstripbooks%2C123&sr=1-34"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Murder Your Employer: The McMasters Guide to Homicide",
+      "cover": "https://m.media-amazon.com/images/I/51nlWvu9KTL.jpg",
+      "link": "https://www.amazon.com/Murder-Your-Employer-McMasters-Homicide/dp/B0B51ZT68K/ref=sr_1_67?crid=1FKVL6OXZ2S2A&keywords=humor+book&qid=1707160782&refinements=p_72%3A1250221011&rnid=1250219011&s=books&sprefix=humor+book%2Cstripbooks%2C123&sr=1-67"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Things We Never Got Over",
+      "cover": "https://m.media-amazon.com/images/I/71ODaT072wL._SL1500_.jpg",
+      "link": "https://www.amazon.com/Things-We-Never-Got-Over-ebook/dp/B09PNM8FFN/ref=sr_1_1_sspa?crid=1F1EC9TG346ZJ&keywords=humor+books+best+sellers&qid=1707160887&s=books&sprefix=humor+book%2Cstripbooks%2C125&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Ouch: A Comical & Quirky Tale About a Masochist, a Sadist, & a Klutz",
+      "cover": "https://m.media-amazon.com/images/I/71UDV3CkM6L._SL1500_.jpg",
+      "link": "https://www.amazon.com/Ouch-Comical-Quirky-Masochist-Sadist/dp/0989005895/ref=sr_1_33_sspa?crid=1DFO4U4VZBVCR&keywords=comedy+books&qid=1707161006&rnid=1250219011&s=books&sprefix=comedy+books%2Cstripbooks%2C99&sr=1-33-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9idGY&psc=1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "How to Talk to Your Cat About Gun Safety: And Abstinence, Drugs, Satanism, and Other Dangers That Threaten Their Nine Lives",
+      "cover": "https://m.media-amazon.com/images/I/61Rhh0domIL._SL1200_.jpg",
+      "link": "https://www.amazon.com/How-Talk-Your-About-Safety/dp/045149492X/ref=sr_1_88?crid=1DFO4U4VZBVCR&keywords=comedy+books&qid=1707161137&rnid=1250219011&s=books&sprefix=comedy+books%2Cstripbooks%2C99&sr=1-88"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Humble Pi: A Comedy of Maths Errors",
+      "cover": "https://m.media-amazon.com/images/I/71bnRAByN3L._SL1500_.jpg",
+      "link": "https://www.amazon.com/Humble-Pi-Comedy-Maths-Errors/dp/0141989149/ref=sr_1_51?crid=1DFO4U4VZBVCR&keywords=comedy+books&qid=1707161107&rnid=1250219011&s=books&sprefix=comedy+books%2Cstripbooks%2C99&sr=1-51"
+    },
+    {
+      "title": "Poking a Dead Frog: Conversations with Today's Top Comedy Writers",
+      "cover": "https://m.media-amazon.com/images/I/612w3fDm8bL._SL1200_.jpg",
+      "link": "https://www.amazon.com/Poking-Dead-Frog-Conversations-Writers/dp/0143123785/ref=sr_1_131?crid=1DFO4U4VZBVCR&keywords=comedy+books&qid=1707161209&rnid=1250219011&s=books&sprefix=comedy+books%2Cstripbooks%2C99&sr=1-131"
+    },
+    {
+      "title": "Subculture Vulture: A Memoir in Six Scenes",
+      "cover": "https://m.media-amazon.com/images/I/51EAOUzEgOL.jpg",
+      "link": "https://www.amazon.com/Subculture-Vulture-Memoir-Six-Scenes/dp/B0C4BTR6RM/ref=sr_1_138?crid=1DFO4U4VZBVCR&keywords=comedy+books&qid=1707161209&rnid=1250219011&s=books&sprefix=comedy+books%2Cstripbooks%2C99&sr=1-138"
+    },
+    {
+      "title": "Kane:  A Humorous Supernatural Thriller (Wolfwere Series Book 1)",
+      "cover": "https://m.media-amazon.com/images/I/91v14xoCdYL._SL1500_.jpg",
+      "link": "https://www.amazon.com/Kane-Humorous-Supernatural-Thriller-Wolfwere-ebook/dp/B0C4K14P84/ref=sr_1_145_sspa?crid=1DFO4U4VZBVCR&keywords=comedy+books&qid=1707161246&rnid=1250219011&s=books&sprefix=comedy+books%2Cstripbooks%2C99&sr=1-145-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGZfbmV4dA&psc=1"
+    },
+    {
+      "title": "The Hitchhiker's Guide to the Galaxy",
+      "cover": "https://m.media-amazon.com/images/I/51b09NRSkiL.jpg",
+      "link": "https://www.amazon.com/Hitchhikers-Guide-Galaxy/dp/B0009JKV9W/ref=sr_1_4?keywords=hitchhiker%27s+guide&qid=1707161314&s=books&sr=1-4"
+    },
+    {
+      "title": "The Legend of Greg",
+      "cover": "https://m.media-amazon.com/images/I/61iyHR+vgPL.jpg",
+      "link": "https://www.amazon.com/The-Legend-of-Greg-Chris-Rylander-audiobook/dp/B07D8Q794D/ref=sr_1_98?crid=2NA19CEGSOG8Y&keywords=funny+books&qid=1707162114&s=audible&sprefix=funny+books%2Caudible%2C114&sr=1-98"
     }
   ],
   "mystery": [
     {
-      "cover": "",
-      "link": ""
+      "title": "Three Women Disappear",
+      "cover": "https://m.media-amazon.com/images/I/51-+wUuFCSL.jpg",
+      "link": "https://www.amazon.com/Three-Women-Disappear-Bonus-Novel/dp/B08HPNJMVP/ref=sr_1_19?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162229&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-19"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Exchange: After the Firm",
+      "cover": "https://m.media-amazon.com/images/I/61TXJt9sNAL.jpg",
+      "link": "https://www.amazon.com/The-Exchange-After-Firm/dp/B0BYKF6QSH/ref=sr_1_20?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162229&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-20"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Girl from Silent Lake: A Totally Gripping and Heart-Pounding Crime Thriller",
+      "cover": "https://m.media-amazon.com/images/I/51Nfl65zm7L.jpg",
+      "link": "https://www.amazon.com/Girl-Silent-Lake-Heart-Pounding-Detective/dp/B08VWFKFCM/ref=sr_1_6?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-6"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Don't Let Her Stay",
+      "cover": "https://m.media-amazon.com/images/I/51S8PaywOOL.jpg",
+      "link": "https://www.amazon.com/Audible-Dont-Let-Her-Stay/dp/B0BJSCJ772/ref=sr_1_8?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-8"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Echoes Fade",
+      "cover": "https://m.media-amazon.com/images/I/516qTlPcABL.jpg",
+      "link": "https://www.amazon.com/Echoes-Fade-David-Mystery-Thriller/dp/B0CB93F6BY/ref=sr_1_9?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-9"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "If She Knew: A Kate Wise Mystery, Book 1",
+      "cover": "https://m.media-amazon.com/images/I/51sjdRsEHnL.jpg",
+      "link": "https://www.amazon.com/If-She-Knew-Blake-Pierce-audiobook/dp/B07H51QXQF/ref=sr_1_10?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-10"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "An Act of Foul Play: A Lady Hardcastle Mystery, Book 9",
+      "cover": "https://m.media-amazon.com/images/I/413k1SakGVL.jpg",
+      "link": "https://www.amazon.com/Act-Foul-Play-Hardcastle-Mystery/dp/B0B722Y7QB/ref=sr_1_13?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-13"
+    },
+    {
+      "title": "Never Lie",
+      "cover": "https://m.media-amazon.com/images/I/51x3GKfLciL.jpg",
+      "link": "https://www.amazon.com/Audible-Never-Lie/dp/B0BJS73813/ref=sr_1_15?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-15"
+    },
+    {
+      "title": "The Mystery Guest: A Maid Novel",
+      "cover": "https://m.media-amazon.com/images/I/41cS4Twm4aL.jpg",
+      "link": "https://www.amazon.com/Mystery-Guest-Maid-Novel/dp/B0C5RYBTG4/ref=sr_1_14?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-14"
+    },
+    {
+      "title": "The Surgeon",
+      "cover": "https://m.media-amazon.com/images/I/41hOhF26e3L.jpg",
+      "link": "https://www.amazon.com/Audible-The-Surgeon/dp/B0BWNXFX7G/ref=sr_1_16?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-16"
+    },
+    {
+      "title": "The Thursday Murder Club",
+      "cover": "https://m.media-amazon.com/images/I/51wa9nb-6mL.jpg",
+      "link": "https://www.amazon.com/Thursday-Murder-Club-Novel/dp/B086DL5TVZ/ref=sr_1_5?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162167&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-5"
+    },
+    {
+      "title": "Six Feet Deep Dish: Deep Dish Mysteries, Book 1",
+      "cover": "https://m.media-amazon.com/images/I/51RMm2LXDIL.jpg",
+      "link": "https://www.amazon.com/Six-Feet-Deep-Dish-Mysteries/dp/B09ZG9BSW3/ref=sr_1_18?crid=2EYQ81GGHUFQU&keywords=mystery+books&qid=1707162229&s=audible&sprefix=mystery+books%2Caudible%2C97&sr=1-18"
     }
   ],
   "travel": [
     {
-      "cover": "",
-      "link": ""
+      "title": "World Travel: An Irreverent Guide",
+      "cover": "https://m.media-amazon.com/images/I/51jkWttrV9L.jpg",
+      "link": "https://www.amazon.com/World-Travel-An-Irreverent-Guide/dp/B0872F1N4F/ref=sr_1_1?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162778&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Travels with George: In Search of Washington and His Legacy",
+      "cover": "https://m.media-amazon.com/images/I/51l0guVEr+L.jpg",
+      "link": "https://www.amazon.com/Travels-George-Search-Washington-Legacy/dp/B08X4YQNMD/ref=sr_1_5?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162778&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-5"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Take More Vacations: How to Search Better, Book Cheaper, and Travel the World",
+      "cover": "https://m.media-amazon.com/images/I/513WITsfZYS.jpg",
+      "link": "https://www.amazon.com/Take-More-Vacations-Search-Cheaper/dp/B08KYFLHL7/ref=sr_1_3?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162778&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-3"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "International Travel Secrets: Take Shorter Trips, More Often, for Less",
+      "cover": "https://m.media-amazon.com/images/I/512OSKr6HrL.jpg",
+      "link": "https://www.amazon.com/International-Travel-Secrets-Shorter-Trips/dp/B08YJMWB4N/ref=sr_1_11?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162778&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-11"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Travels of Marco Polo",
+      "cover": "https://m.media-amazon.com/images/I/31OeoNG2-iL.jpg",
+      "link": "https://www.amazon.com/The-Travels-of-Marco-Polo-audiobook/dp/B00009OYYK/ref=sr_1_15?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162778&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-15"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Travels of Marco Polo",
+      "cover": "https://m.media-amazon.com/images/I/31OeoNG2-iL.jpg",
+      "link": "https://www.amazon.com/The-Travels-of-Marco-Polo-audiobook/dp/B00009OYYK/ref=sr_1_15?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162778&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-15"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Abroad in Japan",
+      "cover": "https://m.media-amazon.com/images/I/51v0XmNP6wL.jpg",
+      "link": "https://www.amazon.com/Audible-Abroad-in-Japan/dp/B0BSNXF165/ref=sr_1_18?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162801&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-18"
+    },
+    {
+      "title": "Around the World in 80 Trains: A 45,000-Mile Adventure",
+      "cover": "https://m.media-amazon.com/images/I/51lZXfGzjdL.jpg",
+      "link": "https://www.amazon.com/Around-World-80-Trains-Adventure/dp/B088TWMN3G/ref=sr_1_21?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162801&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-21"
+    },
+    {
+      "title": "The Book of Marvels and Travels",
+      "cover": "https://m.media-amazon.com/images/I/51jIY-lAKqL.jpg",
+      "link": "https://www.amazon.com/Book-Marvels-Travels/dp/B07YSYNYTP/ref=sr_1_49?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162850&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-49"
+    },
+    {
+      "title": "Travel Light: Spiritual Minimalism to Live a More Fulfilled Life",
+      "cover": "https://m.media-amazon.com/images/I/41nJZlDqMuL.jpg",
+      "link": "https://www.amazon.com/Travel-Light-Spiritual-Minimalism-Fulfilled/dp/B0C5S1HKDM/ref=sr_1_53?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162850&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-53"
+    },
+    {
+      "title": "European Travel for the Monstrous Gentlewoman: The Extraordinary Adventures of the Athena Club, Book 2",
+      "cover": "https://m.media-amazon.com/images/I/61H4zmQCCBL.jpg",
+      "link": "https://www.amazon.com/European-Travel-Monstrous-Gentlewoman-Extraordinary/dp/B07CPMKZ7F/ref=sr_1_51?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162850&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-51"
+    },
+    {
+      "title": "How Iceland Changed the World: The Big History of a Small Island",
+      "cover": "https://m.media-amazon.com/images/I/51e3IYGW-SS.jpg",
+      "link": "https://www.amazon.com/How-Iceland-Changed-World-History/dp/B08H5VVKFW/ref=sr_1_83?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162897&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-83"
+    },
+    {
+      "title": "Neither Here or There",
+      "cover": "https://m.media-amazon.com/images/I/51Bm0qdjGmL.jpg",
+      "link": "https://www.amazon.com/Neither-Here-nor-There-audiobook/dp/B0054QOR9K/ref=sr_1_90?crid=FTDRYDSSCWUK&keywords=travel+books&qid=1707162897&s=audible&sprefix=travek+books%2Caudible%2C95&sr=1-90"
     }
   ],
   "non_fiction": [
     {
-      "cover": "",
-      "link": ""
+      "title": "The Wager: A Tale of Shipwreck, Mutiny and Murder",
+      "cover": "https://m.media-amazon.com/images/I/517EmiOxASL.jpg",
+      "link": "https://www.amazon.com/Wager-Tale-Shipwreck-Mutiny-Murder/dp/B0B9T7F9RR/ref=sr_1_1?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163596&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Black Ops: The Life of a CIA Shadow Warrior",
+      "cover": "https://m.media-amazon.com/images/I/41hMJtIo9DS.jpg",
+      "link": "https://www.amazon.com/Black-Ops-Life-Shadow-Warrior/dp/B0987X3DGR/ref=sr_1_3?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163596&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-3"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Make Your Bed: Little Things That Can Change Your Life...and Maybe the World ",
+      "cover": "https://m.media-amazon.com/images/I/51KlO8qld4L.jpg",
+      "link": "https://www.amazon.com/Make-Your-Bed-William-H-McRaven-audiobook/dp/B06XKDM3QL/ref=sr_1_5?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163596&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-5"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Boys in the Boat: Nine Americans and their Epic Quest for Gold at the 1936 Berlin Olympics",
+      "cover": "https://m.media-amazon.com/images/I/51ID7c2dG5L.jpg",
+      "link": "https://www.amazon.com/The-Boys-in-Boat-audiobook/dp/B00D67EOMO/ref=sr_1_6?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163596&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-6"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Ghosts of Honolulu: A Japanese Spy, a Japanese American Spy Hunter, and the Untold Story of Pearl Harbor",
+      "cover": "https://m.media-amazon.com/images/I/51iqf1coiWL.jpg",
+      "link": "https://www.amazon.com/Ghosts-Honolulu-Japanese-American-Hunter/dp/B0BZT7SJ5C/ref=sr_1_9?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163596&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-9"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Blood and Thunder: An Epic of the American West",
+      "cover": "https://m.media-amazon.com/images/I/51YC6op1J0L.jpg",
+      "link": "https://www.amazon.com/Blood-and-Thunder-Hampton-Sides-audiobook/dp/B000JJ3SD8/ref=sr_1_13?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163596&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-13"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Zero Fail: The Rise and Fall of the Secret Service",
+      "cover": "https://m.media-amazon.com/images/I/51xiTW4P1wS.jpg",
+      "link": "https://www.amazon.com/Zero-Fail-Rise-Secret-Service/dp/B08M4DY3QW/ref=sr_1_17?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163622&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-17"
+    },
+    {
+      "title": "The Girl in the Leaves",
+      "cover": "https://m.media-amazon.com/images/I/61yqDrwMgrL.jpg",
+      "link": "https://www.amazon.com/The-Girl-in-the-Leaves/dp/B01N0NUGYB/ref=sr_1_18?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163622&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-18"
+    },
+    {
+      "title": "The Girls Who Stepped Out of Line: Untold Stories of the Women Who Changed the Course of World War II ",
+      "cover": "https://m.media-amazon.com/images/I/51BRO2aVjWL.jpg",
+      "link": "https://www.amazon.com/Girls-Who-Stepped-Out-Line/dp/B099P29ZDZ/ref=sr_1_19?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163622&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-19"
+    },
+    {
+      "title": "Island of the Lost: Shipwrecked at the Edge of the World ",
+      "cover": "https://m.media-amazon.com/images/I/612D8YjsMtL.jpg",
+      "link": "https://www.amazon.com/Island-of-Lost-Joan-Druett-audiobook/dp/B01DCFS8SU/ref=sr_1_21?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163622&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-21"
+    },
+    {
+      "title": "The Good Life: Lessons from the World's Longest Scientific Study of Happiness ",
+      "cover": "https://m.media-amazon.com/images/I/41F977ZCG9L.jpg",
+      "link": "https://www.amazon.com/Good-Life-Life-Changing-Lessons-Happiness/dp/B0B4WWK515/ref=sr_1_23?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163622&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-23"
+    },
+    {
+      "title": "The Earth Is All That Lasts: Crazy Horse, Sitting Bull, and the Last Stand of the Great Sioux Nation",
+      "cover": "https://m.media-amazon.com/images/I/51STuuOZMVL.jpg",
+      "link": "https://www.amazon.com/Earth-All-That-Lasts-Sitting/dp/B09JWZL5RM/ref=sr_1_24?crid=18T23XBYIGX5J&keywords=nonfiction+books&qid=1707163622&s=audible&sprefix=nonfiction+books%2Caudible%2C110&sr=1-24"
     }
   ],
   "fiction": [
     {
-      "cover": "",
-      "link": ""
+      "title": "The Lost Bookshop",
+      "cover": "https://m.media-amazon.com/images/I/61ytKWiSXiL.jpg",
+      "link": "https://www.amazon.com/Audible-The-Lost-Bookshop/dp/B0BZJKXS33/ref=sr_1_2?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164222&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-2"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Trust",
+      "cover": "https://m.media-amazon.com/images/I/41NR9f0KDVL.jpg",
+      "link": "https://www.amazon.com/Audible-Trust/dp/B09FBR3865/ref=sr_1_3?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164222&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-3"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Everyone in My Family Has Killed Someone",
+      "cover": "https://m.media-amazon.com/images/I/41jROoOBIML.jpg",
+      "link": "https://www.amazon.com/Everyone-Family-Has-Killed-Someone/dp/B09YBQR3D1/ref=sr_1_6?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164222&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-6"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Dictionary of Lost Words: A Novel ",
+      "cover": "https://m.media-amazon.com/images/I/51gnGJrTPuL.jpg",
+      "link": "https://www.amazon.com/Dictionary-Lost-Words-Novel/dp/B08DL66WVK/ref=sr_1_74?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164295&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-74"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "One Puzzling Afternoon",
+      "cover": "https://m.media-amazon.com/images/I/51iF9WHzCTL.jpg",
+      "link": "https://www.amazon.com/Audible-One-Puzzling-Afternoon/dp/B0C5NQCKD8/ref=sr_1_73?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164295&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-73"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Lost Apothecary",
+      "cover": "https://m.media-amazon.com/images/I/51WzMgQFzRS.jpg",
+      "link": "https://www.amazon.com/The-Lost-Apothecary-A-Novel/dp/B08BXB3JVY/ref=sr_1_36?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164265&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-36"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Beneath a Scarlet Sky",
+      "cover": "https://m.media-amazon.com/images/I/51W9xEyLkGL.jpg",
+      "link": "https://www.amazon.com/Beneath-Scarlet-Sky-Mark-Sullivan-audiobook/dp/B06XSSFK6D/ref=sr_1_34?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164265&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-34"
+    },
+    {
+      "title": "Where the Forest Meets the Stars ",
+      "cover": "https://m.media-amazon.com/images/I/51icwKEZxoL.jpg",
+      "link": "https://www.amazon.com/Where-Forest-Meets-Stars-audiobook/dp/B07K4DLMJZ/ref=sr_1_17?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164246&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-17"
+    },
+    {
+      "title": "Mad Honey",
+      "cover": "https://m.media-amazon.com/images/I/61z3U6onRnL.jpg",
+      "link": "https://www.amazon.com/Audible-Mad-Honey-A-Novel/dp/B09QQV1YJJ/ref=sr_1_13?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164222&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-13"
+    },
+    {
+      "title": "First Lie Wins",
+      "cover": "https://m.media-amazon.com/images/I/51Q50f11cmL.jpg",
+      "link": "https://www.amazon.com/First-Lie-Wins-A-Novel/dp/B0C4BHDZGM/ref=sr_1_11?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164222&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-11"
+    },
+    {
+      "title": "All Good People Here",
+      "cover": "https://m.media-amazon.com/images/I/41E1SK2D3JL.jpg",
+      "link": "https://www.amazon.com/All-Good-People-Here-Novel/dp/B09QQVLPJC/ref=sr_1_10?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164222&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-10"
+    },
+    {
+      "title": "The Four Winds",
+      "cover": "https://m.media-amazon.com/images/I/6132R6AHGjL.jpg",
+      "link": "https://www.amazon.com/The-Four-Winds-A-Novel/dp/B0882VNQKS/ref=sr_1_7?crid=3UFQN7YM1VI1C&keywords=fiction+books&qid=1707164222&s=audible&sprefix=fiction+books%2Caudible%2C103&sr=1-7"
     }
   ],
   "religion": [
     {
-      "cover": "",
-      "link": ""
+      "title": "God Will Use This for Good: Surviving the Mess of Life",
+      "cover": "https://m.media-amazon.com/images/I/414Gl5UiNuL.jpg",
+      "link": "https://www.amazon.com/God-Will-Use-This-for-Good-audiobook/dp/B07YGSH1FD/ref=sr_1_2?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165211&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-2"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Religions Book: Big Ideas Simply Explained",
+      "cover": "https://m.media-amazon.com/images/I/61Tuwo-1XRL.jpg",
+      "link": "https://www.amazon.com/Religions-Book-Ideas-Simply-Explained/dp/B083XSGL6K/ref=sr_1_9?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165211&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-9"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Handbook of Yoruba Religious Concepts: Weiser Classics Series",
+      "cover": "https://m.media-amazon.com/images/I/41oWLDBFzBL.jpg",
+      "link": "https://www.amazon.com/Handbook-Yoruba-Religious-Concepts-Classics/dp/B08BLVVHZX/ref=sr_1_16?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165211&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-16"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Whisper: How to Hear the Voice of God",
+      "cover": "https://m.media-amazon.com/images/I/51vjxqb0B7L.jpg",
+      "link": "https://www.amazon.com/Whisper-Mark-Batterson-audiobook/dp/B076DYNRM2/ref=sr_1_13?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165211&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-13"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Stranger in the Lifeboat",
+      "cover": "https://m.media-amazon.com/images/I/41b0gavs7mL.jpg",
+      "link": "https://www.amazon.com/Stranger-Lifeboat-Novel/dp/B08VV46TYL/ref=sr_1_17?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165242&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-17"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Josiah Manifesto",
+      "cover": "https://m.media-amazon.com/images/I/51pzgCZgT1L.jpg",
+      "link": "https://www.amazon.com/Audible-The-Josiah-Manifesto/dp/B0CFM586RF/ref=sr_1_19?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165242&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-19"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Foxe's Book of Martyrs",
+      "cover": "https://m.media-amazon.com/images/I/41VzK3IECqL.jpg",
+      "link": "https://www.amazon.com/Foxes-Book-of-Martyrs/dp/B000056MLD/ref=sr_1_34?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165265&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-34"
+    },
+    {
+      "title": "Zealot: The Life and Times of Jesus of Nazareth",
+      "cover": "https://m.media-amazon.com/images/I/414xsObt9ML.jpg",
+      "link": "https://www.amazon.com/Zealot-Reza-Aslan-audiobook/dp/B00DYMLQEU/ref=sr_1_35?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165265&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-35"
+    },
+    {
+      "title": "The Tibetan Book of the Dead: Liberation Through Understanding in the Between",
+      "cover": "https://m.media-amazon.com/images/I/41XYIuwbSLL.jpg",
+      "link": "https://www.amazon.com/Tibetan-Book-Dead-Liberation-Understanding/dp/B085JYC3MR/ref=sr_1_39?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165265&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-39"
+    },
+    {
+      "title": "Buckland's Complete Book of Witchcraft ",
+      "cover": "https://m.media-amazon.com/images/I/51M-W3VzS7L.jpg",
+      "link": "https://www.amazon.com/Bucklands-Complete-Book-of-Witchcraft/dp/B00IPMFMYY/ref=sr_1_40?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165265&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-40"
+    },
+    {
+      "title": "The Book of Genesis: A Biography: Lives of the Great Religious Books",
+      "cover": "https://m.media-amazon.com/images/I/51D+KPTI+OL.jpg",
+      "link": "https://www.amazon.com/Book-Genesis-Biography-Lives-Religious/dp/B009YL4OVC/ref=sr_1_49?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165287&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-49"
+    },
+    {
+      "title": "Ether: A Brief Theological Introduction: The Book of Mormon, Brief Theological Introductions 11",
+      "cover": "https://m.media-amazon.com/images/I/51Jg9JimGzL.jpg",
+      "link": "https://www.amazon.com/Ether-Theological-Introduction-Mormon-Introductions/dp/B08T6GRYY5/ref=sr_1_43?crid=28B4QXYPX07H1&keywords=religious+books&qid=1707165265&s=audible&sprefix=religious+books%2Caudible%2C132&sr=1-43"
     }
   ],
   "biography": [
     {
-      "cover": "",
-      "link": ""
+      "title": "Token Black Girl: A Memoir",
+      "cover": "https://m.media-amazon.com/images/I/41Hgh43LOXL.jpg",
+      "link": "https://www.amazon.com/Token-Black-Girl-A-Memoir/dp/B09RTJ7Q8B/ref=sr_1_1_sspa?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Things We Cannot Say",
+      "cover": "https://m.media-amazon.com/images/I/513yvJ80aaL.jpg",
+      "link": "https://www.amazon.com/The-Things-We-Cannot-Say-audiobook/dp/B07MRKPHKR/ref=sr_1_2_sspa?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "My Name Is Barbra",
+      "cover": "https://m.media-amazon.com/images/I/41lyWLHYb0L.jpg",
+      "link": "https://www.amazon.com/Audible-My-Name-Is-Barbra/dp/B0BV7GRT91/ref=sr_1_6?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-6"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "I Must Say: My Life as a Humble Comedy Legend",
+      "cover": "https://m.media-amazon.com/images/I/51CczvgmOEL.jpg",
+      "link": "https://www.amazon.com/I-Must-Say-Martin-Short-audiobook/dp/B00O7WTO7W/ref=sr_1_7_sspa?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-7-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Gold Dust Woman: The Biography of Stevie Nicks",
+      "cover": "https://m.media-amazon.com/images/I/61NI+39xCyL.jpg",
+      "link": "https://www.amazon.com/Gold-Dust-Woman-Stephen-Davis-audiobook/dp/B07751R924/ref=sr_1_8?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-8"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "If You Ask Me: (And of Course You Won't)",
+      "cover": "https://m.media-amazon.com/images/I/51u3Ns3XMwL.jpg",
+      "link": "https://www.amazon.com/If-You-Ask-Me-Betty-White-audiobook/dp/B004Z76OOU/ref=sr_1_9?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-9"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Boy from Block 66",
+      "cover": "https://m.media-amazon.com/images/I/51tUKJYfBlL.jpg",
+      "link": "https://www.amazon.com/The-Boy-from-Block-66/dp/B0B6GWFKBH/ref=sr_1_12_sspa?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-12-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1"
+    },
+    {
+      "title": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI",
+      "cover": "https://m.media-amazon.com/images/I/51GHu5DUSgL.jpg",
+      "link": "https://www.amazon.com/Killers-of-Flower-Moon-audiobook/dp/B01MTW5T1F/ref=sr_1_13?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-13"
+    },
+    {
+      "title": "It's a Long Story: My Life",
+      "cover": "https://m.media-amazon.com/images/I/516pNk89j5L.jpg",
+      "link": "https://www.amazon.com/Its-Long-Story-audiobook/dp/B00UJZX7CO/ref=sr_1_15?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-15"
+    },
+    {
+      "title": "The Dutch House",
+      "cover": "https://m.media-amazon.com/images/I/51ewjTW-w1L.jpg",
+      "link": "https://www.amazon.com/The-Dutch-House-Ann-Patchett-audiobook/dp/B07NSJZWY5/ref=sr_1_17_sspa?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-17-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1"
+    },
+    {
+      "title": "Leonardo da Vinci",
+      "cover": "https://m.media-amazon.com/images/I/61VMbkvRXUL.jpg",
+      "link": "https://www.amazon.com/Leonardo-da-Vinci-Walter-Isaacson-audiobook/dp/B071S8BNDP/ref=sr_1_20?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165746&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-20"
+    },
+    {
+      "title": "The Spy and the Traitor: The Greatest Espionage Story of the Cold War",
+      "cover": "https://m.media-amazon.com/images/I/512tQtzk1VL.jpg",
+      "link": "https://www.amazon.com/The-Spy-and-Traitor-Ben-Macintyre-audiobook/dp/B07DHR7427/ref=sr_1_18?crid=3D4VO613ZVN1C&keywords=biography+books&qid=1707165800&s=audible&sprefix=biography+books%2Caudible%2C113&sr=1-18"
     }
   ],
   "politics": [
     {
-      "cover": "",
-      "link": ""
+      "title": "Vodka Politics: Alcohol, Autocracy, and the Secret History of the Russian State",
+      "cover": "https://m.media-amazon.com/images/I/51nLjgiWiiL.jpg",
+      "link": "https://www.amazon.com/Vodka-Politics-audiobook/dp/B00JPLEPVU/ref=sr_1_82?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166648&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-82"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Book of Secrets: A Personal History of Betrayal in Red China",
+      "cover": "https://m.media-amazon.com/images/I/41QBttmiUcL.jpg",
+      "link": "https://www.amazon.com/Book-Secrets-Personal-History-Betrayal/dp/B0CTKHR4G2/ref=sr_1_82?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166648&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-82"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Elite Capture: How the Powerful Took Over Identity Politics (and Everything Else) ",
+      "cover": "https://m.media-amazon.com/images/I/41L6y7f4xwL.jpg",
+      "link": "https://www.amazon.com/Elite-Capture-Powerful-Identity-Everything/dp/B09VK2PDT3/ref=sr_1_59?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166593&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-59"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Ascent of Humanity: Civilization and the Human Sense of Self",
+      "cover": "https://m.media-amazon.com/images/I/61VupPtW9TL.jpg",
+      "link": "https://www.amazon.com/The-Ascent-of-Humanity-audiobook/dp/B074WBYMCD/ref=sr_1_122?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166834&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-122"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Kingdom, the Power, and the Glory: American Evangelicals in an Age of Extremism",
+      "cover": "https://m.media-amazon.com/images/I/41gCB+1jmbL.jpg",
+      "link": "https://www.amazon.com/Kingdom-Power-Glory-Evangelicals-Extremism/dp/B0BVGJPVPL/ref=sr_1_8?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166478&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-8"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Profiles in Ignorance: How America's Politicians Got Dumb and Dumber",
+      "cover": "https://m.media-amazon.com/images/I/41rjQM0ChzL.jpg",
+      "link": "https://www.amazon.com/Profiles-Ignorance-Americas-Politicians-Dumber/dp/B09TWZV921/ref=sr_1_11?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166478&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-11"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "I Swear: Politics Is Messier than My Minivan",
+      "cover": "https://m.media-amazon.com/images/I/41I8mPlFFcL.jpg",
+      "link": "https://www.amazon.com/Swear-Politics-Messier-than-Minivan/dp/B0BHFBW1VS/ref=sr_1_7?crid=3UQNNRVLMMK72&keywords=politics+books&qid=1707166980&s=audible&sprefix=politics+books%2Caudible%2C93&sr=1-7"
+    },
+    {
+      "title": "A Promised Land",
+      "cover": "https://m.media-amazon.com/images/I/41N0ibSKKyL.jpg",
+      "link": "https://www.amazon.com/A-Promised-Land-Obama-Audiobook/dp/B08HGH9JMF/ref=sr_1_17?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166532&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-17"
+    },
+    {
+      "title": "Silos, Politics, and Turf Wars",
+      "cover": "https://m.media-amazon.com/images/I/41oWJ0RT4FL.jpg",
+      "link": "https://www.amazon.com/Silos-Politics-and-Turf-Wars-audiobook/dp/B000ENWKQU/ref=sr_1_35?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166565&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-35"
+    },
+    {
+      "title": "The Year That Broke Politics: Collusion and Chaos in the Presidential Election of 1968 ",
+      "cover": "https://m.media-amazon.com/images/I/41mGLXo7eDL.jpg",
+      "link": "https://www.amazon.com/Year-That-Broke-Politics-Presidential/dp/B0CJCTXF7Y/ref=sr_1_34?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166565&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-34"
+    },
+    {
+      "title": "On Politics: A History of Political Thought: From Herodotus to the Present",
+      "cover": "https://m.media-amazon.com/images/I/61xosQS6wKL.jpg",
+      "link": "https://www.amazon.com/Politics-History-Political-Thought-Herodotus/dp/B0BF7GB5W4/ref=sr_1_33?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166565&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-33"
+    },
+    {
+      "title": "On Politics: A History of Political Thought: From Herodotus to the Present",
+      "cover": "https://m.media-amazon.com/images/I/51RmCa0F0ZL.jpg",
+      "link": "https://www.amazon.com/A-Book-of-Five-Rings-audiobook/dp/B004IDNS6S/ref=sr_1_90?crid=1VNTVT7XHWIO6&keywords=politics+books&qid=1707166648&s=audible&sprefix=politics+books%2Caudible%2C124&sr=1-90"
     }
   ],
   "children": [
     {
-      "cover": "",
-      "link": ""
+      "title": "The Very Impatient Caterpillar",
+      "cover": "https://m.media-amazon.com/images/I/51U-b+FgJDL.jpg",
+      "link": "https://www.amazon.com/The-Very-Impatient-Caterpillar/dp/B07N49YVF6/ref=sr_1_8?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-8"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Where the Wild Things Are",
+      "cover": "https://m.media-amazon.com/images/I/61I4hHDPqbL.jpg",
+      "link": "https://www.amazon.com/Where-Wild-Things-Are-audiobook/dp/B000F2C704/ref=sr_1_9?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-9"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Wonderful Things You Will Be",
+      "cover": "https://m.media-amazon.com/images/I/516O2NrdL8L.jpg",
+      "link": "https://www.amazon.com/Wonderful-Things-You-Will-Be/dp/B085LN16FQ/ref=sr_1_10?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-10"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "How to Catch a Dinosaur",
+      "cover": "https://m.media-amazon.com/images/I/51axWxPKQ9L.jpg",
+      "link": "https://www.amazon.com/How-to-Catch-a-Dinosaur/dp/B07V81YC2G/ref=sr_1_16?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-16"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Story of Ferdinand ",
+      "cover": "https://m.media-amazon.com/images/I/51NoPsdbKnL.jpg",
+      "link": "https://www.amazon.com/The-Story-of-Ferdinand-audiobook/dp/B01JP9PQPU/ref=sr_1_19?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167295&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-19"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "You Will Always Belong",
+      "cover": "https://m.media-amazon.com/images/I/510BppEk5ML.jpg",
+      "link": "https://www.amazon.com/Audible-You-Will-Always-Belong/dp/B0C7Y734FJ/ref=sr_1_41?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167313&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-41"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Inspiring Stories for Amazing Kids: Motivational Books for Children 6 ",
+      "cover": "https://m.media-amazon.com/images/I/518BCnjOC+L.jpg",
+      "link": "https://www.amazon.com/Inspiring-Stories-Amazing-Kids-Motivational/dp/B0CKS18ZK3/ref=sr_1_37?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167313&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-37"
+    },
+    {
+      "title": "Magic Tree House Collection: Books 1-8 ",
+      "cover": "https://m.media-amazon.com/images/I/61rq2zImUPL.jpg",
+      "link": "https://www.amazon.com/Magic-Tree-House-Collection-Books/dp/B005PTOHC8/ref=sr_1_1?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-1"
+    },
+    {
+      "title": "Llama Llama Red Pajama and 19 Other Favorites",
+      "cover": "https://m.media-amazon.com/images/I/61Q6FwSzj-L.jpg",
+      "link": "https://www.amazon.com/Llama-Red-Pajama-Other-Favorites/dp/B07CNBFDBW/ref=sr_1_3?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-3"
+    },
+    {
+      "title": "The Berenstain Bears Very Beary Stories: 3 Books in 1",
+      "cover": "https://m.media-amazon.com/images/I/51l6VwYNQNL.jpg",
+      "link": "https://www.amazon.com/Berenstain-Bears-Very-Beary-Stories/dp/B07W4S3TKL/ref=sr_1_5?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-5"
+    },
+    {
+      "title": "Goodnight, Goodnight, Construction Site",
+      "cover": "https://m.media-amazon.com/images/I/615m8cMHvbL.jpg",
+      "link": "https://www.amazon.com/Goodnight-Construction-Site/dp/B00IYRPG6E/ref=sr_1_6?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-6"
+    },
+    {
+      "title": "Dragons Love Tacos",
+      "cover": "https://m.media-amazon.com/images/I/61xitVfYgRL.jpg",
+      "link": "https://www.amazon.com/Dragons-Love-Tacos-Adam-Rubin-audiobook/dp/B07RM6BLQY/ref=sr_1_7?crid=33J1XYFXA0VVN&keywords=children+books&qid=1707167252&s=audible&sprefix=children+books%2Caudible%2C86&sr=1-7"
     }
   ],
   "sports": [
     {
-      "cover": "",
-      "link": ""
+      "title": "The League: How Five Rivals Created the NFL and Launched a Sports Empire",
+      "cover": "https://m.media-amazon.com/images/I/41gg5zwgWuL.jpg",
+      "link": "https://www.amazon.com/The-League-John-Eisenberg-audiobook/dp/B07HM6GG8G/ref=sr_1_1?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167816&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-1"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Late to the Ball: Age. Learn. Fight. Love. Play Tennis. Win.",
+      "cover": "https://m.media-amazon.com/images/I/41TqPLvbTZL.jpg",
+      "link": "https://www.amazon.com/Late-to-Ball-Gerald-Marzorati-audiobook/dp/B01F26IS3C/ref=sr_1_133?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167972&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-133"
+    },
+
+    {
+      "title": "Women in Sports: 50 Fearless Athletes Who Played to Win",
+      "cover": "https://m.media-amazon.com/images/I/610UgbXok2L.jpg",
+      "link": "https://www.amazon.com/Women-in-Sports-Rachel-Ignotofsky-audiobook/dp/B07MQ758N4/ref=sr_1_107?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167934&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-107"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Greatest Gambling Story Ever Told: A True Tale of Three Gamblers, the Kentucky Derby, and the Mexican Cartel",
+      "cover": "https://m.media-amazon.com/images/I/61zWZ0L75yL.jpg",
+      "link": "https://www.amazon.com/Greatest-Gambling-Story-Ever-Told/dp/B086X3JBZ5/ref=sr_1_83?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167917&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-83"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Right Call: What Sports Teach Us About Leadership, Excellence, and Decision-Making",
+      "cover": "https://m.media-amazon.com/images/I/51j0HqhcLuL.jpg",
+      "link": "https://www.amazon.com/Right-Call-Leadership-Excellence-Decision-Making/dp/B0BJSLZ3P9/ref=sr_1_33?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167861&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-33"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Ball in the Air",
+      "cover": "https://m.media-amazon.com/images/I/41A+VDn476L.jpg",
+      "link": "https://www.amazon.com/The-Ball-in-the-Air/dp/B0B4WTB4TQ/ref=sr_1_37?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167861&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-37"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Michael Jordan: The Life",
+      "cover": "https://m.media-amazon.com/images/I/51eozU8p4RL.jpg",
+      "link": "https://www.amazon.com/Michael-Jordan-Roland-Lazenby-audiobook/dp/B00JFEX93C/ref=sr_1_11?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167816&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-11"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Got Your Number: The Greatest Sports Legends and the Numbers They Own",
+      "cover": "https://m.media-amazon.com/images/I/51+jGARx3OL.jpg",
+      "link": "https://www.amazon.com/Got-Your-Number-Greatest-Legends/dp/B0C1T8QZNK/ref=sr_1_18?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167846&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-18"
+    },
+    {
+      "title": "Why We Love Baseball: A History in 50 Moments",
+      "cover": "https://m.media-amazon.com/images/I/41ILx1ylSxL.jpg",
+      "link": "https://www.amazon.com/Why-We-Love-Baseball-History/dp/B0BR8JKZYZ/ref=sr_1_10?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167816&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-10"
+    },
+    {
+      "title": "Friday Night Lights: A Town, a Team, and a Dream",
+      "cover": "https://m.media-amazon.com/images/I/51sdYvAzXtL.jpg",
+      "link": "https://www.amazon.com/Friday-Night-Lights-H-G-Bissinger-audiobook/dp/B018SQMHX0/ref=sr_1_8?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167816&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-8"
+    },
+    {
+      "title": "When the Game Was War: The NBA's Greatest Season",
+      "cover": "https://m.media-amazon.com/images/I/61cv3ESbl-L.jpg",
+      "link": "https://www.amazon.com/When-Game-Was-War-Greatest/dp/B0BR8MDBTT/ref=sr_1_5?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167816&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-5"
+    },
+    {
+      "title": "Shoe Dog",
+      "cover": "https://m.media-amazon.com/images/I/51SGjt9pPlL.jpg",
+      "link": "https://www.amazon.com/Shoe-Dog-Phil-Knight-audiobook/dp/B01CRJA470/ref=sr_1_3?crid=4J3BBCMM1XNH&keywords=sports+books&qid=1707167816&s=audible&sprefix=sports+books%2Caudible%2C103&sr=1-3"
     }
   ],
   "music": [
     {
-      "cover": "",
-      "link": ""
+      "title": "This Is What It Sounds Like: What the Music You Love Says About You",
+      "cover": "https://m.media-amazon.com/images/I/61+vmwau4HL.jpg",
+      "link": "https://www.amazon.com/This-What-Sounds-Like-Music/dp/B0B1QT1J7K/ref=sr_1_7?crid=346NFS7EUQS94&keywords=music+books&qid=1707168478&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-7"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Major Labels: A History of Popular Music in Seven Genres",
+      "cover": "https://m.media-amazon.com/images/I/51PgA2jxARL.jpg",
+      "link": "https://www.amazon.com/Major-Labels-History-Popular-Genres/dp/B08VQP2BDT/ref=sr_1_14?crid=346NFS7EUQS94&keywords=music+books&qid=1707168478&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-14"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Music Is History",
+      "cover": "https://m.media-amazon.com/images/I/51C04SlzXcL.jpg",
+      "link": "https://www.amazon.com/Audible-Music-Is-History/dp/B0971TJPY9/ref=sr_1_15?crid=346NFS7EUQS94&keywords=music+books&qid=1707168478&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-15"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Classical Music Book",
+      "cover": "https://m.media-amazon.com/images/I/51pbA-sgYBL.jpg",
+      "link": "https://www.amazon.com/The-Classical-Music-Book/dp/B086H5FHPD/ref=sr_1_16?crid=346NFS7EUQS94&keywords=music+books&qid=1707168478&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-16"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "The Story of Motown",
+      "cover": "https://m.media-amazon.com/images/I/51pwdb14teL.jpg",
+      "link": "https://www.amazon.com/The-Story-of-Motown-audiobook/dp/B07HM82P78/ref=sr_1_17?crid=346NFS7EUQS94&keywords=music+books&qid=1707168537&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-17"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "Composers: Their Lives and Works ",
+      "cover": "https://m.media-amazon.com/images/I/512U9YSzZQL.jpg",
+      "link": "https://www.amazon.com/Composers-Their-Lives-and-Works/dp/B08BH4W33K/ref=sr_1_19?crid=346NFS7EUQS94&keywords=music+books&qid=1707168537&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-19"
     },
     {
-      "cover": "",
-      "link": ""
+      "title": "60 Songs That Explain the '90s",
+      "cover": "https://m.media-amazon.com/images/I/51LoGpqDR+L.jpg",
+      "link": "https://www.amazon.com/60-Songs-That-Explain-90s/dp/B0C1DWQJS9/ref=sr_1_18?crid=346NFS7EUQS94&keywords=music+books&qid=1707168537&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-18"
+    },
+    {
+      "title": "Nöthin' but a Good Time: The Uncensored History of the '80s Hard Rock Explosion",
+      "cover": "https://m.media-amazon.com/images/I/61XDeMF8mZL.jpg",
+      "link": "https://www.amazon.com/N%C3%B6thin-but-Good-Time-Uncensored/dp/B089YDP2T7/ref=sr_1_21?crid=346NFS7EUQS94&keywords=music+books&qid=1707168537&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-21"
+    },
+    {
+      "title": "Music: A Subversive History",
+      "cover": "https://m.media-amazon.com/images/I/61YyLcKpUoL.jpg",
+      "link": "https://www.amazon.com/Music-Ted-Gioia-audiobook/dp/B07YVFGKJB/ref=sr_1_25?crid=346NFS7EUQS94&keywords=music+books&qid=1707168537&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-25"
+    },
+    {
+      "title": "Good Music, Sacred Music, and Silence: Three Gifts of God for Liturgy and for Life",
+      "cover": "https://m.media-amazon.com/images/I/51xUBmGOdCL.jpg",
+      "link": "https://www.amazon.com/Good-Music-Sacred-Silence-Liturgy/dp/B0CKXWS4TX/ref=sr_1_57?crid=346NFS7EUQS94&keywords=music+books&qid=1707168573&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-57"
+    },
+    {
+      "title": "Original Gangstas: The Untold Story of Dr. Dre, Eazy-E, Ice Cube, Tupac Shakur, and the Birth of West Coast Rap",
+      "cover": "https://m.media-amazon.com/images/I/618x+2zLHKL.jpg",
+      "link": "https://www.amazon.com/Original-Gangstas-Ben-Westhoff-audiobook/dp/B01LZH213W/ref=sr_1_35?crid=346NFS7EUQS94&keywords=music+books&qid=1707168556&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-35"
+    },
+    {
+      "title": "Bound for Glory: The Hard-Driving, Truth-Telling, Autobiography of America's Great Poet-Folk Singer",
+      "cover": "https://m.media-amazon.com/images/I/51H5GLV7q6L.jpg",
+      "link": "https://www.amazon.com/Bound-for-Glory-Woody-Guthrie-audiobook/dp/B081DBRV7H/ref=sr_1_54?crid=346NFS7EUQS94&keywords=music+books&qid=1707168573&s=audible&sprefix=music+books%2Caudible%2C140&sr=1-54"
     }
   ],
   "educational": [
