@@ -32,7 +32,7 @@ import Xarrow from "react-xarrows";
 
 // ICONS
 import { FaRocket, FaRegGem, FaNpm } from "react-icons/fa";
-import { PiArrowBendRightDownBold } from "react-icons/pi";
+import { PiArrowBendRightDownBold } from "react-icons/";
 import { GiTechnoHeart } from "react-icons/gi";
 import { BsClipboard2CheckFill, BsConeStriped } from "react-icons/bs";
 import { SiPnpm } from "react-icons/si";

@@ -30,7 +30,7 @@ import HeadingPanel from "components/ui/HeadingPanel";
 
 // LIBRARY
 import { ACTION_TYPES } from "./searchActionTypes";
-import FetchBooks from "lib/FetchBooks";
+import FetchBooks from "lib/fetchBooks";
 import { useCookies } from "react-cookie";
 import { initialState, searchReducer } from "./searchFormReducer";
 
@@ -123,7 +123,7 @@ export function BookSearchForm(props) {
         setFinalBooks(organizedBooks);
         dispatch({ type: ACTION_TYPES._SUCCESSFUL_SEARCH });
       } catch {
-        console.log(`An error has occurred!`);
+        // console.log(`An error has occurred!`);
         dispatch({ type: ACTION_TYPES._FAILED_SEARCH });
       }
     }
@@ -264,7 +264,7 @@ export function BookSearchForm(props) {
         </Box>
       ) : (
         <>
-          <h1>An error has occured!</h1>
+          {/* <h1>An error has occured!</h1> */}
         </>
       )}
     </>
