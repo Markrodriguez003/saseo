@@ -4,7 +4,7 @@ import { FaSearch, FaBook } from "react-icons/fa";
 
 import SearchResult from "components/SearchResult";
 import OrganizeBooks from "lib/OrganizeBooks";
-import FetchBooks from "lib/fetchBooks";
+import FetchBooks from "lib/FetchBooks";
 import HeadingPanel from "components/ui/HeadingPanel";
 import RandomBookSubject from "lib/RandomBookSubject";
 import RandomBookCoverAnimation from "components/ui/RandomBookCoverAnimation";

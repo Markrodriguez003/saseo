@@ -77,26 +77,26 @@ function FrontPageHero() {
     }
   }
 
-  function CallToActionSelect() {
-    return (
-      <Select
-        className="front-page-select"
-        selected
-        defaultValue={placeholderText}
-        onChange={(e) => {
-          setPlaceholderText(e.target.value);
-          setCallToActionInputValues((prev) => ({
-            ...prev,
-            option: e.target.value,
-          }));
-        }}
-      >
-        <option value="Search">Search</option>
-        <option value="ISBN">ISBN</option>
-        <option value="Author">Author</option>
-      </Select>
-    );
-  }
+  // function CallToActionSelect() {
+  //   return (
+  //     <Select
+  //       className="front-page-select"
+  //       selected
+  //       defaultValue={placeholderText}
+  //       onChange={(e) => {
+  //         setPlaceholderText(e.target.value);
+  //         setCallToActionInputValues((prev) => ({
+  //           ...prev,
+  //           option: e.target.value,
+  //         }));
+  //       }}
+  //     >
+  //       <option value="Search">Search</option>
+  //       <option value="ISBN">ISBN</option>
+  //       <option value="Author">Author</option>
+  //     </Select>
+  //   );
+  // }
 
   return (
     <>
@@ -115,7 +115,7 @@ function FrontPageHero() {
 
             {/* CALL TO ACTION SELECT */}
 
-            {size ? (
+            {/* {size ? (
               <VStack tabIndex={0}>
                 <CallToActionSelect />
 
@@ -178,7 +178,7 @@ function FrontPageHero() {
                   <></>
                 )}
               </Box>
-            )}
+            )} */}
 
             {/* BOTTOM HALF OF HEADER TEXT */}
             <Flex

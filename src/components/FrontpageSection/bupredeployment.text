@@ -68,7 +68,11 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
   // GRABBING SUGGESTED BOOK DATA (BY PREVIOUS COOKIES) FROM SERVER
   const [message, setMessage] = useState("");
   
- 
+  useEffect(() => {
+    fetch("http://localhost:8000/message")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
   return (
     <Box
       textAlign={"center"}
@@ -165,7 +169,7 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
               <BookCoverAnimation
                 reverseFlip={true}
                 size="sm"
-                cover="https://m.media-amazon.com/images/I/91wzPLb59HL._AC_UL480_FMwebp_QL65_.jpg"
+                cover="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683827919l/101673225.jpg"
               />
             </Box>
           </HStack>
@@ -196,14 +200,14 @@ export function BookGenreSuggestionSection(usersLastSearchedGenre) {
           <BookCoverAnimation
             reverseFlip={true}
             size="sm"
-            cover="https://m.media-amazon.com/images/I/614Ov2pKMyL._AC_UL480_FMwebp_QL65_.jpg"
+            cover="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683827919l/101673225.jpg"
           />
         </Box>
         <Box w={"170px"} backgroundColor={"pink"}>
           <BookCoverAnimation
             reverseFlip={true}
             size="sm"
-            cover="https://m.media-amazon.com/images/I/81xxSRsPPuL._AC_UL480_FMwebp_QL65_.jpg"
+            cover="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683827919l/101673225.jpg"
           />
         </Box>
         <Box w={"170px"} backgroundColor={"pink"}>

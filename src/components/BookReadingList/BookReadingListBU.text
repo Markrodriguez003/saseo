@@ -48,7 +48,7 @@ import cardStockTexture from "../../images/textures/texture13.jpg";
 import { Field, Form, Formik } from "formik";
 import TextPanel from "components/ui/TextPanel";
 import sendEmail from "lib/sendEmail";
-import Xarrow from "react-xarrows";
+import Xarrow from "react-xarrows"
 
 // --------------------------------------------------------------------- //
 // Page that shows book suggestion form & book card results
@@ -90,43 +90,6 @@ export function BookReadingList() {
       position: "bottom-right",
     });
   }
-
-  const [inputValue, setInputValue] = useState("");
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-    console.log("INPUT VALUE-->", inputValue);
-  };
-
-  const handleSubmit = (e) => {
-    const isValidEmail =
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    e.preventDefault();
-    if (inputValue.match(isValidEmail)) {
-      console.log("email valid!");
-      setTimeout(() => {
-        toast({
-          title: "Thank you!",
-          description: "We are emailing your book list right now!",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-        });
-
-        sendEmail(context.bookCollection, inputValue);
-      }, 1000);
-    } else {
-      console.log("email not valid!");
-      setTimeout(() => {
-        toast({
-          title: "Error!!",
-          description: "Please enter a valid email!",
-          status: "error",
-          duration: 9000,
-          isClosable: true,
-        });
-      }, 1000);
-    }
-  };
 
   return (
     <>
@@ -296,7 +259,7 @@ export function BookReadingList() {
                         m={0}
                         p={0}
                       />
-{/* 
+
                       <Text fontFamily={"typewriter"}>
                         <strong style={{ paddingRight: "8px" }}>
                           SUBJECT:
@@ -309,7 +272,7 @@ export function BookReadingList() {
                         w={"100%"}
                         m={0}
                         p={0}
-                      /> */}
+                      />
 
                       <Text fontFamily={"typewriter"}>
                         <strong style={{ paddingRight: "8px" }}>ISBN:</strong>{" "}
@@ -387,7 +350,7 @@ export function BookReadingList() {
             {(props) => (
               <Center>
                 <Form>
-                  {/* <Field name="email" validate={validateName}>
+                  <Field name="email" validate={validateName}>
                     {({ field, form }) => (
                       <FormControl
                         isInvalid={form.errors.email && form.touched.email}
@@ -397,40 +360,74 @@ export function BookReadingList() {
                         <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                       </FormControl>
                     )}
-                  </Field> */}
-                  <form>
-                    <Input
-                      variant="outline"
-                      placeholder="Email"
-                      value={inputValue}
-                      onChange={handleInputChange}
-                      type="email"
-                      typeof="email"
-                      required
-                    />
-                    <br />
-                    <Tooltip
-                      label={"Email your sugggested book list!"}
-                      color={"white"}
-                      placement="top"
-                    >
-                      <Button
-                        type="submit"
-                        colorScheme="yellow"
-                        textAlign={"center"}
-                        size="md"
-                        m={"4px"}
-                        // todo: Add capcha and throttling on submit button
-                        // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
-                        onClick={(event) => {
-                          handleSubmit(event);
-                        }}
-                      >
-                        Share!
-                      </Button>
-                    </Tooltip>
+                  </Field>
+                  <br />
+                  <Tooltip
+                    label={"Email your sugggested book list!"}
+                    color={"white"}
+                    placement="top"
+                  >
+                    <Button
+                      colorScheme="yellow"
+                      textAlign={"center"}
+                      size="md"
+                      m={"4px"}
+                      // todo: Add capcha and throttling on submit button
+                      // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
+                      onClick={(event) => {
+                        setTimeout(() => {
+                          toast({
+                            title: "Thank you!",
+                            description:
+                              "We've signed you up to our newsletter!",
+                            status: "success",
+                            duration: 9000,
+                            isClosable: true,
+                          });
 
-                    {/* <Tooltip
+                          // actions.setSubmitting(false);
+                          event.preventDefault();
+                          sendEmail(context.bookCollection);
+                        }, 1000);
+                      }}
+                    >
+                      Share!
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    label={"Add book to your account library!"}
+                    color={"white"}
+                    placement="top"
+                  >
+                    <Button
+                      color={"white"}
+                      backgroundColor={"primary"}
+                      textAlign={"center"}
+                      size="md"
+                      m={"4px"}
+                      // todo: Add capcha and throttling on submit button
+                      // todo: https://www.emailjs.com/docs/user-guide/adding-captcha-verification/
+                      onClick={(event) => {
+                        setTimeout(() => {
+                          toast({
+                            title: "Book saved!",
+                            description:
+                              "We've assigned this book to your person library!",
+                            status: "success",
+                            duration: 9000,
+                            isClosable: true,
+                          });
+
+                          // actions.setSubmitting(false);
+                          event.preventDefault();
+                          // sendEmail(collection.bookCollection);
+                        }, 1000);
+                      }}
+                    >
+                      Save to Library!
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
                     label={"Clear your entire sugggested book list!"}
                     color={"white"}
                     placement="top"
@@ -443,8 +440,7 @@ export function BookReadingList() {
                     >
                       Empty List
                     </Button>
-                  </Tooltip> */}
-                  </form>
+                  </Tooltip>
                 </Form>
               </Center>
             )}
