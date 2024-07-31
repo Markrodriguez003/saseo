@@ -297,12 +297,12 @@ export function BookReadingList() {
                         p={0}
                       />
 
-                      <Text fontFamily={"typewriter"}>
+                      {/* <Text fontFamily={"typewriter"}>
                         <strong style={{ paddingRight: "8px" }}>
                           SUBJECT:
                         </strong>{" "}
                         {b.subject}
-                      </Text>
+                      </Text> */}
                       <Divider
                         borderColor={"rgba(70,130,180,0.8)"}
                         borderBottomWidth={"2.5px"}
