@@ -30,7 +30,7 @@ import HeadingPanel from "components/ui/HeadingPanel";
 
 // LIBRARY
 import { ACTION_TYPES } from "./searchActionTypes";
-import FetchBooks from "lib/FetchBooks";
+import FetchBooks from "lib/fetchBooks";
 import { useCookies } from "react-cookie";
 import { initialState, searchReducer } from "./searchFormReducer";
 
