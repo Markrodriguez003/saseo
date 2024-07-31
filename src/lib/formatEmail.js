@@ -30,7 +30,7 @@ function CreateEmail(collection) {
                 <Text style={paragraph}>
                   <Text style={bold}>Author(s):</Text> {b.author}
                 </Text>
-                <Text style={paragraph}>tr
+                <Text style={paragraph}>
                   <Text style={bold}>ISBN:</Text> {b.isbn}
                 </Text>
               </Column>
