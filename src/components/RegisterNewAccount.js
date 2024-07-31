@@ -26,7 +26,7 @@ import bookSubjects from "../data/book_subjects.json";
 import { useFormik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import Shake from "react-reveal/Shake";
+// import Shake from "react-reveal/Shake";
 import { Link } from "react-router-dom";
 import { BookGenreSuggestionSection } from "./FrontpageSection";
 import DropdownOptions from "./ui/DropdownOptions";
@@ -98,7 +98,9 @@ function RegisterNewAccount() {
         />
         {errors.nickname ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{errors.nickname}</Shake>
+            {/* <Shake> */}
+            {errors.nickname}
+            {/* </Shake> */}
           </small>
         ) : null}
         <br />
@@ -110,7 +112,6 @@ function RegisterNewAccount() {
         <Select
           name="favoriteGenre"
           id="favoriteGenre"
-          
           placeholder={genreOption}
           value={values.favoriteGenre}
           onChange={(e) =>
@@ -123,7 +124,9 @@ function RegisterNewAccount() {
         </Select>
         {errors.favoriteGenre ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{errors.favoriteGenre}</Shake>
+            {/* <Shake> */}
+            {errors.favoriteGenre}
+            {/* </Shake> */}
           </small>
         ) : null}
         <br />
@@ -138,7 +141,9 @@ function RegisterNewAccount() {
         />
         {errors.email ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{errors.email}</Shake>
+            {/* <Shake> */}
+            {errors.email}
+            {/* </Shake> */}
           </small>
         ) : (
           <FormHelperText>We'll never share your email.</FormHelperText>
@@ -165,7 +170,9 @@ function RegisterNewAccount() {
         </InputGroup>
         {errors.password ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{errors.password}</Shake>
+            {/* <Shake> */}
+            {errors.password}
+            {/* </Shake> */}
             <Wrap>
               <UnorderedList
                 fontSize={"12.5px"}
@@ -219,7 +226,9 @@ function RegisterNewAccount() {
 
         {errors.confirmPassword ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{errors.confirmPassword}</Shake>
+            {/* <Shake> */}
+            {errors.confirmPassword}
+            {/* </Shake> */}
           </small>
         ) : (
           <></>

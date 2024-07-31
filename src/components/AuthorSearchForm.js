@@ -33,8 +33,8 @@ import authorSearchFetch from "lib/authorSearchFetch";
 import { Formik, useFormik, useFormikContext } from "formik";
 
 import * as Yup from "yup";
-import Fade from "react-reveal/Fade";
-import Shake from "react-reveal/Shake";
+// import Fade from "react-reveal/Fade";
+// import Shake from "react-reveal/Shake";
 
 const authorValidationSchema = Yup.object({
   author: Yup.string().required("Required"),
@@ -146,7 +146,10 @@ function AuthorSearchForm() {
 
           {formik.errors.author ? (
             <small style={{ color: "red", fontStyle: "italic" }}>
-              <Shake>{formik.errors.author}</Shake>
+              {/* <Shake> */}
+              {formik.errors.author}
+
+              {/* </Shake> */}
             </small>
           ) : (
             <></>
@@ -159,13 +162,13 @@ function AuthorSearchForm() {
             <Card minW="lg" shadow={"2xl"}>
               <CardBody>
                 <Stack mt="6" spacing="3" textAlign={"left"}>
-                  <Fade>
-                    <Center>
-                      <Image
-                        src={`https://covers.openlibrary.org/a/olid/${fetchedAuthor.author_data.open_library_key}-M.jpg`}
-                      />
-                    </Center>
-                  </Fade>
+                  {/* <Fade> */}
+                  <Center>
+                    <Image
+                      src={`https://covers.openlibrary.org/a/olid/${fetchedAuthor.author_data.open_library_key}-M.jpg`}
+                    />
+                  </Center>
+                  {/* </Fade> */}
                   <Heading size="lg" textAlign={"center"}>
                     {fetchedAuthor?.author_data.name}
                   </Heading>

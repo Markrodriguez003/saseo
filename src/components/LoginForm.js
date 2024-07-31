@@ -13,7 +13,7 @@ import {
 // LIBRARIES
 import { useFormik } from "formik";
 import { useState } from "react";
-import Shake from "react-reveal/Shake";
+// import Shake from "react-reveal/Shake";
 import { Link } from "react-router-dom";
 import { loginSchema } from "lib/validationSchemas";
 
@@ -45,7 +45,9 @@ function LogInForm(props) {
       />
       {errors.email ? (
         <small style={{ color: "red", fontStyle: "italic" }}>
-          <Shake>{errors.email}</Shake>
+          {/* <Shake> */}
+          {errors.email}
+          {/* </Shake> */}
         </small>
       ) : (
         <>
@@ -74,7 +76,9 @@ function LogInForm(props) {
       </InputGroup>
       {errors.password ? (
         <small style={{ color: "red", fontStyle: "italic" }}>
-          <Shake>{errors.password}</Shake>
+          {/* <Shake> */}
+          {errors.password}
+          {/* </Shake> */}
         </small>
       ) : null}
 

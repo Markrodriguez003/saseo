@@ -27,7 +27,7 @@ import {
 // EXTERNAL COMPONENTS
 import RandomLetterHeader from "components/ui/RandomLetterHeader";
 import confusedAvatar from "../../../images/confusedAvatar.png";
-import Fade from "react-reveal/Fade";
+// import Fade from "react-reveal/Fade";
 import Xarrow from "react-xarrows";
 
 // ICONS
@@ -304,9 +304,9 @@ function About() {
         </Container>
       </div>
       <br />
-      <Fade>
+      {/* <Fade> */}
         <InfographicSection />
-      </Fade>
+      {/* </Fade> */}
 
       <Flex
         justifyContent={"center"}

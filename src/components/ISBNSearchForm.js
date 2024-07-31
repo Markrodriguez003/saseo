@@ -40,7 +40,7 @@ import missingBook from "../images/missing-cover.png";
 import { useFormik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import Shake from "react-reveal/Shake";
+// import Shake from "react-reveal/Shake";
 import { Link } from "react-router-dom";
 import ISBNSearchFetch from "lib/IBSNSearchFetch";
 import BookLoader from "components/ui/BookLoader/BookLoader";
@@ -256,7 +256,9 @@ function ISBNSearchForm() {
             <small
               style={{ color: "red", fontStyle: "italic", textAlign: "center" }}
             >
-              <Shake>{formik.errors.isbn}</Shake>
+              {/* <Shake> */}
+                {formik.errors.isbn}
+                {/* </Shake> */}
             </small>
           ) : (
             <></>

@@ -296,7 +296,7 @@ export function BookReadingList() {
                         m={0}
                         p={0}
                       />
-{/* 
+
                       <Text fontFamily={"typewriter"}>
                         <strong style={{ paddingRight: "8px" }}>
                           SUBJECT:
@@ -309,7 +309,7 @@ export function BookReadingList() {
                         w={"100%"}
                         m={0}
                         p={0}
-                      /> */}
+                      />
 
                       <Text fontFamily={"typewriter"}>
                         <strong style={{ paddingRight: "8px" }}>ISBN:</strong>{" "}

@@ -19,7 +19,7 @@ import bookSubjects from "../data/book_subjects.json";
 import { useFormik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import Shake from "react-reveal/Shake";
+// import Shake from "react-reveal/Shake";
 import { Link } from "react-router-dom";
 import { BookGenreSuggestionSection } from "./FrontpageSection";
 import DropdownOptions from "./ui/DropdownOptions";
@@ -107,7 +107,9 @@ function NewsletterForm() {
         </Flex>
         {formik.errors.email ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            <Shake>{formik.errors.email}</Shake>
+            {/* <Shake> */}
+            {formik.errors.email}
+            {/* </Shake> */}
           </small>
         ) : (
           <FormHelperText color={"white"} fontSize={"10px"}>

@@ -27,7 +27,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 // EXTERNAL COMPONENTS
 
-import Shake from "react-reveal/Shake";
+// import Shake from "react-reveal/Shake";
 
 // IMAGES
 import bgHero from "images/backgrounds/Hero-Book.png";

@@ -9,16 +9,18 @@ import { useEffect, useState, useRef } from "react";
 // IMAGES
 
 // CHAKRA UI COMPONENTS
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, VStack } from "@chakra-ui/react";
 
 // LIBRARY
 
 // COMPONENTS
-import Slide from "react-reveal/Slide";
+// import Slide from "react-reveal/Slide";
 
 import sideBook from "../../../images/side-book.png";
 import flatBook from "../../../images/flat-book.png";
-import Fade from "react-reveal/Fade";
+import plant from "../../../images/plant-5525166_1280.png";
+
+// import Fade from "react-reveal/Fade";
 function SideBookStackGraphic() {
   return (
     <>
@@ -38,81 +40,183 @@ function SideBookStackGraphic() {
         zIndex={-1}
       >
         {/* SIDE BOOK */}
-        <Slide left>
+
+        {/* <Box>
           <Box
-            left={"50px"}
-            // w={{ base: "20vw", lg: "20vw", md: "42vw", sm: "17vw" }}
+            position={"absolute"}
+            left={"345px"}
+            top={"410px"}
+            filter={"hue-rotate(90deg)"}
+            transform={"rotate(5deg)"}
           >
-            <Box
-              position={"absolute"}
-              left={"-20px"}
-              top={"185px"}
-              transform={"scaleX(-1)"}
-            >
-              <Image
-                src={sideBook}
-                w={"320px"}
-                h={"auto"}
-                marginLeft={"auto"}
-                marginRight={"auto"}
-              />
-            </Box>
-            <Box
-              position={"absolute"}
-              left={"-20px"}
-              top={"265px"}
-              transform={"scaleX(-1)"}
-            >
-              <Image
-                src={sideBook}
-                w={"275px"}
-                h={"auto"}
-                marginLeft={"auto"}
-                marginRight={"auto"}
-                filter={"hue-rotate(290deg)"}
-              />
-            </Box>
-            <Box
-              position={"absolute"}
-              left={"-25px"}
-              top={"330px"}
-              transform={"scaleX(-1)"}
-            >
-              <Image
-                src={sideBook}
-                w={"240px"}
-                h={"auto"}
-                marginLeft={"auto"}
-                marginRight={"auto"}
-                filter={"hue-rotate(190deg)"}
-                overflow={"-moz-hidden-unscrollable"}
-              />
-            </Box>
+            <Image
+              src={flatBook}
+              w={"830px"}
+              h={"auto"}
+              marginLeft={"auto"}
+              marginRight={"auto"}
+              filter={"hue-rotate(190deg)"}
+            />
           </Box>
-        </Slide>
+        </Box> */}
+
+        {/* <Box
+          left={"50px"}
+          // w={{ base: "20vw", lg: "20vw", md: "42vw", sm: "17vw" }}
+        >
+          <Box
+            position={"absolute"}
+            left={"-20px"}
+            top={"185px"}
+            transform={"scaleX(-1)"}
+          >
+            <Image
+              src={sideBook}
+              w={"320px"}
+              h={"auto"}
+              marginLeft={"auto"}
+              marginRight={"auto"}
+            />
+          </Box>
+          <Box
+            position={"absolute"}
+            left={"-20px"}
+            top={"265px"}
+            transform={"scaleX(-1)"}
+          >
+            <Image
+              src={sideBook}
+              w={"275px"}
+              h={"auto"}
+              marginLeft={"auto"}
+              marginRight={"auto"}
+              filter={"hue-rotate(290deg)"}
+            />
+          </Box>
+          <Box
+            position={"absolute"}
+            left={"-25px"}
+            top={"330px"}
+            transform={"scaleX(-1)"}
+          >
+            <Image
+              src={sideBook}
+              w={"240px"}
+              h={"auto"}
+              marginLeft={"auto"}
+              marginRight={"auto"}
+              filter={"hue-rotate(190deg)"}
+              overflow={"-moz-hidden-unscrollable"}
+            />
+          </Box>
+        </Box> */}
+
         {/* ************************* */}
         {/* RIGHTMOST SIDE FLAT BOOK */}
         {/* ************************* */}
-        <Slide right>
-          <Box>
+
+        <Box>
+          <VStack>
             <Box
               position={"absolute"}
-              right={"-95px"}
-              top={"350px"}
+              right={"-545px"}
+              top={"410px"}
               filter={"hue-rotate(190deg)"}
               transform={"rotate(5deg)"}
             >
               <Image
                 src={flatBook}
-                w={"430px"}
-                h={"auto"}
-                marginLeft={"auto"}
-                marginRight={"auto"}
+                // w={"830px"}
+                // h={"auto"}
+                // marginLeft={"auto"}
+                // marginRight={"auto"}
                 filter={"hue-rotate(190deg)"}
               />
             </Box>
-          </Box>
-        </Slide>
+            <Box
+              position={"absolute"}
+              right={"-695px"}
+              top={"310px"}
+              filter={"hue-rotate(190deg)"}
+              transform={"rotate(5deg)"}
+            >
+              <Image
+                src={flatBook}
+                // w={"830px"}
+                // h={"auto"}
+                // marginLeft={"auto"}
+                // marginRight={"auto"}
+                filter={"hue-rotate(90deg)"}
+              />
+            </Box>
+            <Box
+              position={"absolute"}
+              right={"-395px"}
+              top={"310px"}
+              filter={"hue-rotate(-250deg)"}
+              transform={"rotate(5deg)"}
+            >
+              <Image
+                src={flatBook}
+                w={"830px"}
+                // h={"auto"}
+                // marginLeft={"auto"}
+                // marginRight={"auto"}
+                filter={"hue-rotate(10deg)"}
+              />
+            </Box>
+            {/* <Box
+              position={"absolute"}
+              right={"795px"}
+              top={"610px"}
+              filter={"hue-rotate(160deg)"}
+              // transform={"rotate(-5deg) scaleX(-1)"}
+            >
+              <Image
+                src={plant}
+                w={"830px"}
+                // h={"auto"}
+                // marginLeft={"auto"}
+                // marginRight={"auto"}
+                filter={"hue-rotate(10deg)"}
+              />
+            </Box> */}
+            <Box
+              position={"absolute"}
+              left={"-130px"}
+              top={"430px"}
+              filter={"hue-rotate(160deg)"}
+              transform={"rotate(20deg) scaleX(-1) "}
+            >
+              <Image
+                src={flatBook}
+                w={"730px"}
+                // h={"auto"}
+                // marginLeft={"auto"}
+                // marginRight={"auto"}
+                transform={"rotate(145deg) "}
+                filter={"hue-rotate(15deg)"}
+              />
+            </Box>
+            <Box
+              position={"absolute"}
+              left={"-130px"}
+              top={"630px"}
+              filter={"hue-rotate(160deg)"}
+              transform={"rotate(140deg)  scaleY(-1) "}
+            >
+              <Image
+                src={flatBook}
+                w={"530px"}
+                // h={"auto"}
+                // marginLeft={"auto"}
+                // marginRight={"auto"}
+                transform={"rotate(85deg) "}
+                filter={"hue-rotate(415deg)"}
+              />
+            </Box>
+          </VStack>
+        </Box>
       </Box>
     </>
   );

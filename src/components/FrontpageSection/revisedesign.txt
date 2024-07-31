@@ -33,6 +33,9 @@ import book_subject_cover_images from "../../data/book_subjects_cover_images.jso
 // IMAGES
 import magnifierIcon from "../../images/backgrounds/icon-347230_1920.png";
 
+import sideBook from "../../images/side-book.png";
+import flatBook from "../../images/flat-book.png";
+
 /*// ************************************************************************************************* */
 /* MONTHLY BOOK SUGGESTION PANEL  */
 /*// ************************************************************************************************* */
@@ -237,7 +240,7 @@ export function ExploreSection() {
         <div>
           <br />
           {/* SIDE BOOK */}
-          <SideBookStackGraphic />
+          {/* <SideBookStackGraphic /> */}
           <Image
             src={magnifierIcon}
             w={"100px"}
@@ -266,15 +269,85 @@ export function ExploreSection() {
           <br />
 
           {/* TEXT BODY */}
-        
-        
-          <TextPanel>
-            Interested in finding a book or two to read? Well, Saseo is here to
-            guide you! You can search for many book titles by genre. We have
-            almost every book genre to choose from! All you need to do is choose
-            a genre and how many books you would like suggested to you! You can
-            also roll the dice and get a random book suggested to you!
-          </TextPanel>
+          {/* // ! ***************************************  */}
+          {/* // ! ***************************************  */}
+          {/* // ! ***************************************  */}
+          <HStack justify={"center"}>
+            <p
+              style={{
+                color: "white",
+                fontSize: "20px",
+              }}
+            >
+              LEFT!
+            </p>
+            <TextPanel>
+              Interested in finding a book or two to read? Well, Saseo is here
+              to guide you! You can search for many book titles by genre. We
+              have almost every book genre to choose from! All you need to do is
+              choose a genre and how many books you would like suggested to you!
+              You can also roll the dice and get a random book suggested to you!
+            </TextPanel>
+
+            {/* //* RIGHT BOOK STACK */}
+            <Box
+              display={{
+                base: "inline",
+                lg: "inline",
+                md: "none",
+                sm: "none",
+                xs: "none",
+                "2xs": "none",
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  display: "block",
+                  backgroundColor: "pink",
+                  width: "100%",
+                }}
+              >
+                <div style={{ position: "absolute", top: "400px" }}>
+                  <Image
+                    src={sideBook}
+                    w={"220px"}
+                    h={"auto"}
+                    // marginLeft={"auto"}
+                    // marginRight={"auto"}
+                  />
+                </div>
+                <div
+                  style={{ position: "absolute", right: "155px", top: "472px" }}
+                >
+                  <Image
+                    src={sideBook}
+                    w={"175px"}
+                    h={"auto"}
+                    marginLeft={"auto"}
+                    marginRight={"auto"}
+                    filter={"hue-rotate(290deg)"}
+                  />
+                </div>
+                <div
+                  style={{ position: "absolute", right: "156px", top: "520px" }}
+                >
+                  <Image
+                    src={sideBook}
+                    w={"140px"}
+                    h={"auto"}
+                    marginLeft={"auto"}
+                    marginRight={"auto"}
+                    filter={"hue-rotate(190deg)"}
+                    overflow={"-moz-hidden-unscrollable"}
+                  />
+                </div>
+              </div>
+            </Box>
+          </HStack>
+          {/* ***************************************  */}
+          {/* ***************************************  */}
+          {/* ***************************************  */}
           <VStack w={"100%"} marginTop={"50px"}>
             <Text color={"page"} textAlign={"center"} paddingTop={"10px"}>
               Grab your book suggestions here:{" "}

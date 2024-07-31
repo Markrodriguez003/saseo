@@ -14,7 +14,7 @@ import {
 import BookmarkMobile from "../../../images/header/ribbon-1202755_1920 - Mobile.png";
 import BookShelfAnimation from "../BookShelfAnimation";
 import NewsletterForm from "components/NewsletterForm";
-import Slide from "react-reveal/Slide";
+// import Slide from "react-reveal/Slide";
 import { Link } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
 
@@ -114,7 +114,7 @@ export function SFooter() {
                 </Box>
               </Box>
             </Link>
-            <Link to={"suggest"} target="_blank" rel="search">
+            <Link to={"suggest"}  rel="search">
               <Text color={"white"} fontWeight={"bold"} fontSize={"xl"}>
                 Suggest Books
               </Text>

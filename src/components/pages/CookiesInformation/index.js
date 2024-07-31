@@ -16,13 +16,13 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import cookies_logo from "../../../images/misc/cookie-6116766_640.png";
-import Roll from "react-reveal/Roll";
+// import Roll from "react-reveal/Roll";
 
 function CookiesInformation() {
   return (
     <>
       <VStack backgroundColor={"accent-1"} paddingBottom={"150px"}>
-        <Roll left>
+        {/* <Roll left> */}
           <Image
             src={cookies_logo}
             alt="cookies-logo"
@@ -30,7 +30,7 @@ function CookiesInformation() {
             paddingTop={"60px"}
             w={"200px"}
           />
-        </Roll>
+        {/* </Roll> */}
         <TextPanel>
           <HeadingPanel backgroundColor="secondary">
             What are cookies?
