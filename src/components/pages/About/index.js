@@ -285,15 +285,16 @@ function About() {
     <>
       <div className="about-us-hero">
         <RandomLetterHeader />
-        <Container maxW="container.md" color="#262626" className="about-header">
+        <Container maxW="container.md" color="#262626" className="about-header" >
           <Text
             textAlign={"center"}
             // fontSize={{ base: "xl", sm: "sm", md: "xl", lg: "xl" }}
-            fontSize="xl"
+            fontSize="l"
             color={"white"}
             marginTop={"50px"}
             paddingBottom={"50px"}
             letterSpacing={"1px"}
+            overflowWrap={"break-word"}
           >
             Saseo was created to solve a problem that should not exist in
             today's age, finding the perfect book to read! Saseo's purpose is to
@@ -305,7 +306,7 @@ function About() {
       </div>
       <br />
       {/* <Fade> */}
-        <InfographicSection />
+      <InfographicSection />
       {/* </Fade> */}
 
       <Flex
