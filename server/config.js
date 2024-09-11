@@ -1,0 +1,4 @@
+
+// export MONGODB_APP_USERNAME = "markrodriguez003"; 
+// MONGODB_APP_PASSWORD = KwTnVXswp4ATYfxw
+// JWT_TOKEN_SECRET = PA7nymV66d5tbBsRfk96n4nZeMFtQXpmxGvrzVXORHI

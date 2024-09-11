@@ -43,6 +43,7 @@ const bookGenres = [
   "Technology",
   "Architecture",
   "Economics",
+  "Not Sure",
 ];
 
 export const UserSchema = new mongoose.Schema({

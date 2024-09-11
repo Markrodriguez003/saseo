@@ -6,7 +6,7 @@ import morgan from "morgan";
 import router from "./router/routes.js";
 // Database Library
 import connectDB from "../server/database/connectDB.js";
-
+import "dotenv/config";
 // CRENDENTIALS
 // console.log(process.env.MONG0DB_APP_USERNAME)
 // console.log(process.env.MONG0DB_APP_PASSWORD)
@@ -18,6 +18,7 @@ const PORT = 7777;
 // MIDDLEWARE
 app.use(express.json());
 app.use(cors());
+
 app.use(morgan("tiny"));
 app.disable("x-powered-by");
 

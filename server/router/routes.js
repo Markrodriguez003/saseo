@@ -4,6 +4,10 @@ const router = Router();
 /** import all controllers */
 import * as controller from "../controllers/appController.js";
 
+// Authentication middleware
+
+import Auth, { localVariables } from "../middleware/auth.js";
+
 // POST
 // Registers User
 router.route("/register").post(controller.register);
@@ -19,7 +23,7 @@ router.route("/authenticate").post((req, res) => {
 });
 
 // User log in router
-router.route("/login").post(controller.login);
+router.route("/login").post(controller.verifyUser, controller.login);
 
 // GET
 
@@ -27,17 +31,19 @@ router.route("/login").post(controller.login);
 router.route("/user/:username").get(controller.getUser);
 
 // Generates random OTP for password reset
-router.route("/user/generateOTP").get(controller.generateOTP);
+router
+  .route("/generateOTP")
+  .get(controller.verifyUser, localVariables, controller.generateOTP);
 
 // verify generated OTP
-router.route("/user/verifyOTP").get(controller.verifyOTP);
+router.route("/verifyOTP").get(controller.verifyOTP);
 
 // Resets all variables
 router.route("/user/createResetSession").get(controller.createResetSession);
 
 // PUT
 // Route that helps update user's profile
-router.route("/updateUser").put(controller.updateUser);
+router.route("/updateUser").put(Auth, controller.updateUser);
 
 // Route that resets user's password
 router.route("/resetPassword").put(controller.resetPassword);
