@@ -54,7 +54,7 @@ function RegisterNewAccount() {
   function handleFormReset() {
     resetForm();
   }
-  async function handleFormSubmission() {}
+  // async function handleFormSubmission() {}
 
   const {
     values,
@@ -64,25 +64,32 @@ function RegisterNewAccount() {
     isSubmitting,
     errors,
   } = useFormik({
-    initialValues: { nickname: "", email: "", password: "" },
+    initialValues: {
+      nickname: "",
+      email: "",
+      favoriteGenre: "",
+      password: "",
+      confirmedPassword: "",
+    },
     validateOnChange: false,
     validateOnBlur: false,
     validationSchema: registerNewAccountSchema,
     onSubmit: (values) => {
-      registrationFormValues = {
-        favoriteBookGenre:
-          genreOption === "Select your favorite book genre" ? "" : genreOption,
-        ...values,
-      };
-      console.log(`Form Values:`, registrationFormValues);
-      toast({
-        title: "Account Registration Sucessful! ",
-        description: "Thank you creating a new account!",
-        status: "success",
-        duration: 2400,
-        isClosable: true,
-        position: "top-center",
-      });
+      console.log("Clicked on submit button");
+      // registrationFormValues = {
+      //   favoriteBookGenre:
+      //     genreOption === "Select your favorite book genre" ? "" : genreOption,
+      //   ...values,
+      // };
+      // console.log(`Form Values:`, registrationFormValues);
+      // toast({
+      //   title: "Account Registration Sucessful! ",
+      //   description: "Thank you creating a new account!",
+      //   status: "success",
+      //   duration: 2400,
+      //   isClosable: true,
+      //   position: "top-center",
+      // });
     },
   });
   return (
@@ -141,9 +148,7 @@ function RegisterNewAccount() {
         />
         {errors.email ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            {/* <Shake> */}
             {errors.email}
-            {/* </Shake> */}
           </small>
         ) : (
           <FormHelperText>We'll never share your email.</FormHelperText>
@@ -170,9 +175,8 @@ function RegisterNewAccount() {
         </InputGroup>
         {errors.password ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            {/* <Shake> */}
             {errors.password}
-            {/* </Shake> */}
+
             <Wrap>
               <UnorderedList
                 fontSize={"12.5px"}
@@ -240,7 +244,8 @@ function RegisterNewAccount() {
             backgroundColor={"primary"}
             color={"white"}
             type="submit"
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
+            onClick={console.log("submitting form!")}
             disabled={isSubmitting ? true : false}
           >
             Sign Up!

@@ -16,7 +16,7 @@ import * as React from "react";
 //   : "";
 
 function CreateEmail(collection) {
-  console.log(JSON.stringify(collection));
+  // console.log(JSON.stringify(collection));
   return (
     <>
       <Preview>Saseo Book Recommendation List</Preview>

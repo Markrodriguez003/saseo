@@ -67,6 +67,13 @@ export const UserSchema = new mongoose.Schema({
     enum: bookGenres,
     unique: false,
   },
+  avatar: {
+    type: String,
+  },
+  profile: {
+    type: String,
+    unique: true,
+  },
 });
 
 export default mongoose.Model.Users || mongoose.model("User", UserSchema);

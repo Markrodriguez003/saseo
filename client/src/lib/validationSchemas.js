@@ -1,10 +1,29 @@
 // LIBRARIES
 import * as Yup from "yup";
 
+export async function usernameValidate(values) {
+  const errors = usernameVerify({}, values);
+  return errors;
+}
+
+function usernameVerify(values) {
+  if (!values.username) {
+    return "username_failure";
+  } else if (values.username.includes(" ")) {
+    return "username_failure";
+  }
+
+  return "";
+}
+
 // * Validation schema for email forms only
 export const loginSchema = Yup.object({
   password: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email address").required("Required"),
+  username: Yup.string()
+    .min(5, "Too Short!")
+    .max(15, "Too Long!")
+    .required("Required"),
+  // email: Yup.string().email("Invalid email address").required("Required"),
 });
 
 // * Validation schema for new account resgistration forms only
@@ -14,6 +33,10 @@ export const registerNewAccountSchema = Yup.object({
     .min(5, "Must be above 4 characters (max 15)")
     .required("Please enter your favorite genre!"),
   email: Yup.string().email("Invalid email address").required("Required"),
+  username: Yup.string()
+    .min(5, "Too Short!")
+    .max(15, "Too Long!")
+    .required("Required"),
   password: Yup.string()
     .max(15, "Must be above 4 characters (max 15)")
     .min(5, "Must be above 4 characters (max 15)")
