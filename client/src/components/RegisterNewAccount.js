@@ -11,7 +11,6 @@ import {
   UnorderedList,
   InputRightElement,
   InputGroup,
-  Toast,
   useToast,
   Wrap,
 } from "@chakra-ui/react";
@@ -25,7 +24,8 @@ import bookSubjects from "../data/book_subjects.json";
 // LIBRARIES
 import { useFormik } from "formik";
 import { useState } from "react";
-import * as Yup from "yup";
+import { useAuthStore } from "./../lib/store/store";
+import { registerUser } from "../lib/APIConnector";
 // import Shake from "react-reveal/Shake";
 import { Link } from "react-router-dom";
 import { BookGenreSuggestionSection } from "./FrontpageSection";
@@ -38,10 +38,9 @@ const bookGenreValues = bookSubjects.b_subjects
   .flat();
 
 function RegisterNewAccount() {
-  let toast = useToast();
-
-  // True/False values for "show password characters" process
+  // True/False values for "show password characters" form fields
   const [show, setShow] = useState(false);
+  // Holds user's favorite genre
   const [genreOption, setGenreOption] = useState(
     "Select your favorite book genre"
   );
@@ -51,10 +50,90 @@ function RegisterNewAccount() {
   // * Holds form data
   let registrationFormValues = {};
 
+  // Resets entire form
   function handleFormReset() {
     resetForm();
   }
-  // async function handleFormSubmission() {}
+
+  // Creating instance of chakra toast component
+  const toast = useToast();
+
+  // STORE
+  // const usernameStore = useAuthStore((state) => state.auth.username);
+  function registerUserResult(state) {
+    if (state === "successful") {
+      console.log(state);
+      registeredUserSuccess();
+    } else if (state === "email_failure") {
+      console.log(state);
+      registeredUserEmailFailure();
+    } else if (state === "username||password_failure") {
+      console.log(state);
+      registeredExistsFailure();
+    } else {
+      // console.log(`Registering user failed! (FE) ${state}`);
+      registeredUserFailure();
+    }
+  }
+  function registeredUserSuccess() {
+    // Setting up store.
+    // Create session here
+    // setUsername(values.username);
+
+    // navigate to account/dashboard page
+    // navigate("/account/dashboard");
+
+    return toast({
+      title: "Account Registration Sucessful! ",
+      description: "Thank you creating a new account!",
+      status: "success",
+      duration: 2400,
+      isClosable: true,
+      position: "top-center",
+    });
+  }
+
+  function registeredUserEmailFailure() {
+    // Setting up store.
+    // Create session here
+    // setUsername(values.username);
+
+    // navigate to account/dashboard page
+    // navigate("/account/dashboard");
+
+    return toast({
+      title: "Account Registration Unsucessful! ",
+      description: "Email could not be sent out!!",
+      status: "error",
+      duration: 2400,
+      isClosable: true,
+      position: "top-center",
+    });
+  }
+  function registeredUserFailure() {
+    //! Sign out session here
+    return toast({
+      title: "Cannot Register account! ",
+      description: "An error has occurred! Please double check form entries!.",
+      status: "error",
+      duration: 2400,
+      isClosable: true,
+      position: "top-center",
+    });
+  }
+
+  function registeredExistsFailure() {
+    //! Sign out session here
+    return toast({
+      title: "Cannot Register account! ",
+      description:
+        "An error has occurred! Email or username is already in use!",
+      status: "error",
+      duration: 2400,
+      isClosable: true,
+      position: "top-center",
+    });
+  }
 
   const {
     values,
@@ -65,62 +144,54 @@ function RegisterNewAccount() {
     errors,
   } = useFormik({
     initialValues: {
-      nickname: "",
+      username: "",
       email: "",
-      favoriteGenre: "",
+      // favoriteBookGenre: "",
       password: "",
-      confirmedPassword: "",
+      confirmPassword: "",
     },
     validateOnChange: false,
     validateOnBlur: false,
     validationSchema: registerNewAccountSchema,
-    onSubmit: (values) => {
-      console.log("Clicked on submit button");
-      // registrationFormValues = {
-      //   favoriteBookGenre:
-      //     genreOption === "Select your favorite book genre" ? "" : genreOption,
-      //   ...values,
-      // };
-      // console.log(`Form Values:`, registrationFormValues);
-      // toast({
-      //   title: "Account Registration Sucessful! ",
-      //   description: "Thank you creating a new account!",
-      //   status: "success",
-      //   duration: 2400,
-      //   isClosable: true,
-      //   position: "top-center",
-      // });
+    onSubmit: async (values) => {
+      registerUserResult(
+        await registerUser({
+          favoriteBookGenre:
+            genreOption === "Select your favorite book genre"
+              ? ""
+              : genreOption,
+          ...values,
+        })
+      );
     },
   });
   return (
     <>
       <FormControl onSubmit={handleSubmit}>
-        <FormLabel htmlFor="nickname">Profile Nickname:</FormLabel>
+        <FormLabel htmlFor="username">Username:</FormLabel>
         <Input
           type="text"
-          name="nickname"
-          id=" nickname"
+          name="username"
+          id=" username"
           onChange={handleChange}
-          value={values.nickname}
+          value={values.username}
         />
-        {errors.nickname ? (
+        {errors.username ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            {/* <Shake> */}
-            {errors.nickname}
-            {/* </Shake> */}
+            {errors.username}
           </small>
         ) : null}
         <br />
         <br />
-        <FormLabel>
+        <FormLabel htmlFor="favoriteBookGenre">
           Favorite Book Genre{" "}
           <span style={{ fontSize: "12px", color: "grey" }}>(optional)</span>:
         </FormLabel>
         <Select
-          name="favoriteGenre"
-          id="favoriteGenre"
+          name="favoriteBookGenre"
+          id="favoriteBookGenre"
           placeholder={genreOption}
-          value={values.favoriteGenre}
+          value={values.favoriteBookGenre}
           onChange={(e) =>
             setGenreOption(e.target.options[e.target.selectedIndex].text)
           }
@@ -129,11 +200,9 @@ function RegisterNewAccount() {
           <option value={"Undecided"}>Undecided</option>
           <option value={"Undecided"}>All of them!</option>
         </Select>
-        {errors.favoriteGenre ? (
+        {errors.favoriteBookGenre ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            {/* <Shake> */}
-            {errors.favoriteGenre}
-            {/* </Shake> */}
+            {errors.favoriteBookGenre}
           </small>
         ) : null}
         <br />
@@ -230,9 +299,7 @@ function RegisterNewAccount() {
 
         {errors.confirmPassword ? (
           <small style={{ color: "red", fontStyle: "italic" }}>
-            {/* <Shake> */}
             {errors.confirmPassword}
-            {/* </Shake> */}
           </small>
         ) : (
           <></>
@@ -245,7 +312,7 @@ function RegisterNewAccount() {
             color={"white"}
             type="submit"
             // onClick={handleSubmit}
-            onClick={console.log("submitting form!")}
+            onClick={handleSubmit}
             disabled={isSubmitting ? true : false}
           >
             Sign Up!

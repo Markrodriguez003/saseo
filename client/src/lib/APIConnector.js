@@ -6,14 +6,11 @@ axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 export async function login(values) {
   // console.log(`server--> ${process.env.REACT_APP_SERVER_DOMAIN}`);
   try {
-    // console.log(" validating login credentials!");
     const result = axios
       .post("http://localhost:7777/api/login", values)
-      // .then((response) => console.log(response))
       .then((response) => {
         return "successful";
       })
-      // .catch((error) => console.error(error));
       .catch((error) => {
         return "failure";
       });
@@ -45,27 +42,48 @@ export async function login(values) {
 //     return "failure!!!";
 //   }
 // }
-export async function registerUser({ credentials }) {
-  try {
-    const {
-      data: { msg },
-      status,
-    } = await axios.post(`http://localhost:7777/api/register`, credentials);
-    let { username, email } = credentials;
+export async function registerUser(formValues) {
+  console.log(
+    `Registering user inside frontend api connector! -> ${JSON.stringify(
+      formValues
+    )}`
+  );
 
-    // Send email after registered to Saseo
-    if (status === 201) {
-      await axios.post("http://localhost:7777/api/registerMail", {
-        username,
-        userEmail: email,
-        text: msg,
+  const { username, email, password, favoriteBookGenre } = formValues;
+  let postStatus;
+  try {
+    await axios
+      .post(`http://localhost:7777/api/register`, {
+        username: username,
+        password: password,
+        email: email,
+        favoriteBookGenre: favoriteBookGenre,
+      })
+      .then(async (response) => {
+        console.log(`::: response: ${JSON.stringify(response)}   `);
+        if (response.status === 201) {
+          await axios.post("http://localhost:7777/api/registerMail", {
+            username,
+            userEmail: email,
+            text: response.data.msg,
+          });
+        } else {
+          return "email_failure";
+        }
+
+        postStatus = "successful";
+      })
+      .catch((error) => {
+        console.log(
+          `Failure from the backend:::: ${JSON.stringify(error.response.data)}`
+        );
+        postStatus = "username||password_failure";
       });
-      return Promise.resolve(msg);
-    } else {
-    }
   } catch (error) {
-    return Promise.reject({ error });
+    console.log(`Error::::${error}`);
+    postStatus = "failure";
   }
+  return postStatus;
 }
 
 export async function authenticate(username) {

@@ -43,7 +43,8 @@ const bookGenres = [
   "Technology",
   "Architecture",
   "Economics",
-  "Not Sure",
+  "Undecided",
+  "All of them!",
 ];
 
 export const UserSchema = new mongoose.Schema({
@@ -72,7 +73,7 @@ export const UserSchema = new mongoose.Schema({
   },
   profile: {
     type: String,
-    unique: true,
+    unique: false,
   },
 });
 

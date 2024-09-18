@@ -25,17 +25,21 @@ function LogInForm(props) {
   // Handles showing password characters or hiding them from user"
   const handleClick = () => setShow(!show);
 
-  // Cookies / Context Store
-  const setUsername = useAuthStore((state) => state.setUsername);
-
   // Page Navigator
   const navigate = useNavigate();
+
+  // useEffect to make sure store is updated correctly
 
   // Creating instance of chakra toast component
   const toast = useToast();
 
-  // STORE
+  // Cookies / Context Store
+  //! move to useEffect since it is not updating
+  const setUsername = useAuthStore((state) => state.setUsername);
   const usernameStore = useAuthStore((state) => state.auth.username);
+  useEffect(() => {
+    return () => {};
+  }, [usernameStore]);
 
   function loginResult(state) {
     if (state === "successful") {
@@ -46,6 +50,8 @@ function LogInForm(props) {
       unvalidatedLogin();
     }
   }
+  // Login Validation Success
+  // ! change to one function with props passed for success & failure
   function validatedLogin() {
     // Setting up store.
     // Create session here
@@ -63,6 +69,7 @@ function LogInForm(props) {
       isClosable: true,
     });
   }
+  // Login Validation Failure
   function unvalidatedLogin() {
     // Sign out session here
     return toast({

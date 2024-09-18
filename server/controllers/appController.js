@@ -60,7 +60,7 @@ export async function register(req, res) {
         // If MongoDB throws any error at the beggining of the findOne method call
         .catch((err) =>
           reject({
-            error: "Username already exists! Please create unique username!",
+            error: "Email already exists! Please use a unique email!",
           })
         );
     });
@@ -95,7 +95,7 @@ export async function register(req, res) {
               })
               // Saving user to DB did not go through
               .catch((error) => {
-                res.status(500).send(error);
+                res.status(500).send({ msg: error });
               });
           });
         }
@@ -210,10 +210,10 @@ export async function login(req, res) {
             } else {
               // If password from frontend and backend do not match, reject
               // reject(
-                res.status(400).send({
-                  error: `Password does not match!`,
-                })
-              // ); 
+              res.status(400).send({
+                error: `Password does not match!`,
+              });
+              // );
             }
           });
         })
