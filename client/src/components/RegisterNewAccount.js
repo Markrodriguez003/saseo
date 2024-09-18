@@ -13,8 +13,10 @@ import {
   InputGroup,
   useToast,
   Wrap,
+  Center,
+  CircularProgress,
+  CircularProgressLabel,
 } from "@chakra-ui/react";
-
 // NOTES
 //? https://www.youtube.com/watch?v=7Ophfq0lEAY&ab_channel=NikitaDev
 
@@ -168,6 +170,23 @@ function RegisterNewAccount() {
   return (
     <>
       <FormControl onSubmit={handleSubmit}>
+        {isSubmitting ? (
+          <Center>
+            <CircularProgress
+              color="green.300"
+              isIndeterminate
+              size={"150px"}
+              thickness={"2px"}
+            >
+              <CircularProgressLabel style={{ fontSize: "15px" }}>
+                Registering
+              </CircularProgressLabel>
+            </CircularProgress>
+          </Center>
+        ) : (
+          <></>
+        )}
+
         <FormLabel htmlFor="username">Username:</FormLabel>
         <Input
           type="text"

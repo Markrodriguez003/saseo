@@ -21,27 +21,6 @@ export async function login(values) {
   }
 }
 
-//  MAKE API REQUEST TO BACKEND WHEN USER REGISTERS A NEW ACCOUNT
-// export async function registerUser(values) {
-//   // console.log(`server--> ${process.env.REACT_APP_SERVER_DOMAIN}`);
-//   try {
-//     // console.log(" validating login credentials!");
-//     const result = axios
-//       .post("http://localhost:7777/api/register", values)
-//       // .then((response) => console.log(response))
-//       .then((response) => {
-//         return response;
-//       })
-//       // .catch((error) => console.error(error));
-//       .catch((error) => {
-//         return error;
-//       });
-
-//     return result;
-//   } catch (error) {
-//     return "failure!!!";
-//   }
-// }
 export async function registerUser(formValues) {
   console.log(
     `Registering user inside frontend api connector! -> ${JSON.stringify(
@@ -68,6 +47,7 @@ export async function registerUser(formValues) {
             text: response.data.msg,
           });
         } else {
+          console.log("Registeration email was not sent out!");
           return "email_failure";
         }
 
