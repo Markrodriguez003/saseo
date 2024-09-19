@@ -1,0 +1,80 @@
+import mongoose from "mongoose";
+
+const bookGenres = [
+  "Horror",
+  "Humor",
+  "Poltics",
+  "Fantasy",
+  "Science Fiction",
+  "Fiction",
+  "Travel",
+  "Non-Fiction",
+  "Religion",
+  "Biography",
+  "Children",
+  "Music",
+  "Sports",
+  "Manga",
+  "Educational",
+  "Romance",
+  "Thriller",
+  "Memoir",
+  "Cookbook",
+  "Crime",
+  "Psychology",
+  "Alternate History",
+  "Short Story",
+  "Military",
+  "Satire",
+  "Gender",
+  "Paranormal",
+  "Science",
+  "Self Help",
+  "Paranormal",
+  "Western",
+  "History",
+  "Graphic Novel",
+  "LGBTQ+",
+  "Philosophy",
+  "Young Adult",
+  "Art",
+  "DIY",
+  "Sociality",
+  "Technology",
+  "Architecture",
+  "Economics",
+  "Undecided",
+  "All of them!",
+];
+
+export const ProfileSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: [true, "Please provide unique username!"],
+    unique: [true, "Username exists!"],
+  },
+  password: {
+    type: String,
+    required: [true, "Please provide password!"],
+    unique: [false],
+  },
+  email: {
+    type: String,
+    required: [true, "Please provide valid email!"],
+    unique: [true, "email exists in our accounts!"],
+  },
+  favoriteBookGenre: {
+    type: String,
+    enum: bookGenres,
+    unique: false,
+  },
+  avatar: {
+    type: String,
+  },
+  profile: {
+    type: String,
+    unique: false,
+  },
+});
+
+export default mongoose.Model.Users || mongoose.model("Profile", UserSchema);

@@ -1,6 +1,8 @@
 import { ChakraProvider } from "@chakra-ui/react";
 // SITE COMPONENTS
 import SHeader from "./components/ui/SHeader";
+import Login from "./components//pages/Login";
+import PasswordReset from "./components/pages/PasswordReset";
 import FrontPage from "./components/pages/FrontPage";
 import About from "./components/pages/About";
 import AccountDashboard from "./components/pages/AccountDashboard";
@@ -23,6 +25,7 @@ import RandomBookSuggestion from "./components/pages/RandomBookSuggestion";
 // import test_books from "./data/book_examples.json";
 
 import SiteTheme from "./components/ui/siteTheme";
+import Registration from "./components/pages/Registration";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
@@ -35,6 +38,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<FrontPage />} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/passwordReset" element={<PasswordReset />} />
           <Route path="/account/dashboard" element={<AccountDashboard />} />
           <Route path="/account/settings" element={<AccountInformation />} />
           <Route path="suggest" element={<BookSuggestion />} />

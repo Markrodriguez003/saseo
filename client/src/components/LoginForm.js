@@ -114,7 +114,7 @@ function LogInForm(props) {
           </>
         )}
 
-        <FormLabel>Password:</FormLabel>
+        <FormLabel htmlFor="password">Password:</FormLabel>
         <InputGroup>
           <Input
             id="password"
@@ -139,8 +139,16 @@ function LogInForm(props) {
         ) : null}
 
         <Box paddingTop={"10px"}>
-          <Link href="#">
+          <Link to="/passwordreset">
             <Text color="primary">Reset Password</Text>
+          </Link>
+          <Link
+            to="/registration"
+            reloadDocument
+            rel="search"
+            onClick={console.log("Hello?")}
+          >
+            <Text color="primary">New? Create account! </Text>
           </Link>
         </Box>
         <HStack paddingTop={"6px"} justifyContent={"center"}>

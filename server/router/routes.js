@@ -26,10 +26,11 @@ router.route("/authenticate").post(controller.verifyUser, (req, res) => {
 // User log in router
 router.route("/login").post(controller.verifyUser, controller.login);
 
-// GET
-
 // Grabs user's username
 router.route("/user/:username").get(controller.getUser);
+
+// Grabs user's username
+router.route("/verifyaccount").post(controller.forgotPasswordVerify);
 
 // Generates random OTP for password reset
 router

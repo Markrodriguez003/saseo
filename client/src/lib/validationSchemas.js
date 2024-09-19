@@ -26,6 +26,23 @@ export const loginSchema = Yup.object({
   // email: Yup.string().email("Invalid email address").required("Required"),
 });
 
+// * Validation schema for account password reset forms only
+export const passwordResetSchema = Yup.object({
+  email: Yup.string().email("Invalid email address").required("Required"),
+  username: Yup.string()
+  .min(5, "Too Short!")
+  .max(20, "Too Long!")
+  .required("Required"),
+});
+
+// * Validation schema for account password reset OTP only
+export const OTPCodeSchema = Yup.object({
+  OTPCode: Yup.number()
+    .min(6, "Too Short!")
+    .max(6, "Too Long!")
+    .required("Required"),
+});
+
 // * Validation schema for new account resgistration forms only
 export const registerNewAccountSchema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),

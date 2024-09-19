@@ -22,11 +22,11 @@ export async function login(values) {
 }
 
 export async function registerUser(formValues) {
-  console.log(
-    `Registering user inside frontend api connector! -> ${JSON.stringify(
-      formValues
-    )}`
-  );
+  // console.log(
+  //   `Registering user inside frontend api connector! -> ${JSON.stringify(
+  //     formValues
+  //   )}`
+  // );
 
   const { username, email, password, favoriteBookGenre } = formValues;
   let postStatus;
@@ -74,13 +74,46 @@ export async function authenticate(username) {
   }
 }
 
-export async function getUser({ username }) {
+export async function getUser(username) {
   try {
-    const { data } = await axios.get(`/api/user/${username}`);
+    const { data } = await axios.get(
+      `http://localhost:7777/api/user/${username}`
+    );
     return data;
   } catch (error) {
     return { error: "User account doesn't exist!" };
   }
+}
+
+export async function verifyAccount(values) {
+  console.log(
+    `This is the password reset form data::: ${JSON.stringify(values)}`
+  );
+  const { username, email } = values;
+
+  let postStatus;
+  try {
+    await axios
+      .post(`http://localhost:7777/api/verifyaccount`, {
+        username: username,
+        email: email,
+      })
+      .then(async (response) => {
+        console.log(`::: response: ${JSON.stringify(response)}   `);
+        postStatus = "successful";
+      })
+      .catch((error) => {
+        console.log(
+          `Failure from the backend:::: ${JSON.stringify(error.response)}`
+        );
+        postStatus = "username||email_failure";
+      });
+  } catch (error) {
+    console.log(`Error::::${error}`);
+    postStatus = "username||email_failure";
+  }
+
+  return postStatus;
 }
 
 export async function verifyPassword({ username, password }) {
@@ -148,10 +181,13 @@ export async function verifyOTP({ username, code }) {
 
 export async function resetPassword({ username, password }) {
   try {
-    const { data, status } = await axios.put("/api/resetPassword", {
-      username,
-      password,
-    });
+    const { data, status } = await axios.put(
+      "http://localhost:7777/api/resetPassword",
+      {
+        username,
+        password,
+      }
+    );
 
     return Promise.resolve({ data, status });
   } catch (error) {

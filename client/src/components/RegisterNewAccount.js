@@ -156,6 +156,10 @@ function RegisterNewAccount() {
     validateOnBlur: false,
     validationSchema: registerNewAccountSchema,
     onSubmit: async (values) => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
       registerUserResult(
         await registerUser({
           favoriteBookGenre:

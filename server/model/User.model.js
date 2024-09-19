@@ -75,6 +75,31 @@ export const UserSchema = new mongoose.Schema({
     type: String,
     unique: false,
   },
+  booksRead: {
+    type: Number,
+    unique: false,
+    default: 0,
+  },
+  booksWantToRead: {
+    type: Number,
+    unique: false,
+    default: 0,
+  },
+  amountOfBooksSuggested: {
+    type: Number,
+    unique: false,
+    default: 0,
+  },
+  amountOfRandomBooks: {
+    type: Number,
+    unique: false,
+    default: 0,
+  },
+  booksSuggestionEmailed: {
+    type: Number,
+    unique: false,
+    default: 0,
+  },
 });
 
 export default mongoose.Model.Users || mongoose.model("User", UserSchema);

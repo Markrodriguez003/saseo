@@ -6,27 +6,12 @@ import {
   MenuList,
   Button,
   Show,
+  VStack,
   Hide,
   Flex,
   Image,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalHeader,
-  ModalFooter,
-  ModalContent,
-  ModalOverlay,
-  useDisclosure,
-  VStack,
   HStack,
   Box,
-  Tab,
-  Tabs,
-  TabList,
-  TabPanel,
-  TabPanels,
-  TabIndicator,
-  Text,
   Heading,
 } from "@chakra-ui/react";
 
@@ -34,7 +19,7 @@ import {
 import LogInForm from "../../LoginForm";
 import RegisterNewAccount from "../../RegisterNewAccount";
 // REACT
-import { useState } from "react";
+import { useState, createContext } from "react";
 
 // CSS
 import "./SHeader.design.css";
@@ -62,12 +47,11 @@ import confetti from "canvas-confetti";
 
 export function SHeader() {
   // Modal Control
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  // const { isOpen, onOpen, onClose } = useDisclosure();
 
-  function handleSignIn() {
-    console.log("You clicked on signed-in ");
-    onOpen();
-  }
+  // function handleSignIn() {
+  //   onOpen();
+  // }
 
   // //TODO: MOVE CONFETTI TO UI AND ACTIVATE IT WHEN USER SENDS EMAIL OF BOOK LIST SUCESSFULLY
   // todo : ALTERNATIVELY MOVE SVG TO SEPARATE FILE (OR DO BOTH)
@@ -84,16 +68,16 @@ export function SHeader() {
   return (
     <>
       {/* //^ LOGIN MODAL */}
-      <Modal onClose={onClose} size={"4xl"} isOpen={isOpen}>
+      {/* <Modal onClose={onClose} size={"4xl"} isOpen={isOpen}>
         <ModalOverlay
           bg="blackAlpha.300"
           backdropFilter="blur(10px) hue-rotate(10deg)"
-        />
-
+        /> */}
+      {/* 
         <ModalContent>
-          <Tabs isFitted variant="enclosed">
-            {/* //^ TOP TAB PANELS (log in & sign in) */}
-            <TabList
+          <Tabs isFitted variant="enclosed"> */}
+      {/* //^ TOP TAB PANELS (log in & sign in) */}
+      {/* <TabList
               mb="1em"
               backgroundColor={"rgba(0,0,0,0.65)"}
               flexDirection={{
@@ -187,11 +171,11 @@ export function SHeader() {
               bg="primary"
               borderRadius="1px"
             />
-            <TabPanels>
-              {/* ****************************************** */}
-              {/* //^ Log in Panel */}
-              {/* ****************************************** */}
-              <TabPanel>
+            <TabPanels> */}
+      {/* ****************************************** */}
+      {/* //^ Log in Panel */}
+      {/* ****************************************** */}
+      {/* <TabPanel>
                 <ModalBody>
                   <VStack
                     justifyContent={"center"}
@@ -230,7 +214,7 @@ export function SHeader() {
             </Button>
           </ModalFooter>
         </ModalContent>
-      </Modal>
+      </Modal> */}
 
       {/* HEADER */}
       {/* BOOKMARK BRAND IMAGE */}
@@ -412,7 +396,7 @@ export function SHeader() {
 
             <HStack flexGrow={8} justify={"end"} paddingRight={"12px"}>
               <Menu>
-                <MenuButton
+                {/* <MenuButton
                   as={Button}
                   backgroundColor={"transparent"}
                   _hover={{ backgroundColor: "transparent" }}
@@ -422,7 +406,7 @@ export function SHeader() {
                     w={"55px"}
                     _hover={{ backgroundColor: "transparent" }}
                   />
-                </MenuButton>
+                </MenuButton> */}
 
                 <MenuList color={"white"} backgroundColor={"primary"}>
                   <MenuItem color={"white"} backgroundColor={"primary"}>
@@ -437,9 +421,24 @@ export function SHeader() {
                   </MenuItem>
                 </MenuList>
               </Menu>
-              <Button variant={"menu-button"} onClick={handleSignIn}>
-                Sign-In
-              </Button>
+              {/* <Button variant={"menu-button"} onClick={handleSignIn}> */}
+              <Link to={"/login"} reloadDocument rel="search">
+                <Button
+                  variant={"menu-button"}
+                  href="/login"
+                  onClick={console.log("Sign in!")}
+                >
+                  <p style={{ fontSize: "14px" }}>Sign-In</p>
+                </Button>
+              </Link>
+              <Link to={"/registration"} reloadDocument rel="search">
+                <Button
+                  variant={"menu-button"}
+                  onClick={console.log("Registration!")}
+                >
+                  <p style={{ fontSize: "14px" }}>Register Account</p>
+                </Button>
+              </Link>
             </HStack>
           </Flex>
         </Hide>
@@ -458,9 +457,9 @@ export function SHeader() {
                 className="mobile-mobile-icon"
               />
             </MenuButton>
-            <MenuList>
+            <MenuList paddingLeft={"4px"}>
               <HStack flexGrow={8} justify={"start"} paddingRight={"12px"}>
-                <Menu>
+                {/* <Menu>
                   <MenuButton
                     as={Button}
                     backgroundColor={"transparent"}
@@ -481,10 +480,30 @@ export function SHeader() {
                       </MenuItem>
                     </Link>
                   </MenuList>
-                </Menu>
-                <Button variant={"menu-button"} onClick={handleSignIn}>
-                  Sign-In
-                </Button>
+                </Menu> */}
+                {/* <Button variant={"menu-button"} onClick={handleSignIn}> */}
+                <VStack align={"flex-start"}>
+                  <Link to={"/login"} reloadDocument rel="search">
+                    <Button
+                      // variant={"menu-button"}
+                      color={"white"}
+                      background={"teal.500"}
+                      onClick={console.log("Sign in!")}
+                    >
+                      Login
+                    </Button>
+                  </Link>
+                  <Link to={"/registration"} reloadDocument rel="search">
+                    <Button
+                      // variant={"menu-button"}
+                      color={"white"}
+                      background={"teal.500"}
+                      onClick={console.log("Registration!")}
+                    >
+                      Create Account
+                    </Button>
+                  </Link>
+                </VStack>
               </HStack>
               <Link to={"suggest"} reloadDocument rel="search">
                 <MenuItem>Suggest Books</MenuItem>

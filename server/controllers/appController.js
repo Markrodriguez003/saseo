@@ -250,10 +250,55 @@ export async function getUser(req, res) {
             error: `Cannnot find user account! -> ${err}`,
           });
         }
-        // Username exists, temoves password + mongoDB unnecessary object info
-        const { password, ...rest } = Object.assign({}, user.toJSON());
+
+        // todo: FIX THIS. FOR WHATEVER REASON OBJECT.ASSIGN NOT EXCLUDING PASSWORD
+        // Username exists, removes password + mongoDB unnecessary object info
+        // const { password, ...rest } = Object.assign({}, user.toJSON());
+        // const { password, ...rest } =  user.toJSON();
+        /*
+
+"_id":"66ec3b7bf72c7d0bcb0a518a","username":"mrod22","password":"$2b$10$fO.4Qvt0/MzpObyp2kvTGu50IBM66KhZkWBqEcb28p5FBAlx/f/si","email":"markrodriguez003@mail.com","favoriteBookGenre":"Horror","booksRead":0,"booksWantToRead":0,"amountOfBooksSuggested":0,"amountOfRandomBooks":0,"booksSuggestionEmailed":0,"__v":0
+*/
+
+        // ? WORK AROUND
+        const {
+          _id,
+          username,
+          email,
+          favoriteBookGenre,
+          booksRead,
+          booksWantToRead,
+          amountOfBooksSuggested,
+          amountOfRandomBooks,
+          booksSuggestionEmailed,
+        } = user;
+
+        // const userData = {
+        //   _id: _id,
+        //   username: username,
+        //   email: email,
+        //   favoriteBookGenre: favoriteBookGenre,
+        //   booksRead: booksRead,
+        //   booksWantToRead: booksWantToRead,
+        //   amountOfBooksSuggested: amountOfBooksSuggested,
+        //   amountOfRandomBooks: amountOfRandomBooks,
+        //   booksSuggestionEmailed: booksSuggestionEmailed,
+        // };
+
+        const userData = {
+          _id: _id,
+          username: username,
+          email: email,
+          favoriteBookGenre: favoriteBookGenre,
+          booksRead: 15,
+          booksWantToRead: 22,
+          amountOfBooksSuggested: 10,
+          amountOfRandomBooks: 11,
+          booksSuggestionEmailed: 3,
+        };
+
         // Send's user data to frontend
-        res.status(201).send(`User?: ${user}`);
+        res.status(201).send(userData);
       })
       // Cannot find username
       .catch((err) =>
@@ -453,5 +498,77 @@ export async function resetPassword(req, res) {
     // If an error that occurs when calling this API route.
   } catch (error) {
     return res.status(401).send({ error });
+  }
+}
+
+export async function forgotPasswordVerify(req, res) {
+  const { username, email } = req.body;
+  try {
+    // CHECKS TO SEE IF USERNAME EXISTS IN DB
+    const usernameExists = new Promise((resolve, reject) => {
+      // Checks DB for username
+      UserModel.findOne({ username: username })
+        // If username is found
+        .then((user) => {
+          if (user) {
+            resolve();
+          } else {
+            reject();
+          }
+        })
+        // If MongoDB throws any error at the beggining of the findOne method call
+        .catch((err) =>
+          reject({
+            error: "Username already exists! Please create unique username!",
+          })
+        );
+    });
+
+    // CHECKS TO SEE IF EMAIL EXISTS IN DB
+    // const emailExists = new Promise((resolve, reject) => {
+    //   resolve();
+    // });
+
+    //! afasfasf
+    const emailExists = new Promise((resolve, reject) => {
+      // Checks DB for username
+      UserModel.findOne({ email: email })
+        // If username is found
+        .then((userEmail) => {
+          if (userEmail) {
+            resolve();
+          } else {
+            reject();
+          }
+        })
+        // If MongoDB throws any error at the beggining of the findOne method call
+        .catch((err) =>
+          reject({
+            error: `Email is not registered! ${err}  `,
+          })
+        );
+    });
+
+    const results = await Promise.all([usernameExists, emailExists])
+      .then((results) => {
+        return res.status(201).send({ msg: `Results:::: ${results}` });
+      })
+      .catch((error) => {
+        return res
+          .status(500)
+          .send({ msg: `ERROR Results:::: ${JSON.stringify(error)}` });
+      });
+    // try {
+    //   // return res.status(201).send({ msg: `Results:::: ${results}` });
+    //   return res.status(201).send({ msg: `Results:::: ${results}` });
+    // } catch (error) {
+    //   return res
+    //     .status(500)
+    //     .send({ msg: `ERROR Results:::: ${JSON.stringify(error)}` });
+    // }
+  } catch {
+    return res.status(500).send({
+      msg: "Something went wrong before trying to verify username for password reset!!",
+    });
   }
 }
