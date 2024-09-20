@@ -16,13 +16,10 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { passwordResetSchema } from "../lib/validationSchemas";
-import { verifyAccount } from "../lib/APIConnector";
+import { verifyAccount, verifyOTP, generateOTPCode } from "../lib/APIConnector";
 function LogInForm(props) {
   // True/False values for "show password characters" process
-  const [show, setShow] = useState(false);
-
-  // Handles showing password characters or hiding them from user"
-  const handleClick = () => setShow(!show);
+  const [otpCodeRetrieved, setOTPCodeRetrieved] = useState(false);
 
   // Page Navigator
   const navigate = useNavigate();
@@ -36,17 +33,14 @@ function LogInForm(props) {
   //! move to useEffect since it is not updating
   //   const setUsername = useAuthStore((state) => state.setUsername);
   //   const usernameStore = useAuthStore((state) => state.auth.username);
-  //   useEffect(() => {
-  //     return () => {};
-  //   }, [usernameStore]);
 
-  function OTPRequestResult(state) {
+  async function OTPRequestResult(state) {
     if (state === "successful") {
-      console.log(state);
+      setOTPCodeRetrieved(true);
       validatedOTPReset();
+      await generateOTPCode(values);
     } else {
-      console.log(state);
-      unvalidatedOTPReset();
+      unvalidatedOTPReset(false);
     }
   }
   // Login Validation Success
@@ -77,13 +71,24 @@ function LogInForm(props) {
       validateOnBlur: false,
       validationSchema: passwordResetSchema,
       onSubmit: async (values) => {
-        console.log(
-          `Password reset email:::${values.email} & ${values.username} && is submitting? ${isSubmitting}`
-        );
+        // console.log(
+        //   `Password reset email:::${values.email} & ${values.username} && is submitting? ${isSubmitting}`
+        // );
         // let verifiedAccountResult = await verifyAccount(values);
         OTPRequestResult(await verifyAccount(values));
       },
     });
+
+  // Handles onChange on the OTP input
+  const [otpCode, setOTPCode] = useState("");
+  // HANDLES OTP SUBMISSION AFTER ACCOUNT VERIFICATION
+  function handleOTPSubmit(e) {
+    // e.preventDefault();
+
+    verifyOTP(otpCode);
+
+    return "successful";
+  }
 
   return (
     <>
@@ -97,61 +102,106 @@ function LogInForm(props) {
               thickness={"2px"}
             >
               <CircularProgressLabel style={{ fontSize: "15px" }}>
-                Generating OTP Code
+                Submitting OTP Code
               </CircularProgressLabel>
             </CircularProgress>
           </Center>
         ) : (
           <></>
         )}
-        <FormLabel htmlFor="username">Username:</FormLabel>
-        <Input
-          type="text"
-          name="username"
-          id="username"
-          onChange={handleChange}
-          value={values.username}
-        />
-        {errors.username ? (
-          <small style={{ color: "red", fontStyle: "italic" }}>
-            {errors.username}
-          </small>
-        ) : (
-          <>
-            <br />
-            <br />
-          </>
-        )}
-        <FormLabel htmlFor="username">Email:</FormLabel>
-        <Input
-          type="text"
-          name="email"
-          id="email"
-          onChange={handleChange}
-          value={values.email}
-        />
-        {errors.email ? (
-          <small style={{ color: "red", fontStyle: "italic" }}>
-            {errors.email}
-          </small>
-        ) : (
-          <>
-            <br />
-            <br />
-          </>
-        )}
 
-        <HStack paddingTop={"6px"} justifyContent={"center"}>
-          <Button
-            backgroundColor={"primary"}
-            color={"white"}
-            type="submit"
-            disabled={isSubmitting ? true : false}
-            onClick={handleSubmit}
-          >
-            Send OTP Code
-          </Button>
-        </HStack>
+        {otpCodeRetrieved ? (
+          <>
+            <>
+              {" "}
+              <FormLabel htmlFor="username">OTP:</FormLabel>
+              <Input
+                type="text"
+                name="otp"
+                id="otp"
+                placeholder="Type emailed OTP code here "
+                value={otpCode}
+                autoComplete={"off"}
+                required
+                // pattern="/^[A-Z]+$ {6}$/"
+                maxLength={6}
+                minLength={6}
+                onChange={(event) => setOTPCode(event.target.value)}
+              />
+              <HStack paddingTop={"6px"} justifyContent={"center"}>
+                <Button
+                  backgroundColor={"primary"}
+                  color={"white"}
+                  type="submit"
+                  // disabled={isSubmitting ? true : false}
+                  onClick={(event) => handleOTPSubmit(event)}
+                >
+                  Enter
+                </Button>
+                <Button
+                  backgroundColor={"primary"}
+                  color={"white"}
+                  type="submit"
+                  // disabled={isSubmitting ? true : false}
+                  onClick={(event) => setOTPCodeRetrieved(!otpCodeRetrieved)}
+                >
+                  Back
+                </Button>
+              </HStack>
+            </>
+          </>
+        ) : (
+          <>
+            {" "}
+            <FormLabel htmlFor="username">Username:</FormLabel>
+            <Input
+              type="text"
+              name="username"
+              id="username"
+              onChange={handleChange}
+              value={values.username}
+            />
+            {errors.username ? (
+              <small style={{ color: "red", fontStyle: "italic" }}>
+                {errors.username}
+              </small>
+            ) : (
+              <>
+                <br />
+                <br />
+              </>
+            )}
+            <FormLabel htmlFor="username">Email:</FormLabel>
+            <Input
+              type="text"
+              name="email"
+              id="email"
+              onChange={handleChange}
+              value={values.email}
+            />
+            {errors.email ? (
+              <small style={{ color: "red", fontStyle: "italic" }}>
+                {errors.email}
+              </small>
+            ) : (
+              <>
+                <br />
+                <br />
+              </>
+            )}
+            <HStack paddingTop={"6px"} justifyContent={"center"}>
+              <Button
+                backgroundColor={"primary"}
+                color={"white"}
+                type="submit"
+                disabled={isSubmitting ? true : false}
+                onClick={handleSubmit}
+              >
+                Send OTP Code
+              </Button>
+            </HStack>
+          </>
+        )}
       </FormControl>
     </>
   );

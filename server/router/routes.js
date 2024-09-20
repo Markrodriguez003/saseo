@@ -33,12 +33,13 @@ router.route("/user/:username").get(controller.getUser);
 router.route("/verifyaccount").post(controller.forgotPasswordVerify);
 
 // Generates random OTP for password reset
-router
-  .route("/generateOTP")
-  .get(controller.verifyUser, localVariables, controller.generateOTP);
+router.route("/generateOTP");
+// .get(controller.verifyUser, localVariables, controller.generateOTP);
+// .get(localVariables, controller.generateOTP);
 
 // verify generated OTP
-router.route("/verifyOTP").get(controller.verifyUser, controller.verifyOTP);
+// router.route("/verifyOTP").get(controller.verifyUser, controller.verifyOTP);
+router.route("/verifyOTP").get(controller.verifyOTPCode);
 
 // Resets all variables
 router.route("/user/createResetSession").get(controller.createResetSession);

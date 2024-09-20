@@ -53,7 +53,7 @@ export const registerMail = async (req, res) => {
 
   transporter.sendMail(message, (error, info) => {
     if (error) {
-      //   console.error("❌ Error:", error.message);
+      console.error("❌ Error:", error.message);
       res
         .status(500)
         .send({ error: "Error occured transporting email! ->" + error });
@@ -61,7 +61,7 @@ export const registerMail = async (req, res) => {
       res
         .status(200)
         .send({ msg: "You should have received an email from Saseo!" });
-      //   console.log("✅ Email sent:", info.response);
+      console.log("✅ Email sent:", info.response);
     }
   });
 };

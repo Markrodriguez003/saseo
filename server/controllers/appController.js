@@ -392,7 +392,7 @@ export async function generateOTP(req, res) {
 // THIS FUNCTION IS USED TO VERIFY OTP CODE THAT IS GENERATED AND SENT
 // TO USER FROM THE BACKEND. BEFORE THIS FUNCTION IS CALLED, verifyUser API ROUTE
 // IS CALLED TO VERIFY USER.
-export async function verifyOTP(req, res) {
+export async function verifyOTPCode(req, res) {
   // Grabs code from front end within req.query
   const { code } = req.query;
 
@@ -551,7 +551,7 @@ export async function forgotPasswordVerify(req, res) {
 
     const results = await Promise.all([usernameExists, emailExists])
       .then((results) => {
-        return res.status(201).send({ msg: `Results:::: ${results}` });
+        return res.status(201).send({ msg: results });
       })
       .catch((error) => {
         return res

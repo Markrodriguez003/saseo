@@ -74,7 +74,7 @@ export async function authenticate(username) {
   }
 }
 
-export async function getUser(username) {
+export async function getUser({ username }) {
   try {
     const { data } = await axios.get(
       `http://localhost:7777/api/user/${username}`
@@ -86,9 +86,9 @@ export async function getUser(username) {
 }
 
 export async function verifyAccount(values) {
-  console.log(
-    `This is the password reset form data::: ${JSON.stringify(values)}`
-  );
+  // console.log(
+  //   `This is the password reset form data::: ${JSON.stringify(values)}`
+  // );
   const { username, email } = values;
 
   let postStatus;
@@ -99,7 +99,7 @@ export async function verifyAccount(values) {
         email: email,
       })
       .then(async (response) => {
-        console.log(`::: response: ${JSON.stringify(response)}   `);
+        // console.log(`::: response: ${JSON.stringify(response)}   `);
         postStatus = "successful";
       })
       .catch((error) => {
@@ -140,30 +140,32 @@ export async function updateUser(response) {
   }
 }
 
-export async function generateOTP({ username }) {
+export async function generateOTPCode({ username }) {
   try {
     const {
       data: { code },
       status,
-    } = await axios.get("/api/generateOTP", {
+    } = await axios.get("http://localhost:7777/api/generateOTP", {
       params: { username },
     });
 
+    // todo: This is not necessary
     if (status === 201) {
-      let {
-        data: { email },
-      } = await getUser({ username });
       let text = `Your password recovery OTP is: ${code}. Verify and recover your password. If you did not request a password reset, please ignore this email.`;
-      await axios.post("/api/registerMail", {
+      let data = await getUser({ username });
+      // console.log(`Data::::::::::${JSON.stringify(data.email)}`);
+
+      await axios.post("http://localhost:7777/api/registerMail", {
         username,
-        userEmail: email,
+        userEmail: data.email,
         text,
         subject: "Password Recovery OTP",
       });
     }
-    Promise.resolve(code);
+    // Promise.resolve(code);
   } catch (error) {
-    return Promise.reject({ error: "Could not generate OTP!" });
+    // return Promise.reject({ msg: `Could not generate OTP! ${error}` });
+    return { msg: `Could not generate OTP! ${error}` };
   }
 }
 
