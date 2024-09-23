@@ -146,7 +146,7 @@ function LogInForm(props) {
             to="/registration"
             reloadDocument
             rel="search"
-            onClick={console.log("Hello?")}
+            // onClick={}
           >
             <Text color="primary">New? Create account! </Text>
           </Link>

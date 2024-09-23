@@ -47,14 +47,13 @@ function Registration() {
               margin={"auto"}
               color={"white"}
               textAlign={"center"}
-              paddingBottom={"15px"}
               id="top-of-registration"
             >
               {" "}
               Create an account!{" "}
-              <Text fontSize="sm" color={"white"}>
-                Create an account to access all the features Saseo offers!
-              </Text>
+            </Text>
+            <Text fontSize="sm" paddingBottom={"15px"} color={"white"}>
+              Create an account to access all the features Saseo offers!
             </Text>
           </VStack>
           <VStack

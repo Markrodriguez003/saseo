@@ -87,7 +87,7 @@ function LogInForm(props) {
 
     verifyOTP(otpCode);
 
-    return "successful";
+    // return "successful";
   }
 
   return (

@@ -28,12 +28,11 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useAuthStore } from "./../lib/store/store";
 import { registerUser } from "../lib/APIConnector";
-// import Shake from "react-reveal/Shake";
-import { Link } from "react-router-dom";
 import { BookGenreSuggestionSection } from "./FrontpageSection";
 import DropdownOptions from "./ui/DropdownOptions";
 import { registerNewAccountSchema } from "../lib/validationSchemas";
 import { MdPendingActions } from "react-icons/md";
+import { redirect } from "react-router-dom";
 
 const bookGenreValues = bookSubjects.b_subjects
   .map((genre, i) => Object.values(genre))
@@ -49,9 +48,6 @@ function RegisterNewAccount() {
   // Handles showing password characters or hiding them from user"
   const handleClick = () => setShow(!show);
 
-  // * Holds form data
-  let registrationFormValues = {};
-
   // Resets entire form
   function handleFormReset() {
     resetForm();
@@ -64,13 +60,16 @@ function RegisterNewAccount() {
   // const usernameStore = useAuthStore((state) => state.auth.username);
   function registerUserResult(state) {
     if (state === "successful") {
-      console.log(state);
+      // console.log(state);
       registeredUserSuccess();
+      // ! not working
+
+      return redirect("/");
     } else if (state === "email_failure") {
-      console.log(state);
+      // console.log(state);
       registeredUserEmailFailure();
     } else if (state === "username||password_failure") {
-      console.log(state);
+      // console.log(state);
       registeredExistsFailure();
     } else {
       // console.log(`Registering user failed! (FE) ${state}`);
