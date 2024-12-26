@@ -51,9 +51,9 @@ function Login() {
             >
               {" "}
               Log in{" "}
-              <Text fontSize="sm" color={"white"}>
-                Log into your Saseo account here!
-              </Text>
+            </Text>
+            <Text fontSize="sm" color={"white"}>
+              Log into your Saseo account here!
             </Text>
           </VStack>
           <VStack

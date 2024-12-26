@@ -38,7 +38,8 @@ function LogInForm(props) {
     if (state === "successful") {
       setOTPCodeRetrieved(true);
       validatedOTPReset();
-      await generateOTPCode(values);
+      let x = await generateOTPCode(values);
+      console.log(`This is the code: ${JSON.stringify(x)}`);
     } else {
       unvalidatedOTPReset(false);
     }
@@ -84,10 +85,9 @@ function LogInForm(props) {
   // HANDLES OTP SUBMISSION AFTER ACCOUNT VERIFICATION
   function handleOTPSubmit(e) {
     // e.preventDefault();
-
-    verifyOTP(otpCode);
-
-    // return "successful";
+    console.log(`GENERATED OTP CODE SUBMITTED::: ${otpCode}`);
+    verifyOTP({ code: otpCode });
+    return "successful";
   }
 
   return (

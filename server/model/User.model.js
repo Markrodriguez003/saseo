@@ -85,6 +85,11 @@ export const UserSchema = new mongoose.Schema({
     unique: false,
     default: 0,
   },
+  bookReadingList: {
+    type: Array,
+    unique: false,
+    default: [],
+  },
   amountOfBooksSuggested: {
     type: Number,
     unique: false,

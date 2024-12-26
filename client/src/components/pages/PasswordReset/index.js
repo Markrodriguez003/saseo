@@ -48,13 +48,12 @@ function PasswordReset() {
               margin={"auto"}
               color={"white"}
               textAlign={"center"}
-              paddingBottom={"15px"}
             >
               {" "}
               Reset Password!
-              <Text fontSize="sm" color={"white"}>
-                Reset your account password here.
-              </Text>
+            </Text>
+            <Text fontSize="sm" color={"white"} paddingBottom={"15px"}>
+              Reset your account password here.
             </Text>
           </VStack>
           <VStack

@@ -1,15 +1,19 @@
 import axios from "axios";
-
+// axios.defaults.withCredentials = true;
 axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
 
 //  MAKE API REQUEST TO BACKEND WHEN USE LOGS IN
 export async function login(values) {
   // console.log(`server--> ${process.env.REACT_APP_SERVER_DOMAIN}`);
+
   try {
     const result = axios
       .post("http://localhost:7777/api/login", values)
       .then((response) => {
-        return "successful";
+        console.log(`The user logged in! --> ${JSON.stringify(response)}}`);
+
+        // todo: weed out non-crucial information
+        return { msg: "successful", ...response.data };
       })
       .catch((error) => {
         return "failure";
@@ -39,7 +43,7 @@ export async function registerUser(formValues) {
         favoriteBookGenre: favoriteBookGenre,
       })
       .then(async (response) => {
-        console.log(`::: response: ${JSON.stringify(response)}   `);
+        // console.log(`::: response: ${JSON.stringify(response)}   `);
         if (response.status === 201) {
           await axios.post("http://localhost:7777/api/registerMail", {
             username,
@@ -74,7 +78,8 @@ export async function authenticate(username) {
   }
 }
 
-export async function getUser({ username }) {
+export async function getUser(username) {
+  console.log(`Username::::: ${username}`);
   try {
     const { data } = await axios.get(
       `http://localhost:7777/api/user/${username}`
@@ -142,11 +147,12 @@ export async function updateUser(response) {
 
 export async function generateOTPCode({ username }) {
   try {
+    // console.log(`huh ==== ${username}`);
     const {
       data: { code },
       status,
     } = await axios.get("http://localhost:7777/api/generateOTP", {
-      params: { username },
+      // params: { username: username },
     });
 
     // todo: This is not necessary

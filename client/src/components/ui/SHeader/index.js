@@ -426,7 +426,7 @@ export function SHeader() {
                 <Button
                   variant={"menu-button"}
                   href="/login"
-                  onClick={console.log("Sign in!")}
+                  // onClick={console.log("Sign in!")}
                 >
                   <p style={{ fontSize: "14px" }}>Sign-In</p>
                 </Button>
@@ -434,7 +434,7 @@ export function SHeader() {
               <Link to={"/registration"} reloadDocument rel="search">
                 <Button
                   variant={"menu-button"}
-                  onClick={console.log("Registration!")}
+                  // onClick={console.log("Registration!")}
                 >
                   <p style={{ fontSize: "14px" }}>Register Account</p>
                 </Button>
@@ -488,7 +488,7 @@ export function SHeader() {
                       // variant={"menu-button"}
                       color={"white"}
                       background={"teal.500"}
-                      onClick={console.log("Sign in!")}
+                      // onClick={console.log("Sign in!")}
                     >
                       Login
                     </Button>
@@ -498,7 +498,7 @@ export function SHeader() {
                       // variant={"menu-button"}
                       color={"white"}
                       background={"teal.500"}
-                      onClick={console.log("Registration!")}
+                      // onClick={console.log("Registration!")}
                     >
                       Create Account
                     </Button>

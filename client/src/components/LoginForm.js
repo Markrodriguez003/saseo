@@ -11,13 +11,15 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
+import { cookiesSetter } from "../lib/middleware/cookieSetter";
 // LIBRARIES
 import { useAuthStore } from "./../lib/store/store";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginSchema } from "../lib/validationSchemas";
-import { login } from "../lib/APIConnector";
+import { getUser, login } from "../lib/APIConnector";
+
 function LogInForm(props) {
   // True/False values for "show password characters" process
   const [show, setShow] = useState(false);
@@ -34,6 +36,7 @@ function LogInForm(props) {
   const toast = useToast();
 
   // Cookies / Context Store
+
   //! move to useEffect since it is not updating
   const setUsername = useAuthStore((state) => state.setUsername);
   const usernameStore = useAuthStore((state) => state.auth.username);
@@ -41,26 +44,20 @@ function LogInForm(props) {
     return () => {};
   }, [usernameStore]);
 
-  function loginResult(state) {
-    if (state === "successful") {
-      console.log(state);
+  async function loginResult(state) {
+    if (state.msg === "successful") {
+      await setUsername(state.username);
+      cookiesSetter();
       validatedLogin();
+      navigate("/account/dashboard");
     } else {
-      console.log(state);
+      console.log(`User could not sign in! ${state.msg}`);
       unvalidatedLogin();
     }
   }
   // Login Validation Success
   // ! change to one function with props passed for success & failure
   function validatedLogin() {
-    // Setting up store.
-    // Create session here
-    setUsername(values.username);
-    console.log(`Username entered: ${usernameStore}`);
-
-    // navigate to account/dashboard page
-    navigate("/account/dashboard");
-
     return toast({
       title: "Logging in!",
       description: "Taking to your dashboard!",

@@ -33,9 +33,10 @@ router.route("/user/:username").get(controller.getUser);
 router.route("/verifyaccount").post(controller.forgotPasswordVerify);
 
 // Generates random OTP for password reset
-router.route("/generateOTP");
-// .get(controller.verifyUser, localVariables, controller.generateOTP);
-// .get(localVariables, controller.generateOTP);
+router
+  .route("/generateOTP")
+  // .get(controller.verifyUser, localVariables, controller.generateOTP);
+  .get(localVariables, controller.generateOTP);
 
 // verify generated OTP
 // router.route("/verifyOTP").get(controller.verifyUser, controller.verifyOTP);
@@ -52,5 +53,8 @@ router.route("/updateUser").put(Auth, controller.updateUser);
 router
   .route("/resetPassword")
   .put(controller.verifyUser, controller.resetPassword);
+
+// Sets cookies
+router.route("/set-cookies").get(controller.setCookies);
 
 export default router;

@@ -21,7 +21,6 @@ import HeadingPanel from "../../ui/HeadingPanel";
 // LIBRARY
 import { getUser } from "../../../lib/APIConnector";
 import { useAuthStore } from "../../../lib/store/store";
-import axios from "axios";
 
 // ICONS
 import { IoLibrarySharp } from "react-icons/io5";
@@ -35,18 +34,29 @@ function AccountDashboard() {
   //! move to useEffect since it is not updating
   // const setUsername = useAuthStore((state) => state.setUsername);
   const usernameStore = useAuthStore((state) => state.auth.username);
+  const sessionStore = useAuthStore((state) => state.auth.session);
+
   const [profileData, setProfileData] = useState({});
   useEffect(() => {
     console.log(`Updated user! --> ${JSON.stringify(profileData)}`);
   }, [profileData]);
+
   //Useffect that calls for user's information
   useEffect(() => {
     async function pullUserData() {
+      console.log(
+        ` USERNAME ::: ${usernameStore}:::: USER DATA:::: ${JSON.stringify(
+          profileData
+        )}`
+      );
+
       try {
         if (!usernameStore) {
-          return console.log("Username is not included!");
+          console.log("NOTHING IN USERNAME STORE!");
+          return console.log("Username is not found!");
         }
-        // setProfileData(await getUser(usernameStore));
+
+        // todo: Do this when session is verified with JWT token
         let profileDataTemp = await getUser(usernameStore);
         setProfileData(await profileDataTemp);
       } catch (error) {
@@ -60,7 +70,7 @@ function AccountDashboard() {
   }, []);
   return (
     <>
-      {profileData ? (
+      { profileData ? (
         <Center marginBottom={"150px"}>
           <VStack>
             <HeadingPanel letterSpacing={"1.2px"}>

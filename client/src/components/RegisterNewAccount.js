@@ -32,7 +32,7 @@ import { BookGenreSuggestionSection } from "./FrontpageSection";
 import DropdownOptions from "./ui/DropdownOptions";
 import { registerNewAccountSchema } from "../lib/validationSchemas";
 import { MdPendingActions } from "react-icons/md";
-import { redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const bookGenreValues = bookSubjects.b_subjects
   .map((genre, i) => Object.values(genre))
@@ -62,9 +62,7 @@ function RegisterNewAccount() {
     if (state === "successful") {
       // console.log(state);
       registeredUserSuccess();
-      // ! not working
-
-      return redirect("/");
+      
     } else if (state === "email_failure") {
       // console.log(state);
       registeredUserEmailFailure();

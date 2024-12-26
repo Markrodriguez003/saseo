@@ -3,6 +3,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import otpGenerator from "otp-generator";
 
+import { cookiesSetter } from "../controllers/cookiesSetter.js";
+
 // ? NOTES
 
 /**  POST: http://localhost:7777/api/register
@@ -152,6 +154,22 @@ export async function verifyUser(req, res, next) {
   }
 }
 
+// CREATES COOKIES
+// export async function setCookies(req, res) {
+//   try {
+//     // res.cookie("token", token, {
+//     res.cookie("token", "gg!", {
+//       maxAge: 28000,
+//       httpOnly: true,
+//       secure: true,
+//     });
+//     res.send("Cookie has been set");
+//     // next();
+//   } catch (error) {
+//     res.send(`Error setting session cookies! ${error} `);
+//   }
+// }
+
 // **********************************************
 // Creates account login
 /**  POST: http://localhost:7777/api/login
@@ -200,11 +218,20 @@ export async function login(req, res) {
               );
               // If login process checks pass, user is logged in.
               // Send status code and return credentials + session token
+
               resolve(
+                // todo: calls function token to send to function and sets cookie
+                cookiesSetter(token),
+                // res.cookie("token", "FUCK", {
+                //   maxAge: 28000,
+                //   httpOnly: true,
+                //   secure: true,
+                //   sameSite: "none",
+                // }),
                 res.status(200).send({
-                  msg: `Login Successful!!`,
+                  msg: `successful`,
                   username: user.username,
-                  token,
+                  // token: token
                 })
               );
             } else {
@@ -570,5 +597,21 @@ export async function forgotPasswordVerify(req, res) {
     return res.status(500).send({
       msg: "Something went wrong before trying to verify username for password reset!!",
     });
+  }
+}
+
+// SETS COOKIES
+export async function setCookies(req, res) {
+  const { token } = req.params;
+  try {
+    res.cookie("token", token, {
+      maxAge: 28000,
+      httpOnly: true,
+      secure: true,
+    });
+    res.send("Cookie has been set");
+    // next();
+  } catch (error) {
+    res.send(`Error setting session cookies! ${error} `);
   }
 }

@@ -2,7 +2,7 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import router from "./router/routes.js";
 // Database Library
@@ -14,11 +14,28 @@ const app = express();
 // ! REPLACE WITH || OF RENDER SERVER USING .Path
 const PORT = 7777;
 
+const corsOptions = {
+  origin: "http://localhost:3000", // Change to your frontend's URL
+
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  // credentials: "include", // Allow credentials (cookies, authorization headers, etc.)
+  // methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
+};
+
+// MORGAN OPTIONS
+morgan.token("body", (req) => {
+  return JSON.stringify(req.body);
+});
 // MIDDLEWARE
 app.use(express.json());
-app.use(cors());
-
-app.use(morgan("tiny"));
+app.use(cookieParser());
+app.use(cors(corsOptions));
+// app.use(morgan("tiny"));
+app.use(
+  morgan(
+    ":method :url :status :res[content-length] - :body  - :response-time ms"
+  )
+);
 app.disable("x-powered-by");
 
 // MONGO DB CONNECTION
