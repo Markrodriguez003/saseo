@@ -285,7 +285,7 @@ function About() {
     <>
       <div className="about-us-hero">
         <RandomLetterHeader />
-        <Container maxW="container.md" color="#262626" className="about-header" >
+        <Container maxW="container.md" color="#262626" className="about-header">
           <Text
             textAlign={"center"}
             // fontSize={{ base: "xl", sm: "sm", md: "xl", lg: "xl" }}
@@ -391,7 +391,7 @@ function About() {
             paddingTop={"10px"}
             textAlign={{
               base: "center",
-              sm: "center",
+              sm: "start",
               md: "start",
               lg: "start",
             }}
@@ -536,8 +536,8 @@ function About() {
             {/* //! add this contribution website --> list of authors https://www.scribblewhatever.com/list-of-all-authors-their-first-name/#a */}
           </Heading>
 
+          <FaNpm size={"100px"} color="white" />
           <HStack gap={"20px"}>
-            <FaNpm size={"200px"} color="white" />
             <Text
               backgroundColor={"transparent"}
               fontSize="xl"
@@ -547,11 +547,16 @@ function About() {
             >
               <List
                 spacing={3}
-                fontSize={"md"}
+                fontSize={{
+                  base: "lg",
+                  sm: "md",
+                  md: "lg",
+                  lg: "lg",
+                }}
                 paddingTop={"10px"}
                 textAlign={{
-                  base: "center",
-                  sm: "center",
+                  base: "start",
+                  sm: "start",
                   md: "start",
                   lg: "start",
                 }}
@@ -752,7 +757,7 @@ function About() {
             paddingTop={"10px"}
             textAlign={{
               base: "center",
-              sm: "center",
+              sm: "start",
               md: "start",
               lg: "start",
             }}
@@ -770,6 +775,10 @@ function About() {
               lg: "0px",
             }}
           >
+            <ListItem>
+              <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
+              Account creation
+            </ListItem>
             <ListItem>
               <ListIcon as={BsClipboard2CheckFill} color="darkcyan" />
               Personal account for tracking of favorited books

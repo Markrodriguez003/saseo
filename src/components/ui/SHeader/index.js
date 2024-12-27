@@ -461,15 +461,15 @@ export function SHeader() {
             <MenuList>
               <HStack flexGrow={8} justify={"start"} paddingRight={"12px"}>
                 <Menu>
-                  <MenuButton
+                  {/* <MenuButton
                     as={Button}
-                    backgroundColor={"transparent"}
-                    _hover={{ backgroundColor: "transparent" }}
+                    // backgroundColor={"transparent"}
+                    // _hover={{ backgroundColor: "transparent" }}
                   >
                     <Image src={avatarIcon} w={"40px"} />
-                  </MenuButton>
+                  </MenuButton> */}
 
-                  <MenuList color={"white"} backgroundColor={"primary"}>
+                  {/* <MenuList color={"white"} backgroundColor={"primary"}>
                     <Link to={"/account/dashboard"} reloadDocument rel="">
                       <MenuItem color={"white"} backgroundColor={"primary"}>
                         Dashboard
@@ -480,11 +480,11 @@ export function SHeader() {
                         Account information
                       </MenuItem>
                     </Link>
-                  </MenuList>
+                  </MenuList> */}
                 </Menu>
-                <Button variant={"menu-button"} onClick={handleSignIn}>
+                {/* <Button variant={"menu-button"} onClick={handleSignIn}>
                   Sign-In
-                </Button>
+                </Button> */}
               </HStack>
               <Link to={"suggest"} reloadDocument rel="search">
                 <MenuItem>Suggest Books</MenuItem>
