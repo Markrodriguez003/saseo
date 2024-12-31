@@ -6,7 +6,6 @@ function FrontPage() {
     <>
       <FrontPageHero />
       <FrontPageSection />
-      {/* <FlipBook /> */}
     </>
   );
 }

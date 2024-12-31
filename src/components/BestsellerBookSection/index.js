@@ -41,14 +41,19 @@ import swipeIcon from "../../images/icons/swipeIcon.png";
 
 function BestsellerBookSection(props) {
   const [md] = useMediaQuery("(max-width: 905px)");
-  const bestsellerBooks = test_data.results.books;
-  // Makes the call to retrieve best seller books json data
-  // useEffect(() => {
-  //   console.log(`Loading New York Best Seller Books!`);
-  //   FetchNYBestSellers();
-    
-  // });
 
+  // ? TEST
+  // const bestSellerBooks = test_data.results.books;
+  const [bestSellerBooks, setBestSellerBooks] = useState({});
+  // Makes the call to retrieve best seller books json data
+  useEffect(() => {
+    async function grabNYTimesBooks() {
+      setBestSellerBooks(await FetchNYBestSellers());
+      // console.log(`bestsellerBooks --> ${JSON.stringify(bestSellerBooks)}`);
+    }
+
+    grabNYTimesBooks();
+  }, []);
   return (
     <>
       <br />
@@ -111,7 +116,7 @@ function BestsellerBookSection(props) {
                 modules={[Pagination]}
                 className="mySwiper"
               >
-                {bestsellerBooks.map((book, index) => (
+                {bestSellerBooks.results?.books?.map((book, index) => (
                   <SwiperSlide
                     key={`NYT-Bestseller-${book.title}-${index} `}
                     style={{ padding: "60px" }}
@@ -151,7 +156,7 @@ function BestsellerBookSection(props) {
               navigation={true}
               className="mySwiper"
             >
-              {bestsellerBooks.map((book, index) => (
+              {bestSellerBooks.results?.books?.map((book, index) => (
                 <SwiperSlide
                   key={`NYT-Bestseller-${book.title}-${index} `}
                   style={{ padding: "60px" }}
@@ -178,24 +183,6 @@ function BestsellerBookSection(props) {
               ))}
             </Swiper>
           )}
-
-          {/* 
- 
-
-*/}
-
-          {/* <Heading
-            fontFamily={"times new roman"}
-            size={"2xl"}
-            position={"absolute"}
-            bottom={"205px"}
-            left={"645px"}
-            zIndex={2}
-            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-          >
-            {" "}
-            FICTION{" "}
-          </Heading> */}
         </Box>
       </VStack>
     </>

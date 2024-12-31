@@ -16,7 +16,7 @@ async function FetchNYBestSellers() {
       );
     });
 
-  console.log("Fetching bestsellers!");
+  // console.log("Fetching bestsellers!");
 
 
   return fetchedBestsellers;
