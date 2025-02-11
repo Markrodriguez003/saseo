@@ -1,5 +1,5 @@
 import { useState, useReducer } from "react";
-import OrganizeBooks from "lib/OrganizeBooks";
+import OrganizeBooks from "../../lib/OrganizeBooks";
 
 export function searchReducer(state, action) {
   switch (action.type) {

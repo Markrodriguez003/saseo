@@ -1,8 +1,9 @@
 import axios from "axios";
 
-
 async function FetchNYBestSellers() {
-  let retrieve = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${process.env.REACT_APP_NYTIMES_KEY}`;
+  let retrieve = `https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${
+    import.meta.env.VITE_NYTIMES_KEY
+  }`;
   let fetchedBestsellers;
 
   await axios
@@ -17,7 +18,6 @@ async function FetchNYBestSellers() {
     });
 
   // console.log("Fetching bestsellers!");
-
 
   return fetchedBestsellers;
 }

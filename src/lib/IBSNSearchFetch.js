@@ -3,7 +3,7 @@
 
 //  LIBRARIES
 import axios from "axios";
-import CoverImageCheck from "lib/CoverImageCheck";
+import CoverImageCheck from "../lib/CoverImageCheck";
 
 // ? NOTES
 // ? https://github.com/internetarchive/openlibrary/issues/8144
@@ -12,11 +12,7 @@ import CoverImageCheck from "lib/CoverImageCheck";
 // * Grabs search parameters and will call api for large amount of books base on said parameters.
 async function ISBNSearchFetch(isbn) {
   let search = `https://openlibrary.org/search.json?q=isbn%3A${isbn}&fields=key,title,author_key,author_name,subject,id_amazon,id_goodreads,id_google,first_publish_year,number_of_pages_median,edition_count,publisher`;
-  // let search = `https://openlibrary.org/search.json?q=isbn%3A9780590353427&fields=key,title,author_key,author_name,subject,id_amazon,id_goodreads,publish_year,number_of_pages_median`;
   
-  // ! RETRIEVES EVERYTHING
-  // let search = `https://openlibrary.org/search.json?q=isbn%3A${isbn}&mode=everything`;
-  // let search = `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&jscmd=details&format=json&details=true`;
   let fetchedBook;
 
   await axios

@@ -68,7 +68,6 @@ async function organizeAuthorData(author, books) {
 
   // * Holds all book(s) data that was written by author
   let book_data;
-  console.log(`books: `, books.data.entries);
   // TODO: GRAB ONLY THE ENGLISH TITLES, THERE ARE MULTI-LANGUAGE TITLES IN HERE
   if (books.data.entries.length !== 0 || books.data?.entries !== undefined) {
     book_data = books.data?.entries.map(({ title, covers: cover }) => {
@@ -108,8 +107,6 @@ async function authorSearchFetch(author) {
     author_data,
     author_book_data
   );
-
-  console.log("FINAL PAYLOAD", final_author_payload);
 
   // * Calls final api call to grab total author data and returns it
   return final_author_payload;
