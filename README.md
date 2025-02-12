@@ -1,8 +1,25 @@
-# React + Vite
+# SASEO - Book suggestion website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This web site helps use's build their library!
 
-Currently, two official plugins are available:
+#### MAIN FEATURES
+- Be provided book suggestions defined by era and genre
+- Be suggested a random book (random era and genre)
+- Search for a specific book via ISBN
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### FUTURE PLANS
+- Personal account for tracking of favorited books
+- Customizable art assets (bookmarks,ect)
+- Expand the search to include magazines & audiobooks
+- Include better book search options
+- Offer more helpful/reference links to books
+- Display first paragraph of book
+- Add AI search assistance.
+
+#### CONTACT
+modulatorstudios@gmail.com
+ 
+
+ 
+
+ 
